@@ -35,6 +35,7 @@ export const site = {
   nav: [
     { label: "בית", href: "#hero" },
     { label: "גלריה", href: "#gallery" },
+    { label: "המלצות", href: "#testimonials" },
     { label: "צור קשר", href: "#contact" },
   ],
 
