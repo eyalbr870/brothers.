@@ -1,15 +1,15 @@
 {
   "hero": {
-    "id": "aa241",
+    "id": "YB-8",
     "dir": "hero",
-    "width": 3899,
-    "height": 3899,
+    "width": 6000,
+    "height": 4000,
     "widths": [
       1200,
       1920,
       2560
     ],
-    "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAAAQBQCdASoYABgAPu1ur1KppiQiqAgBMB2JYwCw7A9jYxkNS2GXNIoWIPOrDn03EzfgAP7oUUh7I7yzEZataCLt05zzw0zyAbayl2NmN5ERHvv+lDVzLuTRj6AlFbD+x1q9xlWwZwc/VzgGPqKS/+TXc+IPZ82emMLjzCaKXg9KJjZGHyxYaNeGiuZlsFoz5Lq+RAS/hlXSwlc1GVi6YCotMmm7Q6BaCLpPMpP2pNXhNKkMfhukgAAA"
+    "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JQBdgBDww9BBsYMF4AmlZwAD+sV193e1LhAMwWAmxbmtVC0yK6ZzQiwsdKHcyw1ohP99hyQs174TJGI0wLUQuUEHoC1zoIXiE5AAA"
   },
   "backgrounds": {
     "contact": {
@@ -121,20 +121,6 @@
       ],
       "orientation": "portrait",
       "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JbACdMoACbhWpCEQ7+vwQEh+wAAD5Ve1J9nzgl39wiz2YeHt46YXwaGaIGEZmup+q83c9EMZdJfdgEkaceMp07648DnQcuHQjw6+ySTONzO+Ou7SHBe/Lb0vNWlGjAWTXI9WlgnIyY9T6ByFoLQYUSfCUHt+bmiQoqAAA"
-    },
-    {
-      "id": "YB-8",
-      "dir": "gallery",
-      "file": "YB-8.jpg",
-      "width": 6000,
-      "height": 4000,
-      "widths": [
-        600,
-        1000,
-        1600
-      ],
-      "orientation": "landscape",
-      "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JQBdgBDww9BBsYMF4AmlZwAD+sV193e1LhAMwWAmxbmtVC0yK6ZzQiwsdKHcyw1ohP99hyQs174TJGI0wLUQuUEHoC1zoIXiE5AAA"
     },
     {
       "id": "cYB-591",
