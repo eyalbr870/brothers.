@@ -1,0 +1,224 @@
+---
+import site from "@/data/site.js";
+---
+
+<header class="site-header" id="site-header" data-header>
+  <div class="site-header__inner container">
+    <a class="brand" href="#hero" aria-label={`${site.brand} — ${site.photographer}`}>
+      <img class="brand__logo brand__logo--light" src="/logo/logo-white.png" alt="" width="200" height="58" />
+      <img class="brand__logo brand__logo--dark" src="/logo/logo-color.png" alt={site.brand} width="200" height="58" />
+    </a>
+
+    <nav class="nav" aria-label="ניווט ראשי">
+      <ul class="nav__list">
+        {site.nav.map((n) => (
+          <li><a class="nav__link" href={n.href}>{n.label}</a></li>
+        ))}
+      </ul>
+      <a class="btn btn--sm nav__cta" href="#contact">תיאום פגישה</a>
+    </nav>
+
+    <button class="burger" type="button" aria-label="פתיחת תפריט" aria-expanded="false" data-burger>
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" data-drawer hidden>
+    <ul class="drawer__list">
+      {site.nav.map((n) => (
+        <li><a class="drawer__link" href={n.href} data-drawer-link>{n.label}</a></li>
+      ))}
+      <li><a class="btn drawer__cta" href="#contact" data-drawer-link>תיאום פגישה</a></li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 100;
+    height: var(--header-h);
+    transition:
+      background var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease),
+      height var(--dur) var(--ease);
+  }
+  .site-header__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    height: 40px;
+  }
+  .brand__logo {
+    height: 38px;
+    width: auto;
+    transition: opacity var(--dur) var(--ease);
+  }
+  .brand__logo--dark {
+    position: absolute;
+    inset-inline-start: 0;
+    opacity: 0;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 1rem + 1.5vw, 2.75rem);
+  }
+  .nav__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.3rem, 0.8rem + 1.4vw, 2.5rem);
+  }
+  .nav__link {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: #fff;
+    position: relative;
+    padding-block: 0.35rem;
+    transition: color var(--dur) var(--ease);
+  }
+  .nav__link::after {
+    content: "";
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    width: 0;
+    height: 1.5px;
+    background: currentColor;
+    transition: width 0.4s var(--ease);
+  }
+  .nav__link:hover::after {
+    width: 100%;
+  }
+
+  .btn--sm {
+    padding: 0.72em 1.4em;
+    font-size: 0.72rem;
+  }
+  .nav__cta {
+    --btn-fg: var(--espresso);
+    --btn-bg: #fff;
+    border-color: #fff;
+  }
+
+  /* Solid state (scrolled / not over hero) */
+  .site-header.is-solid {
+    background: rgba(252, 250, 246, 0.92);
+    backdrop-filter: saturate(1.1) blur(10px);
+    box-shadow: 0 1px 0 var(--line-soft), 0 10px 30px -22px rgba(69, 50, 38, 0.5);
+    height: 66px;
+  }
+  .site-header.is-solid .brand__logo--light { opacity: 0; }
+  .site-header.is-solid .brand__logo--dark { opacity: 1; }
+  .site-header.is-solid .nav__link { color: var(--espresso); }
+  .site-header.is-solid .nav__cta {
+    --btn-fg: #fff;
+    --btn-bg: var(--espresso);
+    border-color: var(--espresso);
+  }
+
+  /* Burger */
+  .burger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    z-index: 110;
+  }
+  .burger span {
+    display: block;
+    position: absolute;
+    inset-inline: 10px;
+    height: 2px;
+    background: #fff;
+    transition: transform 0.4s var(--ease), opacity 0.3s var(--ease), background var(--dur);
+  }
+  .burger span:nth-child(1) { top: 15px; }
+  .burger span:nth-child(2) { top: 21px; }
+  .burger span:nth-child(3) { top: 27px; }
+  .site-header.is-solid .burger span { background: var(--espresso); }
+  .is-menu-open .burger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .is-menu-open .burger span:nth-child(2) { opacity: 0; }
+  .is-menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .is-menu-open .burger span { background: var(--espresso) !important; }
+
+  /* Drawer */
+  .drawer {
+    position: fixed;
+    inset: 0;
+    background: var(--paper);
+    z-index: 105;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transition: opacity 0.45s var(--ease);
+  }
+  .drawer.is-open { opacity: 1; }
+  .drawer__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    text-align: center;
+  }
+  .drawer__link {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--espresso);
+  }
+  .drawer__cta { margin-top: 1rem; }
+
+  @media (max-width: 820px) {
+    .nav { display: none; }
+    .burger { display: block; }
+  }
+</style>
+
+<script>
+  const header = document.querySelector("[data-header]");
+  const burger = document.querySelector("[data-burger]");
+  const drawer = document.querySelector("[data-drawer]");
+
+  // Scroll state — solid header once past the hero threshold.
+  const onScroll = () => {
+    const solid = window.scrollY > window.innerHeight * 0.62 - 66;
+    header?.classList.toggle("is-solid", solid);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // Mobile drawer
+  const setMenu = (open) => {
+    document.documentElement.classList.toggle("is-menu-open", open);
+    burger?.setAttribute("aria-expanded", String(open));
+    if (open) {
+      drawer.hidden = false;
+      requestAnimationFrame(() => drawer.classList.add("is-open"));
+      document.body.style.overflow = "hidden";
+    } else {
+      drawer.classList.remove("is-open");
+      document.body.style.overflow = "";
+      setTimeout(() => (drawer.hidden = true), 450);
+    }
+  };
+  burger?.addEventListener("click", () =>
+    setMenu(!document.documentElement.classList.contains("is-menu-open"))
+  );
+  drawer?.querySelectorAll("[data-drawer-link]").forEach((l) =>
+    l.addEventListener("click", () => setMenu(false))
+  );
+</script>

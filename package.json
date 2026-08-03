@@ -1,0 +1,20 @@
+{
+  "name": "brothers-photography",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "images": "node scripts/process-images.mjs",
+    "contact-sheet": "node scripts/contact-sheet.mjs"
+  },
+  "dependencies": {
+    "astro": "^4.16.18",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "ttf2woff2": "^6.0.1"
+  }
+}

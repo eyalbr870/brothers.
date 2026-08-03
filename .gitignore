@@ -1,0 +1,16 @@
+# build output
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# scratch
+scratch-contact-sheets/
+
+# os
+.DS_Store
+
+# env
+.env
+.env.production

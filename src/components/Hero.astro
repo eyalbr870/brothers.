@@ -1,0 +1,174 @@
+---
+import site from "@/data/site.js";
+import manifest from "@/data/gallery.generated.json";
+import { srcset, fallbackSrc } from "@/lib/images.js";
+
+const hero = manifest.hero;
+const titleLines = site.hero.title.split("\n");
+---
+
+<section class="hero" id="hero">
+  <div class="hero__media">
+    <picture>
+      <source type="image/webp" srcset={srcset(hero, "webp")} sizes="100vw" />
+      <source type="image/jpeg" srcset={srcset(hero, "jpg")} sizes="100vw" />
+      <img
+        src={fallbackSrc(hero, "jpg")}
+        alt="זוג טרי ברגע רומנטי בשקיעה"
+        width={hero.width}
+        height={hero.height}
+        fetchpriority="high"
+        decoding="async"
+        style={`background-image:url('${hero.lqip}')`}
+      />
+    </picture>
+    <div class="hero__scrim"></div>
+  </div>
+
+  <div class="hero__inner container">
+    <p class="eyebrow hero__eyebrow" data-reveal>{site.hero.eyebrow}</p>
+    <h1 class="hero__title">
+      {titleLines.map((line, i) => (
+        <span class="hero__line" style={`--i:${i}`}>{line}</span>
+      ))}
+    </h1>
+    <p class="hero__subtitle" data-reveal style="--i:4">{site.hero.subtitle}</p>
+    <div class="hero__actions" data-reveal style="--i:5">
+      <a class="btn btn--light" href={site.hero.ctaPrimary.href}>{site.hero.ctaPrimary.label}</a>
+      <a class="btn btn--outline-light" href={site.hero.ctaSecondary.href}>{site.hero.ctaSecondary.label}</a>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#statement" aria-label={site.hero.scrollHint}>
+    <span class="hero__scroll-text">{site.hero.scrollHint}</span>
+    <span class="hero__scroll-line"></span>
+  </a>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding-block-end: clamp(4rem, 3rem + 6vw, 8rem);
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .hero__media picture,
+  .hero__media img {
+    width: 100%;
+    height: 100%;
+  }
+  .hero__media img {
+    object-fit: cover;
+    object-position: center 32%;
+    background-size: cover;
+    background-position: center;
+    animation: heroZoom 14s var(--ease) forwards;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+  }
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(40, 28, 20, 0.72) 0%, rgba(40, 28, 20, 0.18) 42%, rgba(40, 28, 20, 0.15) 70%, rgba(40, 28, 20, 0.4) 100%);
+  }
+
+  .hero__inner {
+    width: 100%;
+    max-width: 1180px;
+  }
+  .hero__eyebrow {
+    color: rgba(255, 255, 255, 0.86);
+    margin-block-end: 1.4rem;
+  }
+  .hero__title {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: var(--fs-h1);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    color: #fff;
+    text-shadow: 0 2px 30px rgba(30, 20, 14, 0.35);
+  }
+  .hero__line {
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: heroLine 1s var(--ease) forwards;
+    animation-delay: calc(0.15s + var(--i) * 0.12s);
+  }
+  @keyframes heroLine {
+    to { opacity: 1; transform: none; }
+  }
+  .hero__subtitle {
+    margin-block-start: 1.8rem;
+    max-width: 46ch;
+    font-size: var(--fs-lead);
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .hero__actions {
+    margin-block-start: 2.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  /* reveal delay via --i */
+  [data-reveal] { transition-delay: calc(var(--i, 0) * 0.09s); }
+
+  .hero__scroll {
+    position: absolute;
+    inset-block-end: 1.6rem;
+    inset-inline-start: 50%;
+    transform: translateX(50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .hero__scroll-text {
+    font-family: var(--font-label);
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .hero__scroll-line {
+    width: 1px;
+    height: 46px;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__scroll-line::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: -50%;
+    height: 50%;
+    background: #fff;
+    animation: scrollDot 2.2s var(--ease) infinite;
+  }
+  @keyframes scrollDot {
+    0% { transform: translateY(0); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateY(300%); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__media img { animation: none; }
+    .hero__line { animation: none; opacity: 1; transform: none; }
+  }
+</style>

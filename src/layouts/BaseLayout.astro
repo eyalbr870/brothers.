@@ -1,0 +1,106 @@
+---
+import "@/styles/global.css";
+import site from "@/data/site.js";
+import manifest from "@/data/gallery.generated.json";
+import { largestSrc } from "@/lib/images.js";
+
+const { title = site.title, description = site.description } = Astro.props;
+const heroPreload = `/${manifest.hero.dir}/${manifest.hero.id}-1920.jpg`;
+---
+
+<!doctype html>
+<html lang={site.lang} dir={site.dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#453226" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={site.site} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={largestSrc(manifest.hero, "jpg")} />
+    <meta property="og:locale" content="he_IL" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/FrankRuhlLibre-SemiBold.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/Assistant-Regular.woff2"
+      crossorigin
+    />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Photograph",
+      name: site.brand,
+      description: description,
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": site.site,
+      name: `${site.brand} — ${site.photographer}`,
+      image: largestSrc(manifest.hero, "jpg"),
+      description: description,
+      email: site.contact.email,
+      telephone: site.contact.phoneIntl,
+      priceRange: "$$",
+      sameAs: [site.contact.instagramUrl],
+    })} />
+  </head>
+  <body>
+    <a class="skip-link" href="#gallery">דילוג לגלריה</a>
+    <slot />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        inset-inline-start: -9999px;
+        top: 0;
+        z-index: 999;
+        background: var(--espresso);
+        color: #fff;
+        padding: 0.8rem 1.2rem;
+        border-radius: 0 0 4px 0;
+      }
+      .skip-link:focus {
+        inset-inline-start: 0;
+      }
+    </style>
+
+    <script>
+      // Global reveal-on-scroll for [data-reveal]
+      const reveals = document.querySelectorAll("[data-reveal]");
+      if (reveals.length) {
+        const obs = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                obs.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: "0px 0px -10% 0px" }
+        );
+        reveals.forEach((el) => obs.observe(el));
+      }
+    </script>
+  </body>
+</html>
