@@ -6,7 +6,7 @@ import Picture from "@/components/Picture.astro";
 const c = site.contactSection;
 const bg = manifest.backgrounds.contact;
 const titleLines = c.title.split("\n");
-const wa = `https://wa.me/${site.contact.whatsapp}`;
+const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(site.contact.whatsappText)}`;
 ---
 
 <section class="contact" id="contact">

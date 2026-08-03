@@ -22,6 +22,9 @@ export const site = {
     phoneDisplay: "050-819-3737",
     phoneIntl: "+972508193737",
     whatsapp: "972508193737", // digits only, country code, no +
+    // Pre-filled WhatsApp message (customer's point of view). Editable before send.
+    whatsappText:
+      "היי יריב! 🤍\nהגעתי דרך האתר ואשמח לשמוע פרטים על צילום החתונה שלנו.\nתאריך האירוע: \nמיקום: ",
     email: "yariv70@gmail.com",
     instagram: "brothers_photography_il", // handle (no @)
     instagramUrl: "https://www.instagram.com/brothers_photography_il",
