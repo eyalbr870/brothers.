@@ -166,6 +166,11 @@ import site from "@/data/site.js";
     opacity: 0;
     transition: opacity 0.45s var(--ease);
   }
+  /* [hidden] must win over display:grid so the closed drawer doesn't
+     cover the page and block clicks. */
+  .drawer[hidden] {
+    display: none;
+  }
   .drawer.is-open { opacity: 1; }
   .drawer__list {
     display: flex;

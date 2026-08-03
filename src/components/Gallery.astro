@@ -197,6 +197,11 @@ const gridSizes =
     opacity: 0;
     transition: opacity 0.35s var(--ease);
   }
+  /* The [hidden] attribute must win over display:grid, otherwise the
+     invisible overlay covers the page and swallows every click. */
+  .lb[hidden] {
+    display: none;
+  }
   .lb.is-open { opacity: 1; }
   .lb__stage {
     max-width: min(92vw, 1500px);
