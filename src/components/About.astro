@@ -1,0 +1,162 @@
+---
+import site from "@/data/site.js";
+import manifest from "@/data/gallery.generated.json";
+import Picture from "@/components/Picture.astro";
+
+const a = site.about;
+const titleLines = a.title.split("\n");
+const img =
+  manifest.items.find((it) => it.id === a.image.replace(/\.[^.]+$/, "")) ||
+  manifest.items[0];
+---
+
+<section class="about" id="about">
+  <div class="about__media" data-reveal>
+    <Picture
+      item={img}
+      alt="יריב ברוך — Brothers. צילום חתונות"
+      sizes="(max-width: 960px) 100vw, 44vw"
+      class="about__pic"
+    />
+  </div>
+
+  <div class="about__panel">
+    <div class="about__inner">
+      <p class="eyebrow" data-reveal>{a.eyebrow}</p>
+      <h2 class="about__title" data-reveal>
+        {titleLines.map((l) => <span>{l}</span>)}
+      </h2>
+
+      <p class="about__lead" data-reveal>{a.lead}</p>
+
+      {a.paragraphs.map((p) => (
+        <p class="about__p" data-reveal>{p}</p>
+      ))}
+
+      <blockquote class="about__quote" data-reveal>{a.pullquote}</blockquote>
+
+      <p class="about__p" data-reveal>{a.dnaIntro}</p>
+      <ul class="about__dna" data-reveal>
+        {a.dna.map((d) => (
+          <li>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{d}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p class="about__p" data-reveal>{a.closing}</p>
+      <p class="about__strong" data-reveal>{a.closingStrong}</p>
+
+      <div data-reveal>
+        <a class="btn" href={a.cta.href}>{a.cta.label}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    background: var(--cream);
+  }
+  @media (max-width: 960px) {
+    .about { grid-template-columns: 1fr; }
+  }
+
+  .about__media {
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+  }
+  .about__media :global(.about__pic),
+  .about__media :global(.about__pic img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  @media (max-width: 960px) {
+    .about__media { min-height: 70vh; }
+  }
+
+  .about__panel {
+    display: flex;
+    align-items: center;
+    padding: clamp(3rem, 2rem + 5vw, 6.5rem) var(--gutter);
+  }
+  .about__inner {
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  .about__panel .eyebrow { margin-block-end: 1.2rem; }
+
+  .about__title {
+    font-size: var(--fs-h2);
+    line-height: 1.06;
+    margin-block-end: 1.6rem;
+  }
+  .about__title span { display: block; }
+  .about__title span:last-child { color: var(--chestnut); }
+
+  .about__lead {
+    font-family: var(--font-head);
+    font-weight: 500;
+    font-size: clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);
+    line-height: 1.5;
+    color: var(--espresso);
+    margin-block-end: 1.6rem;
+  }
+  .about__p {
+    color: var(--ink-60);
+    margin-block-end: 1.15rem;
+  }
+
+  .about__quote {
+    margin: 2rem 0;
+    padding-inline-start: 1.3rem;
+    border-inline-start: 3px solid var(--mocha);
+    font-family: var(--font-head);
+    font-style: italic;
+    font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.7rem);
+    line-height: 1.45;
+    color: var(--espresso);
+  }
+
+  .about__dna {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem 1.4rem;
+    margin: 0.5rem 0 2rem;
+  }
+  @media (max-width: 520px) {
+    .about__dna { grid-template-columns: 1fr; }
+  }
+  .about__dna li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    color: var(--espresso);
+  }
+  .about__dna svg {
+    flex: none;
+    color: var(--paper);
+    background: var(--chestnut);
+    border-radius: 50%;
+    padding: 4px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .about__strong {
+    font-weight: 600;
+    color: var(--espresso);
+    font-size: 1.08rem;
+    margin-block: 1.4rem 2.2rem;
+  }
+</style>
