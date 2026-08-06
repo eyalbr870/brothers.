@@ -4,7 +4,7 @@ import site from "@/data/site.js";
 
 <header class="site-header" id="site-header" data-header>
   <div class="site-header__inner container">
-    <a class="brand" href="#hero" aria-label={`${site.brand} — ${site.photographer}`}>
+    <a class="brand" href="#hero" aria-label={`${site.brand} - ${site.photographer}`}>
       <img class="brand__logo brand__logo--light" src="/logo/logo-white.png" alt="" width="200" height="58" />
       <img class="brand__logo brand__logo--dark" src="/logo/logo-color.png" alt={site.brand} width="200" height="58" />
     </a>
@@ -198,7 +198,7 @@ import site from "@/data/site.js";
   const burger = document.querySelector("[data-burger]");
   const drawer = document.querySelector("[data-drawer]");
 
-  // Scroll state — solid header once past the hero threshold.
+  // Scroll state - solid header once past the hero threshold.
   const onScroll = () => {
     const solid = window.scrollY > window.innerHeight * 0.62 - 66;
     header?.classList.toggle("is-solid", solid);
