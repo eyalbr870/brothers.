@@ -1,10 +1,10 @@
 /* ============================================================
-   Brand Kit typography — self-hosted WOFF2
+   Brand Kit typography - self-hosted WOFF2
    Hebrew: Frank Ruhl Libre (headings) · Assistant (body)
    Latin:  Playfair Display (display) · Montserrat (labels/CTA)
    ============================================================ */
 
-/* ---------- Frank Ruhl Libre — Hebrew headings ---------- */
+/* ---------- Frank Ruhl Libre - Hebrew headings ---------- */
 @font-face {
   font-family: "Frank Ruhl Libre";
   src: url("/fonts/FrankRuhlLibre-Medium.woff2") format("woff2");
@@ -34,7 +34,7 @@
   font-display: swap;
 }
 
-/* ---------- Assistant — Hebrew body ---------- */
+/* ---------- Assistant - Hebrew body ---------- */
 @font-face {
   font-family: "Assistant";
   src: url("/fonts/Assistant-Light.woff2") format("woff2");
@@ -71,7 +71,7 @@
   font-display: swap;
 }
 
-/* ---------- Montserrat — Latin labels / CTA ---------- */
+/* ---------- Montserrat - Latin labels / CTA ---------- */
 @font-face {
   font-family: "Montserrat";
   src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
@@ -94,7 +94,7 @@
   font-display: swap;
 }
 
-/* ---------- Playfair Display — Latin display ---------- */
+/* ---------- Playfair Display - Latin display ---------- */
 @font-face {
   font-family: "Playfair Display";
   src: url("/fonts/PlayfairDisplay-Regular.woff2") format("woff2");

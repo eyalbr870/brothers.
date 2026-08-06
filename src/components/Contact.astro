@@ -13,7 +13,7 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(sit
   <div class="contact__media" data-reveal>
     <Picture
       item={bg}
-      alt="זוג בשקיעה — Brothers. צילום חתונות"
+      alt="זוג בשקיעה - Brothers. צילום חתונות"
       sizes="(max-width: 960px) 100vw, 42vw"
       class="contact__pic"
     />
@@ -281,11 +281,11 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(sit
     status.className = "form__status";
     status.textContent = "";
 
-    // Local dev has no Netlify backend — the POST to "/" won't record a
+    // Local dev has no Netlify backend - the POST to "/" won't record a
     // submission. Show a clear notice instead of a false success.
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
       status.classList.add("is-err");
-      status.textContent = "בסביבת פיתוח הטופס אינו נשלח — יעבוד לאחר פריסה ל‑Netlify.";
+      status.textContent = "בסביבת פיתוח הטופס אינו נשלח - יעבוד לאחר פריסה ל‑Netlify.";
       return;
     }
 
