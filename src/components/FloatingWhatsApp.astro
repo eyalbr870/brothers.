@@ -33,15 +33,17 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(sit
     background: var(--chestnut);
     color: var(--paper);
     box-shadow: 0 12px 30px -8px rgba(69, 50, 38, 0.55), 0 4px 10px -4px rgba(0, 0, 0, 0.25);
-    transition: background 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
-    /* entrance */
+    transition: background 0.35s var(--ease), transform 0.45s var(--ease), box-shadow 0.35s var(--ease), opacity 0.45s var(--ease);
+    /* hidden until scrolled past the hero (so it never covers the hero CTAs) */
     opacity: 0;
-    transform: translateY(14px) scale(0.9);
-    animation: fabIn 0.6s var(--ease) 0.7s forwards;
+    transform: translateY(16px) scale(0.9);
+    pointer-events: none;
     overflow: hidden;
   }
-  @keyframes fabIn {
-    to { opacity: 1; transform: none; }
+  :global(html.fabs-revealed) .fab {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 
   .fab:hover {
@@ -94,7 +96,7 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(sit
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .fab { animation: none; opacity: 1; transform: none; }
+    .fab { transition: none; }
     .fab__icon::before { animation: none; }
   }
 </style>
