@@ -10,6 +10,7 @@ const heroPreload = `/${manifest.hero.dir}/${manifest.hero.id}-1920.jpg`;
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).href
   : Astro.url.pathname;
+const ogImage = new URL("/og-image.jpg", Astro.site || "https://brothers-photography.com").href;
 ---
 
 <!doctype html>
@@ -23,13 +24,20 @@ const canonical = Astro.site
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href={canonical} />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Social Preview -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={largestSrc(manifest.hero, "jpg")} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.brand} - ${site.photographer}`} />
     <meta property="og:locale" content="he_IL" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Preload critical assets -->
     <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />
@@ -60,7 +68,7 @@ const canonical = Astro.site
       "@type": "LocalBusiness",
       "@id": canonical,
       name: `${site.brand} - ${site.photographer}`,
-      image: largestSrc(manifest.hero, "jpg"),
+      image: ogImage,
       description: description,
       email: site.contact.email,
       telephone: site.contact.phoneIntl,
