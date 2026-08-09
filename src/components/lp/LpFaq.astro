@@ -1,0 +1,64 @@
+---
+const { campaign } = Astro.props;
+const items = campaign.faq ?? [];
+---
+
+{items.length > 0 && (
+  <section class="lpfaq section" id="faq">
+    <div class="container lpfaq__inner">
+      <header class="lpfaq__head">
+        <p class="eyebrow" data-reveal>FAQ</p>
+        <h2 class="lpfaq__title" data-reveal>שאלות נפוצות</h2>
+      </header>
+      <ul class="lpfaq__list">
+        {items.map((item) => (
+          <li class="lpfaq__item" data-reveal>
+            <details>
+              <summary>
+                <span>{item.q}</span>
+                <svg class="lpfaq__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  .lpfaq { background: var(--paper); }
+  .lpfaq__inner { max-width: 780px; }
+  .lpfaq__head { text-align: center; margin-block-end: clamp(1.8rem, 1rem + 2vw, 3rem); }
+  .lpfaq__head .eyebrow { margin-block-end: 0.8rem; }
+  .lpfaq__title { font-size: var(--fs-h2); }
+  .lpfaq__list { display: flex; flex-direction: column; gap: 0.7rem; }
+  .lpfaq__item {
+    background: var(--cream);
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+  }
+  .lpfaq__item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.15rem 1.3rem;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: var(--fs-h3);
+    color: var(--espresso);
+    list-style: none;
+  }
+  .lpfaq__item summary::-webkit-details-marker { display: none; }
+  .lpfaq__chev { flex: none; color: var(--chestnut); transition: transform 0.3s var(--ease); }
+  .lpfaq__item details[open] .lpfaq__chev { transform: rotate(180deg); }
+  .lpfaq__item p {
+    padding: 0 1.3rem 1.3rem;
+    color: var(--ink-60);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+</style>

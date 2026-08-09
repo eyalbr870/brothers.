@@ -1,0 +1,574 @@
+{
+  "photos": [
+    {
+      "id": "6a75ac77eeee0d8269507d68-0",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-0-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-0-730.webp",
+      "w": 730,
+      "h": 487,
+      "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JQBdgAwFygdLM/l20kfgA/uc8BD6wHyMo7VtF1MUtxuz2AZGubrVHt6ayiH3N2V5tQdXgiuaKbuRdR9y3q/cW93jUXZj78YzrylNHuw6WBGvm7DmYAd0ueDUv90n1aQrCFtki2irM77Pic7P4AA=="
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-1",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-1-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-1-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYwCdACBTPFztJCqMKtkYMgAA/pN+/j+4mRMoq2a2EOA/zv8Zr2GKzZSSwT1uNQEwJ4kEqkKklF+xtVSG6M5OfXWMkUELQXe86iAwGp2GpFpV/mtGYii82Xe9sEXq/kr5pzgQBlOJ6eEPJQ/Dkg91AAA="
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-2",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-2-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-2-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADQAwCdASoQABgAPu1iqk2ppaQiMAgBMB2JZQCdAB4UIB+aQJtqwoAA/l7fQKlHm7vJHqwaTajrpN3VoL+67CczSr1RwcSWFpoIv1D8v1dXNdHLzM9R1IsU8GjZ59ZAC+cfnvYX3LbaL09kqZs/DagvhJmZfDBPam5mdbjRcnyNVWWPoKLrXpghMu2eXl19DAA="
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-3",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-3-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-3-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACwAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JQBdgBBzqon1IgPDOMADOOALPzycHRqBbamDygdmV96HMNN+YV/ECo6tqD5PQwwDzYPhXtzhRFjf5NnAqY8hGOdGmxs5Ea4CJXZoiKKgLHoGDke3ZdmJMZmreWCQj5U6bPxLkN05v4KUSR1xxknjUfUfDQAAA"
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-4",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-4-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-4-730.webp",
+      "w": 730,
+      "h": 487,
+      "lqip": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZgCdMoAlyBe+Pc/JaQYpQT+QAP69sUUc1CGuKcqNjxmaVcfEqizh+aH6pQi/zuXBkee3CkjcBv+IGLRg5Kqy2iKy3Fumxv6VGVigxCeGVVzhchvEMPKNEowtrTeFHr9hDVtmb5pTvko0n5o1A6lFYtsGKVHhljmB6uNpRbI3lQDi+KTCSfeEF1tHTWVXVaTGpaH4vbCK6VnMyk6AAA=="
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-5",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-5-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-5-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JaQAD5hoZRQvfETtmEkTL0DYAAP4mmCQHcoXvboGIw5mD3Mz3fDLrbRSpKe+CRkku1aiE1qADJDWns9SyEVnvX6LQy8Up5JnCiGMY44xM1Dk3V7GTFQGPOOVw4vSjFzwTB2l00bNAAAAA"
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-6",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-6-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-6-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JQBfnAyW8MrPmpw7C2wAA/tn2tgwn1bs92rfYQoYFMC2yMulGIn4NPWThvq/wWtYXKCZftsNwoF2zmSsVWwyxVwAsKogK+/OiY3Mx15ROh7GfnIg15X0wN0z26f7y9OIRWiDlLJ19I9FIHrICVZwRT3jgpUWfVR4USAAA"
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-7",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-7-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-7-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAAAQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYgAAPia0CDtJBpKboMfgAAD+7UsXmF1djByhKXWCzKiZOlLQcniwVT4EgxA5XfObD2eiHTptFQZ5ys+EmDeREB0n0C9uC5+14aXakAcVv1G3pbFoa/CVvXGkjgAE9WyxRdJ7py/v+DLhUh1SmERc2kM/Bs1m5xHmGIAA"
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-8",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-8-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-8-730.webp",
+      "w": 730,
+      "h": 487,
+      "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAACwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JQBOgA408REyUmxaBgAD+3uhdUZGZdKuPUv1td5d98xH3wpH5xw2ClZv+q5kXLGLA/z3pb+FmUbU32EHUUDTjezBdD59ug8EiWp27y//RK79S94NM6zw6/4mgON7arLZziAKK/+YeW4gtGiH6bORuqZqwQcdNiJT5vrmcfsKbKb4wOw0BhtY3NzF9JAAA"
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-9",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-9-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-9-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYgC7IDa1AAniaz4mxcKuqZ2eWAD+Q0OsCtizNnoMxfs55u88YEhYxiyXLVbKa1hg4EclsYJ+mNf1XnCAN/GGbY4yxtZGXFhAVgWv5CFYPeBRlYprCmSpvfJbFNNbGF2k1PfhcahcsQOtwuA6IeTQVQ6xRUY9fAUCqNCqkSsOAmCNhgaVClofeRffLNW30AA="
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-10",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-10-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-10-730.webp",
+      "w": 730,
+      "h": 487,
+      "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQBACdASoYABAAPu1iqU2ppaQiMAgBMB2JYwCw7CHhWWe/9fPZjV/NLyIAAP6u/8xXmb+BHTyZl7q4XJrAvW73+gwOFpFuUp5t4O/gCLlZVrqxhgy/iHlqXUvurdq7fDNatNzIACu1X9A1tbb3yrgrve3UtmQ5D1RNVRMm3yjfyyCNR3Z4AA=="
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-11",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-11-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-11-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYwCsAYwctqW+TLpYBx+7zwAA/oRMZ1dwQWmNcd+c8/CzQppNwH2y6wcmtg2mQ4kYvaTWb/b4Jc4jaiAN1N2a7nhuqlfL9NsMdvPaLNf+71gDWlghpJ3Zr3b8TRkYuY3yQCWoVNRshRlib797nu3l9EK8AAAA"
+    },
+    {
+      "id": "6a75ac77eeee0d8269507d68-12",
+      "reviewId": "6a75ac77eeee0d8269507d68",
+      "name": "גלי",
+      "card": "/reviews/6a75ac77eeee0d8269507d68-12-640.webp",
+      "full": "/reviews/6a75ac77eeee0d8269507d68-12-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoQABgAPu1iqU2ppaQiMAgBMB2JZQCdAYvq3zrdKnxaedpLVQAA/tNDqaNQL3AtkrVKEL7JicfWKGy2fpJLVovZ8KVpCiX5AkP0+IB43hfr+Doiyz6feL/Hlmjiz3A9zNqE+vTqQLYxUD5FrywJELHd+dyuLLHIAAA="
+    },
+    {
+      "id": "6a6778cdeeee0dd92fe62431-0",
+      "reviewId": "6a6778cdeeee0dd92fe62431",
+      "name": "עידן",
+      "card": "/reviews/6a6778cdeeee0dd92fe62431-0-640.webp",
+      "full": "/reviews/6a6778cdeeee0dd92fe62431-0-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBdgtQAici4UC3THcpgN9poX0AD+o31hKzG1TokCNvqfblr5rWbr8f8frqkeu2gil+yFmtOg49tPZZq6k3wxUl6UQ4tk/WfsKUdT3RKSnvwqakhHfu05MzVuGoOJxoDm9+y01WcjSt+g3Lpt92N+cpt3qla3aWo2o2/tBx1E7YyqLm7UJ8BKQpiG8TMpgAA="
+    },
+    {
+      "id": "6a6778cdeeee0dd92fe62431-1",
+      "reviewId": "6a6778cdeeee0dd92fe62431",
+      "name": "עידן",
+      "card": "/reviews/6a6778cdeeee0dd92fe62431-1-640.webp",
+      "full": "/reviews/6a6778cdeeee0dd92fe62431-1-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoQABgAPu1iqk4ppaQiMAgBMB2JZQAAUVk8j2uzgdrkKuegAP4kp59jsxQ2xmjiEOHhw77ndr8Ct5Ko1Udd4++Zl88MPYwEVopir/4XadjLkIjcwbEukuds8LWjOI3KO99bDpIgKHFCZ0x/Apzd6+9qYpqvILm91oceFYq8psHPMx5L/2/RSuacAAA="
+    },
+    {
+      "id": "6a6778cdeeee0dd92fe62431-2",
+      "reviewId": "6a6778cdeeee0dd92fe62431",
+      "name": "עידן",
+      "card": "/reviews/6a6778cdeeee0dd92fe62431-2-640.webp",
+      "full": "/reviews/6a6778cdeeee0dd92fe62431-2-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBdgA9aqQckd70YIbYxveiQAAPzklyf7/2taxl87RW4MWJQFFecv2bHLxaym0/kMDoDxRVMvgAIsTQOa+r61JqbjVeK8b/666Ord+UZQfttzhZsa3Eq8xs8NRAVRYbIzCeR09cbICGsHNGbDNFEmdmpscaPHue6vuld57HYNN1ag0ydES34AAAA="
+    },
+    {
+      "id": "6a6778cdeeee0dd92fe62431-3",
+      "reviewId": "6a6778cdeeee0dd92fe62431",
+      "name": "עידן",
+      "card": "/reviews/6a6778cdeeee0dd92fe62431-3-640.webp",
+      "full": "/reviews/6a6778cdeeee0dd92fe62431-3-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAACwAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JaQAAVFmMpMQyr2hN8AD+1eQjegF0bHGq39F5l47VrW7JsrhDtcKH6nP//Zs/99Dh7jadHSgsOLjrkXpelL5oFVeZy+nUmDDz6xdubh+20u8N7TwMHdiqPqICyNMdRCE/ege/EYAAAA=="
+    },
+    {
+      "id": "6a5fbd85eeee0da16c2e4e7f-0",
+      "reviewId": "6a5fbd85eeee0da16c2e4e7f",
+      "name": "sharon",
+      "card": "/reviews/6a5fbd85eeee0da16c2e4e7f-0-640.webp",
+      "full": "/reviews/6a5fbd85eeee0da16c2e4e7f-0-730.webp",
+      "w": 730,
+      "h": 487,
+      "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JaACdAYx2oSf/MObiDdtAUR8AAMya13QAM3sJVTjRPwdwd2bTf+RGBn5PE8nCXlwxGVsC8c0ZBWw4LjzgnhHZbAs1Hp8D/iRBgZW6OcwoqnSCCcG/DVkPyBFnCmBjtQAcUK7smWZZO73QlYKgVtv5EslD03JeIh82h8To7dy0hsmdkNr9sR4kBEtrd8WYs35OAAAA"
+    },
+    {
+      "id": "6a5fbd85eeee0da16c2e4e7f-1",
+      "reviewId": "6a5fbd85eeee0da16c2e4e7f",
+      "name": "sharon",
+      "card": "/reviews/6a5fbd85eeee0da16c2e4e7f-1-640.webp",
+      "full": "/reviews/6a5fbd85eeee0da16c2e4e7f-1-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAwBACdASoQABgAPu1iqk2ppaQiMAgBMB2JQBYdhDuP+45T8xiI2Ne/K4AA/u/CWJ39/n+g0huXl1HGIlkKxxozPUiFUpFO82fS/8WCTIxO5r0AXXKq2lOgC+JtYS718EHzD4jBSLHhK0HOC67NHbFyaFhCXw0412yECIHGxpqmlFZ1OepualluwhfkAA=="
+    },
+    {
+      "id": "6a5e16eceeee0d765c2e4e7f-0",
+      "reviewId": "6a5e16eceeee0d765c2e4e7f",
+      "name": "Linda",
+      "card": "/reviews/6a5e16eceeee0d765c2e4e7f-0-640.webp",
+      "full": "/reviews/6a5e16eceeee0d765c2e4e7f-0-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JQBOgO4AcTZs7w4k9e9LdOZFgAP65SwTgiB7seKuBgwVmLxXJVqlWTyon0fbHWqS3XVBQnO1Oj1AnHKYslr25ySF/yolBL8kxISLu5i2em+3luHFf3a6B707Ub7fNGshXS3b0lnbhnMvec/BI6IAA"
+    },
+    {
+      "id": "6a5e16eceeee0d765c2e4e7f-1",
+      "reviewId": "6a5e16eceeee0d765c2e4e7f",
+      "name": "Linda",
+      "card": "/reviews/6a5e16eceeee0d765c2e4e7f-1-640.webp",
+      "full": "/reviews/6a5e16eceeee0d765c2e4e7f-1-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JaAC7ACHOM2nQv4JyIDupHAD+62heOpZV7M+LQUzJdG1R3ZvmTDws+TfSSS4Bx1UibWsaoVhWhKG7mT4SZVLZAj855QbLPQq9C8rc3WvYZpZltInWP1aw0vFiPZIZjFFofe/1JqTQdrFBscnu3+LYNw1iHiAdULJda+oFgAA="
+    },
+    {
+      "id": "6a5d48daeeee0dc6382e4e85-0",
+      "reviewId": "6a5d48daeeee0dc6382e4e85",
+      "name": "Shlomit",
+      "card": "/reviews/6a5d48daeeee0dc6382e4e85-0-640.webp",
+      "full": "/reviews/6a5d48daeeee0dc6382e4e85-0-730.webp",
+      "w": 730,
+      "h": 599,
+      "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABQBQCdASoYABQAPu1mq08ppaOiMBgIATAdiWMAvkgQqhFUFjOWngI971NfTTprhgjEqQAA/tNUWZ17H1Gmv9FdqFSoLys/7LIIwQvUmQDiS8UxnWu15mkmYz/9uQhI8MJKdRjvqZ8TzZvRwMuNs7rNOWJTa/AqvqF54nxhJJ9h1TRwAWOG2gOTUQixvVQs8dMCyeirQ/7ZdxkN9nTgAA=="
+    },
+    {
+      "id": "6a5b225feeee0d764b75a3de-0",
+      "reviewId": "6a5b225feeee0d764b75a3de",
+      "name": "אורי",
+      "card": "/reviews/6a5b225feeee0d764b75a3de-0-640.webp",
+      "full": "/reviews/6a5b225feeee0d764b75a3de-0-730.webp",
+      "w": 730,
+      "h": 487,
+      "lqip": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAACwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JYgCdMoAltxiiSVGMedOEaoPGkN2gAPuhNHj35GPj/ddMTSHEHa9HKZf2r0U9U9AbR62MjuD9I5R3PZdpR7fTQnIBR1gMjOJ0DySAIDa8h5jiPgYrE7TsCyrKExzN9maA9ffI5hV9FGrQx0QpLJ5Vkt6CFW9t3B2SWXAP5XmO8+OK6BiQa/BjHp8zv6e2VmlxeoAOIAA="
+    },
+    {
+      "id": "6a5b225feeee0d764b75a3de-1",
+      "reviewId": "6a5b225feeee0d764b75a3de",
+      "name": "אורי",
+      "card": "/reviews/6a5b225feeee0d764b75a3de-1-640.webp",
+      "full": "/reviews/6a5b225feeee0d764b75a3de-1-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADwAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JQBhQBDldOmyzsYbbDfAQAP7nF+zUida11YGQKWnHm85jBbuIa3biN/mHJu5/rbG2lYOHgLZHrngccwQxUWUl2tcfKDLBNGyfqX+7ks/b6fBFrD2dG0rVBMtpYKtU4PsPQ+zfsB4ybEn8M/gtN6abKAA="
+    },
+    {
+      "id": "6a5a365eeeee0d8d6675a3d7-0",
+      "reviewId": "6a5a365eeeee0d8d6675a3d7",
+      "name": "טופז",
+      "card": "/reviews/6a5a365eeeee0d8d6675a3d7-0-640.webp",
+      "full": "/reviews/6a5a365eeeee0d8d6675a3d7-0-730.webp",
+      "w": 730,
+      "h": 487,
+      "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAACQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JYgCdIExgrRicuGKoEk+1Vm1G44AA/SskkPyss5cbAerIXJv3lAVSJoK0BjfGuwT7gQO34ihbRyOXCQySqROO/2DfLfLubjfjqFA1LuDdaRt2gmrbdDH0Kv3KikDvV6yVXoRYlObl/GyZIcvFMzw524fr34Pn4x22yBxtlush7/FX+QgcZMO3VphiBIZZA5kAgPpN0n4WriHpN40rdrYlD5yqiAAA"
+    },
+    {
+      "id": "6a5a365eeeee0d8d6675a3d7-1",
+      "reviewId": "6a5a365eeeee0d8d6675a3d7",
+      "name": "טופז",
+      "card": "/reviews/6a5a365eeeee0d8d6675a3d7-1-640.webp",
+      "full": "/reviews/6a5a365eeeee0d8d6675a3d7-1-730.webp",
+      "w": 730,
+      "h": 487,
+      "lqip": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAABwBACdASoYABAAPu1kqk4ppaQiMAgBMB2JagAD5Y5l/h9/ZY7sg/k5gwhcAAD+/m3g2XuETZzSMBqRJ7Y+sUu7TYNivcgfghLBN7Gcueemi0vhe2YZCfOexff5JhpxsFNrWTEoWcyzADd2mqqhPSi7WiJb6kJLimWrBAW1mg2/53PGwz2Vu2jWtEgf/OOl7334aEnTEHCVa16Rlvezw5AkUEUzlmsHzQiAAA=="
+    },
+    {
+      "id": "6a5a365eeeee0d8d6675a3d7-2",
+      "reviewId": "6a5a365eeeee0d8d6675a3d7",
+      "name": "טופז",
+      "card": "/reviews/6a5a365eeeee0d8d6675a3d7-2-640.webp",
+      "full": "/reviews/6a5a365eeeee0d8d6675a3d7-2-730.webp",
+      "w": 730,
+      "h": 487,
+      "lqip": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAACQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JQAECBdDrfcZwyRfRAFecVgUQbwAA/vQjU+1ng3uIWqD/9qBndYU6WT9zlVa2nj7UkcgvVBEMFloi/Wa+lK5mfkPuYjcHWvuV7ODvH7ndA+8FhSOdym4Ut+ZVQVszQYfkxlbAaKYMUyVoLNLU1b4HbI2Z/a0M9r1XsnoK1q+WO64jJbvIfFWnj8Ia48I30jUAM14uTXk+WPiQAAA="
+    },
+    {
+      "id": "6a5a365eeeee0d8d6675a3d7-3",
+      "reviewId": "6a5a365eeeee0d8d6675a3d7",
+      "name": "טופז",
+      "card": "/reviews/6a5a365eeeee0d8d6675a3d7-3-640.webp",
+      "full": "/reviews/6a5a365eeeee0d8d6675a3d7-3-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADwAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JaQAALkFihpw4078vNKvQAP6M7Rux5pE7wjjir2Bjw+MM7VFy2SqG3gzlv/h0kABBiYDEy4Ojrrxfv45oBqBR29NwkNXyAJSXMl3rJCV9lvUml4zfDwLAaEkycbUiENlaQO1YzR8gOKS0mdStoNvj8V1xfOTEmgAAAA=="
+    },
+    {
+      "id": "695ff8aaeeee0dfb598b457d-0",
+      "reviewId": "695ff8aaeeee0dfb598b457d",
+      "name": "noam",
+      "card": "/reviews/695ff8aaeeee0dfb598b457d-0-640.webp",
+      "full": "/reviews/695ff8aaeeee0dfb598b457d-0-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQAwCdASoQABgAPu1iqU2ppaQiMAgBMB2JaQAAW6TpkjAAjEuEp1AAy0+K3yD0gLsPCLo+ZRw3+ajk79Griv+PSX0z3h4W938ZglnZbUAEJe9+nd1fCowX36r2+cjUQ5b/ZfxZyVuW1nYgBnp78Pw6oSSApQ8VzN72VXi+ogZYGAAA"
+    },
+    {
+      "id": "695ff8aaeeee0dfb598b457d-1",
+      "reviewId": "695ff8aaeeee0dfb598b457d",
+      "name": "noam",
+      "card": "/reviews/695ff8aaeeee0dfb598b457d-1-640.webp",
+      "full": "/reviews/695ff8aaeeee0dfb598b457d-1-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoQABgAPu1iqk2ppaQiMAgBMB2JZADCgCHZxqCxZE96iJSgAP7nKBLDpg3WaZ5IDj9w/xljFX4GhF8uR+/bT15zkZ/AnO91bdvCI6BCM3ZjvW5wkmTUb1W4eii0K5SyPVnH9EvMJr50ePhsKGqO5Tp9Sbg4xZR877PicCBRgVNBGgAA"
+    },
+    {
+      "id": "695ff8aaeeee0dfb598b457d-2",
+      "reviewId": "695ff8aaeeee0dfb598b457d",
+      "name": "noam",
+      "card": "/reviews/695ff8aaeeee0dfb598b457d-2-640.webp",
+      "full": "/reviews/695ff8aaeeee0dfb598b457d-2-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABQBACdASoQABgAPu1kqU2ppaQiMAgBMB2JQBhQBDwpyQhDKQl/8u1Kw+XgAP7nKCNYUiWo718Oti6Je3nb5tkSRcinKm6WaUrn1MBDT7e3FrX1Mc+WyVQN5krblJn1d6j7T1oervJugPtYojTCdOmXQ3ilJJ33iy5WTd3bhRnhKlom3bymPC2nAAA="
+    },
+    {
+      "id": "695cd913eeee0de2118b47c4-0",
+      "reviewId": "695cd913eeee0de2118b47c4",
+      "name": "yotamamor",
+      "card": "/reviews/695cd913eeee0de2118b47c4-0-640.webp",
+      "full": "/reviews/695cd913eeee0de2118b47c4-0-730.webp",
+      "w": 730,
+      "h": 1055,
+      "lqip": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAAAQBQCdASoRABgAPu1qrVCppaQiqAqpMB2JZwDJFHTP/EL9QczSQTX0xHBwiOjChrQgAP70IqKKZ3L2Gn6Nqbnx52zDJ91/efWhDsfZSWRsWGUmkkzwqnrwUV+So/1GbzDQEW0+mmezQgjoG/53MQ0Snfmy/cUn31uMe6MCyfdMzpxQlyQc0FBm/cdOctsm/NY0H54TlAe+7WWVAHChvjNXr1TjXELQO4Wr8c1MRNbeN4BzgAA="
+    },
+    {
+      "id": "695cd913eeee0de2118b47c4-1",
+      "reviewId": "695cd913eeee0de2118b47c4",
+      "name": "yotamamor",
+      "card": "/reviews/695cd913eeee0de2118b47c4-1-640.webp",
+      "full": "/reviews/695cd913eeee0de2118b47c4-1-730.webp",
+      "w": 730,
+      "h": 1096,
+      "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYwC06BpI+P6c1DdrmSPAAAD+ClFUZ+VaqIX9rOcOgpeUONYPTd+NBNCHnHDbmDgFrU/yjYPB7IXGD1/GLqjLeTvsLq9nn6vSE1IabIns5osCfrYlG5+ayfcyjGEDszbzV/FYTRWPJmjm1F+FWWgA"
+    },
+    {
+      "id": "695cd913eeee0de2118b47c4-2",
+      "reviewId": "695cd913eeee0de2118b47c4",
+      "name": "yotamamor",
+      "card": "/reviews/695cd913eeee0de2118b47c4-2-640.webp",
+      "full": "/reviews/695cd913eeee0de2118b47c4-2-730.webp",
+      "w": 730,
+      "h": 1063,
+      "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAACwBACdASoRABgAPu1qrVCppaQiqAqpMB2JZQC+SBG2KSfkF6PRyT4qD+QXIGAAAP70MDp1gTHO21lpZ5FGHOrPqES/hrXMRIKdNQp/FFdnqp8BjU4ThxXs6qvtinU6S8vSELjq32sJ/ITYNZVnUIun0U9ETxKHvyBevIfnqyrMhC5GSECxYrsZybC9MpKMt7y8wAONYAN3j1UqMLIPM3VCefLjGRd6l432AAAA"
+    },
+    {
+      "id": "695cd913eeee0de2118b47c4-3",
+      "reviewId": "695cd913eeee0de2118b47c4",
+      "name": "yotamamor",
+      "card": "/reviews/695cd913eeee0de2118b47c4-3-640.webp",
+      "full": "/reviews/695cd913eeee0de2118b47c4-3-730.webp",
+      "w": 730,
+      "h": 1096,
+      "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoQABgAPu1iqU2ppaQiMAgBMB2JYwC7AYvg3tYl7yf82OcI5U4A/u6IgugRwuArrCkvnjdJwEhRdx7cSJ3EALQi8rK8nwtu0qAYxhAE9V1mHSVjIa2Xqrtvt9UpUojPkLeJA0KQuQyc0cKZQFsTx69XkVSmX+ks6omzw9v+1oRwn+TfOCXvcw4d1pDVD9VBkMXAAA=="
+    },
+    {
+      "id": "69064a46eeee0d567f1f4335-0",
+      "reviewId": "69064a46eeee0d567f1f4335",
+      "name": "Shlomi",
+      "card": "/reviews/69064a46eeee0d567f1f4335-0-640.webp",
+      "full": "/reviews/69064a46eeee0d567f1f4335-0-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoQABgAPu1iqU2ppaQiMAgBMB2JQBahGQBce88R4iywe0rqLAAA/sxHs33oPKRwhYyW5hN/pgXlFVLiTYok7Pi40PVJno9gz9DDW8BW6D+ZCHTkpbYaS41kwldQ2P8oa/bggwAA"
+    },
+    {
+      "id": "69064a46eeee0d567f1f4335-1",
+      "reviewId": "69064a46eeee0d567f1f4335",
+      "name": "Shlomi",
+      "card": "/reviews/69064a46eeee0d567f1f4335-1-640.webp",
+      "full": "/reviews/69064a46eeee0d567f1f4335-1-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JaQAATvhkdDQSpotF7d7JTqAA/j25wyOrQIq8R1/qzDNYFIlY48n3dxW+Z7esgZl+jSw3/nosliQQ77kRE5kw5ojZX0uXxy3g1vS15hkF/7opn8WfIv6Rt1wrIzeAGc12dsoknPwdQ4ELBIAAAA=="
+    },
+    {
+      "id": "68ce9faeeeee0de85d78eb8f-0",
+      "reviewId": "68ce9faeeeee0de85d78eb8f",
+      "name": "שי",
+      "card": "/reviews/68ce9faeeeee0de85d78eb8f-0-640.webp",
+      "full": "/reviews/68ce9faeeeee0de85d78eb8f-0-730.webp",
+      "w": 730,
+      "h": 1297,
+      "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQAwCdASoNABgAPu1iqU2ppaQiMAgBMB2JZQAAUrIiF0hMU6AsXAAA/pcEa4Kbpqap9pnnev1J1bn4yN2E5WeA10XX7B6KUtdIP8sozkmv2h8ZNzIE8+55r2L7T8fmc+B3I3xhYotb8ls+J7v7LVbHCRZmFHVKWhOunFXyy1+1giwA"
+    },
+    {
+      "id": "68ce9faeeeee0de85d78eb8f-1",
+      "reviewId": "68ce9faeeeee0de85d78eb8f",
+      "name": "שי",
+      "card": "/reviews/68ce9faeeeee0de85d78eb8f-1-640.webp",
+      "full": "/reviews/68ce9faeeeee0de85d78eb8f-1-730.webp",
+      "w": 730,
+      "h": 486,
+      "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAACwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JagCdACFQf2O4mJN34AD+6ntsymFk5cYpWOgouNM7zUV2H6KzGOva6HZwR+c83vI2XXK9VC1iqQRls7sn5O6gNmTpu5BJoJa7Zy68jAdIp7OrwLNIXl9Y/2033ji3lo1F4FZXXXAAAA=="
+    },
+    {
+      "id": "68ce8fafeeee0d9f1578eb7d-0",
+      "reviewId": "68ce8fafeeee0d9f1578eb7d",
+      "name": "Nadav",
+      "card": "/reviews/68ce8fafeeee0d9f1578eb7d-0-640.webp",
+      "full": "/reviews/68ce8fafeeee0d9f1578eb7d-0-730.webp",
+      "w": 730,
+      "h": 1292,
+      "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABQBACdASoOABgAPu1iqU2ppaOiMAgBMB2JQBfnBHnZGiIQc9HWThiTSpAAAP63cIQ0D9IqLoLiAxDrSWyFMUeU0Rzk128chlQPUCfrsBp3VM0D2bwXw1amGR2gHFfMD5SjGeMgxIelywtW9sL/TijmMgC7Ui7aj5Iz7n5oOPuApP1Td2iDRGqRrmxFzRJ1V4AAAA=="
+    },
+    {
+      "id": "68ce8fafeeee0d9f1578eb7d-1",
+      "reviewId": "68ce8fafeeee0d9f1578eb7d",
+      "name": "Nadav",
+      "card": "/reviews/68ce8fafeeee0d9f1578eb7d-1-640.webp",
+      "full": "/reviews/68ce8fafeeee0d9f1578eb7d-1-730.webp",
+      "w": 730,
+      "h": 1287,
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADQAwCdASoOABgAPu1iqU2ppaOiMAgBMB2JYwAAWhYVJXPFkEp/W0AA/u1ITPlTDJzJCLW1h7yGAFaiIdUDGqL+PVAVl/bD2dGURT2uuafT476hNH77BuRQca7lthjJUXICk3sU9cyPALDtgtkVw0zPWDzJkAAA"
+    },
+    {
+      "id": "68ce8fafeeee0d9f1578eb7d-2",
+      "reviewId": "68ce8fafeeee0d9f1578eb7d",
+      "name": "Nadav",
+      "card": "/reviews/68ce8fafeeee0d9f1578eb7d-2-640.webp",
+      "full": "/reviews/68ce8fafeeee0d9f1578eb7d-2-730.webp",
+      "w": 730,
+      "h": 1296,
+      "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoNABgAPu1iqU2ppaOiMAgBMB2JYwDCgBuPDqan0mmUxWaS0AD+7VMGU3zC0YKEqpV8G98YMW8O+YEnl4t24//RUH0xm4SXuMHtdK9eeV6+sJ40BmBdNuMSaEK8U215QdwWv6w70Ynk2BYpeSXEBd1wAAA="
+    },
+    {
+      "id": "68ce8fafeeee0d9f1578eb7d-3",
+      "reviewId": "68ce8fafeeee0d9f1578eb7d",
+      "name": "Nadav",
+      "card": "/reviews/68ce8fafeeee0d9f1578eb7d-3-640.webp",
+      "full": "/reviews/68ce8fafeeee0d9f1578eb7d-3-730.webp",
+      "w": 730,
+      "h": 1039,
+      "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADwBACdASoRABgAPu1wsFIppiSiqAgBMB2JQBftXkAvouBoZvCdZ2kzI8lbhjtA7hgA+5xf5tzJLqQlP+30cb0lhH9oGIjZwVoATjt9XsuQx1Pk7vaVGYlurdkSQfFh0VHCFPkvKD7kQmi2yz26XfhJcG1NjmuEIhfYRo1rUheLYVrM1MbA4d6wWyrTKDeSyzaoBw9ssl3REloURME6QKJGOIPMAAAA"
+    },
+    {
+      "id": "68ca6dc9eeee0d015378eb7b-0",
+      "reviewId": "68ca6dc9eeee0d015378eb7b",
+      "name": "עירית",
+      "card": "/reviews/68ca6dc9eeee0d015378eb7b-0-640.webp",
+      "full": "/reviews/68ca6dc9eeee0d015378eb7b-0-730.webp",
+      "w": 730,
+      "h": 1038,
+      "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACwBACdASoRABgAPu1kqk2ppaQiMAgBMB2JQBOgBDfvaFRBSgaugMJ3s9kB/wyQAP5drDD7fYsyTPGJCxJ4ceWO8eoPHTguxzWenrAbNEuxQZMtmQxp8NPJczRPOsde0sO9ThwADjgChMuqF20mXoAy2CcBNlflR26UiFszk9qjRBqEwEz4rXsNWs7uIwAA"
+    },
+    {
+      "id": "68ca6dc9eeee0d015378eb7b-1",
+      "reviewId": "68ca6dc9eeee0d015378eb7b",
+      "name": "עירית",
+      "card": "/reviews/68ca6dc9eeee0d015378eb7b-1-640.webp",
+      "full": "/reviews/68ca6dc9eeee0d015378eb7b-1-730.webp",
+      "w": 730,
+      "h": 1045,
+      "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAADQBACdASoRABgAPu1ur1IppiQiqAgBMB2JZQDH5A028HRn5SWU7Bam6QvTLTS2gAD4qTnzxFvYpUgmHvqJiEKyz6xnJTbkyqAIXpHOd263kQewDWK25NXZQcjYQHR+3gCNrKjpaTKKBoXIrAKdaEfMj+Rh3p9fR0jZw2dfSQKOiAUKM6mPMAfWhDQM6uE9J24OZVQSd3woAAAA"
+    },
+    {
+      "id": "68ca6dc9eeee0d015378eb7b-2",
+      "reviewId": "68ca6dc9eeee0d015378eb7b",
+      "name": "עירית",
+      "card": "/reviews/68ca6dc9eeee0d015378eb7b-2-640.webp",
+      "full": "/reviews/68ca6dc9eeee0d015378eb7b-2-730.webp",
+      "w": 730,
+      "h": 1043,
+      "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAABwBACdASoRABgAPu1sq1EppaOiqAqpMB2JYwAAHv4boEiT0UGuBBM0CxHB7AD+gm/au47gXhT4g8nq7FciKSk+ACkZGMdPi+LcEbz2MZK7DiqxfyN6k8wrsMYPdyoetTKH//3z0OzgsaOF/5QczeHLn9a32DIbZJqGOWRDgvJl64nARwyPzCyCxhYU57iHpApJjhklTjGsIxQA"
+    },
+    {
+      "id": "68ca6dc9eeee0d015378eb7b-3",
+      "reviewId": "68ca6dc9eeee0d015378eb7b",
+      "name": "עירית",
+      "card": "/reviews/68ca6dc9eeee0d015378eb7b-3-640.webp",
+      "full": "/reviews/68ca6dc9eeee0d015378eb7b-3-730.webp",
+      "w": 730,
+      "h": 1040,
+      "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBQCdASoRABgAPu1sqlEppaOiqAqpMB2JZQC/OA/h8a2nVmhne2UMsKFM/47uh6bxOodAAN2hb+ZcoVEXoaJpvN/3hr7Vv8KJi9i41nys2vfnUkRk6IiWjYqk+DS3aeYbqesRD6YTWBF4jpZQ4Vii+etUDL+nmyF7vr/kXPLebFkvPztHO2c+CYEbY1tJ8c4yyDad2k65hlh9FGf9QEhYeAAAAA=="
+    },
+    {
+      "id": "68ca6dc9eeee0d015378eb7b-4",
+      "reviewId": "68ca6dc9eeee0d015378eb7b",
+      "name": "עירית",
+      "card": "/reviews/68ca6dc9eeee0d015378eb7b-4-640.webp",
+      "full": "/reviews/68ca6dc9eeee0d015378eb7b-4-730.webp",
+      "w": 730,
+      "h": 1040,
+      "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABwBACdASoRABgAPu1ur1IppiQiqAgBMB2JaQAAKyDMrOFljQjBAX02eGBwAAD57uLVCuX/OWFuGpXpNfDsDDV9qydzjAYLpBK8VqtDnLb7iM2AWZPIle1sb4I21hFKp5aTeh81uOi8xYxgPr9sy0c+vLRGKbW+lcRj+xsWnzpK7jjaPgyUll4PQfWI4CEgAQhxTog5D9CV57DYAAA="
+    },
+    {
+      "id": "68ca6dc9eeee0d015378eb7b-5",
+      "reviewId": "68ca6dc9eeee0d015378eb7b",
+      "name": "עירית",
+      "card": "/reviews/68ca6dc9eeee0d015378eb7b-5-640.webp",
+      "full": "/reviews/68ca6dc9eeee0d015378eb7b-5-730.webp",
+      "w": 730,
+      "h": 1040,
+      "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAQBQCdASoRABgAPu1or1AppaSiqAqpMB2JQBdmcdgm+JLDJ+TJwgJYFla9B0RObf9AAP7k0ChvILWAjMpfEzzCqAmJ+nA0XtNQIYbvNCd9keao8whBEa15K6Knx84Ge9xpojfSJJWKurpmaN+uHkSYKxZ7JqwDvsD7M0blvkDnPO1wTVCjjdP2IvPoeQz3bv2NxH6HA7EkzX/rESIalrynUgOT8k7cCWSFJ1fZgAtwAA=="
+    }
+  ],
+  "reviews": {
+    "6a75ac77eeee0d8269507d68": {
+      "name": "גלי",
+      "text": "יריב ואייל היו מדהימים והיה לנו חיבור איתם מהרגע הראשון של היום !! אנשים חמים ומקצועיים !!! יריב הסתובב איתנו מההתארגנות, נתן לנו מראש מיקומים שהוא ממליץ להצטלם בהם והתמונות יצאו ואווווו",
+      "date": "לפני 15 שעות",
+      "stars": 5
+    },
+    "6a6778cdeeee0dd92fe62431": {
+      "name": "עידן",
+      "text": "מהשיחה הראשונה עם יריב ידענו שזה זה! היה חיבור מטורף כי הוא ללא ספק בן אדם מטורף! היה לנו חשוב שהצלם שלנו יהיה גם חבר ולגמריי הרגשנו ככה מהרגע הראשון. יריב קליל וכייפי ומצחיק ועושה אווירה לכל מקום שהוא מגיע. אין ספק שעשינו את הבחירה המושלמת ואנחנו ממליצים מכל הלב ❤️",
+      "date": "אפריל 2026",
+      "stars": 5
+    },
+    "6a5fbd85eeee0da16c2e4e7f": {
+      "name": "sharon",
+      "text": "אין על יריב והצוות הנדיר שלו! הגעתי ליריב דרך המלצה של חברה וכבר מהשיחה הראשונה איתו הכול זרם, הרגשנו את הווייבים הטובים שלו, המקצועיות והניסיון וידענו שאנחנו בידיים טובות. אנחנו בכלל לא זוג שאוהב ויודע להצטלם אבל יריב ידע בדיוק איך להכווין אותנו, להצחיק אותנו ולגרום לנו להרגיש הכי טבעיים שיש. התמונות הגיעו ממש מהר באיכות נדירה וכל תמונה יותר יפה מהשנייה. בן אדם עם אנרגיות שיא ומקצוען ברמות!!",
+      "date": "יוני 2026",
+      "stars": 5
+    },
+    "6a5e16eceeee0d765c2e4e7f": {
+      "name": "Linda",
+      "text": "מהרגע הראשון הרגשנו שאנחנו בידיים טובות. יריב והצוות ליווה אותנו מהבוקר ועד סוף האירוע עם המון סבלנות, אנרגיות טובות ומקצועיות ברמה הכי גבוהה שיש!! מעבר לזה שהתמונות יצאו מושלמות, כל החוויה הייתה כיפית וקלילה. תודה ❤️",
+      "date": "2026",
+      "stars": 5
+    },
+    "6a5d48daeeee0dc6382e4e85": {
+      "name": "Shlomit",
+      "text": "חיפשתי מישהו שיהיה מעבר לצלם, שידע לקרוא אותנו ולהקליל את כל האווירה של היום, בגלל שאני ובעלי פחות מרגישים בנוח מול המצלמה. זאת לגמרי הייתה הבחירה הכי מדוייקת בשבילנו! יריב והצוות קראו אותנו, זרמו איתנו, גרמו לנו להרגיש הכי בנח שיש, וכל זה תוך כדי שהם מתעדים בצורה מושלמת את הרגעים הכי חשובים ביום המאושר שלנו! 🫶🏼",
+      "date": "2026",
+      "stars": 5
+    },
+    "6a5b225feeee0d764b75a3de": {
+      "name": "אורי",
+      "text": "הבחירה הכי טובה שעשינו בחתונה! צוות פשוט מושלם! כל אחד שם מקצועי, יצירתי, איכותי ברמות, מצחיק, מרים את האווירה, ונותן תחושה משפחתית מהרגע הראשון. הם גרמו לנו להרגיש הכי בנוח בתור זוג שבדרך כלל לא מצטלם.",
+      "date": "2026",
+      "stars": 5
+    },
+    "6a5a365eeeee0d8d6675a3d7": {
+      "name": "טופז",
+      "text": "מושלמים! גרמו לחווית הצילום להיות כל כך קלילה וכיפית! יודעים את העבודה, והתמונות - ואוו, ברמות!",
+      "date": "2026",
+      "stars": 5
+    },
+    "695ff8aaeeee0dfb598b457d": {
+      "name": "noam",
+      "text": "לירייב והצוות המטורף הייתם נדיריםםםם ‏היה הכי כיף שיש להעביר אתכם את היום ובאמת שכל הצוות היו מהממים סבלניים ומקצועיים 🙏🏻 ‏ההתלהבות בשיאאא מהטעימה הקטנה של התמונות שהעלת!!!",
+      "date": "לפני 6 חודשים",
+      "stars": 5
+    },
+    "695cd913eeee0de2118b47c4": {
+      "name": "yotamamor",
+      "text": "את יריב פגשנו פעם ראשונה בחתונה של בן משפחה, וכשהגיעו התמונות הבנו שזה בדיוק הבנאדם בשבילנו. הוא לא רק מקצוען אלא גם אדם שמביא הרבה שמח וכיף. כשכולם היו בלחץ הם פשוט עשו אווירה אחרת, הקלילו את היום ודאגו שבכל רגע יהיה לכולם חיוך וצחוק על הפנים.",
+      "date": "2025",
+      "stars": 5
+    },
+    "69064a46eeee0d567f1f4335": {
+      "name": "Shlomi",
+      "text": "ואו ואו ואו! אי אפשר להסביר את האנרגיות המדהימות של יריב ושל דודו הצלם וידאו שהגיע איתו!!!! מצלמים באנרגיה מדהימה, יודעים את העבודה, מכוונים ועוזרים לאחת כמוני שבאמת לא אוהת כל כך להצטלם. התמונות יצאו איכותיות, מדהימות וכולם פשוט החמיאו לנו עליהן. אין המלצה טובה מהם!!!!",
+      "date": "לפני 8 חודשים",
+      "stars": 5
+    },
+    "68ce9faeeeee0de85d78eb8f": {
+      "name": "שי",
+      "text": "הגעתי ליריב אחרי שראיתי תמונות שצילם לחברה טובה, שאמרה לי שזו הבחירה הכי טובה שעשתה בחתונה וזאת האמת!!!! הבחירה הכי טובה שעשינו! היה זמין, מצחיק ומקצועי לאורך כל הדרך בהכנות",
+      "date": "לפני 10 חודשים",
+      "stars": 5
+    },
+    "68ce8fafeeee0d9f1578eb7d": {
+      "name": "Nadav",
+      "text": "יריב לא רק צלם מוכשר – הוא בן אדם מדהים. עם חיוך, סבלנות והמון אנושיות, הוא הצליח לגרום לנו להרגיש הכי בנוח מול המצלמה, כאילו אנחנו פשוט עם חבר שמצלם אותנו. התמונות שקיבלנו הן לא סתם תמונות – הן זיכרונות אמיתיים, חוויות שהוקפאו בזמן. 10/10 ללא ספק. ממליצים מכל הלב.",
+      "date": "ספטמבר 2025",
+      "stars": 5
+    },
+    "68ca6dc9eeee0d015378eb7b": {
+      "name": "עירית",
+      "text": "כבר משיחת הטלפון הראשונה ידעתי שזה זה! מעבר לתמונות המטורפות שראיתי, השיחה הייתה רגועה, קלילה, מלאה בהומור ובעיקר מלא מקצועיות. אחרי כמה דקות ספורות סגרנו הכל וידעתי שמאותו רגע אני יכולה להיות רגועה.",
+      "date": "2025",
+      "stars": 5
+    }
+  }
+}

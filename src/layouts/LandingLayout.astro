@@ -1,0 +1,203 @@
+---
+import "@/styles/global.css";
+import site from "@/data/site.js";
+import manifest from "@/data/gallery.generated.json";
+import { largestSrc, resolveItem } from "@/lib/images.js";
+import LpStickyCTA from "@/components/lp/LpStickyCTA.astro";
+
+const { campaign } = Astro.props;
+
+const title = campaign.seo?.title ?? site.title;
+const description = campaign.seo?.description ?? site.description;
+
+// OG image + hero preload from the campaign's chosen photos.
+const ogItem = resolveItem(manifest, campaign.seo?.ogImageId ?? campaign.hero?.bgId);
+const ogImage = largestSrc(ogItem, "jpg");
+const heroItem = resolveItem(manifest, campaign.hero?.bgId);
+const heroPreload = largestSrc(heroItem, "jpg");
+
+// Self-referencing canonical (also fixes the site-wide empty canonical).
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : Astro.url.pathname;
+
+// Meta Pixel loads only when a real id is configured (placeholder has "X").
+const pixelId = site.analytics?.metaPixelId ?? "";
+const pixelEnabled = pixelId && !pixelId.includes("X");
+---
+
+<!doctype html>
+<html lang={site.lang} dir={site.dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#453226" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="he_IL" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/FrankRuhlLibre-SemiBold.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/Assistant-Regular.woff2"
+      crossorigin
+    />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": canonical,
+      name: `${site.brand} - ${site.photographer}`,
+      image: ogImage,
+      description: description,
+      email: site.contact.email,
+      telephone: site.contact.phoneIntl,
+      priceRange: "$$",
+      sameAs: [site.contact.instagramUrl],
+    })} />
+
+    {pixelEnabled && (
+      <script is:inline define:vars={{ pixelId }}>
+        // Meta Pixel base + PageView (skipped on localhost).
+        if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+          n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+          document,"script","https://connect.facebook.net/en_US/fbevents.js");
+          fbq("init", pixelId);
+          fbq("track", "PageView");
+        }
+      </script>
+    )}
+
+    <!-- Conversion tracking helper (safe no-op when Pixel is disabled). -->
+    <script is:inline>
+      window.lpTrack = function (event, params) {
+        try {
+          if (typeof window.fbq === "function") window.fbq("track", event, params || {});
+        } catch (e) {}
+      };
+      window.lpTrackCustom = function (event, params) {
+        try {
+          if (typeof window.fbq === "function") window.fbq("trackCustom", event, params || {});
+        } catch (e) {}
+      };
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#lead">דילוג לטופס יצירת קשר</a>
+
+    <header class="lp-topbar">
+      <a class="lp-topbar__brand" href="#top" aria-label={site.brand}>
+        <img src="/logo/logo-black.png" alt={site.brand} width="180" height="52" />
+      </a>
+      <a
+        class="lp-topbar__phone"
+        href={`tel:${site.contact.phoneIntl}`}
+        dir="ltr"
+        data-lp-call
+        aria-label="חייגו אלינו"
+      >
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
+        <span>{site.contact.phoneDisplay}</span>
+      </a>
+    </header>
+
+    <span id="top"></span>
+    <main>
+      <slot />
+    </main>
+
+    <LpStickyCTA campaign={campaign} />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        inset-inline-start: -9999px;
+        top: 0;
+        z-index: 999;
+        background: var(--espresso);
+        color: #fff;
+        padding: 0.8rem 1.2rem;
+        border-radius: 0 0 4px 0;
+      }
+      .skip-link:focus {
+        inset-inline-start: 0;
+      }
+
+      .lp-topbar {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.85rem var(--gutter);
+        background: var(--paper);
+        border-block-end: 1px solid var(--line);
+      }
+      .lp-topbar__brand img {
+        height: 40px;
+        width: auto;
+        display: block;
+      }
+      .lp-topbar__phone {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-label);
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--espresso);
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+      .lp-topbar__phone svg { color: var(--chestnut); }
+      .lp-topbar__phone:hover { color: var(--chestnut); }
+      @media (max-width: 420px) {
+        .lp-topbar__phone span { display: none; }
+      }
+    </style>
+
+    <script>
+      // Global reveal-on-scroll for [data-reveal] (same as BaseLayout).
+      const reveals = document.querySelectorAll("[data-reveal]");
+      if (reveals.length) {
+        const obs = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                obs.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: "0px 0px -10% 0px" }
+        );
+        reveals.forEach((el) => obs.observe(el));
+      }
+    </script>
+  </body>
+</html>

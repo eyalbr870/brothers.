@@ -6,6 +6,10 @@ import { largestSrc } from "@/lib/images.js";
 
 const { title = site.title, description = site.description } = Astro.props;
 const heroPreload = `/${manifest.hero.dir}/${manifest.hero.id}-1920.jpg`;
+// Canonical from the configured production domain (astro.config `site`).
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -17,7 +21,7 @@ const heroPreload = `/${manifest.hero.dir}/${manifest.hero.id}-1920.jpg`;
     <meta name="description" content={description} />
     <meta name="theme-color" content="#453226" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="canonical" href={site.site} />
+    <link rel="canonical" href={canonical} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -54,7 +58,7 @@ const heroPreload = `/${manifest.hero.dir}/${manifest.hero.id}-1920.jpg`;
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "@id": site.site,
+      "@id": canonical,
       name: `${site.brand} - ${site.photographer}`,
       image: largestSrc(manifest.hero, "jpg"),
       description: description,

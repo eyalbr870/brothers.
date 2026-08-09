@@ -1,9 +1,31 @@
 ---
 import data from "@/data/reviews.json";
+import manifest from "@/data/review-photos.generated.json";
 
 const INITIAL = 6;
-const reviews = data.reviews;
 const reviewUrl = data.source;
+
+// Unified review cards: each review shows its text AND its attached photos.
+// Reviewers who attached photos come from the generated manifest (their photos
+// joined by reviewId); reviewers without photos come from the curated list.
+const photoReviewers = Object.entries(manifest.reviews).map(([reviewId, r]) => ({
+  name: r.name,
+  text: r.text,
+  date: r.date,
+  photos: manifest.photos.filter((p) => p.reviewId === reviewId),
+}));
+const photoNames = new Set(photoReviewers.map((r) => r.name));
+const textOnly = data.reviews
+  .filter((r) => !photoNames.has(r.name))
+  .map((r) => ({ name: r.name, text: r.text, date: r.date, photos: [] }));
+
+// Photo cards first, then the remaining text-only reviews.
+const cards = [...photoReviewers, ...textOnly];
+
+// Per-card image sets (full-size) for the lightbox, indexed by card.
+const galleries = cards.map((c) =>
+  c.photos.map((p) => ({ src: p.full, w: p.w, h: p.h, name: p.name }))
+);
 ---
 
 <section class="tst section" id="testimonials">
@@ -35,7 +57,7 @@ const reviewUrl = data.source;
     </header>
 
     <div class="tst__grid" data-tst-grid>
-      {reviews.map((r, i) => (
+      {cards.map((r, i) => (
         <figure class="tcard" data-tst-item hidden={i >= INITIAL}>
           <div class="tcard__stars" aria-hidden="true">
             {Array.from({ length: 5 }).map(() => (
@@ -43,6 +65,34 @@ const reviewUrl = data.source;
             ))}
           </div>
           <blockquote class="tcard__text">{r.text}</blockquote>
+
+          {r.photos.length > 0 && (
+            <div class="tcard__photos" data-count={Math.min(r.photos.length, 6)}>
+              {r.photos.slice(0, 6).map((p, pi) => (
+                <button
+                  class="tcard__photo"
+                  type="button"
+                  data-open-card={i}
+                  data-open-idx={pi}
+                  aria-label={`הגדלת תמונה ${pi + 1} מהביקורת של ${r.name}`}
+                >
+                  <img
+                    src={p.card}
+                    alt={`תמונה מהחתונה — ${r.name}`}
+                    width={p.w}
+                    height={p.h}
+                    loading="lazy"
+                    decoding="async"
+                    style={p.lqip ? `background-image:url('${p.lqip}');background-size:cover` : undefined}
+                  />
+                  {pi === 5 && r.photos.length > 6 && (
+                    <span class="tcard__photo-more">+{r.photos.length - 6}</span>
+                  )}
+                </button>
+              ))}
+            </div>
+          )}
+
           <figcaption class="tcard__meta">
             <span class="tcard__name">{r.name}</span>
             {r.date && <span class="tcard__date">{r.date}</span>}
@@ -52,7 +102,7 @@ const reviewUrl = data.source;
     </div>
 
     <div class="tst__actions">
-      {reviews.length > INITIAL && (
+      {cards.length > INITIAL && (
         <button class="btn btn--ghost" type="button" data-tst-more>עוד ביקורות</button>
       )}
       <a class="btn btn--ghost tst__all" href={reviewUrl} target="_blank" rel="noopener">
@@ -60,6 +110,26 @@ const reviewUrl = data.source;
       </a>
     </div>
   </div>
+
+  {galleries.some((g) => g.length > 0) && (
+    <div class="rlb" data-rlb hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="תמונות מהביקורות">
+      <button class="rlb__close" data-rlb-close aria-label="סגירה">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+      <button class="rlb__nav rlb__nav--prev" data-rlb-prev aria-label="הקודם">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+      <button class="rlb__nav rlb__nav--next" data-rlb-next aria-label="הבא">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 6 9 12 15 18"/></svg>
+      </button>
+      <figure class="rlb__stage" data-rlb-stage>
+        <img class="rlb__img" data-rlb-img alt="" />
+        <figcaption class="rlb__cap" data-rlb-cap></figcaption>
+      </figure>
+      <div class="rlb__counter" data-rlb-counter></div>
+    </div>
+    <script type="application/json" data-rlb-data set:html={JSON.stringify(galleries)}></script>
+  )}
 </section>
 
 <style>
@@ -149,6 +219,55 @@ const reviewUrl = data.source;
   }
   .tcard__text::before { content: "\201D"; }
   .tcard__text::after { content: "\201C"; }
+
+  /* Attached photos inside the card */
+  .tcard__photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-block-start: 1.2rem;
+  }
+  .tcard__photos[data-count="1"] { grid-template-columns: 1fr; }
+  .tcard__photos[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
+  .tcard__photo {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 5px;
+    aspect-ratio: 1;
+    background: var(--cream-2);
+    cursor: pointer;
+  }
+  .tcard__photos[data-count="1"] .tcard__photo { aspect-ratio: 4 / 3; }
+  .tcard__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease);
+  }
+  .tcard__photo:hover img { transform: scale(1.06); }
+  .tcard__photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(69, 50, 38, 0);
+    transition: background 0.3s var(--ease);
+  }
+  .tcard__photo:hover::after { background: rgba(69, 50, 38, 0.12); }
+  .tcard__photo-more {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(38, 26, 18, 0.55);
+    color: #fff;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 1.25rem;
+    z-index: 1;
+  }
+
   .tcard__meta {
     display: flex;
     align-items: baseline;
@@ -177,6 +296,86 @@ const reviewUrl = data.source;
   @media (max-width: 460px) {
     .tst__badge { flex-wrap: wrap; justify-content: center; gap: 0.5rem 0.75rem; }
   }
+
+  /* ---------------- Review lightbox ---------------- */
+  .rlb {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(32, 22, 16, 0.94);
+    backdrop-filter: blur(6px);
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+  }
+  .rlb[hidden] { display: none; }
+  .rlb.is-open { opacity: 1; }
+  .rlb__stage {
+    max-width: min(92vw, 1100px);
+    max-height: 86svh;
+    display: grid;
+    place-items: center;
+    gap: 0.9rem;
+  }
+  .rlb__img {
+    max-width: 92vw;
+    max-height: 78svh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+  }
+  .rlb__img.is-ready { opacity: 1; }
+  .rlb__cap {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    text-align: center;
+  }
+  .rlb__close,
+  .rlb__nav {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+  .rlb__close:hover,
+  .rlb__nav:hover { background: rgba(255, 255, 255, 0.2); }
+  .rlb__close {
+    top: clamp(0.8rem, 2vw, 1.6rem);
+    inset-inline-end: clamp(0.8rem, 2vw, 1.6rem);
+  }
+  .rlb__nav { top: 50%; transform: translateY(-50%); }
+  .rlb__nav:hover { transform: translateY(-50%) scale(1.06); }
+  .rlb__nav--prev { inset-inline-end: clamp(0.6rem, 2vw, 1.8rem); }
+  .rlb__nav--next { inset-inline-start: clamp(0.6rem, 2vw, 1.8rem); }
+  .rlb__counter {
+    position: absolute;
+    inset-block-end: clamp(0.9rem, 2.5vw, 1.8rem);
+    inset-inline: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: var(--font-label);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    direction: ltr;
+  }
+  /* A single-image set hides the nav + counter chrome. */
+  .rlb[data-single] .rlb__nav,
+  .rlb[data-single] .rlb__counter { display: none; }
+  @media (max-width: 620px) {
+    .rlb__nav { width: 44px; height: 44px; }
+  }
 </style>
 
 <script>
@@ -186,4 +385,80 @@ const reviewUrl = data.source;
     grid?.querySelectorAll("[data-tst-item][hidden]").forEach((el) => el.removeAttribute("hidden"));
     moreBtn.remove();
   });
+
+  // ---- Fullscreen lightbox, scoped to the photos of the clicked review ----
+  const galleries = JSON.parse(document.querySelector("[data-rlb-data]")?.textContent || "[]");
+  const lb = document.querySelector("[data-rlb]");
+  if (lb && galleries.length) {
+    const lbImg = lb.querySelector("[data-rlb-img]");
+    const cap = lb.querySelector("[data-rlb-cap]");
+    const counter = lb.querySelector("[data-rlb-counter]");
+    let set = [];
+    let current = 0;
+    let lastFocus = null;
+
+    const show = (idx) => {
+      current = (idx + set.length) % set.length;
+      const d = set[current];
+      lbImg.classList.remove("is-ready");
+      const img = new Image();
+      img.onload = () => {
+        lbImg.src = d.src;
+        lbImg.width = d.w;
+        lbImg.height = d.h;
+        lbImg.classList.add("is-ready");
+      };
+      img.src = d.src;
+      cap.textContent = d.name || "";
+      counter.textContent = `${current + 1} / ${set.length}`;
+      [current + 1, current - 1].forEach((k) => {
+        new Image().src = set[(k + set.length) % set.length].src;
+      });
+    };
+    const open = (cardIdx, photoIdx) => {
+      set = galleries[cardIdx] || [];
+      if (!set.length) return;
+      lb.toggleAttribute("data-single", set.length < 2);
+      lastFocus = document.activeElement;
+      lb.hidden = false;
+      lb.setAttribute("aria-hidden", "false");
+      requestAnimationFrame(() => lb.classList.add("is-open"));
+      document.body.style.overflow = "hidden";
+      show(photoIdx);
+      lb.querySelector("[data-rlb-close]")?.focus();
+    };
+    const close = () => {
+      lb.classList.remove("is-open");
+      lb.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      setTimeout(() => { lb.hidden = true; lbImg.removeAttribute("src"); }, 320);
+      lastFocus?.focus?.();
+    };
+    const next = () => show(current + 1);
+    const prev = () => show(current - 1);
+
+    document.querySelectorAll("[data-open-card]").forEach((btn) =>
+      btn.addEventListener("click", () =>
+        open(Number(btn.getAttribute("data-open-card")), Number(btn.getAttribute("data-open-idx")))
+      )
+    );
+    lb.querySelector("[data-rlb-close]")?.addEventListener("click", close);
+    lb.querySelector("[data-rlb-next]")?.addEventListener("click", next);
+    lb.querySelector("[data-rlb-prev]")?.addEventListener("click", prev);
+    lb.addEventListener("click", (e) => {
+      if (e.target === lb || e.target.classList.contains("rlb__stage")) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (lb.hidden) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") next(); // RTL: left = forward
+      else if (e.key === "ArrowRight") prev();
+    });
+    let tx = 0;
+    lb.addEventListener("touchstart", (e) => (tx = e.touches[0].clientX), { passive: true });
+    lb.addEventListener("touchend", (e) => {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (set.length > 1 && Math.abs(dx) > 45) (dx < 0 ? prev : next)();
+    }, { passive: true });
+  }
 </script>

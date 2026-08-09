@@ -1,0 +1,628 @@
+---
+import site from "@/data/site.js";
+
+const f = site.finder;
+const titleLines = f.title.split("\n");
+
+const guestsStep = f.steps.find((s) => s.key === "guests");
+
+// Map a numeric guest count to a package tier via the step's thresholds.
+const tierForGuests = (n) => {
+  const [t1, t2] = guestsStep.thresholds;
+  const [b, c, p] = guestsStep.tiers;
+  return n <= t1 ? b : n <= t2 ? c : p;
+};
+
+// --- Server-rendered defaults (progressive enhancement) ---
+const defaults = {
+  guests: guestsStep.default, // numeric guest count
+  coverage: "video",
+  extras: [],
+};
+
+const pkg0 = f.packages[tierForGuests(defaults.guests)];
+const includes0 = [
+  ...pkg0.stills,
+  ...(defaults.coverage === "video" ? pkg0.video : []),
+  ...f.common,
+];
+
+// Slider readout + track fill for the server-rendered default.
+const guestsReadout0 =
+  defaults.guests >= guestsStep.max
+    ? guestsStep.maxLabel
+    : `${defaults.guests} ${guestsStep.unit}`;
+const guestsFill0 = `${((defaults.guests - guestsStep.min) / (guestsStep.max - guestsStep.min)) * 100}%`;
+
+// WhatsApp deep link for the default selection
+const coverageLabel0 =
+  defaults.coverage === "video"
+    ? f.result.coverageVideo
+    : f.result.coverageStills;
+const waMsg0 = f.result.whatsappText
+  .replace("{pkg}", pkg0.name)
+  .replace("{coverage}", coverageLabel0)
+  .replace("{extras}", "");
+const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waMsg0)}`;
+---
+
+<section class="finder" id="finder">
+  <div class="finder__head container">
+    <p class="eyebrow" data-reveal>{f.eyebrow}</p>
+    <h2 class="finder__title" data-reveal>
+      {titleLines.map((l) => <span>{l}</span>)}
+    </h2>
+    <p class="finder__subtitle" data-reveal>{f.subtitle}</p>
+  </div>
+
+  <div class="finder__card container" data-reveal data-finder>
+    <div class="finder__grid">
+      <!-- ============ Inputs (right in RTL) ============ -->
+      <div class="finder__inputs">
+        {
+          f.steps.map((step) => {
+            const isMulti = !!step.multi;
+            if (step.type === "slider") {
+              return (
+                <div class="fq">
+                  <div class="fq__slider-head">
+                    <h3 class="fq__label">{step.q}</h3>
+                    <span class="fq__readout" data-readout>{guestsReadout0}</span>
+                  </div>
+                  <p class="fq__help">{step.help}</p>
+                  <input
+                    type="range"
+                    class="fq__slider"
+                    data-slider
+                    min={step.min}
+                    max={step.max}
+                    step={step.step}
+                    value={defaults.guests}
+                    style={`--fill:${guestsFill0}`}
+                    aria-label={step.q}
+                  />
+                  <div class="fq__slider-ends">
+                    <span>{step.minLabel}</span>
+                    <span>{step.maxLabel}</span>
+                  </div>
+                </div>
+              );
+            }
+            return (
+              <div class="fq">
+                <h3 class="fq__label">{step.q}</h3>
+                <p class="fq__help">{step.help}</p>
+                <div
+                  class="fq__opts"
+                  role="group"
+                  data-opts={step.key}
+                  data-multi={isMulti ? "1" : "0"}
+                >
+                  {step.options.map((o) => {
+                    const val = o.value ?? o.id;
+                    const selected = isMulti
+                      ? defaults.extras.includes(o.id)
+                      : defaults[step.key] === val;
+                    return (
+                      <button
+                        type="button"
+                        class={`pill${selected ? " is-selected" : ""}`}
+                        data-group={step.key}
+                        data-value={val}
+                        data-id={o.id}
+                        aria-pressed={selected ? "true" : "false"}
+                      >
+                        <span class="pill__label">{o.label}</span>
+                        <span class="pill__note">{o.note}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <!-- ============ Result panel (left in RTL) ============ -->
+      <aside class="finder__panel" data-panel>
+        <div class="panel__banner">
+          <p class="panel__eyebrow">{f.result.eyebrow}</p>
+          <div class="panel__name" data-r-name>{pkg0.name}</div>
+          <p class="panel__tag" data-r-tag>{pkg0.tag}</p>
+          <p class="panel__guests" data-r-guests>{pkg0.guests}</p>
+        </div>
+
+        <p class="panel__subtitle">{f.result.includesTitle}</p>
+        <ul class="panel__list" data-r-includes>
+          {includes0.map((t) => (
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="panel__addons" data-r-addons hidden>
+          <p class="panel__subtitle">{f.result.addonsTitle}</p>
+          <div class="panel__chips" data-r-chips></div>
+        </div>
+
+        <div class="panel__cta-block">
+          <h3 class="panel__cta-heading">{f.result.ctaHeading}</h3>
+          <p class="panel__cta-text">{f.result.ctaText}</p>
+          <a
+            class="btn panel__cta"
+            data-r-wa
+            href={wa0}
+            target="_blank"
+            rel="noopener">{f.result.ctaWhatsapp}</a>
+          <a class="panel__link" href="#contact">{f.result.ctaContact}</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Global because option pills / result nodes are re-rendered at runtime in
+     JS and would not receive Astro's scoped-style attribute. All selectors are
+     namespaced under .finder to avoid leaking. -->
+<style is:global>
+  .finder {
+    background: var(--cream);
+    padding-block: clamp(3.5rem, 2rem + 6vw, 7rem);
+  }
+  .finder__head {
+    text-align: center;
+    max-width: 760px;
+    margin-block-end: clamp(2rem, 1rem + 3vw, 3.4rem);
+  }
+  .finder__head .eyebrow { margin-block-end: 1rem; }
+  .finder__title {
+    font-size: var(--fs-h2);
+    line-height: 1.05;
+    margin-block-end: 1.1rem;
+  }
+  .finder__title span { display: block; }
+  .finder__subtitle {
+    color: var(--ink-60);
+    font-weight: 300;
+    font-size: var(--fs-lead);
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  /* ---- Outer card ---- */
+  .finder__card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: 0 40px 80px -50px rgba(69, 50, 38, 0.55);
+    padding: clamp(1.4rem, 1rem + 3vw, 3.2rem);
+  }
+  .finder__grid {
+    display: grid;
+    grid-template-columns: 1fr 0.92fr;
+    gap: clamp(1.6rem, 1rem + 3vw, 3.4rem);
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .finder__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---- Inputs ---- */
+  .finder .fq { margin-block-end: clamp(1.8rem, 1rem + 2vw, 2.6rem); }
+  .finder .fq:last-child { margin-block-end: 0; }
+  .finder .fq__label {
+    font-size: var(--fs-h3);
+    line-height: 1.15;
+    margin-block-end: 0.35rem;
+  }
+  .finder .fq__help {
+    color: var(--ink-60);
+    font-weight: 300;
+    font-size: 0.98rem;
+    margin-block-end: 1rem;
+  }
+
+  /* ---- Slider (guest count) ---- */
+  .finder .fq__slider-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-block-end: 0.35rem;
+  }
+  .finder .fq__slider-head .fq__label { margin-block-end: 0; }
+  .finder .fq__readout {
+    flex: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--chestnut);
+    white-space: nowrap;
+  }
+  .finder .fq__slider {
+    -webkit-appearance: none;
+    appearance: none;
+    direction: rtl; /* 0 on the right, max on the left */
+    width: 100%;
+    height: 6px;
+    border-radius: 100px;
+    background: linear-gradient(
+      to left,
+      var(--chestnut) var(--fill, 0%),
+      var(--cream-2) var(--fill, 0%)
+    );
+    cursor: pointer;
+    outline-offset: 6px;
+  }
+  .finder .fq__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1.5px solid var(--chestnut);
+    box-shadow: 0 4px 12px -3px rgba(69, 50, 38, 0.5);
+    transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+  }
+  .finder .fq__slider::-webkit-slider-thumb:hover,
+  .finder .fq__slider:active::-webkit-slider-thumb {
+    transform: scale(1.12);
+    box-shadow: 0 6px 16px -3px rgba(69, 50, 38, 0.55);
+  }
+  .finder .fq__slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1.5px solid var(--chestnut);
+    box-shadow: 0 4px 12px -3px rgba(69, 50, 38, 0.5);
+  }
+  .finder .fq__slider::-moz-range-track {
+    height: 6px;
+    border-radius: 100px;
+    background: transparent;
+  }
+  .finder .fq__slider-ends {
+    display: flex;
+    justify-content: space-between;
+    margin-block-start: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--ink-45);
+    font-weight: 300;
+  }
+
+  .finder .fq__opts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.7rem;
+  }
+  .finder .pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    text-align: center;
+    padding: 0.85rem 0.9rem;
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    transition:
+      border-color 0.3s var(--ease),
+      background 0.3s var(--ease),
+      color 0.3s var(--ease),
+      transform 0.3s var(--ease),
+      box-shadow 0.3s var(--ease);
+  }
+  .finder .pill:hover {
+    transform: translateY(-2px);
+    border-color: var(--mocha);
+    box-shadow: 0 12px 26px -18px rgba(69, 50, 38, 0.55);
+  }
+  .finder .pill__label {
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--espresso);
+    transition: color 0.3s var(--ease);
+  }
+  .finder .pill__note {
+    font-size: 0.82rem;
+    color: var(--ink-60);
+    font-weight: 300;
+    transition: color 0.3s var(--ease);
+  }
+  .finder .pill.is-selected {
+    background: var(--espresso);
+    border-color: var(--espresso);
+    box-shadow: 0 14px 30px -16px rgba(69, 50, 38, 0.6);
+  }
+  .finder .pill.is-selected .pill__label { color: var(--paper); }
+  .finder .pill.is-selected .pill__note { color: rgba(255, 255, 255, 0.72); }
+
+  /* ---- Result panel ---- */
+  .finder__panel {
+    position: sticky;
+    top: calc(var(--header-h) + 1rem);
+    background: var(--cream-2);
+    border-radius: 20px;
+    padding: clamp(1.6rem, 1rem + 2.5vw, 2.6rem);
+  }
+  @media (max-width: 900px) {
+    .finder__panel { position: static; }
+  }
+  .finder .panel__banner {
+    background: var(--espresso);
+    border-radius: 16px;
+    padding: clamp(1.6rem, 1rem + 2vw, 2.3rem);
+    text-align: center;
+    margin-block-end: clamp(1.4rem, 1rem + 1.5vw, 2rem);
+  }
+  .finder .panel__eyebrow {
+    font-family: var(--font-label);
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-block-end: 0.7rem;
+  }
+  .finder .panel__name {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 2rem + 3vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--paper);
+    direction: ltr;
+  }
+  .finder .panel__tag {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    color: var(--sand);
+    margin-block-start: 0.6rem;
+  }
+  .finder .panel__guests {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 300;
+    margin-block-start: 0.4rem;
+  }
+  .finder .panel__subtitle {
+    font-family: var(--font-label);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mocha);
+    margin-block-end: 0.95rem;
+  }
+  .finder .panel__list { display: grid; gap: 0.65rem; }
+  .finder .panel__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    line-height: 1.5;
+    font-size: 0.98rem;
+  }
+  .finder .panel__list svg {
+    flex: none;
+    width: 17px;
+    height: 17px;
+    margin-block-start: 0.3em;
+    color: var(--chestnut);
+  }
+  .finder .panel__addons {
+    margin-block-start: 1.5rem;
+    padding-block-start: 1.4rem;
+    border-block-start: 1px solid var(--line);
+  }
+  .finder .panel__chips { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+  .finder .chip {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--chestnut);
+  }
+
+  .finder .panel__cta-block {
+    margin-block-start: clamp(1.6rem, 1rem + 2vw, 2.4rem);
+    padding-block-start: clamp(1.4rem, 1rem + 1.5vw, 1.9rem);
+    border-block-start: 1px solid var(--line);
+  }
+  .finder .panel__cta-heading {
+    font-size: var(--fs-h3);
+    line-height: 1.1;
+    margin-block-end: 0.6rem;
+  }
+  .finder .panel__cta-text {
+    color: var(--ink-60);
+    font-weight: 300;
+    font-size: 0.98rem;
+    margin-block-end: 1.3rem;
+  }
+  .finder .panel__cta {
+    width: 100%;
+    margin-block-end: 0.9rem;
+  }
+  .finder .panel__link {
+    display: block;
+    text-align: center;
+    font-family: var(--font-label);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--ink-60);
+    transition: color 0.3s var(--ease);
+  }
+  .finder .panel__link:hover { color: var(--chestnut); }
+
+  /* Fade result changes */
+  .finder [data-r-name],
+  .finder [data-r-tag],
+  .finder [data-r-guests],
+  .finder [data-r-includes],
+  .finder [data-r-addons] {
+    transition: opacity 0.25s var(--ease);
+  }
+  .finder.is-updating [data-r-name],
+  .finder.is-updating [data-r-tag],
+  .finder.is-updating [data-r-guests],
+  .finder.is-updating [data-r-includes],
+  .finder.is-updating [data-r-addons] {
+    opacity: 0.35;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .finder.is-updating [data-r-name],
+    .finder.is-updating [data-r-tag],
+    .finder.is-updating [data-r-guests],
+    .finder.is-updating [data-r-includes],
+    .finder.is-updating [data-r-addons] { opacity: 1; }
+  }
+</style>
+
+<script
+  is:inline
+  define:vars={{ f, defaults, guestsStep, whatsapp: site.contact.whatsapp }}
+>
+  (() => {
+    const section = document.querySelector(".finder");
+    const root = document.querySelector("[data-finder]");
+    if (!root) return;
+
+    const state = {
+      guests: defaults.guests, // numeric guest count
+      coverage: defaults.coverage,
+      extras: [...defaults.extras],
+    };
+
+    // Map a numeric guest count to a package tier.
+    const tierForGuests = (n) => {
+      const [t1, t2] = guestsStep.thresholds;
+      const [b, c, p] = guestsStep.tiers;
+      return n <= t1 ? b : n <= t2 ? c : p;
+    };
+
+    const check = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+    // Result nodes
+    const nName = root.querySelector("[data-r-name]");
+    const nTag = root.querySelector("[data-r-tag]");
+    const nGuests = root.querySelector("[data-r-guests]");
+    const nIncludes = root.querySelector("[data-r-includes]");
+    const nAddons = root.querySelector("[data-r-addons]");
+    const nChips = root.querySelector("[data-r-chips]");
+    const nWa = root.querySelector("[data-r-wa]");
+
+    const render = () => {
+      const pkg = f.packages[tierForGuests(state.guests)] || f.packages.classic;
+      const includes = [...pkg.stills];
+      if (state.coverage === "video") includes.push(...pkg.video);
+      includes.push(...f.common);
+
+      nName.textContent = pkg.name;
+      nTag.textContent = pkg.tag;
+      nGuests.textContent = pkg.guests;
+      nIncludes.innerHTML = includes
+        .map((t) => `<li>${check}<span>${t}</span></li>`)
+        .join("");
+
+      // Extras
+      if (state.extras.length) {
+        nChips.innerHTML = state.extras
+          .map((id) => `<span class="chip">${f.addons[id].name}</span>`)
+          .join("");
+        nAddons.hidden = false;
+      } else {
+        nAddons.hidden = true;
+        nChips.innerHTML = "";
+      }
+
+      // WhatsApp deep link
+      const coverageLabel =
+        state.coverage === "video"
+          ? f.result.coverageVideo
+          : f.result.coverageStills;
+      const extrasText = state.extras.length
+        ? f.result.extrasPrefix +
+          state.extras.map((id) => f.addons[id].name).join(", ")
+        : "";
+      const msg = f.result.whatsappText
+        .replace("{pkg}", pkg.name)
+        .replace("{coverage}", coverageLabel)
+        .replace("{extras}", extrasText);
+      nWa.setAttribute(
+        "href",
+        `https://wa.me/${whatsapp}?text=${encodeURIComponent(msg)}`
+      );
+    };
+
+    const flash = () => {
+      section.classList.add("is-updating");
+      setTimeout(() => section.classList.remove("is-updating"), 180);
+    };
+
+    // Wire up the guest-count slider
+    const slider = root.querySelector("[data-slider]");
+    const readout = root.querySelector("[data-readout]");
+    if (slider) {
+      const min = Number(slider.min);
+      const max = Number(slider.max);
+      let lastTier = tierForGuests(state.guests);
+      slider.addEventListener("input", () => {
+        const val = Number(slider.value);
+        state.guests = val;
+        // Update readout + track fill on every tick (cheap).
+        readout.textContent =
+          val >= max ? guestsStep.maxLabel : `${val} ${guestsStep.unit}`;
+        slider.style.setProperty(
+          "--fill",
+          `${((val - min) / (max - min)) * 100}%`
+        );
+        // Only rebuild the panel when the recommended tier actually changes.
+        const tier = tierForGuests(val);
+        if (tier !== lastTier) {
+          lastTier = tier;
+          flash();
+          render();
+        }
+      });
+    }
+
+    // Wire up pills
+    root.querySelectorAll(".pill").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-group");
+        const val = btn.getAttribute("data-value");
+        const id = btn.getAttribute("data-id");
+        const group = btn.closest("[data-opts]");
+        const multi = group.getAttribute("data-multi") === "1";
+
+        if (multi) {
+          const i = state.extras.indexOf(id);
+          if (i >= 0) state.extras.splice(i, 1);
+          else state.extras.push(id);
+          const on = state.extras.includes(id);
+          btn.classList.toggle("is-selected", on);
+          btn.setAttribute("aria-pressed", String(on));
+        } else {
+          if (state[key] === val) return;
+          state[key] = val;
+          group.querySelectorAll(".pill").forEach((b) => {
+            const sel = b === btn;
+            b.classList.toggle("is-selected", sel);
+            b.setAttribute("aria-pressed", String(sel));
+          });
+        }
+        flash();
+        render();
+      });
+    });
+
+    render();
+  })();
+</script>

@@ -20,3 +20,19 @@ export function largestSrc(item, ext = "jpg") {
 export function aspect(item) {
   return `${item.width} / ${item.height}`;
 }
+
+// Find a gallery item object by its id (e.g. "cYB-823").
+export function itemById(manifest, id) {
+  return manifest.items.find((i) => i.id === id);
+}
+
+// Resolve a photo reference to a manifest item object. Accepts a background
+// key ("contact"/"intro"), the hero id, or any gallery item id.
+export function resolveItem(manifest, ref) {
+  if (!ref) return manifest.hero;
+  return (
+    manifest.backgrounds[ref] ??
+    (manifest.hero.id === ref ? manifest.hero : itemById(manifest, ref)) ??
+    manifest.hero
+  );
+}

@@ -1,0 +1,87 @@
+---
+import manifest from "@/data/gallery.generated.json";
+import { itemById } from "@/lib/images.js";
+import Picture from "@/components/Picture.astro";
+
+const { campaign } = Astro.props;
+const ids = campaign.galleryIds ?? [];
+const items = ids.map((id) => itemById(manifest, id)).filter(Boolean);
+---
+
+{items.length > 0 && (
+  <section class="lpgal section" id="gallery">
+    <div class="container">
+      <header class="lpgal__head">
+        <p class="eyebrow" data-reveal>PORTFOLIO</p>
+        <h2 class="lpgal__title" data-reveal>מבחר מהעבודות</h2>
+      </header>
+    </div>
+    <div class="lpgal__scroller" data-reveal>
+      <ul class="lpgal__track">
+        {items.map((item) => (
+          <li class="lpgal__cell">
+            <Picture
+              item={item}
+              alt="Brothers. - צילום אירועים"
+              sizes="(max-width: 760px) 78vw, 32vw"
+              class="lpgal__pic"
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  .lpgal {
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .lpgal__head {
+    text-align: center;
+    margin-block-end: clamp(1.8rem, 1rem + 2vw, 3rem);
+  }
+  .lpgal__head .eyebrow { margin-block-end: 0.8rem; }
+  .lpgal__title { font-size: var(--fs-h2); }
+
+  /* Desktop: 3-col grid. Mobile: horizontal swipe strip. */
+  .lpgal__scroller {
+    width: 100%;
+  }
+  .lpgal__track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.6rem, 0.3rem + 1vw, 1.1rem);
+    padding-inline: var(--gutter);
+    max-width: var(--maxw);
+    margin-inline: auto;
+  }
+  .lpgal__cell {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .lpgal__cell :global(.lpgal__pic) {
+    aspect-ratio: 4 / 5 !important;
+  }
+
+  @media (max-width: 760px) {
+    .lpgal__scroller {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .lpgal__scroller::-webkit-scrollbar { display: none; }
+    .lpgal__track {
+      display: flex;
+      gap: 0.7rem;
+      padding-inline: var(--gutter);
+      width: max-content;
+    }
+    .lpgal__cell {
+      flex: 0 0 78vw;
+      scroll-snap-align: center;
+    }
+  }
+</style>

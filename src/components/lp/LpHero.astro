@@ -1,0 +1,150 @@
+---
+import site from "@/data/site.js";
+import manifest from "@/data/gallery.generated.json";
+import { srcset, fallbackSrc, resolveItem } from "@/lib/images.js";
+
+const { campaign } = Astro.props;
+const h = campaign.hero;
+const bg = resolveItem(manifest, h.bgId);
+const titleLines = (h.title ?? "").split("\n");
+
+const waText = campaign.whatsappText ?? site.contact.whatsappText;
+const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waText)}`;
+const waLabel = campaign.cta?.whatsapp ?? "דברו איתי בוואטסאפ";
+---
+
+<section class="lphero" id="hero">
+  <div class="lphero__media">
+    <picture>
+      <source type="image/webp" srcset={srcset(bg, "webp")} sizes="100vw" />
+      <source type="image/jpeg" srcset={srcset(bg, "jpg")} sizes="100vw" />
+      <img
+        src={fallbackSrc(bg, "jpg")}
+        alt={`${site.brand} - ${h.eyebrow ?? "צילום"}`}
+        width={bg.width}
+        height={bg.height}
+        fetchpriority="high"
+        decoding="async"
+        style={`background-image:url('${bg.lqip}')`}
+      />
+    </picture>
+    <div class="lphero__scrim"></div>
+  </div>
+
+  <div class="lphero__inner container">
+    {h.eyebrow && <p class="eyebrow lphero__eyebrow">{h.eyebrow}</p>}
+    <h1 class="lphero__title">
+      {titleLines.map((line, i) => (
+        <span class="lphero__line" style={`--i:${i}`}>{line}</span>
+      ))}
+    </h1>
+    {h.subtitle && <p class="lphero__subtitle">{h.subtitle}</p>}
+    <div class="lphero__actions">
+      <a class="btn btn--light" href="#lead">{campaign.form?.submit ?? "השאירו פרטים"}</a>
+      <a
+        class="btn btn--outline-light"
+        href={wa}
+        target="_blank"
+        rel="noopener"
+        data-lp-wa
+      >{waLabel}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lphero {
+    position: relative;
+    min-height: 92svh;
+    display: flex;
+    align-items: flex-end;
+    padding-block-end: clamp(3rem, 2rem + 6vw, 6.5rem);
+    color: #fff;
+    overflow: hidden;
+  }
+  .lphero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .lphero__media picture,
+  .lphero__media img {
+    width: 100%;
+    height: 100%;
+  }
+  .lphero__media img {
+    object-fit: cover;
+    object-position: center 32%;
+    background-size: cover;
+    background-position: center;
+    animation: lpheroZoom 14s var(--ease) forwards;
+  }
+  @keyframes lpheroZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+  }
+  .lphero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(40, 28, 20, 0.78) 0%,
+      rgba(40, 28, 20, 0.28) 45%,
+      rgba(40, 28, 20, 0.2) 72%,
+      rgba(40, 28, 20, 0.42) 100%
+    );
+  }
+
+  .lphero__inner {
+    width: 100%;
+    max-width: 1180px;
+  }
+  .lphero__eyebrow {
+    color: rgba(255, 255, 255, 0.86);
+    margin-block-end: 1.2rem;
+  }
+  .lphero__title {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: var(--fs-h1);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    color: #fff;
+    text-shadow: 0 2px 30px rgba(30, 20, 14, 0.35);
+  }
+  .lphero__line {
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: lpheroLine 1s var(--ease) forwards;
+    animation-delay: calc(0.15s + var(--i) * 0.12s);
+  }
+  @keyframes lpheroLine {
+    to { opacity: 1; transform: none; }
+  }
+  .lphero__subtitle {
+    margin-block-start: 1.6rem;
+    max-width: 46ch;
+    font-size: var(--fs-lead);
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .lphero__actions {
+    margin-block-start: 2.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lphero__media img { animation: none; }
+    .lphero__line { animation: none; opacity: 1; transform: none; }
+  }
+</style>
+
+<script is:inline define:vars={{ slug: campaign.slug }}>
+  document.querySelector("[data-lp-wa]")?.addEventListener("click", () => {
+    window.lpTrack?.("Contact", { method: "whatsapp", campaign: slug });
+  });
+</script>
