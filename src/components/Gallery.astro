@@ -446,8 +446,18 @@ const tileSizes = "220px";
     setActive(null);
   };
 
+  // Freeze the pressed column the instant a press starts, so the tile can't
+  // drift out from under the pointer between pointerdown and pointerup — that
+  // drift is what suppressed the click event and left some tiles unopenable.
+  const onPointerDown = (e) => {
+    const hit = document.elementFromPoint(e.clientX, e.clientY);
+    const tile = hit && hit.closest ? hit.closest("[data-tile-id]") : null;
+    if (tile && wall.contains(tile)) setActive(tile);
+  };
+
   if (wall) {
     wall.addEventListener("pointermove", onPointerMove);
+    wall.addEventListener("pointerdown", onPointerDown);
     wall.addEventListener("pointerenter", () => (wallHovered = true));
     wall.addEventListener("pointerleave", onPointerLeave);
     // Keyboard focus should also light a tile up.
@@ -576,9 +586,14 @@ const tileSizes = "220px";
   const next = () => show(current + 1);
   const prev = () => show(current - 1);
 
-  document.querySelectorAll("[data-open]").forEach((btn) =>
-    btn.addEventListener("click", () => open(Number(btn.getAttribute("data-open"))))
-  );
+  // Open via a single wall-level handler using the currently active tile
+  // (set on pointerdown/move and frozen), instead of per-tile click listeners.
+  // A per-tile listener only fires when pointerdown and pointerup land on the
+  // same element — which fails on a drifting tile — so some tiles never opened.
+  wall?.addEventListener("click", () => {
+    const tile = activeTile;
+    if (tile) open(Number(tile.getAttribute("data-open")));
+  });
   lb?.querySelector("[data-lb-close]")?.addEventListener("click", close);
   lb?.querySelector("[data-lb-next]")?.addEventListener("click", next);
   lb?.querySelector("[data-lb-prev]")?.addEventListener("click", prev);
