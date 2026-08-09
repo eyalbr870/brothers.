@@ -252,11 +252,24 @@ const tileSizes = "220px";
     .drift-wall__col:nth-child(n + 4) { display: none; }
   }
   @media (max-width: 720px) {
-    .drift-wall { --dw-tile-w: 140px; --dw-tile-h: 96px; --dw-gap: 12px; height: clamp(460px, 70vh, 640px); }
+    .drift-wall {
+      /* ~2x larger tiles so the wall reads big and tap targets are generous */
+      --dw-tile-w: 220px; --dw-tile-h: 150px; --dw-gap: 16px;
+      --dw-lift: 48px;
+      height: clamp(520px, 78vh, 720px);
+      perspective: 1050px;
+    }
+    /* Flatter, closer, more head-on base transform (matches the mobile JS
+       config) so the enlarged wall reads centred, not skewed off to one side. */
+    .drift-wall__plane {
+      transform:
+        translate(-50%, -50%) scale(1.16)
+        rotateX(9deg) rotateY(-5deg) rotateZ(0deg) translateZ(-64px);
+    }
   }
   @media (max-width: 520px) {
-    .drift-wall { --dw-tile-w: 122px; --dw-tile-h: 84px; }
-    /* 2 visible columns */
+    .drift-wall { --dw-tile-w: 210px; --dw-tile-h: 144px; }
+    /* 2 visible columns, centred */
     .drift-wall__col:nth-child(n + 3) { display: none; }
   }
 
@@ -355,6 +368,7 @@ const tileSizes = "220px";
     turn: -14,
     roll: 0,
     depth: 120,
+    scale: 1.18,
     speed: 42,
     direction: "up", // "up" | "down"
     variance: 0.45,
@@ -376,11 +390,29 @@ const tileSizes = "220px";
     return 1 + variance * pseudo;
   };
 
-  const dirSign = CFG.direction === "up" ? 1 : -1;
-  const baseVelocities = tracks.map((_, c) => {
-    const altSign = c % 2 === 0 ? 1 : -1;
-    return CFG.speed * columnFactor(c, CFG.variance) * dirSign * altSign;
-  });
+  // On phones the wall is enlarged (~2x tiles); pair that with a flatter,
+  // closer, calmer 3D so it reads bigger, sits centred head-on rather than
+  // skewed, and is easier to tap. Full cinematic tilt on larger screens.
+  const applyConfig = () => {
+    const mobile = window.matchMedia("(max-width: 720px)").matches;
+    Object.assign(
+      CFG,
+      mobile
+        ? { tilt: 9, turn: -5, depth: 64, scale: 1.16, parallax: 0.35, speed: 26 }
+        : { tilt: 16, turn: -14, depth: 120, scale: 1.18, parallax: 0.6, speed: 42 }
+    );
+  };
+  applyConfig();
+
+  let baseVelocities = [];
+  const computeVelocities = () => {
+    const dirSign = CFG.direction === "up" ? 1 : -1;
+    baseVelocities = tracks.map((_, c) => {
+      const altSign = c % 2 === 0 ? 1 : -1;
+      return CFG.speed * columnFactor(c, CFG.variance) * dirSign * altSign;
+    });
+  };
+  computeVelocities();
 
   // Per-column geometry, remeasured on resize (handles responsive tile sizes).
   let copyHeights = [];
@@ -403,7 +435,7 @@ const tileSizes = "220px";
   const applyPlaneTransform = (px, py) => {
     if (!plane) return;
     plane.style.transform =
-      `translate(-50%, -50%) scale(1.18) ` +
+      `translate(-50%, -50%) scale(${CFG.scale}) ` +
       `rotateX(${CFG.tilt + py}deg) rotateY(${CFG.turn + px}deg) rotateZ(${CFG.roll}deg) ` +
       `translateZ(${-CFG.depth}px)`;
   };
@@ -423,6 +455,19 @@ const tileSizes = "220px";
     hoveredCol = tile ? Number(tile.dataset.col) : -1;
   };
 
+  // Resolve the tile at a screen point. document.elementFromPoint is unreliable
+  // inside a `transform-style: preserve-3d` subtree: it intermittently returns
+  // an ancestor (plane/track/col) instead of the tile that is actually there,
+  // which broke hover activation and made taps fail to open the lightbox. The
+  // full elementsFromPoint stack always contains the tile, so search that.
+  const tileAtPoint = (x, y) => {
+    for (const el of document.elementsFromPoint(x, y)) {
+      const t = el.matches?.("[data-tile-id]") ? el : el.closest?.("[data-tile-id]");
+      if (t && wall.contains(t)) return t;
+    }
+    return null;
+  };
+
   const onPointerMove = (e) => {
     const rect = wall?.getBoundingClientRect();
     if (!rect) return;
@@ -430,13 +475,12 @@ const tileSizes = "220px";
       pointer.x = (e.clientX - rect.left) / rect.width - 0.5;
       pointer.y = (e.clientY - rect.top) / rect.height - 0.5;
     }
-    const hit = document.elementFromPoint(e.clientX, e.clientY);
-    const tile = hit && hit.closest ? hit.closest("[data-tile-id]") : null;
+    const tile = tileAtPoint(e.clientX, e.clientY);
     // Hysteresis: only switch when the pointer positively lands on a tile.
     // Falling on a gap between tiles keeps the current one active, so a lifted
     // tile never flickers on/off as the column glides to a halt. The active
     // tile is cleared on pointerleave (or blur), not on every gap.
-    if (tile && wall.contains(tile)) setActive(tile);
+    if (tile) setActive(tile);
   };
 
   const onPointerLeave = () => {
@@ -450,9 +494,8 @@ const tileSizes = "220px";
   // drift out from under the pointer between pointerdown and pointerup — that
   // drift is what suppressed the click event and left some tiles unopenable.
   const onPointerDown = (e) => {
-    const hit = document.elementFromPoint(e.clientX, e.clientY);
-    const tile = hit && hit.closest ? hit.closest("[data-tile-id]") : null;
-    if (tile && wall.contains(tile)) setActive(tile);
+    const tile = tileAtPoint(e.clientX, e.clientY);
+    if (tile) setActive(tile);
   };
 
   if (wall) {
@@ -468,6 +511,8 @@ const tileSizes = "220px";
       })
     );
     window.addEventListener("resize", () => {
+      applyConfig();
+      computeVelocities();
       measure();
     });
   }
@@ -586,12 +631,13 @@ const tileSizes = "220px";
   const next = () => show(current + 1);
   const prev = () => show(current - 1);
 
-  // Open via a single wall-level handler using the currently active tile
-  // (set on pointerdown/move and frozen), instead of per-tile click listeners.
-  // A per-tile listener only fires when pointerdown and pointerup land on the
-  // same element — which fails on a drifting tile — so some tiles never opened.
-  wall?.addEventListener("click", () => {
-    const tile = activeTile;
+  // Open via a single wall-level handler instead of per-tile click listeners
+  // (a per-tile listener only fires when pointerdown and pointerup land on the
+  // same element, which fails on a drifting tile). Prefer the active/lifted
+  // tile, but fall back to hit-testing at the click point so a tap still opens
+  // even when no tile was pre-activated (e.g. pointerdown landed on a gap).
+  wall?.addEventListener("click", (e) => {
+    const tile = activeTile || tileAtPoint(e.clientX, e.clientY);
     if (tile) open(Number(tile.getAttribute("data-open")));
   });
   lb?.querySelector("[data-lb-close]")?.addEventListener("click", close);
