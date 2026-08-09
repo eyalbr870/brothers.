@@ -24,7 +24,7 @@ export const site = {
     whatsapp: "972508193737", // digits only, country code, no +
     // Pre-filled WhatsApp message (customer's point of view). Editable before send.
     whatsappText:
-      "היי יריב! ✨\nהגעתי דרך האתר ואשמח לשמוע פרטים על צילום החתונה שלנו.\nתאריך האירוע: \nמיקום: ",
+      "היי יריב,\nהגעתי דרך האתר ואשמח לשמוע פרטים על צילום החתונה שלנו.\nתאריך האירוע: \nמיקום: ",
     email: "yariv70@gmail.com",
     instagram: "brothers_photography_il", // handle (no @)
     instagramUrl: "https://www.instagram.com/brothers_photography_il",
@@ -232,7 +232,7 @@ export const site = {
       noneLabel: "ללא",
       // {pkg} / {coverage} / {extras} get replaced before sending
       whatsappText:
-        "היי יריב! ✨\nעשינו את שאלון החבילות באתר, והתוצאה שיצאה לנו:\nחבילה: {pkg}\nתיעוד: {coverage}{extras}\nתאריך האירוע: \nמיקום: \nנשמח לשמוע פרטים!",
+        "היי יריב,\nעשינו את שאלון החבילות באתר, והתוצאה שיצאה לנו:\nחבילה: {pkg}\nתיעוד: {coverage}{extras}\nתאריך האירוע: \nמיקום: \nנשמח לשמוע פרטים!",
       coverageStills: "סטילס בלבד",
       coverageVideo: "סטילס + וידאו",
       extrasPrefix: "\nתוספות: ",
