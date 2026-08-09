@@ -1,6 +1,9 @@
 ---
 import site from "@/data/site.js";
 const year = new Date().getFullYear();
+// Landing pages pass nav={false} - the home anchors (#hero, #gallery…) don't
+// exist there, so the nav row would dead-scroll.
+const { nav = true } = Astro.props;
 ---
 
 <footer class="footer">
@@ -10,9 +13,11 @@ const year = new Date().getFullYear();
     </a>
     <p class="footer__tagline">{site.footer.tagline}</p>
 
-    <nav class="footer__nav" aria-label="ניווט תחתון">
-      {site.nav.map((n) => <a href={n.href}>{n.label}</a>)}
-    </nav>
+    {nav && (
+      <nav class="footer__nav" aria-label="ניווט תחתון">
+        {site.nav.map((n) => <a href={n.href}>{n.label}</a>)}
+      </nav>
+    )}
 
     <div class="footer__social">
       <a href={site.contact.instagramUrl} target="_blank" rel="noopener" aria-label="Instagram">
