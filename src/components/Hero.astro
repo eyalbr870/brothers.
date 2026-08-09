@@ -167,6 +167,21 @@ const titleLines = site.hero.title.split("\n");
     100% { transform: translateY(300%); opacity: 0; }
   }
 
+  @media (max-width: 640px) {
+    .hero {
+      padding-block-end: 2.5rem;
+    }
+    .hero__scroll {
+      display: none;
+    }
+  }
+
+  @media (max-height: 700px) {
+    .hero__scroll {
+      display: none;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero__media img { animation: none; }
     .hero__line { animation: none; opacity: 1; transform: none; }
