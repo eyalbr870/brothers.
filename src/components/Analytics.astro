@@ -1,0 +1,72 @@
+---
+// ============================================================
+// Analytics - shared across the homepage (BaseLayout) and the
+// ad landing pages (LandingLayout).
+//
+// Nothing loads until a REAL id is set in src/data/site.js:
+//   analytics.ga4Id        -> GA4 (site-wide traffic + behavior)
+//   analytics.metaPixelId  -> Meta Pixel (ad conversions on /lp/*)
+// While an id still contains the placeholder "X" run, it stays a
+// no-op, so local dev and CI builds never fire tracking. Requests
+// are also skipped on localhost/127.0.0.1 as a second guard.
+//
+// The window.lpTrack / window.lpTrackCustom helpers are always
+// defined (safe no-op when the Pixel is off) so landing-page CTAs
+// can call them without checking whether fbq exists.
+// ============================================================
+import site from "@/data/site.js";
+
+const ga4Id = site.analytics?.ga4Id ?? "";
+// GA4 ids look like "G-ABC123"; the placeholder is "G-XXXXXXXXXX".
+const ga4Enabled = ga4Id.startsWith("G-") && !ga4Id.includes("XXXX");
+
+const pixelId = site.analytics?.metaPixelId ?? "";
+// Pixel ids are all-numeric; the placeholder contains "X".
+const pixelEnabled = pixelId && !pixelId.includes("X");
+---
+
+{ga4Enabled && (
+  <>
+    <script is:inline define:vars={{ ga4Id }}>
+      if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=" + ga4Id;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag("js", new Date());
+        window.gtag("config", ga4Id);
+      }
+    </script>
+  </>
+)}
+
+{pixelEnabled && (
+  <script is:inline define:vars={{ pixelId }}>
+    // Meta Pixel base + PageView (skipped on localhost).
+    if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,"script","https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", pixelId);
+      fbq("track", "PageView");
+    }
+  </script>
+)}
+
+<!-- Conversion tracking helper (safe no-op when Pixel is disabled). -->
+<script is:inline>
+  window.lpTrack = function (event, params) {
+    try {
+      if (typeof window.fbq === "function") window.fbq("track", event, params || {});
+    } catch (e) {}
+  };
+  window.lpTrackCustom = function (event, params) {
+    try {
+      if (typeof window.fbq === "function") window.fbq("trackCustom", event, params || {});
+    } catch (e) {}
+  };
+</script>

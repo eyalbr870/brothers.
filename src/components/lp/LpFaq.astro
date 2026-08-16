@@ -1,7 +1,23 @@
 ---
 const { campaign } = Astro.props;
 const items = campaign.faq ?? [];
+
+// FAQPage structured data so Google can show rich results and AI engines
+// can quote the answers directly.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
 ---
+
+{items.length > 0 && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+)}
 
 {items.length > 0 && (
   <section class="lpfaq section" id="faq">

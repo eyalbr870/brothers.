@@ -35,12 +35,17 @@ export const site = {
   // The form uses Netlify Forms (name="contact"). No endpoint/ID needed -
   // submissions appear in the Netlify dashboard under Forms once deployed.
 
-  // ---- Analytics (landing pages) ----
-  // Meta Pixel for ad-campaign landing pages under /lp/*. TODO: replace the
-  // placeholder with the real Pixel ID from Meta Events Manager. While it
-  // contains an "X", no tracking script loads (dev/build stay clean).
+  // ---- Analytics ----
+  // Loaded site-wide via src/components/Analytics.astro. Each id stays a
+  // no-op while it still contains the placeholder "X" run, so dev/CI builds
+  // never fire tracking. Paste the real values to switch each one on.
   analytics: {
-    metaPixelId: "XXXXXXXXXXXXXXX", // TODO: paste the real Meta Pixel ID
+    // GA4 - overall site traffic + behavior (homepage AND landing pages).
+    // Get it from Google Analytics > Admin > Data Streams > Measurement ID.
+    ga4Id: "G-CR6R4R3H1F", // GA4 Measurement ID (live)
+    // Meta Pixel - ad conversions on the /lp/* campaign pages.
+    // Get it from Meta Events Manager > Data Sources > your Pixel.
+    metaPixelId: "XXXXXXXXXXXXXXX", // TODO: paste the real Meta Pixel ID (numeric)
   },
 
   nav: [
@@ -49,6 +54,7 @@ export const site = {
     { label: "המלצות", href: "#testimonials" },
     { label: "אודות", href: "#about" },
     { label: "חבילות", href: "#finder" },
+    { label: "שאלות", href: "#faq" },
     { label: "צור קשר", href: "#contact" },
   ],
 
@@ -91,6 +97,14 @@ export const site = {
       "אם אתם רוצים אנשים שייכנסו ליום שלכם באמת, שיהיו חלק מהאנרגיה, ושיתעדו את הסיפור שלכם כמו שהוא - ברוכים הבאים ל־Brothers.",
     cta: { label: "לתיאום פגישה", href: "#contact" },
     image: "cYB-617.jpg", // gallery id used as the section portrait
+
+    // ---- Extractable facts strip (GEO / AI search + trust) ----
+    // The rating + couples count are pulled automatically from reviews.json.
+    // Fill the values below with real numbers to add them; leave "" to hide.
+    stats: [
+      { value: "9", suffix: "+", label: "שנות ניסיון" },
+      { value: "400", suffix: "+", label: "חתונות תועדו" },
+    ],
   },
 
   gallery: {
@@ -256,6 +270,38 @@ export const site = {
       error: "משהו השתבש. נסו שוב או פנו אליי בוואטסאפ.",
     },
     directLabel: "או ישירות",
+  },
+
+  // ---- FAQ (homepage) — answer-shaped content for Google + AI search ----
+  faq: {
+    eyebrow: "FAQ",
+    title: "שאלות נפוצות",
+    items: [
+      {
+        q: "כמה עולה צלם חתונות?",
+        a: "המחיר נקבע אישית לפי גודל האירוע, המיקום, סוג התיעוד (סטילס בלבד או סטילס + וידאו) והתוספות שתבחרו. יש שלוש חבילות בסיס — Basic, Classic ו-Premium — ואשמח לבנות לכם הצעה מדויקת אחרי שיחה קצרה.",
+      },
+      {
+        q: "לאילו אזורים אתם מגיעים?",
+        a: "אנחנו מצלמים חתונות בכל הארץ — מרכז, שרון, שפלה, דרום וצפון — בלי הגבלת אזור.",
+      },
+      {
+        q: "כמה צלמים מגיעים לחתונה?",
+        a: "תלוי בחבילה: ב-Basic צלם סטילס אחד, וב-Classic וב-Premium שני צלמי סטילס לכיסוי מכל זווית. אפשר להוסיף צלם או צלמי וידאו לכל חבילה.",
+      },
+      {
+        q: "האם יש גם צילום וידאו לחתונה?",
+        a: "כן. אפשר להוסיף לכל חבילה סרט חתונה קולנועי (עד 90 דקות) וסרט תקציר Highlight של 3-5 דקות, מוכן לשיתוף ברשתות החברתיות.",
+      },
+      {
+        q: "עד איזו שעה מכוסה האירוע?",
+        a: "הכיסוי מתחיל מהתארגנות הכלה ונמשך עד השעה 01:00 בלילה — כולל ריקודי הרחבה.",
+      },
+      {
+        q: "אפשר להיפגש לפני החתונה?",
+        a: "בהחלט. נשמח להיפגש או לדבר לפני, להכיר, להבין את החזון שלכם ולתאם ציפיות. אפשר גם להוסיף צילומי Save the Date עוד לפני החתונה.",
+      },
+    ],
   },
 
   footer: {

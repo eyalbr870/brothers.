@@ -1,6 +1,7 @@
 ---
 import site from "@/data/site.js";
 import manifest from "@/data/gallery.generated.json";
+import reviews from "@/data/reviews.json";
 import Picture from "@/components/Picture.astro";
 
 const a = site.about;
@@ -8,6 +9,16 @@ const titleLines = a.title.split("\n");
 const img =
   manifest.items.find((it) => it.id === a.image.replace(/\.[^.]+$/, "")) ||
   manifest.items[0];
+
+// Extractable facts strip: real rating + couples count from reviews.json,
+// service area, plus any custom stats filled in site.js (empty ones skipped).
+const ratingValue = Math.round((reviews.score / reviews.scoreMax) * 5 * 10) / 10;
+const stats = [
+  { value: ratingValue.toFixed(1), label: "דירוג ממוצע", suffix: "★" },
+  { value: String(reviews.count), label: "זוגות ממליצים" },
+  ...(a.stats ?? []).filter((s) => s.value),
+  { value: "כל הארץ", label: "אזור שירות" },
+];
 ---
 
 <section class="about" id="about">
@@ -28,6 +39,15 @@ const img =
       </h2>
 
       <p class="about__lead" data-reveal>{a.lead}</p>
+
+      <dl class="about__stats" data-reveal>
+        {stats.map((s) => (
+          <div class="about__stat">
+            <dt class="about__stat-val">{s.value}{s.suffix && <span class="about__stat-suffix">{s.suffix}</span>}</dt>
+            <dd class="about__stat-label">{s.label}</dd>
+          </div>
+        ))}
+      </dl>
 
       {a.paragraphs.map((p) => (
         <p class="about__p" data-reveal>{p}</p>
@@ -114,6 +134,30 @@ const img =
   .about__p {
     color: var(--ink-60);
     margin-block-end: 1.15rem;
+  }
+
+  .about__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem 2.4rem;
+    margin-block: 0 2rem;
+    padding-block: 1.6rem;
+    border-block: 1px solid var(--line-soft, rgba(0,0,0,0.08));
+  }
+  .about__stat-val {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.4rem);
+    line-height: 1;
+    color: var(--espresso);
+  }
+  .about__stat-suffix { color: var(--chestnut); margin-inline-start: 0.1em; }
+  .about__stat-label {
+    margin-block-start: 0.35rem;
+    font-family: var(--font-label);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-60);
   }
 
   .about__quote {

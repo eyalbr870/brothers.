@@ -2,7 +2,9 @@
 import "@/styles/global.css";
 import site from "@/data/site.js";
 import manifest from "@/data/gallery.generated.json";
+import reviews from "@/data/reviews.json";
 import { largestSrc } from "@/lib/images.js";
+import Analytics from "@/components/Analytics.astro";
 
 const { title = site.title, description = site.description } = Astro.props;
 const heroPreload = `/${manifest.hero.dir}/${manifest.hero.id}-1920.jpg`;
@@ -10,7 +12,45 @@ const heroPreload = `/${manifest.hero.dir}/${manifest.hero.id}-1920.jpg`;
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).href
   : Astro.url.pathname;
+const siteUrl = (Astro.site || new URL("https://brothers-photography.com")).href;
 const ogImage = new URL("/og-image.jpg", Astro.site || "https://brothers-photography.com").href;
+
+// ---- Ratings from the aggregated mit4mit data (src/data/reviews.json) ----
+// score is out of 100; convert to a 5-star value for schema.org rich results.
+const ratingValue = Math.round((reviews.score / reviews.scoreMax) * 5 * 10) / 10;
+// A handful of full testimonials, surfaced as individual Review nodes so
+// search + AI engines can quote them and show stars.
+const featuredReviews = reviews.reviews.slice(0, 6);
+
+// Rich LocalBusiness schema: identity + service area + rating + reviews.
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${siteUrl}#business`,
+  name: `${site.brand} - ${site.photographer}`,
+  image: ogImage,
+  url: siteUrl,
+  description,
+  email: site.contact.email,
+  telephone: site.contact.phoneIntl,
+  priceRange: "$$",
+  founder: { "@type": "Person", name: site.photographer },
+  areaServed: { "@type": "Country", name: "ישראל" },
+  sameAs: [site.contact.instagramUrl, reviews.source],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue,
+    bestRating: 5,
+    ratingCount: reviews.count,
+  },
+  review: featuredReviews.map((r) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: r.name },
+    datePublished: r.date,
+    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+    reviewBody: r.text,
+  })),
+};
 ---
 
 <!doctype html>
@@ -56,25 +96,11 @@ const ogImage = new URL("/og-image.jpg", Astro.site || "https://brothers-photogr
       crossorigin
     />
 
-    <!-- Structured data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Photograph",
-      name: site.brand,
-      description: description,
-    })} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": canonical,
-      name: `${site.brand} - ${site.photographer}`,
-      image: ogImage,
-      description: description,
-      email: site.contact.email,
-      telephone: site.contact.phoneIntl,
-      priceRange: "$$",
-      sameAs: [site.contact.instagramUrl],
-    })} />
+    <!-- Structured data: LocalBusiness + rating + reviews -->
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+
+    <!-- GA4 + Meta Pixel (each off until its real id is set in site.js) -->
+    <Analytics />
   </head>
   <body>
     <a class="skip-link" href="#gallery">דילוג לגלריה</a>

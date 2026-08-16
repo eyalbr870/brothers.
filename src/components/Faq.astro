@@ -1,0 +1,81 @@
+---
+import site from "@/data/site.js";
+
+const faq = site.faq;
+const items = faq?.items ?? [];
+
+// FAQPage structured data — rich results in Google + quotable by AI engines.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+---
+
+{items.length > 0 && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+)}
+
+{items.length > 0 && (
+  <section class="faq section" id="faq">
+    <div class="container faq__inner">
+      <header class="faq__head">
+        <p class="eyebrow" data-reveal>{faq.eyebrow}</p>
+        <h2 class="faq__title" data-reveal>{faq.title}</h2>
+      </header>
+      <ul class="faq__list">
+        {items.map((item) => (
+          <li class="faq__item" data-reveal>
+            <details>
+              <summary>
+                <span>{item.q}</span>
+                <svg class="faq__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  .faq { background: var(--cream); }
+  .faq__inner { max-width: 780px; }
+  .faq__head { text-align: center; margin-block-end: clamp(1.8rem, 1rem + 2vw, 3rem); }
+  .faq__head .eyebrow { margin-block-end: 0.8rem; }
+  .faq__title { font-size: var(--fs-h2); }
+  .faq__list { display: flex; flex-direction: column; gap: 0.7rem; }
+  .faq__item {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+  }
+  .faq__item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.15rem 1.3rem;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: var(--fs-h3);
+    color: var(--espresso);
+    list-style: none;
+  }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__chev { flex: none; color: var(--chestnut); transition: transform 0.3s var(--ease); }
+  .faq__item details[open] .faq__chev { transform: rotate(180deg); }
+  .faq__item p {
+    padding: 0 1.3rem 1.3rem;
+    color: var(--ink-60);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+</style>

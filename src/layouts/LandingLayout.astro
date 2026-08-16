@@ -2,8 +2,10 @@
 import "@/styles/global.css";
 import site from "@/data/site.js";
 import manifest from "@/data/gallery.generated.json";
+import reviews from "@/data/reviews.json";
 import { largestSrc, resolveItem } from "@/lib/images.js";
 import LpStickyCTA from "@/components/lp/LpStickyCTA.astro";
+import Analytics from "@/components/Analytics.astro";
 
 const { campaign } = Astro.props;
 
@@ -21,9 +23,30 @@ const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).href
   : Astro.url.pathname;
 
-// Meta Pixel loads only when a real id is configured (placeholder has "X").
-const pixelId = site.analytics?.metaPixelId ?? "";
-const pixelEnabled = pixelId && !pixelId.includes("X");
+// Rich LocalBusiness schema (identity + service area + aggregated rating).
+const siteUrl = (Astro.site || new URL("https://brothers-photography.com")).href;
+const ratingValue = Math.round((reviews.score / reviews.scoreMax) * 5 * 10) / 10;
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${siteUrl}#business`,
+  name: `${site.brand} - ${site.photographer}`,
+  image: ogImage,
+  url: siteUrl,
+  description,
+  email: site.contact.email,
+  telephone: site.contact.phoneIntl,
+  priceRange: "$$",
+  founder: { "@type": "Person", name: site.photographer },
+  areaServed: { "@type": "Country", name: "ישראל" },
+  sameAs: [site.contact.instagramUrl, reviews.source],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue,
+    bestRating: 5,
+    ratingCount: reviews.count,
+  },
+};
 ---
 
 <!doctype html>
@@ -63,48 +86,11 @@ const pixelEnabled = pixelId && !pixelId.includes("X");
       crossorigin
     />
 
-    <!-- Structured data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": canonical,
-      name: `${site.brand} - ${site.photographer}`,
-      image: ogImage,
-      description: description,
-      email: site.contact.email,
-      telephone: site.contact.phoneIntl,
-      priceRange: "$$",
-      sameAs: [site.contact.instagramUrl],
-    })} />
+    <!-- Structured data: LocalBusiness + aggregated rating -->
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
 
-    {pixelEnabled && (
-      <script is:inline define:vars={{ pixelId }}>
-        // Meta Pixel base + PageView (skipped on localhost).
-        if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
-          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-          n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-          document,"script","https://connect.facebook.net/en_US/fbevents.js");
-          fbq("init", pixelId);
-          fbq("track", "PageView");
-        }
-      </script>
-    )}
-
-    <!-- Conversion tracking helper (safe no-op when Pixel is disabled). -->
-    <script is:inline>
-      window.lpTrack = function (event, params) {
-        try {
-          if (typeof window.fbq === "function") window.fbq("track", event, params || {});
-        } catch (e) {}
-      };
-      window.lpTrackCustom = function (event, params) {
-        try {
-          if (typeof window.fbq === "function") window.fbq("trackCustom", event, params || {});
-        } catch (e) {}
-      };
-    </script>
+    <!-- GA4 + Meta Pixel + lpTrack helpers (each off until its id is set) -->
+    <Analytics />
   </head>
   <body>
     <a class="skip-link" href="#lead">דילוג לטופס יצירת קשר</a>
