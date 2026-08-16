@@ -1,6 +1,8 @@
 ---
 const { campaign } = Astro.props;
 const items = campaign.benefits ?? [];
+const heading = campaign.benefitsTitle ?? "למה לבחור ב-Brothers.";
+const eyebrow = campaign.benefitsEyebrow ?? "WHY US";
 
 // Inline SVG icon set (stroke-based, currentColor). Keyed by benefit.icon.
 const icons = {
@@ -22,6 +24,10 @@ const icons = {
 {items.length > 0 && (
   <section class="lpben section">
     <div class="container">
+      <header class="lpben__head">
+        <p class="eyebrow" data-reveal>{eyebrow}</p>
+        <h2 class="lpben__heading" data-reveal>{heading}</h2>
+      </header>
       <ul class="lpben__grid">
         {items.map((b, i) => (
           <li class="lpben__card" data-reveal style={`--i:${i}`}>
@@ -41,6 +47,12 @@ const icons = {
   .lpben {
     background: var(--paper);
   }
+  .lpben__head {
+    text-align: center;
+    margin-block-end: clamp(1.8rem, 1rem + 2vw, 3rem);
+  }
+  .lpben__head .eyebrow { margin-block-end: 0.8rem; }
+  .lpben__heading { font-size: var(--fs-h2); }
   .lpben__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

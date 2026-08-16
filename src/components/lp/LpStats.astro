@@ -1,0 +1,98 @@
+---
+import site from "@/data/site.js";
+import reviews from "@/data/reviews.json";
+
+// Trust band. Real rating + couples count come from reviews.json (same
+// source as the homepage About strip); years/weddings from site.about.stats.
+const { campaign } = Astro.props;
+
+const ratingValue =
+  Math.round((reviews.score / reviews.scoreMax) * 5 * 10) / 10;
+
+const custom = (site.about?.stats ?? []).filter((s) => s.value);
+
+const stats = campaign.stats ?? [
+  { value: ratingValue.toFixed(1), suffix: "★", label: "דירוג ממוצע" },
+  { value: String(reviews.count), suffix: "+", label: "זוגות ממליצים" },
+  ...custom,
+];
+---
+
+{stats.length > 0 && (
+  <section class="lpstats">
+    <div class="container">
+      <dl class="lpstats__row">
+        {stats.map((s) => (
+          <div class="lpstats__item" data-reveal>
+            <dt class="lpstats__val">
+              {s.value}
+              {s.suffix && <span class="lpstats__suffix">{s.suffix}</span>}
+            </dt>
+            <dd class="lpstats__label">{s.label}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+)}
+
+<style>
+  .lpstats {
+    background: var(--sand);
+    padding-block: clamp(2.2rem, 1.4rem + 3vw, 3.6rem);
+  }
+  .lpstats__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  }
+  @media (max-width: 620px) {
+    .lpstats__row { grid-template-columns: repeat(2, 1fr); row-gap: 1.8rem; }
+  }
+  .lpstats__item {
+    text-align: center;
+    position: relative;
+  }
+  /* Thin dividers between items (skip the first in each visual row). */
+  .lpstats__item + .lpstats__item::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: calc(-1 * clamp(0.5rem, 0.25rem + 1vw, 1.25rem));
+    inset-block: 0.2rem;
+    width: 1px;
+    background: var(--line);
+  }
+  @media (max-width: 620px) {
+    .lpstats__item:nth-child(odd) + .lpstats__item::before,
+    .lpstats__item + .lpstats__item::before { display: none; }
+    .lpstats__item:nth-child(even)::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: calc(-1 * clamp(0.5rem, 0.25rem + 1vw, 1.25rem));
+      inset-block: 0.2rem;
+      width: 1px;
+      background: var(--line);
+    }
+  }
+  .lpstats__val {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+    line-height: 1;
+    color: var(--chestnut);
+    letter-spacing: -0.01em;
+  }
+  .lpstats__suffix {
+    font-size: 0.6em;
+    margin-inline-start: 0.08em;
+  }
+  .lpstats__label {
+    margin-block-start: 0.55rem;
+    font-family: var(--font-label);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+  }
+</style>

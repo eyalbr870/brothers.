@@ -1,8 +1,10 @@
 ---
 import LandingLayout from "@/layouts/LandingLayout.astro";
 import LpHero from "@/components/lp/LpHero.astro";
+import LpStats from "@/components/lp/LpStats.astro";
 import LpBenefits from "@/components/lp/LpBenefits.astro";
 import LpGalleryStrip from "@/components/lp/LpGalleryStrip.astro";
+import LpValue from "@/components/lp/LpValue.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import LpLeadForm from "@/components/lp/LpLeadForm.astro";
 import LpFaq from "@/components/lp/LpFaq.astro";
@@ -21,8 +23,10 @@ const { campaign } = Astro.props;
 
 <LandingLayout campaign={campaign}>
   <LpHero campaign={campaign} />
+  <LpStats campaign={campaign} />
   <LpBenefits campaign={campaign} />
   <LpGalleryStrip campaign={campaign} />
+  <LpValue campaign={campaign} />
   <Testimonials />
   <LpLeadForm campaign={campaign} />
   <LpFaq campaign={campaign} />
