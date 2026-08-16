@@ -64,12 +64,53 @@ const icons = {
   @media (max-width: 480px) {
     .lpben__grid { grid-template-columns: 1fr; }
   }
+  /* Spotlight-follows-cursor effect, ported from React Bits' SpotlightCard
+     (reactbits.dev) to vanilla Astro and re-tuned to the warm brand palette. */
   .lpben__card {
+    position: relative;
+    overflow: hidden;
     background: var(--cream);
     border: 1px solid var(--line-soft);
     border-radius: 6px;
     padding: clamp(1.5rem, 1rem + 1.5vw, 2.2rem);
     text-align: center;
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --spotlight-color: rgba(125, 88, 68, 0.16); /* chestnut glow */
+    transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+  }
+  .lpben__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(
+      circle at var(--mouse-x) var(--mouse-y),
+      var(--spotlight-color),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .lpben__card:hover,
+  .lpben__card:focus-within {
+    border-color: var(--sand);
+    transform: translateY(-3px);
+  }
+  .lpben__card:hover::before,
+  .lpben__card:focus-within::before {
+    opacity: 1;
+  }
+  /* Keep the card content above the glow layer. */
+  .lpben__card > * {
+    position: relative;
+    z-index: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lpben__card { transition: none; }
+    .lpben__card:hover,
+    .lpben__card:focus-within { transform: none; }
   }
   [data-reveal] { transition-delay: calc(var(--i, 0) * 0.07s); }
   .lpben__icon {
@@ -93,3 +134,14 @@ const icons = {
     font-size: 1rem;
   }
 </style>
+
+<script>
+  // Track the cursor per card and expose it as CSS vars for the radial glow.
+  for (const card of document.querySelectorAll(".lpben__card")) {
+    card.addEventListener("pointermove", (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+      card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+    });
+  }
+</script>

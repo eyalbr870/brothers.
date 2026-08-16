@@ -39,20 +39,6 @@
   },
   "items": [
     {
-      "id": "aa241",
-      "dir": "gallery",
-      "file": "aa241.jpg",
-      "width": 3899,
-      "height": 3899,
-      "widths": [
-        600,
-        1000,
-        1600
-      ],
-      "orientation": "landscape",
-      "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAAAQBQCdASoYABgAPu1ur1KppiQiqAgBMB2JYwCw7A9jYxkNS2GXNIoWIPOrDn03EzfgAP7oUUh7I7yzEZataCLt05zzw0zyAbayl2NmN5ERHvv+lDVzLuTRj6AlFbD+x1q9xlWwZwc/VzgGPqKS/+TXc+IPZ82emMLjzCaKXg9KJjZGHyxYaNeGiuZlsFoz5Lq+RAS/hlXSwlc1GVi6YCotMmm7Q6BaCLpPMpP2pNXhNKkMfhukgAAA"
-    },
-    {
       "id": "YB-1433",
       "dir": "gallery",
       "file": "YB-1433.jpg",

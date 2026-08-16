@@ -1,11 +1,12 @@
 ---
 import manifest from "@/data/gallery.generated.json";
-import { itemById } from "@/lib/images.js";
+import { itemById, largestSrc } from "@/lib/images.js";
 import Picture from "@/components/Picture.astro";
 
 const { campaign } = Astro.props;
 const ids = campaign.galleryIds ?? [];
 const items = ids.map((id) => itemById(manifest, id)).filter(Boolean);
+const alt = "Brothers. - צילום אירועים";
 ---
 
 {items.length > 0 && (
@@ -20,15 +21,41 @@ const items = ids.map((id) => itemById(manifest, id)).filter(Boolean);
       <ul class="lpgal__track">
         {items.map((item) => (
           <li class="lpgal__cell">
-            <Picture
-              item={item}
-              alt="Brothers. - צילום אירועים"
-              sizes="(max-width: 760px) 78vw, 32vw"
-              class="lpgal__pic"
-            />
+            <button
+              type="button"
+              class="lpgal__btn"
+              data-lb
+              data-full={largestSrc(item, "jpg")}
+              data-alt={alt}
+              aria-label="הגדלת התמונה"
+            >
+              <Picture
+                item={item}
+                alt={alt}
+                sizes="(max-width: 760px) 78vw, 32vw"
+                class="lpgal__pic"
+              />
+            </button>
           </li>
         ))}
       </ul>
+    </div>
+
+    <div class="lpgal-lb" data-lb-modal role="dialog" aria-modal="true" aria-label="גלריית תמונות" aria-hidden="true">
+      <button class="lpgal-lb__scrim" data-lb-close aria-label="סגירה" tabindex="-1"></button>
+      <button class="lpgal-lb__nav lpgal-lb__nav--prev" data-lb-prev aria-label="התמונה הקודמת">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+      </button>
+      <figure class="lpgal-lb__figure">
+        <img class="lpgal-lb__img" data-lb-img src="" alt="" />
+      </figure>
+      <button class="lpgal-lb__nav lpgal-lb__nav--next" data-lb-next aria-label="התמונה הבאה">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
+      </button>
+      <button class="lpgal-lb__close" data-lb-close aria-label="סגירה">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+      </button>
+      <span class="lpgal-lb__counter" data-lb-counter></span>
     </div>
   </section>
 )}
@@ -65,6 +92,28 @@ const items = ids.map((id) => itemById(manifest, id)).filter(Boolean);
     aspect-ratio: 4 / 5 !important;
   }
 
+  /* Clickable tile + hover zoom */
+  .lpgal__btn {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+  .lpgal__btn :global(.lpgal__pic img) {
+    transition: transform 0.7s var(--ease), opacity 0.7s var(--ease);
+  }
+  .lpgal__btn:hover :global(.lpgal__pic img),
+  .lpgal__btn:focus-visible :global(.lpgal__pic img) {
+    transform: scale(1.06);
+  }
+  .lpgal__btn:focus-visible {
+    outline: 2px solid var(--chestnut);
+    outline-offset: 3px;
+  }
+
   @media (max-width: 760px) {
     .lpgal__scroller {
       overflow-x: auto;
@@ -84,4 +133,155 @@ const items = ids.map((id) => itemById(manifest, id)).filter(Boolean);
       scroll-snap-align: center;
     }
   }
+
+  /* ---- Lightbox ---- */
+  :global(body.lpgal-lock) { overflow: hidden; }
+
+  .lpgal-lb {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 3vw, 3rem);
+  }
+  .lpgal-lb.is-open { display: flex; }
+
+  .lpgal-lb__scrim {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    background: rgba(40, 28, 20, 0.92);
+    backdrop-filter: blur(4px);
+    cursor: zoom-out;
+  }
+  .lpgal-lb__figure {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    display: flex;
+  }
+  .lpgal-lb__img {
+    max-width: min(1100px, 92vw);
+    max-height: 86vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 24px 70px -22px rgba(0, 0, 0, 0.65);
+    animation: lpgalZoomIn 0.35s var(--ease);
+  }
+  @keyframes lpgalZoomIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .lpgal-lb__close,
+  .lpgal-lb__nav {
+    position: absolute;
+    z-index: 2;
+    display: inline-grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: var(--paper);
+    color: var(--espresso);
+    cursor: pointer;
+    box-shadow: 0 6px 20px -8px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+  .lpgal-lb__close:hover,
+  .lpgal-lb__nav:hover {
+    background: var(--sand);
+    transform: scale(1.06);
+  }
+  .lpgal-lb__close {
+    top: clamp(1rem, 3vw, 2rem);
+    inset-inline-end: clamp(1rem, 3vw, 2rem);
+    width: 46px;
+    height: 46px;
+  }
+  .lpgal-lb__nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+  }
+  .lpgal-lb__nav:hover { transform: translateY(-50%) scale(1.06); }
+  .lpgal-lb__nav--prev { inset-inline-start: clamp(0.6rem, 2vw, 2rem); }
+  .lpgal-lb__nav--next { inset-inline-end: clamp(0.6rem, 2vw, 2rem); }
+
+  .lpgal-lb__counter {
+    position: absolute;
+    z-index: 2;
+    inset-block-end: clamp(1rem, 3vw, 2rem);
+    inset-inline: 0;
+    text-align: center;
+    direction: ltr;
+    font-family: var(--font-label);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  @media (max-width: 560px) {
+    .lpgal-lb__nav { width: 44px; height: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lpgal-lb__img { animation: none; }
+    .lpgal__btn:hover :global(.lpgal__pic img) { transform: none; }
+  }
 </style>
+
+<script>
+  // Clean lightbox for the gallery: click a tile to enlarge, arrows/Esc to
+  // navigate/close, scrim click to dismiss. One modal per page.
+  const modal = document.querySelector("[data-lb-modal]");
+  if (modal) {
+    const imgEl = modal.querySelector("[data-lb-img]");
+    const counter = modal.querySelector("[data-lb-counter]");
+    const tiles = Array.from(document.querySelectorAll("[data-lb]"));
+    const slides = tiles.map((t) => ({ full: t.dataset.full, alt: t.dataset.alt || "" }));
+    let idx = 0;
+    let lastFocus = null;
+
+    const render = () => {
+      const s = slides[idx];
+      imgEl.src = s.full;
+      imgEl.alt = s.alt;
+      if (counter) counter.textContent = `${idx + 1} / ${slides.length}`;
+    };
+    const open = (i) => {
+      idx = i;
+      lastFocus = document.activeElement;
+      render();
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lpgal-lock");
+      modal.querySelector("[data-lb-close]")?.focus();
+    };
+    const close = () => {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lpgal-lock");
+      lastFocus?.focus?.();
+    };
+    const go = (d) => {
+      idx = (idx + d + slides.length) % slides.length;
+      render();
+    };
+
+    tiles.forEach((t, i) => t.addEventListener("click", () => open(i)));
+    modal.querySelectorAll("[data-lb-close]").forEach((b) => b.addEventListener("click", close));
+    modal.querySelector("[data-lb-prev]")?.addEventListener("click", () => go(-1));
+    modal.querySelector("[data-lb-next]")?.addEventListener("click", () => go(1));
+    window.addEventListener("keydown", (e) => {
+      if (!modal.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") go(1); // RTL: left = next
+      else if (e.key === "ArrowRight") go(-1); // RTL: right = prev
+    });
+  }
+</script>

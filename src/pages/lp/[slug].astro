@@ -2,6 +2,7 @@
 import LandingLayout from "@/layouts/LandingLayout.astro";
 import LpHero from "@/components/lp/LpHero.astro";
 import LpStats from "@/components/lp/LpStats.astro";
+import Statement from "@/components/Statement.astro";
 import LpBenefits from "@/components/lp/LpBenefits.astro";
 import LpGalleryStrip from "@/components/lp/LpGalleryStrip.astro";
 import LpValue from "@/components/lp/LpValue.astro";
@@ -24,6 +25,7 @@ const { campaign } = Astro.props;
 <LandingLayout campaign={campaign}>
   <LpHero campaign={campaign} />
   <LpStats campaign={campaign} />
+  <Statement />
   <LpBenefits campaign={campaign} />
   <LpGalleryStrip campaign={campaign} />
   <LpValue campaign={campaign} />
