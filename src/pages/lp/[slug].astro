@@ -5,6 +5,7 @@ import LpStats from "@/components/lp/LpStats.astro";
 import Statement from "@/components/Statement.astro";
 import LpBenefits from "@/components/lp/LpBenefits.astro";
 import LpGalleryStrip from "@/components/lp/LpGalleryStrip.astro";
+import LpAbout from "@/components/lp/LpAbout.astro";
 import LpValue from "@/components/lp/LpValue.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import LpLeadForm from "@/components/lp/LpLeadForm.astro";
@@ -28,6 +29,7 @@ const { campaign } = Astro.props;
   <Statement />
   <LpBenefits campaign={campaign} />
   <LpGalleryStrip campaign={campaign} />
+  <LpAbout />
   <LpValue campaign={campaign} />
   <Testimonials />
   <LpLeadForm campaign={campaign} />

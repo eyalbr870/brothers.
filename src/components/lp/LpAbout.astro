@@ -1,0 +1,148 @@
+---
+import site from "@/data/site.js";
+import manifest from "@/data/gallery.generated.json";
+import { itemById } from "@/lib/images.js";
+import Picture from "@/components/Picture.astro";
+
+// Brings the homepage "family, not a vendor" narrative onto the LP. Content
+// comes straight from site.about so the writing matches the homepage. Kept
+// focused (lead + pullquote + DNA), without the homepage stats block (the LP
+// already has its own trust band) and with a CTA that points to the LP form.
+const a = site.about;
+const titleLines = (a.title ?? "").split("\n");
+const img =
+  itemById(manifest, (a.image ?? "").replace(/\.[^.]+$/, "")) || manifest.items[0];
+---
+
+<section class="lpabout" id="about">
+  <div class="lpabout__media" data-reveal>
+    <Picture
+      item={img}
+      alt={`${site.photographer} - Brothers. צילום חתונות`}
+      sizes="(max-width: 960px) 100vw, 44vw"
+      class="lpabout__pic"
+    />
+  </div>
+
+  <div class="lpabout__panel">
+    <div class="lpabout__inner">
+      <p class="eyebrow" data-reveal>ABOUT</p>
+      <h2 class="lpabout__title" data-reveal>
+        {titleLines.map((l) => <span>{l}</span>)}
+      </h2>
+
+      <p class="lpabout__lead" data-reveal>{a.lead}</p>
+
+      <blockquote class="lpabout__quote" data-reveal>{a.pullquote}</blockquote>
+
+      <p class="lpabout__intro" data-reveal>{a.dnaIntro}</p>
+      <ul class="lpabout__dna" data-reveal>
+        {a.dna.map((d) => (
+          <li>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{d}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div data-reveal>
+        <a class="btn" href="#lead">לתיאום פגישה</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lpabout {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    background: var(--cream);
+  }
+  @media (max-width: 960px) {
+    .lpabout { grid-template-columns: 1fr; }
+  }
+
+  .lpabout__media {
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+  }
+  .lpabout__media :global(.lpabout__pic),
+  .lpabout__media :global(.lpabout__pic img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  @media (max-width: 960px) {
+    .lpabout__media { min-height: 62vh; }
+  }
+
+  .lpabout__panel {
+    display: flex;
+    align-items: center;
+    padding: clamp(3rem, 2rem + 5vw, 6.5rem) var(--gutter);
+  }
+  .lpabout__inner {
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  .lpabout__panel .eyebrow { margin-block-end: 1.2rem; }
+
+  .lpabout__title {
+    font-size: var(--fs-h2);
+    line-height: 1.06;
+    margin-block-end: 1.6rem;
+  }
+  .lpabout__title span { display: block; }
+  .lpabout__title span:last-child { color: var(--chestnut); }
+
+  .lpabout__lead {
+    font-family: var(--font-head);
+    font-weight: 500;
+    font-size: clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);
+    line-height: 1.5;
+    color: var(--espresso);
+    margin-block-end: 1.6rem;
+  }
+
+  .lpabout__quote {
+    margin: 2rem 0;
+    padding-inline-start: 1.3rem;
+    border-inline-start: 3px solid var(--mocha);
+    font-family: var(--font-head);
+    font-style: italic;
+    font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.7rem);
+    line-height: 1.45;
+    color: var(--espresso);
+  }
+
+  .lpabout__intro {
+    color: var(--ink-60);
+    margin-block-end: 1.15rem;
+  }
+
+  .lpabout__dna {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem 1.4rem;
+    margin-block-end: 2rem;
+  }
+  @media (max-width: 480px) {
+    .lpabout__dna { grid-template-columns: 1fr; }
+  }
+  .lpabout__dna li {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--espresso);
+    font-weight: 400;
+  }
+  .lpabout__dna svg {
+    flex: none;
+    color: var(--chestnut);
+  }
+</style>
