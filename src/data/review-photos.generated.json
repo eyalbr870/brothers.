@@ -1,16 +1,6 @@
 {
   "photos": [
     {
-      "id": "6a75ac77eeee0d8269507d68-0",
-      "reviewId": "6a75ac77eeee0d8269507d68",
-      "name": "גלי",
-      "card": "/reviews/6a75ac77eeee0d8269507d68-0-640.webp",
-      "full": "/reviews/6a75ac77eeee0d8269507d68-0-730.webp",
-      "w": 730,
-      "h": 487,
-      "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JQBdgAwFygdLM/l20kfgA/uc8BD6wHyMo7VtF1MUtxuz2AZGubrVHt6ayiH3N2V5tQdXgiuaKbuRdR9y3q/cW93jUXZj78YzrylNHuw6WBGvm7DmYAd0ueDUv90n1aQrCFtki2irM77Pic7P4AA=="
-    },
-    {
       "id": "6a75ac77eeee0d8269507d68-1",
       "reviewId": "6a75ac77eeee0d8269507d68",
       "name": "גלי",
@@ -59,16 +49,6 @@
       "w": 730,
       "h": 1095,
       "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JaQAD5hoZRQvfETtmEkTL0DYAAP4mmCQHcoXvboGIw5mD3Mz3fDLrbRSpKe+CRkku1aiE1qADJDWns9SyEVnvX6LQy8Up5JnCiGMY44xM1Dk3V7GTFQGPOOVw4vSjFzwTB2l00bNAAAAA"
-    },
-    {
-      "id": "6a75ac77eeee0d8269507d68-6",
-      "reviewId": "6a75ac77eeee0d8269507d68",
-      "name": "גלי",
-      "card": "/reviews/6a75ac77eeee0d8269507d68-6-640.webp",
-      "full": "/reviews/6a75ac77eeee0d8269507d68-6-730.webp",
-      "w": 730,
-      "h": 1095,
-      "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JQBfnAyW8MrPmpw7C2wAA/tn2tgwn1bs92rfYQoYFMC2yMulGIn4NPWThvq/wWtYXKCZftsNwoF2zmSsVWwyxVwAsKogK+/OiY3Mx15ROh7GfnIg15X0wN0z26f7y9OIRWiDlLJ19I9FIHrICVZwRT3jgpUWfVR4USAAA"
     },
     {
       "id": "6a75ac77eeee0d8269507d68-7",
@@ -141,16 +121,6 @@
       "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBdgtQAici4UC3THcpgN9poX0AD+o31hKzG1TokCNvqfblr5rWbr8f8frqkeu2gil+yFmtOg49tPZZq6k3wxUl6UQ4tk/WfsKUdT3RKSnvwqakhHfu05MzVuGoOJxoDm9+y01WcjSt+g3Lpt92N+cpt3qla3aWo2o2/tBx1E7YyqLm7UJ8BKQpiG8TMpgAA="
     },
     {
-      "id": "6a6778cdeeee0dd92fe62431-1",
-      "reviewId": "6a6778cdeeee0dd92fe62431",
-      "name": "עידן",
-      "card": "/reviews/6a6778cdeeee0dd92fe62431-1-640.webp",
-      "full": "/reviews/6a6778cdeeee0dd92fe62431-1-730.webp",
-      "w": 730,
-      "h": 1095,
-      "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoQABgAPu1iqk4ppaQiMAgBMB2JZQAAUVk8j2uzgdrkKuegAP4kp59jsxQ2xmjiEOHhw77ndr8Ct5Ko1Udd4++Zl88MPYwEVopir/4XadjLkIjcwbEukuds8LWjOI3KO99bDpIgKHFCZ0x/Apzd6+9qYpqvILm91oceFYq8psHPMx5L/2/RSuacAAA="
-    },
-    {
       "id": "6a6778cdeeee0dd92fe62431-2",
       "reviewId": "6a6778cdeeee0dd92fe62431",
       "name": "עידן",
@@ -198,7 +168,7 @@
       "full": "/reviews/6a5e16eceeee0d765c2e4e7f-0-730.webp",
       "w": 730,
       "h": 1095,
-      "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JQBOgO4AcTZs7w4k9e9LdOZFgAP65SwTgiB7seKuBgwVmLxXJVqlWTyon0fbHWqS3XVBQnO1Oj1AnHKYslr25ySF/yolBL8kxISLu5i2em+3luHFf3a6B707Ub7fNGshXS3b0lnbhnMvec/BI6IAA"
+      "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoQABgAPu1iqU2ppaQiMAgBMB2JQBOgA+4oPGdtx3d6WzoAAP65SwToEY4Y+fTCUGCsxeK5KtUqyeV9gZX2amK0NJKJY6RXC9FRnn4jzDkjFt1eh1lzhjN7fRvzM4OMrb7OdBBeMTKMX9QjiF0euLgq3mjw27n6VFW4+Wz+xyK9ygAA"
     },
     {
       "id": "6a5e16eceeee0d765c2e4e7f-1",
@@ -495,7 +465,7 @@
     "6a75ac77eeee0d8269507d68": {
       "name": "גלי",
       "text": "יריב ואייל היו מדהימים והיה לנו חיבור איתם מהרגע הראשון של היום !! אנשים חמים ומקצועיים !!! יריב הסתובב איתנו מההתארגנות, נתן לנו מראש מיקומים שהוא ממליץ להצטלם בהם והתמונות יצאו ואווווו",
-      "date": "לפני 15 שעות",
+      "date": "אוגוסט 2026",
       "stars": 5
     },
     "6a6778cdeeee0dd92fe62431": {
@@ -537,7 +507,7 @@
     "695ff8aaeeee0dfb598b457d": {
       "name": "noam",
       "text": "לירייב והצוות המטורף הייתם נדיריםםםם ‏היה הכי כיף שיש להעביר אתכם את היום ובאמת שכל הצוות היו מהממים סבלניים ומקצועיים 🙏🏻 ‏ההתלהבות בשיאאא מהטעימה הקטנה של התמונות שהעלת!!!",
-      "date": "לפני 6 חודשים",
+      "date": "ינואר 2026",
       "stars": 5
     },
     "695cd913eeee0de2118b47c4": {
@@ -549,13 +519,13 @@
     "69064a46eeee0d567f1f4335": {
       "name": "Shlomi",
       "text": "ואו ואו ואו! אי אפשר להסביר את האנרגיות המדהימות של יריב ושל דודו הצלם וידאו שהגיע איתו!!!! מצלמים באנרגיה מדהימה, יודעים את העבודה, מכוונים ועוזרים לאחת כמוני שבאמת לא אוהת כל כך להצטלם. התמונות יצאו איכותיות, מדהימות וכולם פשוט החמיאו לנו עליהן. אין המלצה טובה מהם!!!!",
-      "date": "לפני 8 חודשים",
+      "date": "נובמבר 2025",
       "stars": 5
     },
     "68ce9faeeeee0de85d78eb8f": {
       "name": "שי",
       "text": "הגעתי ליריב אחרי שראיתי תמונות שצילם לחברה טובה, שאמרה לי שזו הבחירה הכי טובה שעשתה בחתונה וזאת האמת!!!! הבחירה הכי טובה שעשינו! היה זמין, מצחיק ומקצועי לאורך כל הדרך בהכנות",
-      "date": "לפני 10 חודשים",
+      "date": "אוקטובר 2025",
       "stars": 5
     },
     "68ce8fafeeee0d9f1578eb7d": {
