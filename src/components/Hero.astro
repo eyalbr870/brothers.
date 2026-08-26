@@ -1,134 +1,79 @@
 ---
 import site from "@/data/site.js";
-import manifest from "@/data/gallery.generated.json";
-import { srcset, fallbackSrc } from "@/lib/images.js";
-
-const hero = manifest.hero;
-const titleLines = site.hero.title.split("\n");
 ---
 
 <section class="hero" id="hero">
-  <div class="hero__media">
-    <picture>
-      <source type="image/webp" srcset={srcset(hero, "webp")} sizes="100vw" />
-      <source type="image/jpeg" srcset={srcset(hero, "jpg")} sizes="100vw" />
-      <img
-        src={fallbackSrc(hero, "jpg")}
-        alt="זוג הולך אל השקיעה - צילום חתונה קולנועי מאת יריב ברוך"
-        width={hero.width}
-        height={hero.height}
-        fetchpriority="high"
-        decoding="async"
-        style={`background-image:url('${hero.lqip}')`}
-      />
-    </picture>
-    <div class="hero__scrim"></div>
-  </div>
+  <div class="se-track" data-se-track>
+    <div class="se-stage" data-se-stage>
+      <!-- Brand mark that grows from small to full-screen as you scroll -->
+      <div class="se-logo" data-se-logo>
+        <img
+          class="se-logo__img"
+          data-se-logo-img
+          src="/logo/brothers-plate.png"
+          alt={`${site.brand} - ${site.photographer}`}
+          width="3172"
+          height="928"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
 
-  <div class="hero__inner container">
-    <p class="eyebrow hero__eyebrow" data-reveal>{site.hero.eyebrow}</p>
-    <h1 class="hero__title">
-      {titleLines.map((line, i) => (
-        <span class="hero__line" style={`--i:${i}`}>{line}</span>
-      ))}
-    </h1>
-    <p class="hero__subtitle" data-reveal style="--i:4">{site.hero.subtitle}</p>
-    <div class="hero__actions" data-reveal style="--i:5">
-      <a class="btn btn--light" href={site.hero.ctaPrimary.href}>{site.hero.ctaPrimary.label}</a>
-      <a class="btn btn--outline-light" href={site.hero.ctaSecondary.href}>{site.hero.ctaSecondary.label}</a>
+      <!-- Scroll cue on the resting field -->
+      <div class="se-hint" data-se-hint aria-hidden="true">
+        <span class="se-hint__text">{site.hero.scrollHint}</span>
+        <span class="se-hint__line"></span>
+      </div>
     </div>
   </div>
-
-  <a class="hero__scroll" href="#statement" aria-label={site.hero.scrollHint}>
-    <span class="hero__scroll-text">{site.hero.scrollHint}</span>
-    <span class="hero__scroll-line"></span>
-  </a>
 </section>
 
 <style>
   .hero {
     position: relative;
+  }
+
+  .se-track {
+    position: relative;
+    width: 100%;
+    /* Real height is set by the script; this keeps a sensible first paint. */
     min-height: 100svh;
-    display: flex;
-    align-items: flex-end;
-    padding-block-end: clamp(4rem, 3rem + 6vw, 8rem);
-    color: #fff;
+  }
+
+  .se-stage {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100svh;
     overflow: hidden;
-  }
-  .hero__media {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-  .hero__media picture,
-  .hero__media img {
-    width: 100%;
-    height: 100%;
-  }
-  .hero__media img {
-    object-fit: cover;
-    object-position: center 32%;
-    background-size: cover;
-    background-position: center;
-    animation: heroZoom 14s var(--ease) forwards;
-  }
-  @keyframes heroZoom {
-    from { transform: scale(1.08); }
-    to { transform: scale(1); }
-  }
-  .hero__scrim {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to top, rgba(40, 28, 20, 0.72) 0%, rgba(40, 28, 20, 0.18) 42%, rgba(40, 28, 20, 0.15) 70%, rgba(40, 28, 20, 0.4) 100%);
-  }
-
-  .hero__inner {
-    width: 100%;
-    max-width: 1180px;
-  }
-  .hero__eyebrow {
-    color: rgba(255, 255, 255, 0.86);
-    margin-block-end: 1.4rem;
-  }
-  .hero__title {
-    font-family: var(--font-head);
-    font-weight: 600;
-    font-size: var(--fs-h1);
-    line-height: 0.98;
-    letter-spacing: -0.015em;
-    color: #fff;
-    text-shadow: 0 2px 30px rgba(30, 20, 14, 0.35);
-  }
-  .hero__line {
-    display: block;
-    opacity: 0;
-    transform: translateY(40px);
-    animation: heroLine 1s var(--ease) forwards;
-    animation-delay: calc(0.15s + var(--i) * 0.12s);
-  }
-  @keyframes heroLine {
-    to { opacity: 1; transform: none; }
-  }
-  .hero__subtitle {
-    margin-block-start: 1.8rem;
-    max-width: 46ch;
-    font-size: var(--fs-lead);
-    font-weight: 300;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.92);
-  }
-  .hero__actions {
-    margin-block-start: 2.4rem;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
+    align-items: center;
+    justify-content: center;
+    /* Clean cream field matching the logo plate's ground. */
+    background: #e7d7c2;
   }
 
-  /* reveal delay via --i */
-  [data-reveal] { transition-delay: calc(var(--i, 0) * 0.09s); }
+  .se-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 6%;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+  .se-logo__img {
+    /* Size at full expansion (scale 1); the script scales it down at rest. */
+    width: min(90vw, 900px);
+    height: auto;
+    transform: scale(0.34);
+    transform-origin: center;
+    will-change: transform;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
 
-  .hero__scroll {
+  .se-hint {
     position: absolute;
     inset-block-end: 1.6rem;
     inset-inline-start: 50%;
@@ -137,53 +82,170 @@ const titleLines = site.hero.title.split("\n");
     flex-direction: column;
     align-items: center;
     gap: 0.7rem;
+    pointer-events: none;
+    will-change: opacity, transform;
   }
-  .hero__scroll-text {
+  .se-hint__text {
     font-family: var(--font-label);
     font-size: 0.62rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--ink-60);
   }
-  .hero__scroll-line {
+  .se-hint__line {
     width: 1px;
     height: 46px;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    background: linear-gradient(rgba(69, 50, 38, 0.55), rgba(69, 50, 38, 0));
     position: relative;
     overflow: hidden;
   }
-  .hero__scroll-line::after {
+  .se-hint__line::after {
     content: "";
     position: absolute;
     inset-inline: 0;
     top: -50%;
     height: 50%;
-    background: #fff;
-    animation: scrollDot 2.2s var(--ease) infinite;
+    background: var(--espresso);
+    animation: seScrollDot 2.2s var(--ease) infinite;
   }
-  @keyframes scrollDot {
+  @keyframes seScrollDot {
     0% { transform: translateY(0); opacity: 0; }
     30% { opacity: 1; }
     100% { transform: translateY(300%); opacity: 0; }
   }
 
-  @media (max-width: 640px) {
-    .hero {
-      padding-block-end: 2.5rem;
-    }
-    .hero__scroll {
-      display: none;
-    }
-  }
-
   @media (max-height: 700px) {
-    .hero__scroll {
+    .se-hint {
       display: none;
     }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero__media img { animation: none; }
-    .hero__line { animation: none; opacity: 1; transform: none; }
   }
 </style>
+
+<script>
+  const clamp = (v: number, a: number, b: number) => (v < a ? a : v > b ? b : v);
+  const smoothstep = (e0: number, e1: number, x: number) => {
+    const t = clamp((x - e0) / (e1 - e0 || 1e-6), 0, 1);
+    return t * t * (3 - 2 * t);
+  };
+
+  // Tunable parameters for the logo expansion.
+  const START_SCALE = 0.34; // logo size at rest (fraction of its full width)
+  const END_SCALE = 1; // logo fills the stage
+  const GROW_DISTANCE = 1.0; // logo growth length, in stage heights
+  const REVEAL_DISTANCE = 1.0; // About slides up over the logo (keep at 1 for an exact cover)
+  const REVEAL_PARALLAX = 0.28; // how far the logo drifts up during the reveal, in stage heights
+  const SMOOTHING = 0.1; // follow time, seconds (0 = locked to scrollbar)
+
+  const init = () => {
+    const stage = document.querySelector<HTMLElement>("[data-se-stage]");
+    const track = document.querySelector<HTMLElement>("[data-se-track]");
+    const logo = document.querySelector<HTMLElement>("[data-se-logo]");
+    const logoImg = document.querySelector<HTMLElement>("[data-se-logo-img]");
+    const hint = document.querySelector<HTMLElement>("[data-se-hint]");
+    // The next section (About) slides up over the pinned logo to cover it —
+    // no gap, no fade over content. It needs to paint above the sticky stage.
+    const next = document.querySelector<HTMLElement>("#hero + *");
+    if (next) {
+      next.style.position = "relative";
+      next.style.zIndex = "2";
+    }
+    if (!stage || !track || !logoImg) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const TOTAL = GROW_DISTANCE + REVEAL_DISTANCE;
+
+    let raf = 0;
+    let current = 0;
+    let target = 0;
+    let stageH = 0;
+    let running = false;
+
+    const applyProgress = (q: number) => {
+      const scrolled = q * TOTAL; // in stage heights
+
+      // Grow phase: the logo scales up to fill the stage.
+      const p = clamp(scrolled / GROW_DISTANCE, 0, 1);
+      const e = smoothstep(0, 1, p);
+      logoImg.style.transform = `scale(${START_SCALE + (END_SCALE - START_SCALE) * e})`;
+
+      // Reveal phase: the logo drifts up and fades as About rises to cover it,
+      // so it moves with the reveal instead of sitting frozen.
+      const r = clamp((scrolled - GROW_DISTANCE) / REVEAL_DISTANCE, 0, 1);
+      if (logo) {
+        logo.style.transform = `translate3d(0, ${-REVEAL_PARALLAX * stageH * smoothstep(0, 1, r)}px, 0)`;
+        logo.style.opacity = `${1 - smoothstep(0.1, 0.85, r)}`;
+      }
+
+      if (hint) {
+        const gone = smoothstep(0, 0.12, p);
+        hint.style.opacity = `${1 - gone}`;
+        hint.style.transform = `translateX(50%) translate3d(0, ${8 * gone}px, 0)`;
+      }
+    };
+
+    const measure = () => {
+      stageH = window.innerHeight;
+      if (stageH <= 0) return;
+      stage.style.height = `${stageH}px`;
+      track.style.height = `${stageH * (1 + TOTAL)}px`;
+      // Pull About up so it rises over the pinned logo during the reveal phase.
+      if (next) next.style.marginTop = `-${stageH * REVEAL_DISTANCE}px`;
+    };
+
+    const readProgress = () => {
+      const span = stageH * Math.max(0.01, TOTAL);
+      const top = track.getBoundingClientRect().top;
+      return clamp(-top / span, 0, 1);
+    };
+
+    const tick = () => {
+      const k = SMOOTHING <= 0 ? 1 : 1 - Math.exp(-1 / (60 * SMOOTHING));
+      current += (target - current) * k;
+      if (Math.abs(target - current) < 0.0004) {
+        current = target;
+        running = false;
+      }
+      applyProgress(current);
+      raf = running ? requestAnimationFrame(tick) : 0;
+    };
+
+    const kick = () => {
+      if (running) return;
+      running = true;
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+
+    const onScroll = () => {
+      target = readProgress();
+      if (SMOOTHING <= 0 || reduceMotion) {
+        current = target;
+        applyProgress(current);
+        return;
+      }
+      kick();
+    };
+
+    const onResize = () => {
+      measure();
+      target = readProgress();
+      current = target;
+      applyProgress(current);
+    };
+
+    measure();
+    target = readProgress();
+    current = target;
+    applyProgress(current);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    const ro = new ResizeObserver(onResize);
+    ro.observe(stage);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+</script>
