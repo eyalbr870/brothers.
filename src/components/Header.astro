@@ -159,25 +159,41 @@ import site from "@/data/site.js";
   .drawer {
     position: fixed;
     inset: 0;
+    /* Opaque from the very first frame so the page underneath can never
+       show through the menu links (the "disappearing words" effect). */
     background: var(--paper);
     z-index: 105;
     display: grid;
     place-items: center;
-    opacity: 0;
-    transition: opacity 0.45s var(--ease);
+    /* Reveal is driven by visibility (instant, solid) so the background is
+       always fully opaque -- only the list inside fades in. */
+    visibility: hidden;
+    transition: visibility 0s linear 0.4s;
   }
   /* [hidden] must win over display:grid so the closed drawer doesn't
      cover the page and block clicks. */
   .drawer[hidden] {
     display: none;
   }
-  .drawer.is-open { opacity: 1; }
+  .drawer.is-open {
+    visibility: visible;
+    transition: visibility 0s;
+  }
   .drawer__list {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.6rem;
     text-align: center;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.4s var(--ease),
+      transform 0.4s var(--ease);
+  }
+  .drawer.is-open .drawer__list {
+    opacity: 1;
+    transform: none;
   }
   .drawer__link {
     font-family: var(--font-head);
@@ -212,8 +228,12 @@ import site from "@/data/site.js";
     burger?.setAttribute("aria-expanded", String(open));
     if (open) {
       drawer.hidden = false;
-      requestAnimationFrame(() => drawer.classList.add("is-open"));
       document.body.style.overflow = "hidden";
+      // Double rAF: guarantees the browser paints the closed state once
+      // before is-open flips, so the fade-in reliably triggers.
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => drawer.classList.add("is-open"))
+      );
     } else {
       drawer.classList.remove("is-open");
       document.body.style.overflow = "";

@@ -129,13 +129,13 @@ const tileSizes = "220px";
     overflow: hidden;
     perspective: 1200px;
     perspective-origin: 50% 50%;
-    /* config vars (warm-adapted) */
-    --dw-tile-w: 200px;
-    --dw-tile-h: 132px;
+    /* config vars (warm-adapted). Tiles are 2:3 portrait to match the photos. */
+    --dw-tile-w: 176px;
+    --dw-tile-h: 264px;
     --dw-gap: 18px;
     --dw-radius: var(--radius);
     --dw-lift: 64px;
-    --dw-dim: 0.55;
+    --dw-dim: 1; /* tiles rest in full colour (hover just lifts them) */
     --dw-overlay: var(--espresso);
     --dw-edge: 60%; /* solid centre before the edge dissolve begins */
     /* Soft radial vignette so the wall dissolves into the page at every edge.
@@ -204,11 +204,14 @@ const tileSizes = "220px";
   .drift-wall__tile img {
     width: 100%;
     height: 100%;
+    /* Tiles are 2:3 portrait to match the photos (also 2:3), so cover fills
+       each tile edge-to-edge while cropping the portrait majority essentially
+       zero; only the few landscape shots trim at the sides. */
     object-fit: cover;
     background-size: cover;
     background-position: center;
     display: block;
-    filter: saturate(0.9);
+    filter: saturate(1); /* full colour at rest */
     opacity: 0;
     transition: opacity 0.7s var(--ease), filter 0.42s var(--ease);
     user-select: none;
@@ -220,7 +223,7 @@ const tileSizes = "220px";
     position: absolute;
     inset: 0;
     background: var(--dw-overlay);
-    opacity: 0.4;
+    opacity: 0; /* no resting tint — tiles show their true colour */
     pointer-events: none;
     transition: opacity 0.42s var(--ease);
   }
@@ -247,14 +250,14 @@ const tileSizes = "220px";
 
   /* Responsive: fewer/smaller columns on narrow screens */
   @media (max-width: 1100px) {
-    .drift-wall { --dw-tile-w: 170px; --dw-tile-h: 114px; --dw-gap: 14px; }
+    .drift-wall { --dw-tile-w: 160px; --dw-tile-h: 240px; --dw-gap: 14px; }
     /* hide the two outermost columns → 3 visible */
     .drift-wall__col:nth-child(n + 4) { display: none; }
   }
   @media (max-width: 720px) {
     .drift-wall {
-      /* ~2x larger tiles so the wall reads big and tap targets are generous */
-      --dw-tile-w: 220px; --dw-tile-h: 150px; --dw-gap: 16px;
+      /* Large 2:3 portrait tiles so the wall reads big and tap targets are generous */
+      --dw-tile-w: 200px; --dw-tile-h: 300px; --dw-gap: 16px;
       --dw-lift: 48px;
       height: clamp(520px, 78vh, 720px);
       perspective: 1050px;
@@ -268,7 +271,7 @@ const tileSizes = "220px";
     }
   }
   @media (max-width: 520px) {
-    .drift-wall { --dw-tile-w: 210px; --dw-tile-h: 144px; }
+    .drift-wall { --dw-tile-w: 190px; --dw-tile-h: 285px; }
     /* 2 visible columns, centred */
     .drift-wall__col:nth-child(n + 3) { display: none; }
   }
