@@ -4,11 +4,15 @@ const year = new Date().getFullYear();
 // Landing pages pass nav={false} - the home anchors (#hero, #gallery…) don't
 // exist there, so the nav row would dead-scroll.
 const { nav = true } = Astro.props;
+// "/" rather than "#hero": on the homepage it still returns to the top, and on
+// the landing/blog pages it becomes a real internal link home instead of an
+// anchor pointing at a section that does not exist there.
+const brandHref = nav ? "#hero" : "/";
 ---
 
 <footer class="footer">
   <div class="container footer__inner">
-    <a class="footer__brand" href="#hero">
+    <a class="footer__brand" href={brandHref}>
       <img src="/logo/logo-white.png" alt={site.brand} width="220" height="64" />
     </a>
     <p class="footer__tagline">{site.footer.tagline}</p>

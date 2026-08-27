@@ -3,6 +3,13 @@ import site from "@/data/site.js";
 ---
 
 <section class="hero" id="hero">
+  <!-- The hero is a logo image by design, which left the homepage with no H1
+       at all. This carries the primary keyword for crawlers without touching
+       the visual treatment. -->
+  <h1 class="sr-only">
+    צילום חתונות בכל הארץ - {site.brand} צילום ווידאו לחתונות ואירועים מאת {site.photographer}
+  </h1>
+
   <div class="se-track" data-se-track>
     <div class="se-stage" data-se-stage>
       <!-- Brand mark that grows from small to full-screen as you scroll -->
@@ -12,8 +19,8 @@ import site from "@/data/site.js";
           data-se-logo-img
           src="/logo/brothers-plate.png"
           alt={`${site.brand} - ${site.photographer}`}
-          width="3172"
-          height="928"
+          width="1800"
+          height="527"
           fetchpriority="high"
           decoding="async"
         />

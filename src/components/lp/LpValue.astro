@@ -14,7 +14,29 @@ const process = campaign.process ?? [
 ];
 
 const inclTitle = campaign.includedTitle ?? "מה כלול בשירות";
+
+// The four steps were already written and headed on every landing page; only
+// the markup was missing. HowTo is the format search and voice engines lift a
+// step-by-step answer from.
+const howToSchema = process.length > 0 && {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "איך עובד תהליך הצילום ב-Brothers.",
+  description:
+    "ארבעת השלבים מהפנייה הראשונה ועד קבלת הגלריה הדיגיטלית מהאירוע.",
+  inLanguage: "he-IL",
+  step: process.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.text,
+  })),
+};
 ---
+
+{howToSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+)}
 
 {(included.length > 0 || process.length > 0) && (
   <section class="lpvalue section">

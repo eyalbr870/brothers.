@@ -1,0 +1,158 @@
+---
+import campaigns from "@/data/landing.js";
+
+// Every /lp/ page was orphaned: nothing on the site linked to any of them, so
+// Google could only reach them through the sitemap. This section is the
+// homepage's link hub - it gives each page an internal inbound link and tells
+// crawlers how the site is organised.
+//
+// Labels live here rather than in landing.js so the campaign data stays purely
+// about the ad pages. hrefs are derived from the campaign list, so a slug that
+// is removed or renamed drops out instead of becoming a dead link.
+const LABELS = {
+  stills: "צילום סטילס",
+  video: "וידאו וסרט חתונה",
+  "video-stills": "סטילס + וידאו",
+  "weddings-small": "חתונה קטנה ואינטימית",
+  "weddings-big-center": "חתונה גדולה",
+  "weddings-outdoor": "חתונת שטח וטבע",
+  "weddings-concept": "חתונת קונספט",
+  "business-events": "אירועים עסקיים",
+  "wedding-photographer-israel": "צלם חתונות בכל הארץ",
+  "weddings-ashdod": "צלם חתונות באשדוד",
+};
+
+const GROUPS = [
+  { title: "שירותי צילום", slugs: ["stills", "video", "video-stills"] },
+  {
+    title: "סוגי אירועים",
+    slugs: [
+      "weddings-small",
+      "weddings-big-center",
+      "weddings-outdoor",
+      "weddings-concept",
+      "business-events",
+    ],
+  },
+  {
+    title: "אזורי שירות",
+    slugs: ["wedding-photographer-israel", "weddings-ashdod"],
+  },
+];
+
+const known = new Set(campaigns.map((c) => c.slug));
+const groups = GROUPS.map((g) => ({
+  title: g.title,
+  links: g.slugs
+    .filter((s) => known.has(s) && LABELS[s])
+    .map((s) => ({ href: `/lp/${s}/`, label: LABELS[s] })),
+})).filter((g) => g.links.length > 0);
+---
+
+<section class="svclinks section" id="services" aria-labelledby="svclinks-title">
+  <div class="container">
+    <header class="svclinks__head">
+      <p class="eyebrow" data-reveal>SERVICES</p>
+      <h2 class="svclinks__title" id="svclinks-title" data-reveal>
+        מה אנחנו מצלמים
+      </h2>
+      <p class="svclinks__lead" data-reveal>
+        לכל סוג אירוע יש אופי משלו, ותיעוד שמתאים לו. בחרו את מה שרלוונטי לכם
+        וקראו בהרחבה.
+      </p>
+    </header>
+
+    <div class="svclinks__grid">
+      {groups.map((g) => (
+        <nav class="svclinks__col" data-reveal aria-label={g.title}>
+          <h3 class="svclinks__coltitle">{g.title}</h3>
+          <ul class="svclinks__list">
+            {g.links.map((l) => (
+              <li>
+                <a class="svclinks__link" href={l.href}>
+                  <span>{l.label}</span>
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 6l-6 6 6 6" />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))}
+
+      <nav class="svclinks__col" data-reveal aria-label="מהבלוג">
+        <h3 class="svclinks__coltitle">מדריכים</h3>
+        <ul class="svclinks__list">
+          <li>
+            <a class="svclinks__link" href="/blog/">
+              <span>הבלוג שלנו</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 6l-6 6 6 6" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<style>
+  .svclinks { background: var(--cream); }
+  .svclinks__head {
+    max-width: 640px;
+    text-align: center;
+    margin-inline: auto;
+    margin-block-end: clamp(2rem, 1.4rem + 2.2vw, 3.2rem);
+  }
+  .svclinks__head .eyebrow { margin-block-end: 0.8rem; }
+  .svclinks__title { font-size: var(--fs-h2); margin-block-end: 0.9rem; }
+  .svclinks__lead {
+    color: var(--ink-60);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .svclinks__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: clamp(1.6rem, 1rem + 2vw, 2.8rem);
+  }
+
+  .svclinks__coltitle {
+    font-family: var(--font-label);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--chestnut);
+    padding-block-end: 0.7rem;
+    margin-block-end: 0.4rem;
+    border-block-end: 1px solid var(--line);
+  }
+
+  .svclinks__list { display: flex; flex-direction: column; }
+  .svclinks__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding-block: 0.62rem;
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.4;
+    border-block-end: 1px solid var(--line-soft);
+    transition: color 0.25s var(--ease), padding-inline-start 0.25s var(--ease);
+  }
+  .svclinks__link svg {
+    flex: none;
+    color: var(--ink-45);
+    transition: transform 0.25s var(--ease), color 0.25s var(--ease);
+  }
+  .svclinks__link:hover { color: var(--chestnut); }
+  .svclinks__link:hover svg {
+    color: var(--chestnut);
+    transform: translateX(-3px);
+  }
+</style>

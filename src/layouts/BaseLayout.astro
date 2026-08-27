@@ -1,13 +1,14 @@
 ---
 import "@/styles/global.css";
 import site from "@/data/site.js";
-import manifest from "@/data/gallery.generated.json";
-import reviews from "@/data/reviews.json";
-import { largestSrc } from "@/lib/images.js";
+import { localBusinessSchema } from "@/lib/schema.js";
 import Analytics from "@/components/Analytics.astro";
 
 const { title = site.title, description = site.description } = Astro.props;
-const heroPreload = `/${manifest.hero.dir}/${manifest.hero.id}-1920.jpg`;
+// The hero renders the brand plate, not a photo, so the LCP element is the
+// logo. Preloading the gallery hero fetched 148 KB at top priority for an
+// image that never painted.
+const heroPreload = "/logo/brothers-plate.png";
 // Canonical from the configured production domain (astro.config `site`).
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).href
@@ -15,42 +16,15 @@ const canonical = Astro.site
 const siteUrl = (Astro.site || new URL("https://brothers-photography.com")).href;
 const ogImage = new URL("/og-image.jpg", Astro.site || "https://brothers-photography.com").href;
 
-// ---- Ratings from the aggregated mit4mit data (src/data/reviews.json) ----
-// score is out of 100; convert to a 5-star value for schema.org rich results.
-const ratingValue = Math.round((reviews.score / reviews.scoreMax) * 5 * 10) / 10;
-// A handful of full testimonials, surfaced as individual Review nodes so
-// search + AI engines can quote them and show stars.
-const featuredReviews = reviews.reviews.slice(0, 6);
-
-// Rich LocalBusiness schema: identity + service area + rating + reviews.
-const businessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${siteUrl}#business`,
-  name: `${site.brand} - ${site.photographer}`,
-  image: ogImage,
-  url: siteUrl,
+// Rich LocalBusiness schema: identity + service area + hours + rating +
+// reviews. Built in one shared place (src/lib/schema.js) so the homepage and
+// the landing pages can never drift apart again.
+const businessSchema = localBusinessSchema({
+  siteUrl,
   description,
-  email: site.contact.email,
-  telephone: site.contact.phoneIntl,
-  priceRange: "$$",
-  founder: { "@type": "Person", name: site.photographer },
-  areaServed: { "@type": "Country", name: "ישראל" },
-  sameAs: [site.contact.instagramUrl, reviews.source],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue,
-    bestRating: 5,
-    ratingCount: reviews.count,
-  },
-  review: featuredReviews.map((r) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: r.name },
-    datePublished: r.date,
-    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-    reviewBody: r.text,
-  })),
-};
+  image: ogImage,
+  withReviews: true,
+});
 ---
 
 <!doctype html>

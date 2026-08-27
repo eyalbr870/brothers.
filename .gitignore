@@ -14,3 +14,6 @@ scratch-contact-sheets/
 # env
 .env
 .env.production
+
+# local tooling
+.claude/

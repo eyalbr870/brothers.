@@ -10,7 +10,9 @@ export default defineConfig({
   // generated sitemap so Google indexes /lp/* correctly.
   site: "https://brothers-photography.com",
   compressHTML: true,
-  integrations: [sitemap()],
+  // Without <lastmod> every sitemap entry looks equally stale to a crawler.
+  // Stamped at build time, so each deploy refreshes the recrawl signal.
+  integrations: [sitemap({ lastmod: new Date() })],
   build: {
     inlineStylesheets: "auto",
   },

@@ -1,0 +1,134 @@
+---
+import { getCollection } from "astro:content";
+import BlogLayout from "@/layouts/BlogLayout.astro";
+import Picture from "@/components/Picture.astro";
+import Footer from "@/components/Footer.astro";
+import manifest from "@/data/gallery.generated.json";
+import site from "@/data/site.js";
+import { resolveItem } from "@/lib/images.js";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const coverId = posts[0]?.data.coverId;
+---
+
+<BlogLayout
+  title={`בלוג צילום חתונות | ${site.brand} - ${site.photographer}`}
+  description="טיפים, מדריכים ותובנות על צילום חתונות ואירועים בישראל, מהצד של מי שעומד מאחורי המצלמה."
+  coverId={coverId}
+>
+  <section class="bloglist section" id="article">
+    <header class="bloglist__head container">
+      <p class="eyebrow" data-reveal>BLOG</p>
+      <h1 class="bloglist__title" data-reveal>מהבלוג</h1>
+      <p class="bloglist__lead" data-reveal>
+        טיפים, מדריכים ותובנות על צילום חתונות ואירועים, מהצד של מי שעומד מאחורי
+        המצלמה.
+      </p>
+    </header>
+
+    <div class="container">
+      <ul class="bloglist__grid">
+        {posts.map((post) => (
+          <li class="card" data-reveal>
+            <a class="card__link" href={`/blog/${post.slug}/`}>
+              <div class="card__media">
+                <Picture
+                  item={resolveItem(manifest, post.data.coverId)}
+                  alt={post.data.title}
+                  sizes="(max-width: 700px) 100vw, 380px"
+                />
+              </div>
+              <div class="card__body">
+                <p class="card__meta">
+                  <time datetime={post.data.publishDate.toISOString()}>
+                    {post.data.publishDate.toLocaleDateString("he-IL", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span aria-hidden="true">·</span>
+                  <span>{post.data.readingMinutes} דקות</span>
+                </p>
+                <h2 class="card__title">{post.data.title}</h2>
+                <p class="card__excerpt">{post.data.excerpt}</p>
+                <span class="card__more">להמשך קריאה</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Footer nav={false} />
+</BlogLayout>
+
+<style>
+  .bloglist { background: var(--paper); }
+  .bloglist__head {
+    max-width: 720px;
+    text-align: center;
+    margin-block-end: clamp(2rem, 1.4rem + 2.4vw, 3.4rem);
+  }
+  .bloglist__head .eyebrow { margin-block-end: 0.8rem; }
+  .bloglist__title { font-size: var(--fs-h2); margin-block-end: 1rem; }
+  .bloglist__lead {
+    font-size: var(--fs-lead);
+    font-weight: 300;
+    color: var(--ink-60);
+    line-height: 1.6;
+  }
+
+  .bloglist__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+    gap: clamp(1.4rem, 1rem + 1.6vw, 2.4rem);
+  }
+
+  .card {
+    background: var(--cream);
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(69, 50, 38, 0.12); }
+  .card__link { display: flex; flex-direction: column; height: 100%; color: inherit; }
+  .card__media { overflow: hidden; }
+  /* Picture sets aspect-ratio from the photo's own dimensions; cards need a
+     uniform crop so a portrait cover doesn't tower over a landscape one. */
+  .card__media :global(.pic) { aspect-ratio: 3 / 2; }
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.4rem;
+    flex: 1;
+  }
+  .card__meta {
+    font-family: var(--font-label);
+    font-size: 0.76rem;
+    color: var(--ink-45);
+    display: flex;
+    gap: 0.5rem;
+  }
+  .card__title { font-size: 1.2rem; line-height: 1.35; }
+  .card__excerpt {
+    color: var(--ink-60);
+    font-weight: 300;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    flex: 1;
+  }
+  .card__more {
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--chestnut);
+    margin-block-start: 0.3rem;
+  }
+</style>

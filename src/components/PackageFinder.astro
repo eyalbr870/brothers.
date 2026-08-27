@@ -1,8 +1,15 @@
 ---
 import site from "@/data/site.js";
+import { packagesServiceSchema } from "@/lib/schema.js";
 
 const f = site.finder;
 const titleLines = f.title.split("\n");
+
+// All three tiers are server-rendered in this section (the quiz only controls
+// which one is displayed), so the Service/Offer markup describes content that
+// genuinely exists on the page.
+const siteUrl = (Astro.site || new URL("https://brothers-photography.com")).href;
+const serviceSchema = packagesServiceSchema(siteUrl);
 
 const guestsStep = f.steps.find((s) => s.key === "guests");
 
@@ -45,6 +52,8 @@ const waMsg0 = f.result.whatsappText
   .replace("{extras}", "");
 const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waMsg0)}`;
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <section class="finder" id="finder">
   <div class="finder__head container">
