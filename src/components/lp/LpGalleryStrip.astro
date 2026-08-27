@@ -6,7 +6,33 @@ import Picture from "@/components/Picture.astro";
 const { campaign } = Astro.props;
 const ids = campaign.galleryIds ?? [];
 const items = ids.map((id) => itemById(manifest, id)).filter(Boolean);
-const alt = "Brothers. - צילום אירועים";
+
+// Every image used to share one string ("Brothers. - צילום אירועים"), which
+// describes nothing and is a duplicate-alt signal ~18 times per page. Alt is
+// now built from what the page is actually about, so it differs per campaign
+// and per image.
+//
+// Note: this is contextual, not per-photo. Genuinely descriptive alt needs a
+// human who has seen each frame - campaign.galleryAlts (below) accepts that
+// when it is written.
+const SUBJECTS = {
+  stills: "צילום סטילס בחתונה",
+  video: "צילום וידאו בחתונה",
+  "video-stills": "צילום סטילס ווידאו בחתונה",
+  "weddings-small": "חתונה קטנה ואינטימית",
+  "weddings-big-center": "חתונה גדולה במרכז",
+  "weddings-outdoor": "חתונת שטח וטבע",
+  "weddings-concept": "חתונת קונספט",
+  "business-events": "אירוע עסקי",
+  "wedding-photographer-israel": "צילום חתונות בישראל",
+  "weddings-ashdod": "חתונה באשדוד",
+};
+const subject = SUBJECTS[campaign.slug] ?? "צילום חתונות";
+
+// Per-photo alt text when supplied; otherwise contextual + positional.
+const customAlts = campaign.galleryAlts ?? [];
+const altFor = (i) =>
+  customAlts[i] ?? `${subject} - רגע מתוך האירוע, תמונה ${i + 1} מתוך ${items.length}`;
 ---
 
 {items.length > 0 && (
@@ -19,19 +45,19 @@ const alt = "Brothers. - צילום אירועים";
     </div>
     <div class="lpgal__scroller" data-reveal>
       <ul class="lpgal__track">
-        {items.map((item) => (
+        {items.map((item, i) => (
           <li class="lpgal__cell">
             <button
               type="button"
               class="lpgal__btn"
               data-lb
               data-full={largestSrc(item, "jpg")}
-              data-alt={alt}
-              aria-label="הגדלת התמונה"
+              data-alt={altFor(i)}
+              aria-label={`הגדלת התמונה: ${altFor(i)}`}
             >
               <Picture
                 item={item}
-                alt={alt}
+                alt={altFor(i)}
                 sizes="(max-width: 760px) 78vw, 32vw"
                 class="lpgal__pic"
               />

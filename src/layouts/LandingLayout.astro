@@ -2,8 +2,8 @@
 import "@/styles/global.css";
 import site from "@/data/site.js";
 import manifest from "@/data/gallery.generated.json";
-import reviews from "@/data/reviews.json";
-import { largestSrc, resolveItem } from "@/lib/images.js";
+import { largestSrc, resolveItem, srcset, fallbackSrc } from "@/lib/images.js";
+import { localBusinessSchema } from "@/lib/schema.js";
 import LpStickyCTA from "@/components/lp/LpStickyCTA.astro";
 import Analytics from "@/components/Analytics.astro";
 
@@ -14,39 +14,29 @@ const description = campaign.seo?.description ?? site.description;
 
 // OG image + hero preload from the campaign's chosen photos.
 const ogItem = resolveItem(manifest, campaign.seo?.ogImageId ?? campaign.hero?.bgId);
-const ogImage = largestSrc(ogItem, "jpg");
+// Absolute: og:image and schema.org both discard relative paths.
+const ogImage = new URL(
+  largestSrc(ogItem, "jpg"),
+  Astro.site || "https://brothers-photography.com"
+).href;
 const heroItem = resolveItem(manifest, campaign.hero?.bgId);
-const heroPreload = largestSrc(heroItem, "jpg");
+// LpHero renders a <picture> whose WebP source wins at 100vw. Preloading the
+// largest JPEG instead pulled ~191 KB that the page never used, on top of the
+// WebP it did. Mirror the real candidate set so the preload and the render
+// resolve to the same file.
+const heroSrcset = srcset(heroItem, "webp");
+const heroPreload = fallbackSrc(heroItem, "webp");
 
 // Self-referencing canonical (also fixes the site-wide empty canonical).
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).href
   : Astro.url.pathname;
 
-// Rich LocalBusiness schema (identity + service area + aggregated rating).
+// Rich LocalBusiness schema (identity + service area + hours + rating).
+// Shared with the homepage via src/lib/schema.js - the two used to be
+// separate copies, which is how this one ended up with a relative image URL.
 const siteUrl = (Astro.site || new URL("https://brothers-photography.com")).href;
-const ratingValue = Math.round((reviews.score / reviews.scoreMax) * 5 * 10) / 10;
-const businessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${siteUrl}#business`,
-  name: `${site.brand} - ${site.photographer}`,
-  image: ogImage,
-  url: siteUrl,
-  description,
-  email: site.contact.email,
-  telephone: site.contact.phoneIntl,
-  priceRange: "$$",
-  founder: { "@type": "Person", name: site.photographer },
-  areaServed: { "@type": "Country", name: "ישראל" },
-  sameAs: [site.contact.instagramUrl, reviews.source],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue,
-    bestRating: 5,
-    ratingCount: reviews.count,
-  },
-};
+const businessSchema = localBusinessSchema({ siteUrl, description, image: ogImage });
 ---
 
 <!doctype html>
@@ -70,7 +60,15 @@ const businessSchema = {
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Preload critical assets -->
-    <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href={heroPreload}
+      imagesrcset={heroSrcset}
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <link
       rel="preload"
       as="font"

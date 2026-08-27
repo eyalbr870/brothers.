@@ -1,0 +1,156 @@
+---
+import site from "@/data/site.js";
+import { packagesServiceSchema } from "@/lib/schema.js";
+
+// A real HTML <table> comparing Basic / Classic / Premium. The PackageFinder
+// quiz reveals one recommended tier at a time, which no crawler can lift into
+// a comparison snippet - this is the same data in the format search engines
+// extract directly. Rows are derived from site.finder.packages so the two
+// never drift apart.
+const p = site.finder.packages;
+const tiers = [p.basic, p.classic, p.premium];
+
+const rows = [
+  { label: "מתאים ל", values: tiers.map((t) => t.guests) },
+  { label: "אופי החבילה", values: tiers.map((t) => t.tag) },
+  { label: "צלמי סטילס", values: tiers.map((t) => t.stills[0]) },
+  { label: "שעות כיסוי", values: tiers.map((t) => t.stills[1]) },
+  {
+    label: "תוספת וידאו (אופציונלי)",
+    values: tiers.map((t) => t.video[0].replace(/^בנוסף,\s*/, "")),
+  },
+  { label: "סרט חתונה", values: tiers.map((t) => t.video[1]) },
+  { label: "סרט תקציר", values: tiers.map((t) => t.video[2]) },
+];
+
+const siteUrl = (Astro.site || new URL("https://brothers-photography.com")).href;
+const serviceSchema = packagesServiceSchema(siteUrl);
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+<section class="pkgtable section" id="packages" aria-labelledby="pkgtable-title">
+  <div class="container">
+    <header class="pkgtable__head">
+      <p class="eyebrow" data-reveal>PACKAGES</p>
+      <h2 class="pkgtable__title" id="pkgtable-title" data-reveal>
+        השוואת חבילות הצילום
+      </h2>
+      <p class="pkgtable__lead" data-reveal>
+        שלוש חבילות, אותה גישה לצילום. ההבדל הוא בהיקף הכיסוי. המחיר נקבע אישית
+        לפי האירוע, בלי עלויות נסתרות.
+      </p>
+    </header>
+
+    <div class="pkgtable__scroll" data-reveal>
+      <table class="pkgtable__table">
+        <caption class="sr-only">
+          השוואה בין חבילות הצילום Basic, Classic ו-Premium של Brothers.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">
+              <span class="sr-only">מה כולל</span>
+            </th>
+            {tiers.map((t) => (
+              <th scope="col">{t.name}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <th scope="row">{r.label}</th>
+              {r.values.map((v) => (
+                <td>{v}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pkgtable__note" data-reveal>
+      לא בטוחים מה מתאים לכם?
+      <a href="#finder">ענו על כמה שאלות קצרות</a> ונמצא יחד, או
+      <a href="#contact">דברו איתי ישירות</a>.
+    </p>
+  </div>
+</section>
+
+<style>
+  .pkgtable { background: var(--paper); }
+  .pkgtable__head {
+    max-width: 640px;
+    text-align: center;
+    margin-inline: auto;
+    margin-block-end: clamp(1.8rem, 1.2rem + 2vw, 2.8rem);
+  }
+  .pkgtable__head .eyebrow { margin-block-end: 0.8rem; }
+  .pkgtable__title { font-size: var(--fs-h2); margin-block-end: 0.9rem; }
+  .pkgtable__lead {
+    color: var(--ink-60);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* Wide content scrolls inside its own box; the page never scrolls sideways. */
+  .pkgtable__scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--cream);
+  }
+  .pkgtable__table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    text-align: start;
+  }
+  .pkgtable__table th,
+  .pkgtable__table td {
+    padding: 0.95rem 1.1rem;
+    border-block-end: 1px solid var(--line-soft);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .pkgtable__table thead th {
+    background: var(--espresso);
+    color: #fff;
+    font-family: var(--font-label);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: center;
+    border-block-end: 0;
+  }
+  .pkgtable__table thead th:first-child { background: var(--espresso); }
+  .pkgtable__table tbody th {
+    font-family: var(--font-label);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--chestnut);
+    white-space: nowrap;
+    background: rgba(69, 50, 38, 0.035);
+  }
+  .pkgtable__table tbody td {
+    font-weight: 300;
+    color: var(--ink);
+    font-size: 0.95rem;
+  }
+  .pkgtable__table tbody tr:last-child th,
+  .pkgtable__table tbody tr:last-child td { border-block-end: 0; }
+
+  .pkgtable__note {
+    margin-block-start: 1.4rem;
+    text-align: center;
+    color: var(--ink-60);
+    font-weight: 300;
+    font-size: 0.95rem;
+  }
+  .pkgtable__note a {
+    color: var(--chestnut);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>
