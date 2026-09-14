@@ -1,0 +1,12 @@
+{
+  "_comment": "Kill switch for every growth loop in this repo. A loop whose `enabled` is not true exits in pre-flight. Schedules are Asia/Jerusalem, Sun-Thu working hours. Every loop opens a PR; none commits to main or sends anything. Owner of this file: the client (Brothers.) and Netanel Baruch.",
+  "loops": {
+    "brothers-seo-strategist": { "enabled": true, "schedule": "Sun 08:00", "installed": "2026-09-14", "lastRun": null },
+    "brothers-aeo-panel": { "enabled": false, "schedule": "Sun 07:30", "installed": null, "lastRun": null, "_note": "Script exists (npm run aeo:panel); skill not installed yet. First baseline ran 2026-09-14 by hand." },
+    "brothers-seo-publisher": { "enabled": false, "schedule": "Mon, Wed 09:00", "installed": null, "lastRun": null },
+    "brothers-seo-tech-auditor": { "enabled": false, "schedule": "Tue 09:00", "installed": null, "lastRun": null },
+    "brothers-paid-strategist": { "enabled": false, "schedule": "Sun 10:00", "installed": null, "lastRun": null },
+    "brothers-paid-operator": { "enabled": false, "schedule": "Tue 14:00", "installed": null, "lastRun": null },
+    "brothers-scorecard": { "enabled": false, "schedule": "Thu 14:00", "installed": null, "lastRun": null }
+  }
+}

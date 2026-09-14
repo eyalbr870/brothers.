@@ -1,0 +1,21 @@
+{
+  "_comment": "Goals the loops optimize for. Baselines are filled only from measured sources; a missing source reads null with a reason, never an estimate. Targets are set on 2026-09-28 from the first measured data, not before.",
+  "northStar": {
+    "metric": "Qualified inquiries per month",
+    "definition": "A form submission or WhatsApp message with a wedding date on or after the day it arrives and a region. Defined in full in growth/METHOD.md once the measurement PR lands.",
+    "source": "Netlify Forms export + the client's weekly WhatsApp count",
+    "baseline": null,
+    "baselineReason": "no data: forms carry no utm/gclid and WhatsApp inquiries are not counted yet (2026-09-14)",
+    "target": null,
+    "targetSetOn": "2026-09-28"
+  },
+  "supporting": [
+    { "metric": "Google non-brand clicks per month", "source": "Google Search Console", "baseline": null, "baselineReason": "no data: GSC access not granted (2026-09-14)", "target": null },
+    { "metric": "AI mention rate", "source": "seo/panel.json (Brothers. named, across all runs)", "baseline": null, "baselineReason": "first panel run 2026-09-14; filled from seo/panel.json", "target": null },
+    { "metric": "Cost per qualified inquiry (Google Ads)", "source": "Google Ads + the inquiry count", "baseline": null, "baselineReason": "no data: no spend yet", "target": null },
+    { "metric": "Google Business Profile calls + website clicks per month", "source": "GBP insights", "baseline": null, "baselineReason": "no data: GBP access not granted (2026-09-14)", "target": null }
+  ],
+  "context": {
+    "ahrefs_2026-09-14": { "domainRating": 0, "orgKeywordsIL": 0, "source": "seo/data/ahrefs/2026-09-14/" }
+  }
+}

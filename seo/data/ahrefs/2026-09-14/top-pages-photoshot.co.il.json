@@ -1,0 +1,46 @@
+{
+  "pages": [
+    {
+      "url": "https://photoshot.co.il/",
+      "sum_traffic": 66,
+      "keywords": 5,
+      "top_keyword": "צלם חתונות",
+      "top_keyword_volume": 450
+    },
+    {
+      "url": "https://photoshot.co.il/%D7%A6%D7%9C%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D-%D7%91%D7%9E%D7%A8%D7%9B%D7%96/",
+      "sum_traffic": 10,
+      "keywords": 3,
+      "top_keyword": "צלם חתונות במרכז",
+      "top_keyword_volume": 20
+    },
+    {
+      "url": "https://photoshot.co.il/%D7%A6%D7%9C%D7%9D-%D7%97%D7%AA%D7%95%D7%A0%D7%95%D7%AA-%D7%91%D7%9E%D7%A8%D7%9B%D7%96/",
+      "sum_traffic": 7,
+      "keywords": 1,
+      "top_keyword": "צלם אירועים במרכז",
+      "top_keyword_volume": 50
+    },
+    {
+      "url": "https://photoshot.co.il/%D7%A6%D7%9C%D7%9E%D7%99%D7%9D-%D7%9C%D7%97%D7%AA%D7%95%D7%A0%D7%94/",
+      "sum_traffic": 2,
+      "keywords": 2,
+      "top_keyword": "צילום חתונה",
+      "top_keyword_volume": 100
+    },
+    {
+      "url": "https://photoshot.co.il/%D7%A6%D7%9C%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D-%D7%91%D7%90%D7%A9%D7%93%D7%95%D7%93/",
+      "sum_traffic": 1,
+      "keywords": 1,
+      "top_keyword": "צלמים באשדוד",
+      "top_keyword_volume": 20
+    },
+    {
+      "url": "https://photoshot.co.il/cncpt/%D7%98%D7%A8%D7%90%D7%A9-%D7%96%D7%95%D7%92%D7%99%D7%95%D7%AA/",
+      "sum_traffic": 0,
+      "keywords": 1,
+      "top_keyword": "תמונות טראש",
+      "top_keyword_volume": 0
+    }
+  ]
+}
