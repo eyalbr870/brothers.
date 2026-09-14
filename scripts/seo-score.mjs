@@ -29,7 +29,10 @@ for (const item of backlog.items) {
   const win = winnability(kd);
   const validation = gscImpressions >= 5 ? 1.0 : 0.6;
   const serp = item.serp?.checked && item.serp?.directoryDominated ? 0.5 : 1.0;
-  const coveragePenalty = item.status !== "refresh" && item.coverage?.existingPath ? 0.5 : 0;
+  // Only net-new pages compete with a live page. Edits in place (lp-refresh, home-refresh) keep
+  // no penalty whatever their status (refresh, in-review, published).
+  const editInPlace = /refresh/.test(item.type ?? "") || item.status === "refresh";
+  const coveragePenalty = !editInPlace && item.coverage?.existingPath ? 0.5 : 0;
 
   item.score = round(demand * win * validation * serp - coveragePenalty);
   item.scoreBreakdown = {

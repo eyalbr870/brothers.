@@ -105,7 +105,7 @@ winnability       = KD of primaryKeyword: ≤20 → 1.0 · ≤40 → 0.7 · ≤6
 validation        = 1.0 if GSC shows ≥ 5 impressions for the item's page/keywords, else 0.6
 serp              = 0.5 if the checked SERP's top 3 organic results are all directories or
                     aggregators (§4), else 1.0; unchecked → 1.0, flagged serpUnchecked
-coverage_penalty  = net-new items only: 0.5 if a live page already targets the primary keyword
+coverage_penalty  = net-new pages only (not lp-refresh/home-refresh edits): 0.5 if a live page already targets the primary keyword
 ```
 
 - A keyword with volume 0 or null adds nothing to demand. Keep it in `keywords[]` for the record.

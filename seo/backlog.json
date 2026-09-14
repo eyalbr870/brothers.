@@ -230,6 +230,93 @@
       }
     },
     {
+      "type": "lp-refresh",
+      "intent": "hiring",
+      "status": "in-review",
+      "reviewPR": "https://github.com/eyalbr870/brothers./pull/13",
+      "serp": {
+        "checked": null,
+        "directoryDominated": false,
+        "notes": "SERP not pulled for this cluster."
+      },
+      "coverage": {
+        "existingPath": "/lp/business-events/"
+      },
+      "needsClient": null,
+      "dataSource": "Ahrefs API v3 IL 2026-09-15 (keywords-explorer matching-terms/overview). The raw export is kept local, not committed, because this repo is public; volumes are also recorded in seo/briefs/2026-09-15-intent-guides.md.",
+      "slug": "lp-business-events-retarget",
+      "target": "/lp/business-events/",
+      "primaryKeyword": "צילום כנסים",
+      "keywords": [
+        {
+          "keyword": "צילום כנסים",
+          "volume": 200,
+          "difficulty": 1
+        }
+      ],
+      "notes": "Retitled in PR #13 to צילום כנסים ואירועים עסקיים.",
+      "score": 1.381,
+      "scoreBreakdown": {
+        "volume": 200,
+        "demand": 2.301,
+        "primaryKd": 1,
+        "winnability": 1,
+        "validation": 0.6,
+        "serp": 1,
+        "coveragePenalty": 0,
+        "flags": [
+          "serpUnchecked"
+        ]
+      }
+    },
+    {
+      "slug": "lp-weddings-big-center-retarget",
+      "type": "lp-refresh",
+      "target": "/lp/weddings-big-center/",
+      "primaryKeyword": "צלם חתונות במרכז",
+      "keywords": [
+        {
+          "keyword": "צלם חתונות במרכז",
+          "volume": 30,
+          "difficulty": 2
+        },
+        {
+          "keyword": "צלם לחתונה במרכז",
+          "volume": 50,
+          "difficulty": null
+        },
+        {
+          "keyword": "צילום חתונות במרכז",
+          "volume": 10,
+          "difficulty": null
+        }
+      ],
+      "intent": "hiring, local",
+      "status": "in-review",
+      "serp": {
+        "checked": "2026-09-14",
+        "directoryDominated": false,
+        "notes": "#1 mit4mit top list, #2 photoshot.co.il (studio, DR 4) with a dedicated center page, local pack bereshitebara/canfi/dafnatalmon. A DR-4 studio page at #2 means a focused page is winnable."
+      },
+      "coverage": {
+        "existingPath": "/lp/weddings-big-center/"
+      },
+      "needsClient": null,
+      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Part A done: seo.title, hero, form title and one faq moved to צלם חתונות במרכז / צלם לחתונה במרכז. Part B (venue copy) still waits on Yariv. || Part A (now): in src/data/landing.js campaign 'weddings-big-center', retarget seo.title and hero to the hiring phrasing 'צלם חתונות במרכז' (today's title is 'צילום חתונות גדולות במרכז', which matches no measured query). Put 'צלם לחתונה במרכז' in seo.description and one faq question. Keep the slug; ads point at it. Part B (waits on Yariv's venue list, scope human step due 2026-09-21): replace the shared benefits/included copy with center-specific detail (real halls and gardens shot in Gush Dan/Sharon, guest-count handling). This page is also the planned landing page for the Google Search center campaign, so copy and ad group should match.",
+      "score": 1.173,
+      "scoreBreakdown": {
+        "volume": 90,
+        "demand": 1.954,
+        "primaryKd": 2,
+        "winnability": 1,
+        "validation": 0.6,
+        "serp": 1,
+        "coveragePenalty": 0,
+        "flags": []
+      },
+      "reviewPR": "https://github.com/eyalbr870/brothers./pull/13"
+    },
+    {
       "type": "blog",
       "intent": "researching",
       "status": "in-review",
@@ -301,44 +388,49 @@
       }
     },
     {
+      "slug": "lp-stills-retarget",
       "type": "lp-refresh",
+      "target": "/lp/stills/",
+      "primaryKeyword": "צלם סטילס לחתונה",
+      "keywords": [
+        {
+          "keyword": "צלם סטילס לחתונה",
+          "volume": 70,
+          "difficulty": null
+        },
+        {
+          "keyword": "צלם סטילס לחתונה מחיר",
+          "volume": 50,
+          "difficulty": null
+        }
+      ],
       "intent": "hiring",
       "status": "in-review",
-      "reviewPR": "https://github.com/eyalbr870/brothers./pull/13",
       "serp": {
         "checked": null,
         "directoryDominated": false,
-        "notes": "SERP not pulled for this cluster."
+        "notes": "Ahrefs returned no stored SERP for this keyword on 2026-09-14 (serp-צלם-סטילס-לחתונה.json is empty)."
       },
       "coverage": {
-        "existingPath": "/lp/business-events/"
+        "existingPath": "/lp/stills/"
       },
       "needsClient": null,
-      "dataSource": "Ahrefs API v3 IL 2026-09-15 (keywords-explorer matching-terms/overview). The raw export is kept local, not committed, because this repo is public; volumes are also recorded in seo/briefs/2026-09-15-intent-guides.md.",
-      "slug": "lp-business-events-retarget",
-      "target": "/lp/business-events/",
-      "primaryKeyword": "צילום כנסים",
-      "keywords": [
-        {
-          "keyword": "צילום כנסים",
-          "volume": 200,
-          "difficulty": 1
-        }
-      ],
-      "notes": "Retitled in PR #13 to צילום כנסים ואירועים עסקיים.",
-      "score": 0.881,
+      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Retitled to צלם סטילס לחתונה; added faq כמה עולה צלם סטילס לחתונה answered without a number. || Retitle campaign 'stills' from 'צילום סטילס לחתונה' to the searched phrasing 'צלם סטילס לחתונה'. Answer the price-intent variant without a number: an H2/faq 'כמה עולה צלם סטילס לחתונה?' answering that the price is quoted per event and naming what drives it (hours, number of photographers, albums), then linking to the price guide once it exists. Unique copy per METHOD §7; the page is ~85% shared with the others (PR #8).",
+      "score": 0.873,
       "scoreBreakdown": {
-        "volume": 200,
-        "demand": 2.301,
-        "primaryKd": 1,
-        "winnability": 1,
+        "volume": 120,
+        "demand": 2.079,
+        "primaryKd": null,
+        "winnability": 0.7,
         "validation": 0.6,
         "serp": 1,
-        "coveragePenalty": 0.5,
+        "coveragePenalty": 0,
         "flags": [
+          "kdUnknown",
           "serpUnchecked"
         ]
-      }
+      },
+      "reviewPR": "https://github.com/eyalbr870/brothers./pull/13"
     },
     {
       "slug": "price-guide-wedding-photographer-2026",
@@ -453,49 +545,42 @@
       "reviewPR": "https://github.com/eyalbr870/brothers./pull/13"
     },
     {
-      "slug": "lp-weddings-big-center-retarget",
+      "slug": "lp-weddings-small-retarget",
       "type": "lp-refresh",
-      "target": "/lp/weddings-big-center/",
-      "primaryKeyword": "צלם חתונות במרכז",
+      "target": "/lp/weddings-small/",
+      "primaryKeyword": "צלם לחתונה קטנה",
       "keywords": [
         {
-          "keyword": "צלם חתונות במרכז",
-          "volume": 30,
-          "difficulty": 2
-        },
-        {
-          "keyword": "צלם לחתונה במרכז",
-          "volume": 50,
-          "difficulty": null
-        },
-        {
-          "keyword": "צילום חתונות במרכז",
-          "volume": 10,
+          "keyword": "צלם לחתונה קטנה",
+          "volume": 70,
           "difficulty": null
         }
       ],
-      "intent": "hiring, local",
+      "intent": "hiring",
       "status": "in-review",
       "serp": {
-        "checked": "2026-09-14",
+        "checked": null,
         "directoryDominated": false,
-        "notes": "#1 mit4mit top list, #2 photoshot.co.il (studio, DR 4) with a dedicated center page, local pack bereshitebara/canfi/dafnatalmon. A DR-4 studio page at #2 means a focused page is winnable."
+        "notes": "Ahrefs returned no stored SERP on 2026-09-14 (serp-צלם-לחתונה-קטנה.json is empty)."
       },
       "coverage": {
-        "existingPath": "/lp/weddings-big-center/"
+        "existingPath": "/lp/weddings-small/"
       },
       "needsClient": null,
-      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Part A done: seo.title, hero, form title and one faq moved to צלם חתונות במרכז / צלם לחתונה במרכז. Part B (venue copy) still waits on Yariv. || Part A (now): in src/data/landing.js campaign 'weddings-big-center', retarget seo.title and hero to the hiring phrasing 'צלם חתונות במרכז' (today's title is 'צילום חתונות גדולות במרכז', which matches no measured query). Put 'צלם לחתונה במרכז' in seo.description and one faq question. Keep the slug; ads point at it. Part B (waits on Yariv's venue list, scope human step due 2026-09-21): replace the shared benefits/included copy with center-specific detail (real halls and gardens shot in Gush Dan/Sharon, guest-count handling). This page is also the planned landing page for the Google Search center campaign, so copy and ad group should match.",
-      "score": 0.673,
+      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): LP retitled to צלם לחתונה קטנה; intimate-wedding post now targets חתונה קטנה / חתונה אינטימית, links to /lp/weddings-small/, and has 5 faq. || Cannibalization call: the blog post intimate-wedding-photography targets 'צילום חתונה קטנה / אינטימית' and the LP targets 'צילום חתונות קטנות'. Decision per METHOD §8: the LP owns the hiring phrasing 'צלם לחתונה קטנה' (retitle seo.title/hero); the post keeps the question/guide phrasing and must link to /lp/weddings-small/ in its first third. Check the post's current links before editing.",
+      "score": 0.775,
       "scoreBreakdown": {
-        "volume": 90,
-        "demand": 1.954,
-        "primaryKd": 2,
-        "winnability": 1,
+        "volume": 70,
+        "demand": 1.845,
+        "primaryKd": null,
+        "winnability": 0.7,
         "validation": 0.6,
         "serp": 1,
-        "coveragePenalty": 0.5,
-        "flags": []
+        "coveragePenalty": 0,
+        "flags": [
+          "kdUnknown",
+          "serpUnchecked"
+        ]
       },
       "reviewPR": "https://github.com/eyalbr870/brothers./pull/13"
     },
@@ -536,6 +621,43 @@
           "kdUnknown"
         ]
       }
+    },
+    {
+      "slug": "lp-video-retarget",
+      "type": "lp-refresh",
+      "target": "/lp/video/",
+      "primaryKeyword": "צלם וידאו לחתונה",
+      "keywords": [
+        {
+          "keyword": "צלם וידאו לחתונה",
+          "volume": 150,
+          "difficulty": 0
+        }
+      ],
+      "intent": "hiring",
+      "status": "in-review",
+      "serp": {
+        "checked": "2026-09-14",
+        "directoryDominated": true,
+        "notes": "#1 urbanbridesmag (DR 54), #2 mit4mit Facebook group post, #3 mit4mit video category, #4 kobi-art.com clips page (DR 0), AI Overview citing urbanbridesmag, midrag tips, antonmislawsky.com, seven-days.co.il. A DR-0 studio at #4 and a DR-0 studio cited in the AI Overview mean it is reachable."
+      },
+      "coverage": {
+        "existingPath": "/lp/video/"
+      },
+      "needsClient": null,
+      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Retitled to צלם וידאו לחתונה; added faq on film vs clip (90 min / 3-5 min per llms.txt). || Retitle campaign 'video' from 'צילום וידאו לחתונה - סרט חתונה קולנועי' to lead with 'צלם וידאו לחתונה'. The AI Overview cites pages that explain film vs highlight length and style; answer those in faq[] (סרט חתונה מלא מול קליפ Highlight, כמה זמן לוקח לקבל, צלם וידאו אחד או שניים) using only facts in public/llms.txt (film up to 90 minutes, highlight 3–5 minutes). Price questions go to the price guide, not here.",
+      "score": 0.653,
+      "scoreBreakdown": {
+        "volume": 150,
+        "demand": 2.176,
+        "primaryKd": 0,
+        "winnability": 1,
+        "validation": 0.6,
+        "serp": 0.5,
+        "coveragePenalty": 0,
+        "flags": []
+      },
+      "reviewPR": "https://github.com/eyalbr870/brothers./pull/13"
     },
     {
       "slug": "homepage-head-terms",
@@ -633,128 +755,6 @@
           "serpUnchecked"
         ]
       }
-    },
-    {
-      "slug": "lp-stills-retarget",
-      "type": "lp-refresh",
-      "target": "/lp/stills/",
-      "primaryKeyword": "צלם סטילס לחתונה",
-      "keywords": [
-        {
-          "keyword": "צלם סטילס לחתונה",
-          "volume": 70,
-          "difficulty": null
-        },
-        {
-          "keyword": "צלם סטילס לחתונה מחיר",
-          "volume": 50,
-          "difficulty": null
-        }
-      ],
-      "intent": "hiring",
-      "status": "in-review",
-      "serp": {
-        "checked": null,
-        "directoryDominated": false,
-        "notes": "Ahrefs returned no stored SERP for this keyword on 2026-09-14 (serp-צלם-סטילס-לחתונה.json is empty)."
-      },
-      "coverage": {
-        "existingPath": "/lp/stills/"
-      },
-      "needsClient": null,
-      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Retitled to צלם סטילס לחתונה; added faq כמה עולה צלם סטילס לחתונה answered without a number. || Retitle campaign 'stills' from 'צילום סטילס לחתונה' to the searched phrasing 'צלם סטילס לחתונה'. Answer the price-intent variant without a number: an H2/faq 'כמה עולה צלם סטילס לחתונה?' answering that the price is quoted per event and naming what drives it (hours, number of photographers, albums), then linking to the price guide once it exists. Unique copy per METHOD §7; the page is ~85% shared with the others (PR #8).",
-      "score": 0.373,
-      "scoreBreakdown": {
-        "volume": 120,
-        "demand": 2.079,
-        "primaryKd": null,
-        "winnability": 0.7,
-        "validation": 0.6,
-        "serp": 1,
-        "coveragePenalty": 0.5,
-        "flags": [
-          "kdUnknown",
-          "serpUnchecked"
-        ]
-      },
-      "reviewPR": "https://github.com/eyalbr870/brothers./pull/13"
-    },
-    {
-      "slug": "lp-weddings-small-retarget",
-      "type": "lp-refresh",
-      "target": "/lp/weddings-small/",
-      "primaryKeyword": "צלם לחתונה קטנה",
-      "keywords": [
-        {
-          "keyword": "צלם לחתונה קטנה",
-          "volume": 70,
-          "difficulty": null
-        }
-      ],
-      "intent": "hiring",
-      "status": "in-review",
-      "serp": {
-        "checked": null,
-        "directoryDominated": false,
-        "notes": "Ahrefs returned no stored SERP on 2026-09-14 (serp-צלם-לחתונה-קטנה.json is empty)."
-      },
-      "coverage": {
-        "existingPath": "/lp/weddings-small/"
-      },
-      "needsClient": null,
-      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): LP retitled to צלם לחתונה קטנה; intimate-wedding post now targets חתונה קטנה / חתונה אינטימית, links to /lp/weddings-small/, and has 5 faq. || Cannibalization call: the blog post intimate-wedding-photography targets 'צילום חתונה קטנה / אינטימית' and the LP targets 'צילום חתונות קטנות'. Decision per METHOD §8: the LP owns the hiring phrasing 'צלם לחתונה קטנה' (retitle seo.title/hero); the post keeps the question/guide phrasing and must link to /lp/weddings-small/ in its first third. Check the post's current links before editing.",
-      "score": 0.275,
-      "scoreBreakdown": {
-        "volume": 70,
-        "demand": 1.845,
-        "primaryKd": null,
-        "winnability": 0.7,
-        "validation": 0.6,
-        "serp": 1,
-        "coveragePenalty": 0.5,
-        "flags": [
-          "kdUnknown",
-          "serpUnchecked"
-        ]
-      },
-      "reviewPR": "https://github.com/eyalbr870/brothers./pull/13"
-    },
-    {
-      "slug": "lp-video-retarget",
-      "type": "lp-refresh",
-      "target": "/lp/video/",
-      "primaryKeyword": "צלם וידאו לחתונה",
-      "keywords": [
-        {
-          "keyword": "צלם וידאו לחתונה",
-          "volume": 150,
-          "difficulty": 0
-        }
-      ],
-      "intent": "hiring",
-      "status": "in-review",
-      "serp": {
-        "checked": "2026-09-14",
-        "directoryDominated": true,
-        "notes": "#1 urbanbridesmag (DR 54), #2 mit4mit Facebook group post, #3 mit4mit video category, #4 kobi-art.com clips page (DR 0), AI Overview citing urbanbridesmag, midrag tips, antonmislawsky.com, seven-days.co.il. A DR-0 studio at #4 and a DR-0 studio cited in the AI Overview mean it is reachable."
-      },
-      "coverage": {
-        "existingPath": "/lp/video/"
-      },
-      "needsClient": null,
-      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Retitled to צלם וידאו לחתונה; added faq on film vs clip (90 min / 3-5 min per llms.txt). || Retitle campaign 'video' from 'צילום וידאו לחתונה - סרט חתונה קולנועי' to lead with 'צלם וידאו לחתונה'. The AI Overview cites pages that explain film vs highlight length and style; answer those in faq[] (סרט חתונה מלא מול קליפ Highlight, כמה זמן לוקח לקבל, צלם וידאו אחד או שניים) using only facts in public/llms.txt (film up to 90 minutes, highlight 3–5 minutes). Price questions go to the price guide, not here.",
-      "score": 0.153,
-      "scoreBreakdown": {
-        "volume": 150,
-        "demand": 2.176,
-        "primaryKd": 0,
-        "winnability": 1,
-        "validation": 0.6,
-        "serp": 0.5,
-        "coveragePenalty": 0.5,
-        "flags": []
-      },
-      "reviewPR": "https://github.com/eyalbr870/brothers./pull/13"
     }
   ],
   "parkingLot": [
