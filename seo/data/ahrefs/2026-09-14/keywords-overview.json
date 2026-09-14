@@ -1,0 +1,291 @@
+{
+  "keywords": [
+    {
+      "keyword": "צילום חתונות",
+      "volume": 100,
+      "difficulty": 45,
+      "cpc": 90,
+      "traffic_potential": 100,
+      "parent_topic": "צילום חתונות",
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם חתונות בחיפה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {}
+    },
+    {
+      "keyword": "מחיר צלם לחתונה",
+      "volume": 80,
+      "difficulty": 0,
+      "cpc": 80,
+      "traffic_potential": 500,
+      "parent_topic": "צלמי חתונות",
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": false,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם חתונות בדרום",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {}
+    },
+    {
+      "keyword": "צלם חתונות במרכז",
+      "volume": 30,
+      "difficulty": 2,
+      "cpc": 140,
+      "traffic_potential": 700,
+      "parent_topic": "צלם חתונות",
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם חתונות בבאר שבע",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {}
+    },
+    {
+      "keyword": "צלם חתונות בצפון",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": 50,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם לחתונה",
+      "volume": 200,
+      "difficulty": 32,
+      "cpc": 120,
+      "traffic_potential": 500,
+      "parent_topic": "צלם חתונות",
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם סטילס לחתונה",
+      "volume": 70,
+      "difficulty": null,
+      "cpc": 90,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {}
+    },
+    {
+      "keyword": "צלמי חתונות",
+      "volume": 150,
+      "difficulty": 30,
+      "cpc": 110,
+      "traffic_potential": 500,
+      "parent_topic": "צלם חתונות",
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם חתונות בשרון",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם חתונות",
+      "volume": 450,
+      "difficulty": 39,
+      "cpc": 120,
+      "traffic_potential": 800,
+      "parent_topic": "צלם חתונות",
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם חתונות בירושלים",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": 130,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם וידאו לחתונה",
+      "volume": 150,
+      "difficulty": 0,
+      "cpc": 90,
+      "traffic_potential": 100,
+      "parent_topic": "צלם וידאו לחתונה",
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם חתונות באשדוד",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {}
+    },
+    {
+      "keyword": "צלם חתונות בתל אביב",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם חתונות מומלץ",
+      "volume": 80,
+      "difficulty": 3,
+      "cpc": 80,
+      "traffic_potential": 300,
+      "parent_topic": "צלם חתונות",
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם חתונות מחיר",
+      "volume": 150,
+      "difficulty": 0,
+      "cpc": 120,
+      "traffic_potential": 400,
+      "parent_topic": "כמה עולה צלם לחתונה",
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": false,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צילום חתונה בטבע",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {}
+    },
+    {
+      "keyword": "צלם חתונות בראשון לציון",
+      "volume": 40,
+      "difficulty": null,
+      "cpc": null,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {
+        "informational": true,
+        "navigational": false,
+        "commercial": true,
+        "transactional": true,
+        "branded": false,
+        "local": true
+      }
+    },
+    {
+      "keyword": "צלם לחתונה קטנה",
+      "volume": 70,
+      "difficulty": null,
+      "cpc": 110,
+      "traffic_potential": null,
+      "parent_topic": null,
+      "intents": {}
+    }
+  ]
+}
