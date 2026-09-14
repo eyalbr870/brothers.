@@ -15,7 +15,17 @@
       "reason": "access not granted as of 2026-09-14"
     },
     "panel": {
-      "status": "see seo/panel.json"
+      "status": "ok",
+      "date": "2026-09-14",
+      "file": "seo/panel.json",
+      "answeredRuns": 29,
+      "errors": 1,
+      "brandNamed": 0,
+      "brandCited": 0,
+      "engines": [
+        "chatgpt gpt-5",
+        "gemini gemini-3.1-pro-preview"
+      ]
     }
   },
   "items": [
@@ -424,14 +434,14 @@
     {
       "idea": "Guide: how to choose a wedding photographer (איך בוחרים צלם חתונות)",
       "evidence": "Ahrefs shows 0 for the question forms; AEO relevance to be judged from seo/panel.json",
-      "why": "May matter for AI answers even with no search volume. Decide from the panel."
+      "why": "AI panel 2026-09-14: prompt p13 got answers with no citations on either engine, so no source owns it, but Ahrefs shows no search volume. Stays parked; revisit if a later panel shows citations forming."
     }
   ],
   "offPageOpportunities": [
     {
       "idea": "Get onto the mit4mit 'top' list for photographers",
       "sourceUrl": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/",
-      "why": "#1 organic on 'צלם חתונות' and 'צלם חתונות במרכז', #3 on 'צלם חתונות מומלץ', and cited in the AI Overview. Brothers. already has a mit4mit profile (73 reviews, 4.8); find out how the top list is chosen. Merging the three pending review PRs keeps the site's count in step."
+      "why": "#1 organic on 'צלם חתונות' and 'צלם חתונות במרכז', #3 on 'צלם חתונות מומלץ', and cited in the AI Overview. Brothers. already has a mit4mit profile (73 reviews, 4.8); find out how the top list is chosen. Merging the three pending review PRs keeps the site's count in step. AI panel 2026-09-14: mit4mit is the most-cited source (14 of 29 answered runs), and ChatGPT listed central-region studios straight from this top list with their mit4mit scores."
     },
     {
       "idea": "Complete the Google Business Profile",
@@ -441,12 +451,12 @@
     {
       "idea": "Listing on engaged.co.il photographers page",
       "sourceUrl": "https://engaged.co.il/%D7%A6%D7%9C%D7%9E%D7%99%D7%9D-%D7%9C%D7%97%D7%AA%D7%95%D7%A0%D7%94.html",
-      "why": "#2 on 'צלם חתונות מומלץ', cited in its AI Overview, #7 on the price query."
+      "why": "#2 on 'צלם חתונות מומלץ', cited in its AI Overview, #7 on the price query. AI panel 2026-09-14: cited in 5 of 29 runs."
     },
     {
       "idea": "Presence on midrag.co.il (photographers category / reviews)",
       "sourceUrl": "https://www.midrag.co.il/Content/Price/10381",
-      "why": "DR 73; #2 on the head term and the price query, and the AI Overview's main price citation."
+      "why": "DR 73; #2 on the head term and the price query, and the AI Overview's main price citation. AI panel 2026-09-14: second most-cited source (10 of 29 runs)."
     },
     {
       "idea": "Feature in urbanbridesmag.co.il photographer guides",
@@ -457,6 +467,26 @@
       "idea": "saveadate.co.il wedding photographer cost article",
       "sourceUrl": "https://saveadate.co.il/wedding-photographer-cost/",
       "why": "Cited in the AI Overview for 'כמה עולה צלם לחתונה'."
+    },
+    {
+      "idea": "Business directory listings: easy.co.il, t.co.il, d.co.il, b144.co.il (category wedding/event photographers, service area)",
+      "sourceUrl": "https://easy.co.il/",
+      "why": "AI panel 2026-09-14: the Ashdod, Jerusalem and South answers cite these (easy.co.il 4 runs, t.co.il 4, d.co.il 2); they also fill the Rishon LeZion SERP (serp-צלם-חתונות-בראשון-לציון.json). Consistent name/phone/site across them is an entity signal."
+    },
+    {
+      "idea": "Listing or feature on bemazal.com",
+      "sourceUrl": "https://www.bemazal.com/",
+      "why": "AI panel 2026-09-14: cited in 3 runs (style and small-wedding prompts); ranks #8 for Rishon LeZion."
+    },
+    {
+      "idea": "International rankings for English prompts: mywed.com profile, topinisrael.com, wedaward.com",
+      "sourceUrl": "https://mywed.com/",
+      "why": "AI panel 2026-09-14: Gemini cites these for the English prompts (topinisrael.com 3 runs). Only worth it if Brothers. wants foreign couples marrying in Israel; ask the client."
+    },
+    {
+      "idea": "Editorial mention in wedding sections (walla mazaltov, israelhayom)",
+      "sourceUrl": "https://mazaltov.walla.co.il/",
+      "why": "AI panel 2026-09-14: walla cited in 3 runs, israelhayom in 1. PR placement; lowest priority."
     }
   ],
   "scoring": {

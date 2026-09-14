@@ -11,7 +11,7 @@
   },
   "supporting": [
     { "metric": "Google non-brand clicks per month", "source": "Google Search Console", "baseline": null, "baselineReason": "no data: GSC access not granted (2026-09-14)", "target": null },
-    { "metric": "AI mention rate", "source": "seo/panel.json (Brothers. named, across all runs)", "baseline": null, "baselineReason": "first panel run 2026-09-14; filled from seo/panel.json", "target": null },
+    { "metric": "AI mention rate", "source": "seo/panel.json (Brothers. named, across all answered runs)", "baseline": { "named": 0, "answeredRuns": 29, "cited": 0, "date": "2026-09-14", "byEngine": { "chatgpt gpt-5": "0/15", "gemini gemini-3.1-pro-preview": "0/14 (1 run errored)" } }, "baselineReason": "measured 2026-09-14; one run per prompt is a sample, not a rate", "target": null },
     { "metric": "Cost per qualified inquiry (Google Ads)", "source": "Google Ads + the inquiry count", "baseline": null, "baselineReason": "no data: no spend yet", "target": null },
     { "metric": "Google Business Profile calls + website clicks per month", "source": "GBP insights", "baseline": null, "baselineReason": "no data: GBP access not granted (2026-09-14)", "target": null }
   ],
