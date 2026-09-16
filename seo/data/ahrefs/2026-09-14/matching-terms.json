@@ -1,0 +1,1054 @@
+{
+  "keywords": [
+    {
+      "keyword": "צלם חתונות",
+      "volume": 450,
+      "difficulty": 39,
+      "cpc": 120,
+      "parent_topic": "צלם חתונות"
+    },
+    {
+      "keyword": "צלם לחתונה",
+      "volume": 200,
+      "difficulty": 32,
+      "cpc": 120,
+      "parent_topic": "צלם חתונות"
+    },
+    {
+      "keyword": "צלם מגנטים לחתונה",
+      "volume": 200,
+      "difficulty": 0,
+      "cpc": 130,
+      "parent_topic": "מגנטים לחתונה מחיר"
+    },
+    {
+      "keyword": "צלם וידאו לחתונה",
+      "volume": 150,
+      "difficulty": 0,
+      "cpc": 90,
+      "parent_topic": "צלם וידאו לחתונה"
+    },
+    {
+      "keyword": "צלם חתונות מחיר",
+      "volume": 150,
+      "difficulty": 0,
+      "cpc": 120,
+      "parent_topic": "כמה עולה צלם לחתונה"
+    },
+    {
+      "keyword": "צלם חתונות חרדי",
+      "volume": 150,
+      "difficulty": 43,
+      "cpc": 50,
+      "parent_topic": "צלם חתונות חרדי"
+    },
+    {
+      "keyword": "צילום חתונות",
+      "volume": 100,
+      "difficulty": 45,
+      "cpc": 90,
+      "parent_topic": "צילום חתונות"
+    },
+    {
+      "keyword": "כמה עולה צלם חתונות",
+      "volume": 100,
+      "difficulty": null,
+      "cpc": 80,
+      "parent_topic": null
+    },
+    {
+      "keyword": "כמה עולה צלם לחתונה",
+      "volume": 100,
+      "difficulty": 0,
+      "cpc": 60,
+      "parent_topic": "צלם חתונות"
+    },
+    {
+      "keyword": "צלם לחתונה מחיר",
+      "volume": 90,
+      "difficulty": 0,
+      "cpc": 80,
+      "parent_topic": "צלם חתונות"
+    },
+    {
+      "keyword": "מחיר צלם לחתונה",
+      "volume": 80,
+      "difficulty": 0,
+      "cpc": 80,
+      "parent_topic": "צלמי חתונות"
+    },
+    {
+      "keyword": "צלם חתונות מומלץ",
+      "volume": 80,
+      "difficulty": 3,
+      "cpc": 80,
+      "parent_topic": "צלם חתונות"
+    },
+    {
+      "keyword": "דודי ברים צלם חתונות",
+      "volume": 70,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם סטילס לחתונה",
+      "volume": 70,
+      "difficulty": null,
+      "cpc": 90,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה קטנה",
+      "volume": 70,
+      "difficulty": null,
+      "cpc": 110,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה דתית",
+      "volume": 60,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "עלות צלם לחתונה",
+      "volume": 60,
+      "difficulty": null,
+      "cpc": 25,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם סטילס לחתונה מחיר",
+      "volume": 50,
+      "difficulty": null,
+      "cpc": 100,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה השוואת מחירים",
+      "volume": 50,
+      "difficulty": null,
+      "cpc": 60,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות מקצועי",
+      "volume": 50,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה במרכז",
+      "volume": 50,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם וידאו לחתונה מחירים",
+      "volume": 40,
+      "difficulty": null,
+      "cpc": 50,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה גאה",
+      "volume": 40,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה חרדית",
+      "volume": 40,
+      "difficulty": null,
+      "cpc": 70,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בראשון לציון",
+      "volume": 40,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות עד 5000",
+      "volume": 30,
+      "difficulty": null,
+      "cpc": 120,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות במרכז",
+      "volume": 30,
+      "difficulty": 2,
+      "cpc": 140,
+      "parent_topic": "צלם חתונות"
+    },
+    {
+      "keyword": "צלם חתונות דתי",
+      "volume": 30,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם וידאו לחתונה מחיר",
+      "volume": 30,
+      "difficulty": null,
+      "cpc": 100,
+      "parent_topic": null
+    },
+    {
+      "keyword": "בראשית i ישראל ואיריס פרסי i צילום חתונות",
+      "volume": 30,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "כמה עולה צלם מגנטים לחתונה",
+      "volume": 30,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "דרים צילום חתונות",
+      "volume": 30,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "dream צילום חתונות",
+      "volume": 20,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "ביקורות על dream - צילום חתונות",
+      "volume": 20,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות זול",
+      "volume": 20,
+      "difficulty": null,
+      "cpc": 110,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם מגנטים לחתונה מחיר",
+      "volume": 20,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "כמה עולה צלם לחתונה הכי טוב",
+      "volume": 20,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות במרכז",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": 140,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות - ויקטוריה צילום ושי בני ברק",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות חיפה",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "פייגי צילום חתונות",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "dream - צילום חתונות",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בצפון",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": 50,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות בראשית ישראל פרסי",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "כמה מרוויח צלם חתונות",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": 30,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות מחק",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם מומלץ לחתונה",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": 90,
+      "parent_topic": null
+    },
+    {
+      "keyword": "כמה עולה צלם סטילס לחתונה",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה שנייה",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות מחירים",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בירושלים",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": 130,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות עלות",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות חרדי מומלץ",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "כמה עולה צלם וידאו לחתונה",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": 45,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה מחירים",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "יואב לוי צלם חתונות",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות באר שבע",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות בירושלים",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות מודיעין",
+      "volume": 10,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות גולן",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות בצפון",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מה חשוב לדעת בעת בחירת צלם חתונות?",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "אבי רביבו צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם דתי לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "שי פרנקו צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות קטנות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה בירושלים",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות מיוחד",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה ברחובות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "יניב צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "במה שונה צלם רגיל מצלם חתונות?",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "ביקורות על צילום חתונות בראשית ישראל פרסי",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מחיר צלם סטילס לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה בזול",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בחיפה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות וידאו",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מיומנו של צלם חתונות לצפייה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בדרום",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "בני גולן צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות באשקלון",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בבאר שבע",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות מחק את כל התמונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "forevers - צילום חתונות | אוראל סברן",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "ביקורות על dream צילום חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות משכורת",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות מחירים",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "דרוש צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם וצלמת לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "טיפים לבחירת צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות מומלץ בירושלים",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם סושיאל לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מיומנו של צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": 120,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם זול לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מיומנו של צלם חתונות 2016",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "דיל צלם לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מחיר צלם לחתונה בישראל",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בחולון",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם פולארויד לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "איך בוחרים צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מחיר צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות מחיר",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "פוטוגנים צילום חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות במגזר החרדי",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "רותם ברק צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה בראשון לציון",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "אלעד צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "בחירת צלם לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "כמה צלם חתונות מרוויח",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות השוואת מחירים",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות וידאו",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות מודיעין",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות סטילס",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בשרון",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות בראשון לציון",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות אשקלון",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "לוז צילום חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "ביקורות על dream - צילום חתונות גן יבנה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "גדי יגיל צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם dslr לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "כוורת צילום חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בחיפה והקריות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "חוזה עם צלם לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות אשדוד",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "רבינסקי צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום וידאו חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות חזן",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם וידאו לחתונה דתית",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות בשרון",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מחירים צלם לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "דניאל אלי צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם וצלמת חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צילום חתונות אומנותי",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": 170,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות קטנות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה בחיפה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם אומנותי לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות חרדי לשעבר",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "אפרת ציון צילום חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בוכריס",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בקריות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מזה צלם חתונות?",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "יוסי צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "טווח מחירים צלם חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות בחיפה וקריות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מיומנו של צלם חתונות לצפייה ישירה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות דתיות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם חתונות הכי טוב בארץ",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "מחירי צלם לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "בראשית צילום חתונות",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם לחתונה בתל אביב",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    },
+    {
+      "keyword": "צלם וידאו זול לחתונה",
+      "volume": 0,
+      "difficulty": null,
+      "cpc": null,
+      "parent_topic": null
+    }
+  ]
+}

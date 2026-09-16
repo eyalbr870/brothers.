@@ -1,0 +1,1040 @@
+{
+  "_comment": "AI-answer panel for Brothers. (seo/METHOD.md §9). One run per prompt per engine is a sample, not a rate: read it across prompts. Errored runs are errors, not 'not named'. Full answers: seo/data/panel/2026-09-14-raw.json",
+  "date": "2026-09-14",
+  "prompts": [
+    {
+      "id": "p01",
+      "lang": "he",
+      "intent": "national",
+      "text": "מי צלם חתונות מומלץ בישראל? תן לי כמה שמות עם אתרים"
+    },
+    {
+      "id": "p02",
+      "lang": "he",
+      "intent": "region",
+      "text": "צלם חתונות מומלץ במרכז הארץ, מי הכי טובים?"
+    },
+    {
+      "id": "p03",
+      "lang": "he",
+      "intent": "city",
+      "text": "צלם חתונות מומלץ באשדוד"
+    },
+    {
+      "id": "p04",
+      "lang": "he",
+      "intent": "city",
+      "text": "צלם חתונות מומלץ בתל אביב"
+    },
+    {
+      "id": "p05",
+      "lang": "he",
+      "intent": "city",
+      "text": "צלם חתונות מומלץ בירושלים"
+    },
+    {
+      "id": "p06",
+      "lang": "he",
+      "intent": "region",
+      "text": "צלם חתונות מומלץ בחיפה והצפון"
+    },
+    {
+      "id": "p07",
+      "lang": "he",
+      "intent": "region",
+      "text": "צלם חתונות מומלץ בבאר שבע והדרום"
+    },
+    {
+      "id": "p08",
+      "lang": "he",
+      "intent": "style",
+      "text": "צלם חתונות בסגנון טבעי, דוקומנטרי וקולנועי, את מי כדאי לבדוק?"
+    },
+    {
+      "id": "p09",
+      "lang": "he",
+      "intent": "service",
+      "text": "צלם סטילס ווידאו לחתונה באותה חבילה, המלצות"
+    },
+    {
+      "id": "p10",
+      "lang": "he",
+      "intent": "type",
+      "text": "צלם לחתונה קטנה ואינטימית, המלצות"
+    },
+    {
+      "id": "p11",
+      "lang": "he",
+      "intent": "type",
+      "text": "צלם לחתונת שטח בטבע, המלצות"
+    },
+    {
+      "id": "p12",
+      "lang": "he",
+      "intent": "price",
+      "text": "כמה עולה צלם חתונות בישראל ב-2026?"
+    },
+    {
+      "id": "p13",
+      "lang": "he",
+      "intent": "howto",
+      "text": "איך בוחרים צלם חתונות? על מה להסתכל ואיפה לקרוא ביקורות"
+    },
+    {
+      "id": "p14",
+      "lang": "en",
+      "intent": "national",
+      "text": "Who are the best wedding photographers in Israel? Give names and websites."
+    },
+    {
+      "id": "p15",
+      "lang": "en",
+      "intent": "city",
+      "text": "Recommended wedding photographer and videographer in Tel Aviv for a wedding in Israel"
+    }
+  ],
+  "summary": {
+    "runs": 30,
+    "answered": 29,
+    "errors": 1,
+    "brandNamed": 0,
+    "brandCited": 0,
+    "byEngine": {
+      "chatgpt": {
+        "model": "gpt-5",
+        "runs": 15,
+        "answered": 15,
+        "errors": 0,
+        "brandNamed": 0,
+        "brandCited": 0
+      },
+      "gemini": {
+        "model": "gemini-3.1-pro-preview",
+        "runs": 15,
+        "answered": 14,
+        "errors": 1,
+        "brandNamed": 0,
+        "brandCited": 0
+      }
+    },
+    "topCitedDomains": [
+      {
+        "domain": "mit4mit.co.il",
+        "runs": 14
+      },
+      {
+        "domain": "midrag.co.il",
+        "runs": 10
+      },
+      {
+        "domain": "luz-weddings.com",
+        "runs": 6
+      },
+      {
+        "domain": "antonmislawsky.com",
+        "runs": 5
+      },
+      {
+        "domain": "engaged.co.il",
+        "runs": 5
+      },
+      {
+        "domain": "bigpicturestories.com",
+        "runs": 4
+      },
+      {
+        "domain": "easy.co.il",
+        "runs": 4
+      },
+      {
+        "domain": "en.danielnotcake.com",
+        "runs": 4
+      },
+      {
+        "domain": "t.co.il",
+        "runs": 4
+      },
+      {
+        "domain": "idan-hasson.com",
+        "runs": 3
+      },
+      {
+        "domain": "bemazal.com",
+        "runs": 3
+      },
+      {
+        "domain": "studioayalon.co.il",
+        "runs": 3
+      },
+      {
+        "domain": "lunsoul.com",
+        "runs": 3
+      },
+      {
+        "domain": "walla.co.il",
+        "runs": 3
+      },
+      {
+        "domain": "topinisrael.com",
+        "runs": 3
+      },
+      {
+        "domain": "bereshitebara.com",
+        "runs": 3
+      },
+      {
+        "domain": "spicy-photo.co.il",
+        "runs": 3
+      },
+      {
+        "domain": "lironerelco.com",
+        "runs": 2
+      },
+      {
+        "domain": "ranbergman.com",
+        "runs": 2
+      },
+      {
+        "domain": "photoshot.co.il",
+        "runs": 2
+      },
+      {
+        "domain": "d.co.il",
+        "runs": 2
+      },
+      {
+        "domain": "amora-studios.com",
+        "runs": 2
+      },
+      {
+        "domain": "itayaharon.com",
+        "runs": 2
+      },
+      {
+        "domain": "almogwedd.com",
+        "runs": 2
+      },
+      {
+        "domain": "danieleliwedding.com",
+        "runs": 2
+      }
+    ]
+  },
+  "runs": [
+    {
+      "promptId": "p01",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "lironerelco.com",
+        "luz-weddings.com",
+        "ranbergman.com",
+        "bigpicturestories.com",
+        "tomerlesher.com",
+        "lupophotographers.co.il",
+        "niralon.co.il",
+        "mit4mit.co.il"
+      ],
+      "citedUrls": [
+        "https://www.lironerelco.com/?utm_source=openai",
+        "https://www.luz-weddings.com/?utm_source=openai",
+        "https://www.ranbergman.com/category/weddings/?utm_source=openai",
+        "https://www.bigpicturestories.com/?utm_source=openai",
+        "https://www.tomerlesher.com/?utm_source=openai",
+        "https://lupophotographers.co.il/?utm_source=openai",
+        "https://www.niralon.co.il/about-wedding?utm_source=openai",
+        "https://www.mit4mit.co.il/biz/90139?utm_source=openai"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p02",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mit4mit.co.il",
+        "midrag.co.il",
+        "israelhayom.co.il"
+      ],
+      "citedUrls": [
+        "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+        "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+        "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+        "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+        "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+        "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+        "https://www.midrag.co.il/Search/Results/?ntla=7136NZ7BI863844O5D0X92E939N9873GMK76M2&utm_source=openai",
+        "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+        "https://www.israelhayom.co.il/news/local/article/19636996?utm_source=openai"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p03",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "photoshot.co.il",
+        "easy.co.il",
+        "d.co.il",
+        "b144.co.il"
+      ],
+      "citedUrls": [
+        "https://photoshot.co.il/",
+        "https://easy.co.il/page/10136781",
+        "https://www.d.co.il/7722930/42450/?utm_source=openai",
+        "https://www.d.co.il/80029040/42450/?utm_source=openai",
+        "https://www.b144.co.il/b144_sip/481404134470655D4E120C134575665B4D/?utm_source=openai",
+        "https://www.b144.co.il/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/%D7%90%D7%96%D7%95%D7%A8-%D7%90%D7%A9%D7%93%D7%95%D7%93-%D7%95%D7%94%D7%A1%D7%91%D7%99%D7%91%D7%94/",
+        "https://easy.co.il/page/10136781",
+        "https://www.b144.co.il/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/%D7%90%D7%96%D7%95%D7%A8-%D7%90%D7%A9%D7%93%D7%95%D7%93-%D7%95%D7%94%D7%A1%D7%91%D7%99%D7%91%D7%94/"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p04",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "luz-weddings.com",
+        "styleandweddings.com",
+        "en.danielnotcake.com",
+        "haimafriat.com",
+        "amora-studios.com",
+        "midrag.co.il"
+      ],
+      "citedUrls": [
+        "https://www.luz-weddings.com/?utm_source=openai",
+        "https://styleandweddings.com/vendor-page/%D7%A4%D7%99%D7%A4%D7%9C-%D7%A4%D7%95%D7%98%D7%95%D7%92%D7%A8%D7%A4%D7%99/",
+        "https://en.danielnotcake.com/wedding?utm_source=openai",
+        "https://haimafriat.com/?utm_source=openai",
+        "https://www.amora-studios.com/?utm_source=openai",
+        "https://www.midrag.co.il/Search/Results/?ntla=7136NZ7BI863844O5D0X92E939N9873GMK76M2&utm_source=openai"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p05",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "bigpicturestories.com",
+        "larryphotography.com",
+        "yaniveitan.co.il",
+        "aharondahan.co.il",
+        "photodima.com",
+        "en.danielnotcake.com",
+        "midrag.co.il"
+      ],
+      "citedUrls": [
+        "https://www.bigpicturestories.com/?utm_source=openai",
+        "https://www.larryphotography.com/?utm_source=openai",
+        "https://www.yaniveitan.co.il/%D7%97%D7%95%D7%A4%D7%94/?utm_source=openai",
+        "https://aharondahan.co.il/?utm_source=openai",
+        "https://photodima.com/?utm_source=openai",
+        "https://en.danielnotcake.com/wedding?utm_source=openai",
+        "https://www.midrag.co.il/Search/Results?ntla=T130Y37M881VZ46Z60E665O7T7L304264980S3&utm_source=openai"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p06",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [],
+      "citedUrls": [],
+      "error": null
+    },
+    {
+      "promptId": "p07",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mit4mit.co.il",
+        "easy.co.il"
+      ],
+      "citedUrls": [
+        "https://www.mit4mit.co.il/biz/91578?utm_source=openai",
+        "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=41&rankDown=&rankUp=",
+        "https://easy.co.il/page/8837162?utm_source=openai",
+        "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown",
+        "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown",
+        "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown",
+        "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown",
+        "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p08",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "gershonabramashvili.com",
+        "idan-hasson.com",
+        "luz-weddings.com",
+        "itayaharon.com",
+        "almogwedd.com",
+        "danieleliwedding.com",
+        "tamireytan.com",
+        "set-productions.com",
+        "bemazal.com",
+        "bigpicturestories.com",
+        "weddingart.co.il",
+        "weddingday.co.il"
+      ],
+      "citedUrls": [
+        "https://gershonabramashvili.com/?utm_source=openai",
+        "https://www.idan-hasson.com/?utm_source=openai",
+        "https://www.luz-weddings.com/team/?utm_source=openai",
+        "https://www.itayaharon.com/?utm_source=openai",
+        "https://www.almogwedd.com/?utm_source=openai",
+        "https://danieleliwedding.com/?utm_source=openai",
+        "https://www.tamireytan.com/?utm_source=openai",
+        "https://set-productions.com/?utm_source=openai",
+        "https://www.bemazal.com/stills-photography/wedding-stills/?utm_source=openai",
+        "https://www.bigpicturestories.com/?utm_source=openai",
+        "https://www.weddingart.co.il/?utm_source=openai",
+        "https://gershonabramashvili.com/?utm_source=openai",
+        "https://set-productions.com/?utm_source=openai",
+        "https://set-productions.com/?utm_source=openai",
+        "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p09",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mit4mit.co.il",
+        "studioayalon.co.il",
+        "lunsoul.com",
+        "hupa.co.il",
+        "midrag.co.il"
+      ],
+      "citedUrls": [
+        "https://www.mit4mit.co.il/biz/95730",
+        "https://www.mit4mit.co.il/biz/90564",
+        "https://www.mit4mit.co.il/biz/24792",
+        "https://www.mit4mit.co.il/biz/34009",
+        "https://www.mit4mit.co.il/biz/138",
+        "https://www.mit4mit.co.il/category/11/?id=11&only_team=false&sort=rankDown",
+        "https://studioayalon.co.il/%D7%94%D7%97%D7%91%D7%99%D7%9C%D7%94-%D7%94%D7%94%D7%99%D7%91%D7%A8%D7%93%D7%99%D7%AA/?utm_source=openai",
+        "https://lunsoul.com/vendor-articles/photographer-price-israel?utm_source=openai",
+        "https://hupa.co.il/photography.php?utm_source=openai",
+        "https://www.midrag.co.il/Content/Tip/1049?utm_source=openai",
+        "https://www.midrag.co.il/content/feedbacksindex/481139?utm_source=openai",
+        "https://www.mit4mit.co.il/category/11/?id=11&only_team=false&sort=rankDown"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p10",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "eyalrokser.com",
+        "denisbutnaru.com",
+        "weddingart.co.il",
+        "premiumphotography.co.il",
+        "mit4mit.co.il",
+        "midrag.co.il",
+        "origin.mazaltov.walla.co.il",
+        "picime.com",
+        "lunsoul.com",
+        "lawrence.co.il"
+      ],
+      "citedUrls": [
+        "https://eyalrokser.com/hatuna-ktana.html?utm_source=openai",
+        "https://www.denisbutnaru.com/?utm_source=openai",
+        "https://www.weddingart.co.il/?utm_source=openai",
+        "https://www.premiumphotography.co.il/wedding-photographers-tel-aviv?utm_source=openai",
+        "https://www.mit4mit.co.il/top/54719c753be563f2f3059220?sort=relevanceUp&utm_source=openai",
+        "https://www.midrag.co.il/Search/Results/?ntla=7136NZ7BI863844O5D0X92E939N9873GMK76M2&utm_source=openai",
+        "https://origin.mazaltov.walla.co.il/wedding-production/eventsphotographer/?utm_source=openai",
+        "https://picime.com/blog/event-photography-costs-israel?utm_source=openai",
+        "https://www.premiumphotography.co.il/wedding-photographers-tel-aviv?utm_source=openai",
+        "https://picime.com/blog/event-photography-costs-israel?utm_source=openai",
+        "https://lunsoul.com/vendor-articles/photographer-price-israel?utm_source=openai",
+        "https://www.lawrence.co.il/jaffas-golden-hour-why-wedding-photographers-love-to-shoot-around-a-small-wedding-venue-in-tel-aviv-jaffa-if-you-ask-any-veteran-wedding-photographer-what-the-first-thing-they-check-when-th/?utm_source=openai"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p11",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "finephotography.co.il",
+        "tamireytan.com",
+        "itayaharon.com",
+        "danieleliwedding.com",
+        "denisbutnaru.com",
+        "almogwedd.com",
+        "avivhagaystudio.co.il",
+        "oferm.co.il",
+        "thisisreportage.com"
+      ],
+      "citedUrls": [
+        "https://finephotography.co.il/2026/01/31/colorful-wedding-photography-bayaar-hadera/?utm_source=openai",
+        "https://www.tamireytan.com/?utm_source=openai",
+        "https://www.itayaharon.com/?utm_source=openai",
+        "https://danieleliwedding.com/?utm_source=openai",
+        "https://www.denisbutnaru.com/?utm_source=openai",
+        "https://www.almogwedd.com/?utm_source=openai",
+        "https://www.avivhagaystudio.co.il/wedding-photography-north?utm_source=openai",
+        "https://oferm.co.il/?utm_source=openai",
+        "https://thisisreportage.com/best-documentary-wedding-photographers-israel/"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p12",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "picime.com",
+        "ulami.co.il",
+        "d.co.il",
+        "pix-online.com",
+        "yes-please.co.il"
+      ],
+      "citedUrls": [
+        "https://picime.com/blog/event-photography-costs-israel?utm_source=openai",
+        "https://ulami.co.il/blog/wedding-costs-israel-2026/?utm_source=openai",
+        "https://www.d.co.il/priceList-42450/?utm_source=openai",
+        "https://ulami.co.il/blog/wedding-costs-israel-2026/?utm_source=openai",
+        "https://www.pix-online.com/blog/wedding-photography-pricing?utm_source=openai",
+        "https://www.yes-please.co.il/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D.html?utm_source=openai",
+        "https://www.pix-online.com/blog/wedding-photography-pricing?utm_source=openai"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p13",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [],
+      "citedUrls": [],
+      "error": null
+    },
+    {
+      "promptId": "p14",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "idan-hasson.com",
+        "lironerelco.com",
+        "peoplepho.co.il",
+        "ranbergman.com",
+        "luz-weddings.com",
+        "herschelgutmanphotography.com",
+        "mywed.com",
+        "bigpicturestories.com",
+        "invisible.co.il",
+        "eranbeeri.com",
+        "en.danielnotcake.com",
+        "antonmislawsky.com"
+      ],
+      "citedUrls": [
+        "https://www.idan-hasson.com/?utm_source=openai",
+        "https://www.lironerelco.com/?utm_source=openai",
+        "https://www.peoplepho.co.il/?utm_source=openai",
+        "https://www.ranbergman.com/category/weddings/?utm_source=openai",
+        "https://www.luz-weddings.com/team/",
+        "https://herschelgutmanphotography.com/?utm_source=openai",
+        "https://mywed.com/en/photographer/carmi/?utm_source=openai",
+        "https://www.bigpicturestories.com/?utm_source=openai",
+        "https://invisible.co.il/professional-wedding-and-event-photographer-in-jerusalem-and-in-israel/?utm_source=openai",
+        "https://www.eranbeeri.com/?utm_source=openai",
+        "https://en.danielnotcake.com/wedding?utm_source=openai",
+        "https://antonmislawsky.com/?utm_source=openai"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p15",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "luz-weddings.com",
+        "en.danielnotcake.com",
+        "amora-studios.com",
+        "visionwedding.co.il",
+        "idan-hasson.com",
+        "sagivfilms.com",
+        "premiumphotography.co.il",
+        "mabroukday.com",
+        "weddingday.co.il",
+        "mitchatnim.co.il"
+      ],
+      "citedUrls": [
+        "https://www.luz-weddings.com/?utm_source=openai",
+        "https://en.danielnotcake.com/wedding?utm_source=openai",
+        "https://www.amora-studios.com/?utm_source=openai",
+        "https://www.visionwedding.co.il/?utm_source=openai",
+        "https://www.idan-hasson.com/?utm_source=openai",
+        "https://www.sagivfilms.com/?utm_source=openai",
+        "https://www.premiumphotography.co.il/wedding-photographers-tel-aviv?utm_source=openai",
+        "https://mabroukday.com/providers/category/photo-video/tel-aviv?utm_source=openai",
+        "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai",
+        "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai",
+        "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai",
+        "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai",
+        "https://www.mitchatnim.co.il/wedding/events-photography/video/tel-aviv/?utm_source=openai"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p01",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "parparim.co.il",
+        "walla.co.il",
+        "topinisrael.com",
+        "danielnotcake.com",
+        "antonmislawsky.com",
+        "pixieset.com",
+        "shutters.studio",
+        "evanto.co.il",
+        "thephotographer.co.il",
+        "mit4mit.co.il",
+        "iplan.co.il",
+        "engaged.co.il",
+        "bereshitebara.com",
+        "13tv.co.il",
+        "inn.co.il"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGiKoNK2D8y_kS_M2r42q0ckxMuw5QGSHcMwf8UvZGsKDY_sTYT2jxlBVKGpMQCh90-zy1JByEyAI9IVhZpoPTCvze-fAopDAA7w3iFcEayFkjnY6G1C6i_9-Xj12supEgT7uWMMy_UEqszC3cO0H2e-jZsUSH9itganeuXQO_AGqpf0nZkF9dhP_4CsRVGsNxXLFHu27GHkoX-CBOVnk2U_aoLXPAcGBXL8zsvvNVf5yldnpFTaXk0QEcGR6Na_ZB9S3fE-Uwx5-e2F2QstLkKOzoHCsmwXOP_fjc=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTvT5Av6tB2Asa3p1sRbYPNIqT3o5NqtDw9zjav1Fwg9ciNUOzMf61ku-iiDeqOVk88K1cZqi8Rnnm2_ZFyDysFdE-b83mrj678-HPqLv-26cE1CTM5-weD4h8efLSC4U_UIjMYigGk-U0LtxYjsB_0u7oS22BH1Pp",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEo4vliXwfrv5HTzCYivorxEFKONmEIObjDIHO-8RMfrN7b2pR4E_vKxbOO1hhLR7EDmWHdEGcFtDEEVrZxAUt9MNrQdzEpvKrOHRFPkLHuYbqIW9UpBIuQ4IDha381y20-SW-tiKjVhz4BIe_PbPvw7l2OpA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzeIJJ6ZV3yLvZWOawqZIuVwNcLFLY1fUC0nOFQLxLzpGmOP9ruHGyZ49Eh21mObS-ulaOFlT6deP40cp8qDDC4xQWslUaqbo6t38JdMOqolIwhtJr",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExA2SBTqFHsJlTHzeBOT9OGvrOvVrJ5q3ObBGIy2kn1wy6-RhfTPLnq3TIvziBu2MNghlo5HtNNcmA4OQ7vCf_P0nT9B9hifoDzdqu6LG0v-G1UX-v_QpjNs9lKugnL-qL4NXEOJ30L_uE_n6pAUjH5TRaWg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1LNC0jC94ulFQ30FZOHpdS5tZMeKe4SYik91ovA3biPQc3tHW9Bv-IlgxFrVuI8VfCYyfMJ674Foaph0_KSoONOR53Iy0n-h1KMOkzXZESgWqJQXyGAY6vXc=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEElqh5AU6dWuMjK_Ln8gIiKp42msz6nBP6psiZUIhSB4_ir8TKDK1kz1z1bZJ8yMgiY3H9-bAhyh3bmZkTzEcV9fBSkBah7W43BvWjXQq3srXJNw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMMBTncjiOaUlrcc-Bkx9xAhjJExokD7wOetwwcuo2e7o2zg_f-MrfXEvR5nnuD3q8-bGEhGZKFmfXpIVLOgoCqcufzU_a8CutdQJc9L7NGg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHu6vT78J8zw-qZYIamde8kOWIzTJGFSvAJdwzQcpBoH33o8w5s5ClmNCyNotHOsOft7p0gwQzyiWlt9jGfSLqHC6wBMHYW7osHqbzyrmvzc9rjBT3RfQ9tZXS4-gbGC1ir5xb_Q1zKQKycGgAcBJ0eM2zFDaSFUkgTPUHaUAEnqw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExA2SBTqFHsJlTHzeBOT9OGvrOvVrJ5q3ObBGIy2kn1wy6-RhfTPLnq3TIvziBu2MNghlo5HtNNcmA4OQ7vCf_P0nT9B9hifoDzdqu6LG0v-G1UX-v_QpjNs9lKugnL-qL4NXEOJ30L_uE_n6pAUjH5TRaWg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHv5A5ZAgSDpLPayNPs31MKbmpgtIzgUH03tL0k1VOq-4eVZjI2lP6XkntUCL8q2jHPQs8gRD2t_QeMcqsIvzcl1svdxXcOrUszi1k-6jeOVZqZ96AKLTjn5i0=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgYi4SOI1vrNHwYPgHinHSI26F2L3MuyNlJn7N-tYwTLTlbHs1TgRFH4fi4tt0BVTR8EX8DZQubhuXm5gRvMUo4c1Fv6dtEtsRZZNGMl8Czl3MvharwVk_c8MmeeK7749TWMjHS-ymzg6yALrb4G61iYBQkildCQBO1wDOgwYYJirHYSBitxYBPVybd70vtLHEn-JETDp2rw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnO63jCx8HtB5mbNk7ApXS84yq9Nv8o5D9L-YfzSnyb57B3adUiP66inIWR_trkaZnAXr0QzANfhYl8FX68MGPeLvXcC6Ef0CnG4HLP167w0fgCc8BUkmbM8CO8A==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEPTpVO2QmsIeHlvJeCld-aNQqkouwATKge8bVeOFgcrenW8f8jFqBNC5-KkFCvji8PNsvmnUto0Nyf93Ff6B63W_71Y8pj0v0WDsVs33-WQUuY-ZzrEw5YIGIYM_jMChLR1yu2JMmS3c1eGeCHmDVLmSEODi755YhLOjwvOIGGlMssxl-ph0_ih46RqIWwd13bf2r7MMAulJWeYMP19oxOJKAnyfqUXwfqOzmrHC4grFI7bn6O_ns3Om0Yo_jIIVDtVhiRWdJRUyji6d0c1y-RhpZlew1XC2DuvA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEyCKZnLuzmfqvzUGKWXR0i0cB8koy1TWFi5eOUfCxZjucbCU8kvSjB5AYBxofCU1tMQSFkCBibW9ELST_WG8_-W1-4G6y1ZbT1E6uoFHmssLn8FinDOfZzUb-bgbTFD-NfyaBnURcfQlHOidJL-leH0tze63n60irwJ_0hntvo4mSqJnSFYAhT_KN2CxwGus8_hZt6gA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8fTKylgRnWZDmolfkUHQaGu7b0tfTgdcRujJEDTuoVo02EGwE2yfSIKCOc3q0hng_aRzpvY_ZuTkBy1HsQcjmAmQ4O8qSowgptu5Hq6vie9xizpvehqtiQg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsekX5NKvJO1YL1E9IdvbaKpUEACrrOrPvPAa_XqIiUOJNnptzSoIjdU_GHLLsM4iuetPLfdZeaLJqXSxwWd7Wc_2Y8QnHFG48GyJxisjAR6POlJLM09ZxmLFPJslPhII_GKLU_mPHuxnhjyS4T57s3vja71fw9ag_P0n-67m9ZCeffgccv7qJgQyyrkWX16R5BsbvAFXHBduMusLHizL1x311I1snO-AwBbUBarwx4V1p2TMEzXfiyFcskMJjkF6ZUpk=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHyOIEUsV9XuE9pnJx-OAuXWuNS0VyHhs9nf8BIK84hDzjWoxycjhPVIw-Ot69lg5bhloy75ompQgb5qUVBaW55D3xMm13vnDT_wFOAkrbloS5h1fh7wHRJUQxOSF1LPKz1CqqWg2_lJdOu0iBZ1b9-rsTKNOofdQ9s1u2HQXSR0lDgCaNGUkewb4kJoc2L0082tO7n",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqpWhEwXEtD86RoUrWfUojdpnePfONd50vJncWJugwJDJZWstOI4ttZh41p5IeCFQ40BQs-e2W6a4m_drmHr_6ro6JZ48BrgIxmGLZkiHXD0adv5GSNisM55liHrnWXkjEAlKZj7Em2AtL78AqkzEP6Jf2-8c-FjOBxUPIPousRXRv4JVcUaZ7KCSyqALRJHbigocC",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFbpsQpAnlHMJGSN85VrsEb3g3cgqXmqsZe-n9x6iIdu4TzUR4cohyq5AlM2MQjPYOEyoi0HsXhl0kI--rtjRdPRs8jleKz8JhnHVSMJWA_0KsKFfLoF82IJRLVL9Kxq1ma0jS1lhNEq60HK2ipq-x38FB6URIHENMqeW2PgbrtIDGkJuWXLlkhg5rfVVnnC8uggNDc4c-WDg03TddkoO9WivYurxIrnxSTmaOgwuQtOH2PNR11bnVXnaoramBlBAXJQygQ128GFtjE7ofYSt9fCVld",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG35RGW2lel4br9voDsrjkwLbggbOTJCgUcJD6LECXtmMSpvbE_i2SCy42e5iO4Iak1QqbWg2zMFuctTv28aLLKy1Vcp7u8VjrTBAfIT5EA1uA8vt3WPwxbe8pfCBebwJmjj3T3oSR4nVIgrLWITzcSpKB3I-SGLuPfyQ==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6pjgu-vXFXlJOXEvhZ8C5iniwqGjpyhRbSBMsh5C7CVnBP1fNmdH3ybORfdJKB0sRARtaWgIAwstKxhOwFzwiL3Q7-Ca8jRoGZms7x-MB16i8P0BRvP8=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHn4aDKLHht1yqBiTuzLONVl5FuDPChI6GkZZrbH3xR2f6NFvZiRFEWVA9zQJaTjfWMnMkumV0mDHUCmjfBdz35Tt9pcQfVCWN4W2dPFMf2mfuwFjJItza2lXrwaBdXhLJtijiRKvClVtJO55lRT0vr0_lEqB8AGJDIipBP5978v2EpmLLF_mLy9A=="
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p02",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "walla.co.il",
+        "mit4mit.co.il",
+        "spicy-photo.co.il",
+        "t.co.il",
+        "engaged.co.il",
+        "saveadate.co.il",
+        "urbanbridesmag.co.il"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWjXRXBz2txIbm0Dv7Ecl6saECetZtHGF9rl9PjMLtikf2KoZPgOVVhw4pppNFfboFIGHNHqIHh1vjSnEf0k2yv0ngyv9CwMZx-AOWOcLV00A4oENc1i41HdpZCt4OelWfw99mWukyvPsjlLd32UkvLOhb2cn0p3rjNmGHO9HXTw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFlMnHyHmU9XAlv0hTVyNnhLdS5i0E40ka8s7TKJjP1TjOyKLCrAQLCb-RE_E8NHq-ue4lzwocvcdhQ0CfwB8wKmZvBb8pSuMhlxpJ79LxzpLyD9XmazQhmI02mO6SHrZIVAlUxx-JEREnw6R2q",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8y6hsKRW7aduL1fMEp9_rxzKpPGEGck_5bobsp-Cl7NqrAT5u-fToldazHwvFD_3Ko6CK--5W04exvGK-T6gLidXNWBZ6n-K6TL0tNhbsSawRn0tyZUnIkgfVYzDSM3Tt3wXRIEzm3V0z2kaBB7N07U296t2enHk=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8y6hsKRW7aduL1fMEp9_rxzKpPGEGck_5bobsp-Cl7NqrAT5u-fToldazHwvFD_3Ko6CK--5W04exvGK-T6gLidXNWBZ6n-K6TL0tNhbsSawRn0tyZUnIkgfVYzDSM3Tt3wXRIEzm3V0z2kaBB7N07U296t2enHk=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPzAChqPQWXh_akzqH4REEAN0WE0v0VpCgX6F3rGJA1i2U3OR-uCZgO4MZybHh_Ekx05mVukFdFb_MS8BKMRbGGbHkBL9OnpzyL0WOoqk1okeXdnPguWa1DzgE5csFyN2B0he4IOFx0s1pEm3oKydFu3V1BM4ovmLuQB-PYc5Kb3C4xkJ-PqZfgTxErFfGJ6vQSE-1JPIK2nDP7ZUFVcKpQdvT_z_u1us7I7WfY5ETOoRtINp1U8tWpryUA0kcfasLOtk0g2m12Srk_7Y3JJ-fHSG8KFJ8WEvSzvmHoaXHFbCTTeZKt1lFYOR8gwGW3EZC3IpUalLXAQ==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHfujTQgw5waAfsWZ5r2CytCqVpJzU3CLmHyKnuPWin7g2KISrN_oQnJ6OOJ09ypkgtXoqjgFc30j0xnccYZdI0rEhwlIVneLwrOb-G3cd5ztOqj86MaPVzydROZOBRAaaC7YMop1vHP-Wnv_0XrkmPxVaVAL6DTuzfoaiZoXWgTnODKNKclTAUJS0dRIfhcbx51XJw",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFn0vUWHcCQ2cUpMz1TT9WCE4wPRvQWAggJaBwULG2qQHKaCZF6S2bj-P086iNxHqvYwlXQU_1ev8CE1JgftYnX7x1GTON57EV903V1kDX02U9rHfs0eeq8fEFQKP_JYbm_66hDC8g=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFs3rK0eVqV4pawnhlGatPsrBVLMLiL91E8QYEse4NlONoau0HHBLwvwGxQshg9S5hmuIl7EkJX_QcW6oAR4t09zXUEokLbyK1nwa13mBysnUW4edxDuEQ8peKMJ9mm05hU1xI4cMhhNFsOBld0lpVNdN-jlWukg4Q0-1kx9J3a_KGnTPUbL46sDkyzPiRdEwoz_UprFJy0lpKNFVfZaM0O0R-rgzZNZ6gmSbvGge-P54uFhUIACE5c59N-85L7tjUD"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p03",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "t.co.il",
+        "mit4mit.co.il",
+        "facebook.com",
+        "youtube.com"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxwXzN_iabRirJexFEOZ2CUaB0S_Q1XOAA7NM7Ouck6tNgNaw93rPudMrQumDlSIhWA1q8OKyw20qMPFS2OH6vU8Z8vnyUGm6ZokZdESYuzcZcS4K-nbpEo557uRfEYiQ_TlPeZcIiyUP1-Udugont-MWn6BpvYOq68zEyG4oOyflbEgbOohS7Ovh4iVNkS3uYBRRd2jYLinBObPlMtpINgoU-S3lctVC-D7gui8DBVnvrc2MwYMMtalWroA-YfS8ckfB93tLknz3cpmn3Otrk_2LMwxwLxJN8uwEpdOhlNuA=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE9xONH7YLt6xRtbQybT9C4O5Z7vE3ldrBPa6NAjlQWcOTzjx3uJFKLAj5sc8AQvr4C25-i6MiiJIJZdh4CaW3-VT-PXHbk-OAkh2FKJcRDdm8R9_0qOxHQgAE1VWe232F62dzLXJFtj8wXYSCaKn_aJRlZO8h8uduK861XJBPWLFElSQRYjxjHXSMZJ3g=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHigDPiqjkXajKINrlaAqHarzNu-cVr849Y8fGKYM1YpLXXD4nB871bS8q1Tq9u0dCVeQNbrZKF-5BxROK1_pKudhULtl_mldJrP0BxYLKn3LnohtV5ToB7yp5wlPDuVnCEemlw0FiAFZjUEuuGTkGOzUKvafZ34x3HZQ==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcMGbAqqGKG6TE05QvBex3M5cI4LhG--RvDGRU2MKzeOiqM9Unr6e2pmDiTJMI-S_7nyeRLzuKm4i0F4Kb8d86J0y3RsIL7tm-n3UcIOuzb1pZniULHKj25SGRek9RMzI9",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfrsGZoaNL9Z5ZtbG4V9d3xRhkzCivLvv6wOwiwkagbkJ0oWME6dMCh4fZQPNrGaSPhTbD1SAPz7pEhF6Ond0UsJTCNUvvoKOdQwAAQonFVhtu7yQqCFKTy9RyQ7o5358b"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p04",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mit4mit.co.il",
+        "midrag.co.il",
+        "walla.co.il",
+        "wedding-x.com",
+        "spicy-photo.co.il"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5zGZ7ImcWEHHhnZa_plGBEZ9TjPfT6y6jKg7zPP60NirVESWbNQtxP47Gj1DBytrT1-lNqzyL4lPZM21Lk3AKimBWBclRXwYTCu-83lT7XBsSpCPCTsUKPl4xCN1X8k7G5mIuD8f1kMhEMJ03",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHupqcXCUu01ugDflsdhBUEaCVKUOi4esKTQkyj2gRvFTT-VNEKZ38K4Esp7OfSKwZnoVJ26ZaP5USMadmLz1Dz1LtlpBzeIkO0M7TB9zVS3-LDm5W18OlGRFIFtsK5dCr7BqYYKkG1ShyXsa7RUVdrJRPVXyu1Q_Ryon8mj2tL1DP_A7bPq3zTxA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE1oSLqx95Dk_s4bby7l_Wk8B_KsGhAYjqcUA4N-aYjJzowY0NW8tOjnQcoatqMsazecZafplH0917-xCreeivzlnOQEdJF7EvKdSUUzAe1iHHzSB9OLtXRi-jJM1XvrMVljmrsaudbo2pUmRGBWF1Ek59SM6BHO52Pjm7E_09BY0OV18ANR8v4mUAfZyaNb1xC5yifUS_xR42x9I_IC6lhM00X-eoLLjT3VvdRBXrp9yVfzfQ-vWonwFazClqp2Gd-4OMIpB1gQKIGSil6v9fP3SoMxulcFas=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGIJt5kxe0l5-lAPy8j5W_Ldc71ExnLBly9jkx7JlEirk1DruH3dwI_LL49EWx0yyfShN6R3wK0wMjL7LoYa1ufqzTVS06j1oLKssh1C5QPpCb1CLRx7NAJsv4Y2DOf2kPNskEx0fomrHHHax6xwWx_eboIuUDv0-th",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZLPYyFpLs2cY09_ey8NcQ0GBrZHOoNNImCFsAHJb3l1PwkkfMg9XvDSYN7bxldFfDdJPjC4WhS4x2QIpg3aJINmTuN8QH8bKiUGsTctC1mCUc2-r9h4w5I2pIlelZYkP9WsCEQm4=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNEPxea8ezy-UTOFRBWhtePfcw7TPt2AgRh_UEkU9CrNOp8BMa19QXbKUihR5owkLhdQbMhOH1gDCkXs-bt1FwMPiUjY5sFBPflj8VaJme2cX9f65mDFaogIbfKmaot8qo-q_SjzSMTZW7QTy8IDQcpe3LPNmO7I0kz96GZQ=="
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p05",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "t.co.il",
+        "easy.co.il",
+        "mit4mit.co.il"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnZAbnrOfTo0j2tbzgc0eSnekH4QqCWP2nemh5UqHXTnt21M8Tdqs6bHKFvzJEBlYZhsYPrWLGCwNr4Ik3S0I9_VN1exmCF0nLQfVByszFuDm9LVCazpYXvXIXPULeHMYCmB2HNEjUxgT7IH4X5SFIbsSyXJb8OJAkLdZQHefStjzMCnsF6FGSZUcNCeu8kmrjiYz-Hbs2q_7M-9W6ZeGgF__tCySwpiAVqSLhxrrH9oJiPWuUd9KEmS3VvMcy_v05l8UyqV41oclXfdZcsqxlmH-dqIHe9TkZ0Z0DpxpyvMgC2U5hVCpvcOX0_zY=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHXSky3t97jGVXisy30Y32MaX3WZb-ekgIApOoaPmv24_2fFhgI11JqWic6lW55F6crfzNzItOjvnqkT2T7QQNa4gdwdUpeEoCn-ReX203lv33imAoJs5QBtb8gyUeTn13LbYjQ8-BNdECJQ==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFaLhDc_8YCqDsBouH7nvo_CKvPo9vTpePlWU7_BprZeL65zHVg-TELAx1lTGRsexjRskcio1go3lZQLflUnuVF6vhgcf3MrsIi6nIRk1JweE9WBdqLVpgswDgrROxTLLB0vCR7p7J4MXK-69JcRCgCO-XE0lArgMRGIwIwz84njl2pB_fiR93Ew0WBXoXF55GRzr16NxY--CG50q-vo2Hk0FO1_2cTMXZ2u--BLtKVyWqdm01BoH1Gn5yAoVNn87Jt"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p06",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": null,
+      "brandCited": false,
+      "sourceDomains": [],
+      "citedUrls": [],
+      "error": "503 {\"code\":503,\"message\":\"The service is currently unavailable.\",\"status\":\"UNAVAILABLE\"}"
+    },
+    {
+      "promptId": "p07",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "photovictoria.co.il",
+        "mit4mit.co.il",
+        "midrag.co.il",
+        "easy.co.il",
+        "t.co.il",
+        "olegbell.com",
+        "engaged.co.il"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFq2A4diNoM1Kj41MHDCHC4VO6IvfUFnLNTWG4_-4deCk6sDwCYxxJfizfXD2BfLL1INqvbNwtzLVdbTN-ZuHH3ONiBVmn8hAnFieV-iVSL9Ddh-0pjMMCyzxhR7RQ83JDd67WhDVhCvNP1ydoTJ6LkQQJPOxHHxB0rWbvEGU2yRarajcu01fZIBT6CEHAjvfFqTCFKC0X3xFEQfWpvFFtvI9JD3bObHeYZN9GENZAn7RmZIIBc242rQ7GCF5jJPCVVdjo5CTvtEgMYNz_aqGHSs1FngaFR3YcrJ_QN6sGDbNhViW2M6ZfUOPr7JmpRXK-HXv2sJgCHL1QE-_Ci81Rx12vHU70tGiOxiz2E4SdUG8zLUg0swA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEGB4J9MMCVQ1GY5-F3StYEh1qG42gSj3YMu2T4xyB-SIy74OMP9e9kEp-DUyjhDDz_DWZm7bOIYObLvLGH5NanrQXyZHxfI3cP_EAFvrQOysV8Y4D3eeOVx93cUJHdP7anebRPCxOI8BtU2OIFavjekPpiLIDkr6BL0oAlIViPGBzZDL5F52Nu7cEyf2k=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6eHdWGuHhCG1MHATOiuTnQmgcVA1a3W4qW3H_IuqIKNjsaFfTZVLmpQceB6Q1O0cQqo-PA0vp3xH7jN1RI8E87GxUaVqwb4n4wgEq9chsmx77nYBPBqSNkVKMlYudzlOt3Y0ryRyLSfkxyyKtUaT1mPGxqMPqntfp-v39mT-lR1wNySJqF_-wDg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-taZle8TtlJJCiGkgSjHqCHhJ2-uPoJPRvYFu6dI0k6oBWjsE90SZfNIYtBIdpcJy7sfM_YeM5Q4yuB6wvOs9zQHForyB6rP6RCxB2yu0aokAX9x0rmO5JUJ20BuSBqLBpWhiHUITBo6Qnw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHi9U11oOKqAxg9GlVvLV_VNDQvrAJbqFT4FWHvzBy71nYG-CAIggWvtQHIP_B2wLD7BpiW63XWbDLaQqzYaGTFPRYa93P3w79-wbeXIviCiSJXh3Uc4pyzfZu4uf716R7LzoSy3a67ffpi8u006kvuH546Gq9dB08cbNn9cVeGE4KbTgg_qC1ITHW5WxTz999xgoDavfu2xRucopJOwx-kuKx2PElm-HM3O3lOBsjzEYBTzA03bVSYWqzBzp-PhfO9vfxZbAz0c7ay0RJk_bZfz-CQYVRm-3IeweGuHDb13ZHK15PTgYPg",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTbPp9IfhG8cInCAC_iDQ9eP9zA03J6dBqUIPg9J2nQ2jVZ5GjEpAZN6GjxdhVNDiq_bsQbr2N9Fap7m3sUMAHoqRamJrYArAaDvsJ4uZY0vz83DQHaIwEzePMCE5w_vRSsMYz3kMukLJwL19HKOqw0DPDAYs4hW9q",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHKnmRYBNvX1WvJ1yWTdva5kE-qudRezA2YdbvLg3ZX7S2nEAhMBT3M_rKyYCoeul0lQScUz0ZLWKz4wFyYK3BC1noVdedNPmEQlF9IaJapv7NKpJJUJTeDB_IrVNebxE5la9-HSP7joFSEAfV1zMAaxLotv8u8poWReP_sG3J6aDG3Z0khLpf6gKqlECqx",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFgNlw6gTQH3qKrOFwQxEB8b1DN_P69tK9NH2YcekN9r0iZmKTIeR2QphVhg8DMrA0jWyxtarbL5pLRhER-1wJ_o8Thn8_37kI8e-YSooSSnZ4-NXMVUTNZ3JCopM6trSZpAciyf-cMGkqAhs4lQiOnwH1uF2LZMY4nDAF1yHz2JFzzgHFzgXDUJzIWhGYK_j2ZtOKsX6XOhVDeB1BCiEL75A=="
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p08",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "antonmislawsky.com",
+        "engaged.co.il",
+        "almogsafadi.com",
+        "mit4mit.co.il",
+        "oferm.co.il",
+        "bemazal.com",
+        "urbanbridesmag.co.il",
+        "bereshitebara.com"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQETslhLDxTeB1odsGGo33Lnq80Bq8ft6O8PBopKPMZWdoBt7r5GPTpI4_U7PYdKuM0XzqmrT3i4KowVxzlvhR7Uwtfi-U2ogMQ1ckY9_jWjsnk0nhml9QK9XOxFICyoNH4qQMzusc4X97V-tJFILoNvU0t-TNAg4yKdR6uNJ2Y4zg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEyfsGfeyyEhnb_6HBV3TUoIKLjaVUGjfyz7gTEYZdf5FiYxalToagEWeA-6bEkfMBtudbbeTH3EX5IGgX14rsxu-iHAozwHGpWjqIGNaROB53vMFNgvCueC-SAHzetOwIqOnxoWC2uqRydOefTlN7hTxODBPMznfW4e2O_XYoH1SiSXyTqneYF7zWu2s_D95Hc_f_2",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfc5yn7V_jNyxKZU8lA3ZTHj-slvwLwESrCMtGzZ-IIXUKic6_59DWDUp03FUxgv6tM3Kynv7wuMYyUr5IBsgws37SqcubP458jKWaMrA=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_I-jShiy5m1NZpKYvcAxA1TN2MCcgMebcIAomBrXQIqlpoPnhZP1oRHDa5voaj3DTVw2G5KXfYJ7_OtyLndNgHjXg5pe-fcmdtAySr7wHgWyOye7OXJHiSxBrE1wdyWq9is51P92wWyO-Qby_DwwTofGdevUBaWl4goJ6KNWj96siUn5DJGs9Cn-bgx2QXysOFdT98RfyIgdVMNpkPbJLNtNdD3ogNhyTiu_gPzskVcdMoW7yQD0Kf2g=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF9rJg5NAVQMRWtDpwBikIu87mBxgy-ogziVqYY6k0mQThEX-yCl24MP5-Ck3fGlzFdcWwie8BvJcWC7bRuinWWa06oszSgvGuvcg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE1atCu5PQeaqDzYavZIpoFxDzqKvOz3rYydbG1wTsYxgMSFE7lWM3ScZXzVxKX65PkKbl3zm7Uj5Bol74hfreFCC4uB_pWW3vMkxBmV8hjCokurN06-GOz8q5kzsP2h1dSI6okTog0GpzL-z1KgnXWlYPUGJl2_A69e8MnysKmpDCEH7uLn1bgQR_Gb9NNvCs1fMBvXNVGEbDrQ7prEyLPens8j1JhtnBrH1lsORtufoGdZqkVAuZFD5a5_rk_AF8zRAG3Z06fKwEXMK4_6ZkYw-t4iXfrjS3qNsoR8OSTl1VSV0FXDX1bnLA9sHsQGSfbUwjBXCGD4d7rJMUNG2oZnkIO",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1PAPVHa-xmV0jim81-SStCXKA_PFsQRNl3T2TfUBb4I9YVgOrqBzwn6jndwOS6RlqrKTiQaw_85wj8WVwf-WeK5wsIRjguiBWuCUBrckq6mbGyMvxAMHwvs8ehL7PAYyNUDOztUM41bTSofsHHN9U7Ci4Wm_hQ2WoydUcgpMi9keWlcOsHoCYPA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG8gs0j8HosFGb9K96RVyaAibhwbsyoDCU3JqyEyJlCwOaaYVQ7ScUgNeTl9SjKp7GqYAHqJLwEF_um50_rqoGCCoRSDGFjlzpxRvBLjOy9WVeH1IpBljIL5EeWZ3mhLkzemcK-DV-enMBzTBXTW0T_qmdjli2wIQ==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMTs4-3C7ce4WyLjZiKni7OYeDCVceyHXOdfQ3IWoDBhXT_ZL9LOl8OIvLAfLYdJUVRzh6u4tE6-Xu-1Sb4ekTk15KPxeAuiqKPVuSIK7XPLgE-09-IEfPCB3Ju1TsKmeCXYH5gxtVO-FM4GEgFrmByPEhij_X6cBxLrbFmO5KdPw-"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p09",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "patrick-photographer.co.il",
+        "bereshitebara.com",
+        "midrag.co.il",
+        "yossioz.co.il",
+        "mit4mit.co.il",
+        "studioayalon.co.il",
+        "alexart.co.il",
+        "10comm.com",
+        "engaged.co.il",
+        "photoshot.co.il"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJXPB345AzDKDZ8AR0-icu72xcGKVwSXSUtoDXUKy-SbOIiyNaNFr2NH8R358ZCii6KAntlgELha9Wa_2W0YdMIIhAPM43R2PXCOGvYN24fIYGRyFUCup8UVmcAm7kPJD31oc6Y4df2jcopfeWjOBDHwaQDlleVwj-DIqM6PwvYJsKQixyEtXo33XM-btjcj4Sq9s3iSugIYkikvHvRuJ7x_ZLXcXNYgOpluVn18jJ_w1mdedNnvwQJGdej6A=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGFEoimbUlA1lgv02_tqCLXoPT9CPi7GQMmTMJTL0cwkc2xu-Zusrkmd7cydElY5hNHb6NiVWbgRT_XBXJNv8mc-S2vTdyC9n_bTyjs8KWqYg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwrDHOeK9s-yJaKNnzZB6x1JBdrGTE-RDF1O1nmarxf-sx4VqWmlCK2ccOAU36jR8MVX0VlBlVyjVKeJrwtGKKdRgtrZAV0-3ZeEL-8eP9i6iLJKEdBc1R9upFTbn4m_wnZw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSQ24ALccTnkykdif-Pc7Lg2J4piqraBSsPFq_s0xw8KwlG1FLgkTAKoe7DQQ9wHgSJ2eijf7pK7DkFGsiXvfhSEux5DhHByjxKv-05nSXXdfbVNTpRX95OIeo5-A13b-eCBycDd1tBT1dJm1rkNsQRftgCZkDp7cSFClmYCj9ycUnfwBo9enz36bAv06RNOH90PCx1OMpAtoNFYd24CcGfxi4CZhMuvhsRmRqwiCdOOOimAt9j-DLzf6el8OQtqCmHpdbXjWEn_F_R3XdncUttTzC7qZYTforYJUCjw_oy3jjIkpDTPtyayOz7Ry-5vz9-weze5omrpTvQS3RlGt8EsQpOqogMpjOBBCuK89E",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEhQsG5zcO-9QpXGix9sQ0C0jOShg3VNBeKdXvYzyRMuppyz7_sJDbu6h-9GbGsYV45miIwX2L5Qv3pqkRT0OQzzGWVpRq-qdkp19pEqnrS63mSsXLOE9FHuAI=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHaq2dOgen0Zu5zPuKtjuo9kXdnRw2xF3PVT7XWP4ldPSwZZCt9kOtxogbwNV_bouTicsfKD0nT_vKPjhYEeoH6DrqhDg_F_uPCrSBHDbiBGuegUAwDQ7nVoR4W",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoaT6uZ0B6jRONOgNvrpUiBaWlW37ptP9lUzy6_Ppguvfi6WzbWSQQR8nevmmbuMti_46LewpFkRXX62n8YpW0eAOwwSUypu35BbRHiJKCZqyoPj7rbIgFX3x4K56aNjPcFqkP7ftpg52-L_L95xxb2DrK",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoaT6uZ0B6jRONOgNvrpUiBaWlW37ptP9lUzy6_Ppguvfi6WzbWSQQR8nevmmbuMti_46LewpFkRXX62n8YpW0eAOwwSUypu35BbRHiJKCZqyoPj7rbIgFX3x4K56aNjPcFqkP7ftpg52-L_L95xxb2DrK",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHAXKC5UJTd3bASmAO4wlLMPO2PM5a98oQgw-NaCSJ_UFJtsnLmoKx5-AKQLe1rK8xNsjo04BX8pmStBZNjYkwk6qOT1CI1xZ2uOVmetLXqxIiP-_Q7XEDQFH7vCP4fztrBWpfhnVr1RrntaCvzVaouUMwi24YamwjpoMx9rl9-wV2j0-K-4TNFstysg436Qd76xPS6qG4YCH6ZtR8HRkBbTskpXzK1uqLl5Fj-EXfXz_mDAAsGiqqNhzMDEVfJ",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtPXWnq05w2MDIO-78uYzr6zIJQyRbRVR3vvwzqAxhd8Je87mZSPRu8aoGBRHum0mb7ctHmcThlH7eXNAs4Ke9_LnFSoVliTX9aRiY73acQ_e7n7A9tac=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtPXWnq05w2MDIO-78uYzr6zIJQyRbRVR3vvwzqAxhd8Je87mZSPRu8aoGBRHum0mb7ctHmcThlH7eXNAs4Ke9_LnFSoVliTX9aRiY73acQ_e7n7A9tac=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjuQq3EMw1j4BoEZLB_6MvQOYgcAXS9pnSWwf1H0YvGtinpbTySbNdZqfA9Y138O-xAApF1FdsooXDPGJ-gbzlYgCRBHSByEUcJ9l3Vszd67PuMUn8gnUzh6OlOw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG2OUFusvVgJHQJmuu2dV5GZWNGsAjdh4Jd5sWjOgea4CkrIulTKQp3238-mrPp-3BDPtKFcberWzeWd3WOVm5gMgYL0_tOzVatt6FjQA3XFSfmf9FooawgywoCuwg3jdXkNaiAV7ZP2bqg2DR1Rmcq-Df92yk05uDbvx3ZtqIAHZhDONj238e2-FBnSLTj-HarpoqwkQyY5Q1HGRyCu1H_zenK3HjaSLL0U54wuHFdP8L4N9LDy1goWBB4lvSVe2u7KAQ7IkVk2B0ebWBAeorLCcYZ",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsYXon2RFowSHWHyiP6LpJLjfSDqWBRCdE7NOrW-ng1DGOxMb4tfmxvCRYwE4_dmJqfLV20kGLW5bPXQ7gqQkT6BBY2oGs6HskJMbPYrLS301kBTegOWj66tDKVb9I8VuJtp9_xWjD3UV9atU5_JE-Aab65LGQfkmSC2kDsEvKFlCnrI3kmZGddAHHw7Lt315Teg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcY9MYqTX851nFl3LZsFt50j-QUr2dHsXWzjgep2vuJB-0sWR03Oe-OItrMd8lqj4pdUWxluSlGG8eyWP7Q128bbcmylfY3X-xqFsNZYImdr0lw9yBBC68V3D2EKv5T4XLEz4w6xRFFnqoytqmzw0ifrZSzxLXhSkqHyGtpBzq7SYydTrU4Z30XjILWkDNzaZXT1nx",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsYXon2RFowSHWHyiP6LpJLjfSDqWBRCdE7NOrW-ng1DGOxMb4tfmxvCRYwE4_dmJqfLV20kGLW5bPXQ7gqQkT6BBY2oGs6HskJMbPYrLS301kBTegOWj66tDKVb9I8VuJtp9_xWjD3UV9atU5_JE-Aab65LGQfkmSC2kDsEvKFlCnrI3kmZGddAHHw7Lt315Teg=="
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p10",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "natigold.com",
+        "inbalbetzer.com",
+        "bemazal.com",
+        "mit4mit.co.il",
+        "alexart.co.il",
+        "image11.co.il",
+        "jacobensimon.com",
+        "yossioz.co.il",
+        "midrag.co.il",
+        "spicy-photo.co.il"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEzn9odcGldFfkuVOwwa-fR2Vf3w4yLUfzTELnb7cfpEg_3ZvLtpK06LZMfhX527TE4dk0xKt6F2I24g3tULfsv7-eoMZ9BhgMKmDxXkBZ4UXl7AQvETsvlJvhBvWMh6396HmW75kQ-rZwU-KFx",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDWtRjVrtTkLYHNB0qW1nv3bKVZv1-Fp1gXXDJDP1GIaI2t8OUsTjZXv8YfIq5enJXcF1qus-6CQnikpPrckfYSBv65WRpeDdpffNZGo2B5ERnG6Xn-9x7DPZdfgpI",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE5HszuZ6OlvsSUb65sZNB_U1PXbxs9nAOSGumRhQZdqmxNDbj3oeH5clyZxDQ_Xp5rf5X1Jtqo57rm0zbj7R8NaOhkC3f7-Exl62ho8gtWMcqLu0WE7DaXsDnhDtz85yp6Q50wQjsuorDd8P5ai0SJm2G1Ywm4U8rzVFlZWCV2yEVIYkQc7qhmtiwDdia14Vg76vt0UfrjWfzsxU1jVMjPhdqDYd9jF73tQA0tCdYQe21Xpuz1rCIokRouzswV73xdmpkGFAm3pbbH-NefFr0gBE3juvAZC7Gkmb0H38T-MK3yNoBxdnTSt9ZtVmj5IFz02w5UdQee19uJd9wZpmc0CjFI",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFo2mzJYLdZIVcsvJz2_03Omf9rD6egE-Bzrt6H7pfWChKyaFAeZDr33NgT5ccCT25reQNXDoE7IEdMe2FlTU71TdKqkcS1hWdfQtBpin1D0qkoOZ6pHru9Cg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHg3gfqg7CXY_HRuBuHRFDsaRSegwLPF5RsfpK40IlWO9GvxI77jvLMsPj-c4T85BFpfmHxuoohBWw_yHZ0Eep0n4gjo414QxQO8ArM4Xubs06Nd13_2c=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6PktHkT5O6O3z638744F3p0BsQQQSe-2uB_qUhIpGZT3m1E0O7GCENlrmVhg7B_uxRNQkb7c2PCAF_b9nRicX98SenTWhV3i5V3sAD0HuPIbVUdhq7JCvwZverKG9W-oK9NAiDyEoAnQIWDaqFm5XfaYezR6tZQrpZnD0UY10Rxx5XY2vWR08U7Y88Y6RNhXY-YchlyvQsVH94I5QKgHk86wRClQ446chBLWz9xoIFk3JUU1c",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNQvJtEZ8L52O2bZu46JaGunK_hhtFgKonl7Bt93Z1M8LzapO2d-T8akKG2Eb71rp5n3x1JlbVpoPlYK-suS8dIav-9_tI2LQMYDz9lVMkVBdhEX0VOyCVX7MYnAU5",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEmugZe14C6jfH2d2ZByEf-_e5hLotu-hT7-OzCdSWKIkEOemz3eVitmuWPHybR5AJyxv_2gM3QR8k2CDMrDkYjWJ11_lsDl-aq5DGdJmjaZg_64scThpChk-4F5hMdSw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHQ-soONcwvcdZM4rhdNiAqeTlv1uQe0YKB48LEHlT_hvQbl9Vr5IHeYfUB4Pp5sy69OPMnEQMwbBfXPBZpP4syMcLw0f7cW2XIeL-NF9vw_3eTOjKHkdfQMtANIafr9W4vbmtQkjaRcfWtdfGfKueUdT1OjK_-hbnBcPOVJG8GNTiH7VRv5jiiYHgzBs1bwyldlsvMF08fJ7y6X6qkKv9Id1zjkeDiBM-pCMWyyoq8pst7bZ8iFP4bn7uBKmwVW8c3i-ECkWOj53O9DuK6wFv5Ip8kBnFOai8z2F2PfZ9n8KMR4jkLwDZ7TBHjBt7Fj-XZ_bkQth3IVzgOIzUQ5dnonrsyPNGwmSC5MMV8SLkcw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZMDkkfWc87ljxEHKUnoSq37OwGi_G793XFEUb1K5kfSayXtH8nuFT5jsF07ZLxKLd1PzEcCXTpM6VypM0lEttc9rJhSNdW3Z9JPx75rSCxilIgi01RFpFOVfRixKdPgo=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcpevTsXiZmJXYHFkmzSR-WQYTHyf0xLsTSE0QVYtgP5xHExYIwNq7kOlHIeYlTxsibczED6xJcSAeLgV7LkKboYhRCdTilEvp4C8Mng9CaCgP1b_A2-sGzJP8KWs4kPx8C43uL6Md4EQOsXp8eUozqxB1JA_lN4aa7WyT"
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p11",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "deretz.co.il",
+        "studioayalon.co.il",
+        "edstudio.co.il",
+        "facebook.com",
+        "benlapid.com",
+        "image11.co.il",
+        "antonmislawsky.com"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYt8B-snwins-tsXko29IFii9RfydmVuUiVDpZOHBVIqYNyufj_O2rX0-yiBcWQNkcW-pUPY-PeGh5vaA1vVTsxeBMjvrw9xwxY2hZeS150HNOJ94kk-HFaDEgmDCHntZaH8-Y",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYQXvux282QRbCZ13jrBRrN_eem-SrzspnM3daVkPMM-el1BxvaWqCjYiIet0GaL6C6wBqkGQ0CNkCYWiqj4k_0sv3qwss0NSxL-4Fx9ocCUpaH-GSag9SSlC6H8HNchpyXNl4CqyMWFy86cS1z40bVa0Zg14WDqeuBhfXMtJr3NzeFTOcs81HjF7Z",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ0unTbbRqvncMoKr8Vhb3_c8u_AUoossXoPBur0-b_eMeoVwBTOxB9FXbcGwyI6bVWwPtzXYU5xkj8Z4m34PqGWd7teXTUUDkii1kfUBDbtgOD5quKodFQC5MtaYZF4EGiWVHD6-lpT3ELTObnq7_AleUrwaH_zfAe7H9GuD6qB5_vd_KyhjMbPER4vNN1c3hawk0XOiaVXO4pDmCkvwcSMHOrIxq3rnf5CEUZKdmwVhh_3tio7s=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHluAQnKeyjNXI00kDbtm1isP0gA5vIO6NKzlQVsUCPDP5zPSZRb7pbvnSYSJgrdGGUYuR5xw9q1atsVsmrpVHWOYhNN92YhxEP6vOKAy02NRQHwqdWHrOBqpw8G_M4b256W73qp7qAN5QzSno5lqGIR1i1Lyg_wt4ur0V8XRUTK6IU_R49s-Ltc8dIg4TUTMmABmFU0mvwFO3mgOZM5vB1-fjj6HqfheI54B0Z_rNqqB6WpkrxOHs=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHThE7LfZEihZLBGMaV1-AAGOFQZZ5LfgE_Zfmgjoqny_x15DvjIR_7CFPhFx5TI_akDA0cq0hDgph2JNqAXHNAUTkFqiXzSvIzHTtFlxFNI3LHba5rP9xieAv5OAKecM3wceKw7DrScC-_6oWt4ReOaMGzW84O4x1q4mPQFw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0iUVJGmYlrLC0QKxfvpWQtErHi8LekM4eYg2zCQUoFT70aF78rvw38Mc7wZvwJBuuWh9M3sid-O_cBPeoYD44N1LbTpqKXX0D6Iv3FNeGyxvooA_Mdn-jEm0JuIwaFEu0ClSWVXbbgp4UGTDTd2BnnVfPWNxabqPF7p-qQJ5wjPYZzGw1Ij6PIoZKNje2QHh2sCghqoOyMo76GzZJ1tCrBxutlmAVorpozzD9U9E=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUQWWSJqHCn9G_wTT8I_rM3XvHks8ZuZ8eNEmn03NreJlizNEh_9S0VaZQocAWQOHlLWRHqU5oVkgjV3-H7Ffa14xAT6nGr594qDi7MDl4ykGQINu2Q0Om4XfORy7R3zzWps-1PgPM8iHt-dExNhlkW0ou2XxbXg4vn47QOtHw13KjRMMdIKZChO-gMBLXjTXAb3MMUHzn5xEKkJoPnYDY3xu4xOb3TNM5gdyngRPI0fudpMcq",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0U9Mec9b7qmMEPgXCQOrk_r7wIeIrBzZYTXtMRdrtJmE7r5Y5tTK7MYeHppc94YR06XFAxoJf-uE-qxJUcZWUipI2D_JbRliak1n35ghnOkcyKAqKJdbVEMzgqCxdWDVbtnKFl06U2HH4YivHjs4mtwb1JHfgVKPrjlV7CDIgyg=="
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p12",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mithatnimgroup.com",
+        "lunsoul.com",
+        "midrag.co.il",
+        "jacobensimon.com",
+        "yoyomagnet.com"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEc_AhJq77Fm2dv7HQa3GBSYN0_9CXr7SxquOpA2K5L_IUXtL8wl7GfiVDY-2x07B04CpmOHTaEvHWVP__dGJntkiwQ0zBa4mCM5AATKUDMg0nTnLgPizEFXqTx9XJwOxDkpR1j4tzCEl9mIIEjo8c-Poj2aPCtUViExuy_7UZjDHPh4HbEvmtoj3_c0_4aLWvA6heEyYMuPCSAwAPF_UiVETUpWEEoK4LIkw7-quk3dV2zwwyfkWo1ckpwFDMp8jCGfxF47ZgB62PseyH4DT76jTsWb6AhdqYk5OplHpbUcp6oiw1i6IUpX1-M66kj-nUDTCsBAK_A83RCByIjBhWp",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnTiSffQ2B3dlayo73OE2LESSOaE9BWgc_sFBlTy21IMcT1H6PlWNCC0TyxIZRkmRfJVRl7ky-yDiWxSgTyZjKqMMiVvf8Jp4VpRotK1OM2RsbhS61b_VKhktT_NbQCHx0KooPhfTBxosKJHpzFeO0iGw=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHv5a3lHGk7SDFmkpRgWmKc7pay7jm_Lu6ZsID_ZXNoueMvWT2rHg9IgNV7fjWwQ9W5g5VmGn_adIgSqXXAARPIo4QY298g9m7IEvZ_YfXdZs7x3YgwBPG-5WFQKlAs1Wgf",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFk2HImMLN0lUtrX-TpyFw-QsY3H6w2_96YEo88VW54-eu5Tc_Ac3zwVY4o6xuuS5YX2xiDKHU6b-3MCyO2EV2bzsDO1vJJNfLGAb19d2tCc5NlitaqYcx4UjCEZhNrI-0=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGfad8FC8nY8y2x2d7Id0LT5vro5ZSnwc5W65lhqoxdTjlCeumqeiaAVMN49eoJrQ52KHIEOVaNOKiC5FZLhsKEe3tYRV6qjKofCIAeBW-moZNltrGnqkg09k9mQx_BVxu_XXpoIvAO0jEDEOyV_1kdM80kFBehmjVvMvvHiHtE8Qj5o7g="
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p13",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [],
+      "citedUrls": [],
+      "error": null
+    },
+    {
+      "promptId": "p14",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "topinisrael.com",
+        "mywed.com",
+        "oricarmi.com",
+        "kudrik.com",
+        "wordpress.com"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPGz5EZynJU6V8mb6frBLDfWYRXJ2VSjsC6aO5xDTtgbTeLAVPEtSScRe20oy0Yk5QYy5MgyR6EXw3_soZL8vAi6U95TsNx2VIvpplgRN1QEpud47JaNknWeGnBiLG4pKF4ulsf9JEW_2A9elF27gSBsRhYg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxcp6QNirOOHppPpxVrUutluPNrDo8TfIVFNxFKvRRuFuy13h_CXmhy9fFOetSxP-pxEGcBFenBYU2GQy4wrTo3q4dLHyH8v0LWP233FzBBgT2upD28RO5JlcvETuuIZcsK0dpka7A",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFY11cZAJFB1AjXGMdbnnYKWBjmcDE4SAGd-Xh6WobbyyupcTpQ9JF6PQPfs3IWXZ21ri1TvTeT4qmZUotVgmiIn4JXiJfy0f75CwI=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFB0jOzVYjklMR-G7lavCyBu25MhL8ov5kxrIwjT2pseg5Hy6P6pQbbgFj8U8TqLRbKBLb0medrsr_x7kK5dgfDw3V50w-RO5Y6VbTGSRWjyImOTphX",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgFaTV-iJG0jOGjN80NxgYb_d5lZRKUDvdAfYY-2oCTEXTvcp0XSW-GYsm9_r4-5g8IrYqXf-K-B5hZQH8JyCK-TDpfhmNwTodlwiRVdhoxYyd61O6vwTAui9uueM_hw=="
+      ],
+      "error": null
+    },
+    {
+      "promptId": "p15",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "danielnotcake.com",
+        "topinisrael.com",
+        "antonmislawsky.com",
+        "smashingtheglass.com",
+        "wedaward.com",
+        "wordpress.com",
+        "luz-weddings.com",
+        "oricarmi.com",
+        "myportfolio.com",
+        "livestreamsimcha.com"
+      ],
+      "citedUrls": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFkvEwtzC-YR2gtkyFm3uOuWPBVRrQ6DUZoBfmwwzzLv8RI-SUym1Cd3h_zzEQS7bbYmjymoLucTym6NII3iKtrqbFE5EMnkkUSqOjACiT7H-AVrypIPtKM",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrZJO7V0jrNDEpIDnfiAkyJ8f1C9VImrz8H1VdXwt2auPgiM1lDGrzaktR68EPhvec_FxhaFY1pRzS9qBa9lmfJ8M7J1xxjXBLSTiFyeH6My7cjSiP4soH31x8gM5K4hisPNp6FhZ9p0llal0DF30Tiff3nQ==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFST6pxpj2iSUJ6Pjtk7qSh5As_sdhlXkLaVONUPyuiYfk7Ax2HEfNP2Oc11mfXWarRPqxt-Lxoozc3_mfIB2aitUGxG4e2LQl0Tpf5cyXjQR6PQGXnnC8aHEM9Q0vqlyzoJ8M52LRgl5rz98PDs8hV0rRQAcADuqsRo-3bT1g=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwpdvkKHeLWf32CmvOTYdCamoMmPPnz0TKxBIO0eaY4ghAoo5j2F_-fv8sm6ngFmowPcNkJjvkdXn4Sibv3P4AjFq2jtlpdRzdDIwvfRoPhF4=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoULEzKUH4NX49SLDuhiC8wluoC1b29skIpjsHlRTHAztNXrKk6fLdeWvcASyX2ImcI7HKzCDB3EdHpedtu_iaOogIPf1JoPfyHies_cf2l2SvqZV8-UCX0FjH31byhpIoxmcqwvQRfFci9YQ_HZHGStylpAeFMyiGaNu41jnx6kncPk9-EFg9OM85OxAYDw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE7kXJnmP-u3OSgtjCjcr63LB3lOejGVuIZs0vBcHxgeCx6pS9fE3JiTtNjHb3vhrk9DmcVrH9HgsALZvdKJKULBQfn4-cnC2eiKm0TKr5Ef7y53fDXGsSAy02wT2MHcIKeKA9ugGHIVq1l3rmgE10=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBtf_bardZDnyVfGhxjUV0jqDjt2MatMVtkICR-vFpJDMfx3CKZOW6WjH5fweNtjsCHmJixX1pd2-m92wKQTS-YksCwQqxOdESu2j8SC1wxEBzXFiV5BgBz9bbCvBfbw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFVtKcjI-o6xLPRwTYJ_3XEWi9ji6fiB0Pl1lw1bFHOFIB0tw2sC-b7D7FA1FPj62PWg3w5wecpA98zbbJP91A10TM_23OOIvquqOxwz3MeFcWoEg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFOSNborbQGQ81KVzHxUTDM6P_KjcR2Z4dNVmQYSB_ytnRGRB1jdIcX0aDjYETYmf_8lCD_5go7Rk7uC3FiaUrGuXUY_JPEj25YpYo=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSXclQ1KWzZtxHkNI2Wou9V-H1MMuXYeggtLHaiPZ50yHBW7TPoMNiJRJ751H2kQdA9MXF76JBT_oKo21ILW_C4BLMBiJn8anjKhsLHslxbc0JFUgvE70L",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoOTBX3erKs1cf_fInVLdLvhoNINf2sJPgJr1OYtIZeRIyVedwvIvwLYcw982Wi9AMn4DI7yyzAWORsxbQHrV7ptfL4P0TwtsY1hP0dsn8ThGFFd7TBEGSJe4x6C-BfZRFAfUcjUp4FG-YoWVV1TchdIeOTs-hfLX7oNM="
+      ],
+      "error": null
+    }
+  ]
+}

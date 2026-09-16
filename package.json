@@ -9,7 +9,10 @@
     "preview": "astro preview",
     "images": "node scripts/process-images.mjs",
     "reviews:images": "node scripts/reviews-images.mjs",
-    "contact-sheet": "node scripts/contact-sheet.mjs"
+    "contact-sheet": "node scripts/contact-sheet.mjs",
+    "seo:score": "node scripts/seo-score.mjs",
+    "aeo:panel": "node scripts/aeo-panel.mjs seo/panel-raw.json",
+    "aeo:summarize": "node scripts/aeo-summarize.mjs seo/panel-raw.json"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

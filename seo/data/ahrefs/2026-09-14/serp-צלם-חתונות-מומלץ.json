@@ -1,0 +1,137 @@
+{
+  "positions": [
+    {
+      "position": 1,
+      "url": null,
+      "title": null,
+      "domain_rating": null,
+      "type": [ "ai_overview" ]
+    },
+    {
+      "position": 1,
+      "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/",
+      "title": "מתחתנים למען מתחתנים",
+      "domain_rating": null,
+      "type": [ "ai_overview_sitelink", "image_th" ]
+    },
+    {
+      "position": 1,
+      "url": "https://engaged.co.il/%D7%A6%D7%9C%D7%9E%D7%99%D7%9D-%D7%9C%D7%97%D7%AA%D7%95%D7%A0%D7%94.html",
+      "title": "מאורסים מאורסות",
+      "domain_rating": null,
+      "type": [ "ai_overview_sitelink", "image_th" ]
+    },
+    {
+      "position": 2,
+      "url": "https://engaged.co.il/%D7%A6%D7%9C%D7%9E%D7%99%D7%9D-%D7%9C%D7%97%D7%AA%D7%95%D7%A0%D7%94.html",
+      "title": "צלמים לחתונה | מאורסים מאורסות - המלצות, מחירים, דילים ...",
+      "domain_rating": 28.0,
+      "type": [ "organic" ]
+    },
+    {
+      "position": 3,
+      "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/",
+      "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד",
+      "domain_rating": 69.0,
+      "type": [ "organic" ]
+    },
+    {
+      "position": 4,
+      "url": "https://www.midrag.co.il/Content/Price/10381",
+      "title": "צלם חתונה - מחיר | מחירים של צלמי חתונות",
+      "domain_rating": 73.0,
+      "type": [ "organic" ]
+    },
+    {
+      "position": 5,
+      "url": "https://urbanbridesmag.co.il/%D7%94%D7%A4%D7%99%D7%A0%D7%A6%D7%98%D7%94/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%95%D7%99%D7%93%D7%90%D7%95.html",
+      "title": "צלם חתונה, צלמים לחתונה - וידאו",
+      "domain_rating": 54.0,
+      "type": [ "organic" ]
+    },
+    {
+      "position": 6,
+      "url": "https://www.facebook.com/groups/448889845472458/posts/2331161787245245/",
+      "title": "היי לכולם המלצות על צלם חתונות ???שיותר מצלם בסגנון בוטיק/ ...",
+      "domain_rating": 100.0,
+      "type": [ "organic" ]
+    },
+    {
+      "position": 7,
+      "url": null,
+      "title": "בראשית I ישראל ואיריס פרסי I צילום חתונות",
+      "domain_rating": null,
+      "type": [ "local_pack" ]
+    },
+    {
+      "position": 7,
+      "url": null,
+      "title": "Wedding Photography Canfi | כנפי צילום אירועים, צילום חתונות",
+      "domain_rating": null,
+      "type": [ "local_pack" ]
+    },
+    {
+      "position": 7,
+      "url": null,
+      "title": "דפנה טלמון צילום - Dafna Talmon Photography",
+      "domain_rating": null,
+      "type": [ "local_pack" ]
+    },
+    {
+      "position": 8,
+      "url": "https://www.prog.co.il/tags/clm-khtvnvt/",
+      "title": "צלם חתונות | פרוג • קהילה עסקית - חרדית הגדולה בעולם",
+      "domain_rating": 49.0,
+      "type": [ "organic" ]
+    },
+    {
+      "position": 9,
+      "url": null,
+      "title": "מי צלם חרדי מומלץ?",
+      "domain_rating": null,
+      "type": [ "question" ]
+    },
+    {
+      "position": 9,
+      "url": null,
+      "title": "מי צלם טוב לאירוסין?",
+      "domain_rating": null,
+      "type": [ "question" ]
+    },
+    {
+      "position": 9,
+      "url": null,
+      "title": "איזה צלמים צריך לחתונה?",
+      "domain_rating": null,
+      "type": [ "question" ]
+    },
+    {
+      "position": 9,
+      "url": null,
+      "title": "מי צלם חתונה חרדית טוב?",
+      "domain_rating": null,
+      "type": [ "question" ]
+    },
+    {
+      "position": 10,
+      "url": "https://www.esposa.co.il/",
+      "title": "אספוסה צלמים: הצלמים המוכשרים והמקצועיים ביותר בישראל",
+      "domain_rating": 6.0,
+      "type": [ "organic" ]
+    },
+    {
+      "position": 11,
+      "url": "https://kobi-art.com/",
+      "title": "קובי ארט צלם חתונות: צלם חתונות למגזר החרדי",
+      "domain_rating": 0.0,
+      "type": [ "organic" ]
+    },
+    {
+      "position": 12,
+      "url": "https://yossioz.co.il/wedding_outdoor/",
+      "title": "צילומי חוץ לחתונה: צילום חתונה אומנותי",
+      "domain_rating": 4.0,
+      "type": [ "organic" ]
+    }
+  ]
+}

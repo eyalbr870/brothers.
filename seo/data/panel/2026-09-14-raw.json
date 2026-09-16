@@ -1,0 +1,1719 @@
+{
+  "date": "2026-09-14",
+  "models": {
+    "openai": "gpt-5",
+    "gemini": "gemini-2.5-pro",
+    "geminiCandidates": [
+      "gemini-3.1-pro-preview",
+      "gemini-3.1-pro-preview-customtools",
+      "gemini-3-flash-preview",
+      "gemini-3.5-flash",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "gemini-2.5-pro",
+      "gemini-2.5-flash"
+    ]
+  },
+  "prompts": [
+    {
+      "id": "p01",
+      "lang": "he",
+      "intent": "national",
+      "text": "מי צלם חתונות מומלץ בישראל? תן לי כמה שמות עם אתרים"
+    },
+    {
+      "id": "p02",
+      "lang": "he",
+      "intent": "region",
+      "text": "צלם חתונות מומלץ במרכז הארץ, מי הכי טובים?"
+    },
+    {
+      "id": "p03",
+      "lang": "he",
+      "intent": "city",
+      "text": "צלם חתונות מומלץ באשדוד"
+    },
+    {
+      "id": "p04",
+      "lang": "he",
+      "intent": "city",
+      "text": "צלם חתונות מומלץ בתל אביב"
+    },
+    {
+      "id": "p05",
+      "lang": "he",
+      "intent": "city",
+      "text": "צלם חתונות מומלץ בירושלים"
+    },
+    {
+      "id": "p06",
+      "lang": "he",
+      "intent": "region",
+      "text": "צלם חתונות מומלץ בחיפה והצפון"
+    },
+    {
+      "id": "p07",
+      "lang": "he",
+      "intent": "region",
+      "text": "צלם חתונות מומלץ בבאר שבע והדרום"
+    },
+    {
+      "id": "p08",
+      "lang": "he",
+      "intent": "style",
+      "text": "צלם חתונות בסגנון טבעי, דוקומנטרי וקולנועי, את מי כדאי לבדוק?"
+    },
+    {
+      "id": "p09",
+      "lang": "he",
+      "intent": "service",
+      "text": "צלם סטילס ווידאו לחתונה באותה חבילה, המלצות"
+    },
+    {
+      "id": "p10",
+      "lang": "he",
+      "intent": "type",
+      "text": "צלם לחתונה קטנה ואינטימית, המלצות"
+    },
+    {
+      "id": "p11",
+      "lang": "he",
+      "intent": "type",
+      "text": "צלם לחתונת שטח בטבע, המלצות"
+    },
+    {
+      "id": "p12",
+      "lang": "he",
+      "intent": "price",
+      "text": "כמה עולה צלם חתונות בישראל ב-2026?"
+    },
+    {
+      "id": "p13",
+      "lang": "he",
+      "intent": "howto",
+      "text": "איך בוחרים צלם חתונות? על מה להסתכל ואיפה לקרוא ביקורות"
+    },
+    {
+      "id": "p14",
+      "lang": "en",
+      "intent": "national",
+      "text": "Who are the best wedding photographers in Israel? Give names and websites."
+    },
+    {
+      "id": "p15",
+      "lang": "en",
+      "intent": "city",
+      "text": "Recommended wedding photographer and videographer in Tel Aviv for a wedding in Israel"
+    }
+  ],
+  "runs": [
+    {
+      "promptId": "p01",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "מי צלם חתונות מומלץ בישראל? תן לי כמה שמות עם אתרים",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "lironerelco.com",
+        "luz-weddings.com",
+        "ranbergman.com",
+        "bigpicturestories.com",
+        "tomerlesher.com",
+        "lupophotographers.co.il",
+        "niralon.co.il",
+        "mit4mit.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://www.lironerelco.com/?utm_source=openai",
+          "title": "Liron Erel | Luxury, Editorial Wedding Photographer"
+        },
+        {
+          "url": "https://www.luz-weddings.com/?utm_source=openai",
+          "title": "HOME - LUZ"
+        },
+        {
+          "url": "https://www.ranbergman.com/category/weddings/?utm_source=openai",
+          "title": "WEDDINGS - Ran Bergman"
+        },
+        {
+          "url": "https://www.bigpicturestories.com/?utm_source=openai",
+          "title": "Professional wedding photographer in Jerusalem, Israel | Jeremy Lerman, the English Photographer"
+        },
+        {
+          "url": "https://www.tomerlesher.com/?utm_source=openai",
+          "title": "Tomer Lesher – Wedding Photographer"
+        },
+        {
+          "url": "https://lupophotographers.co.il/?utm_source=openai",
+          "title": "לופו צלמים — צילום חתונות ואירועים"
+        },
+        {
+          "url": "https://www.niralon.co.il/about-wedding?utm_source=openai",
+          "title": "ניר אלון - צילום ארועים | אודות"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/biz/90139?utm_source=openai",
+          "title": "לוז / LUZ | LUZ | צלמי סטילס | חוות דעת, ביקורות, המלצות, מחירים"
+        }
+      ],
+      "answer": "בטח! הנה כמה צלמי חתונות חזקים בישראל, בסגנונות ואזורים שונים, עם אתרי הבית שלהם:\n\n- Liron Erel — סגנון דוקומנטרי־אומנותי/Editorial. אתר: `https://www.lironerelco.com` . ([lironerelco.com](https://www.lironerelco.com/?utm_source=openai))\n- LUZ Weddings (ת״א, כל הארץ) — קולקטיב צלמים עם מגוון סגנונות, מתאים גם לחבילות צילום+וידאו. אתר: `https://www.luz-weddings.com` . ([luz-weddings.com](https://www.luz-weddings.com/?utm_source=openai))\n- Ran Bergman — צילום קנדיד יצירתי, גם חתונות חו״ל. אתר: `https://www.ranbergman.com/category/weddings/` . ([ranbergman.com](https://www.ranbergman.com/category/weddings/?utm_source=openai))\n- Jeremy Lerman — Big Picture Stories (ירושלים, דובר אנגלית) — מומחה לחתונות אנגלו וירושלים. אתר: `https://www.bigpicturestories.com` . ([bigpicturestories.com](https://www.bigpicturestories.com/?utm_source=openai))\n- Tomer Lesher — צילום טבעי עם טאץ’ עריכתי נקי. אתר: `https://www.tomerlesher.com` . ([tomerlesher.com](https://www.tomerlesher.com/?utm_source=openai))\n- Lupo Photographers — סטודיו ותיק לחתונות ואירועים. אתר: `https://lupophotographers.co.il` . ([lupophotographers.co.il](https://lupophotographers.co.il/?utm_source=openai))\n- Nir Alon — צילום אירועים וחתונות. אתר: `https://www.niralon.co.il/about-wedding` . ([niralon.co.il](https://www.niralon.co.il/about-wedding?utm_source=openai))\n- LUZ – מידע נוסף וסקירות משתמשים. דף חוות דעת: `https://www.mit4mit.co.il/biz/90139` . ([mit4mit.co.il](https://www.mit4mit.co.il/biz/90139?utm_source=openai))\n\nרוצה שאסנן לך לפי תקציב, אזור (למשל ירושלים/ת״א/צפון), או סגנון (דוקו טבעי מול מבוים), ואבדוק זמינות לתאריך שלך?",
+      "error": null
+    },
+    {
+      "promptId": "p02",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ במרכז הארץ, מי הכי טובים?",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mit4mit.co.il",
+        "midrag.co.il",
+        "israelhayom.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+          "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד | מתחתנים למען מתחתנים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+          "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד | מתחתנים למען מתחתנים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+          "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד | מתחתנים למען מתחתנים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+          "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד | מתחתנים למען מתחתנים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+          "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד | מתחתנים למען מתחתנים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+          "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד | מתחתנים למען מתחתנים"
+        },
+        {
+          "url": "https://www.midrag.co.il/Search/Results/?ntla=7136NZ7BI863844O5D0X92E939N9873GMK76M2&utm_source=openai",
+          "title": "צלם חתונות מומלץ בתל אביב | המלצות וחוות דעת על צלמים - במידרג"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown",
+          "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד | מתחתנים למען מתחתנים"
+        },
+        {
+          "url": "https://www.israelhayom.co.il/news/local/article/19636996?utm_source=openai",
+          "title": "הזוגות בחרו: ספקי החתונות המצטיינים של 2026 | היום"
+        }
+      ],
+      "answer": "ברור! הנה שמות חזקים ומוכרים במרכז הארץ, מעודכן לספטמבר 2026, על סמך דירוגים וחוות דעת עדכניות של זוגות:\n\n- בראשית | ישראל ואיריס פרסי (ראשון לציון) – ציון 99, מאות חוות דעת, חבילות סביב ₪12.5K. ([mit4mit.co.il](https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown))\n- Moments | מומנטוס (ראש העין) – ציון 99, מאות חוות דעת, חבילות סביב ₪12.2K. ([mit4mit.co.il](https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown))\n- ברגש – רן שיינברגר (ת״א) – ציון 99, 900+ חו״ד. ([mit4mit.co.il](https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown))\n- אספוסה (קרית אונו) – ציון 98, 1,000+ חו״ד, חבילות סביב ₪10.6K. ([mit4mit.co.il](https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown))\n- אריאל אריכא (ראש העין) – ציון 98, 1,000+ חו״ד, חבילות סביב ₪14K. ([mit4mit.co.il](https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown))\n- נדב כהן–יונתן (רמת גן) – ציון 98, מאות חו״ד, חבילות סביב ₪11.6K. ([mit4mit.co.il](https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown))\n\nהערת טווחי מחיר מהשטח:\n- סטילס בלבד (עד ~200 מוזמנים) בת״א/מרכז: לרוב ₪4,000–5,000, נכון לאתמול. ([midrag.co.il](https://www.midrag.co.il/Search/Results/?ntla=7136NZ7BI863844O5D0X92E939N9873GMK76M2&utm_source=openai))\n- חבילות מלאות סטילס+וידאו+אלבומים במרכז: לרוב סביב ₪10–14 אלף, לפי דפי הספקים. ([mit4mit.co.il](https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=1&relevanceUp=&sort=rankDown))\n\nלמה להסתמך על הדירוגים האלה? מדובר בפלטפורמות שמבצעות בקרה שוטפת על חוות הדעת ופרסי “בחירת הזוגות” השנתיים בענף. ([israelhayom.co.il](https://www.israelhayom.co.il/news/local/article/19636996?utm_source=openai))\n\nכדי לדייק לך ל-2–3 התאמות מושלמות, אשמח לשתי דקות פרטים:\n- תאריך ומיקום האירוע (איפה ההתארגנות והאולם/גן)\n- תקציב משוער וצורת החבילה (סטילס בלבד או סטילס+וידאו)\n- סגנון מועדף (דוקומנטרי/טבעי מול מבוים-אופנתי)\n- גודל האירוע ושעת חופה\n\nאם תרצה/י, אשלח לך קישורי תיקי עבודות וצרורות שאלות קצרות לשיחה עם כל צלם לפני סגירה.",
+      "error": null
+    },
+    {
+      "promptId": "p03",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ באשדוד",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "photoshot.co.il",
+        "easy.co.il",
+        "d.co.il",
+        "b144.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://photoshot.co.il/",
+          "title": "צלם אירועים | צלם חתונות - פוטושוט צילום אירועים וחתונות מקצועי 052-828-2308"
+        },
+        {
+          "url": "https://easy.co.il/page/10136781",
+          "title": "ארטפיקסל - דניאל הנביא 11, אשדוד - צלמי אירועים | איזי"
+        },
+        {
+          "url": "https://www.d.co.il/7722930/42450/?utm_source=openai",
+          "title": "פוטו רפי, האורגים 16, אשדוד - טלפון, שעות פתיחה ועוד בדפי זהב"
+        },
+        {
+          "url": "https://www.d.co.il/80029040/42450/?utm_source=openai",
+          "title": "פריים טיים - צילום אירועים, האורגים 25, אשדוד - טלפון, שעות פתיחה ועוד בדפי זהב"
+        },
+        {
+          "url": "https://www.b144.co.il/b144_sip/481404134470655D4E120C134575665B4D/?utm_source=openai",
+          "title": "פוטו דוד אסייג - \"מברוק\" - צלמים וסטודיו לצילום אשדוד - בזק B144"
+        },
+        {
+          "url": "https://www.b144.co.il/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/%D7%90%D7%96%D7%95%D7%A8-%D7%90%D7%A9%D7%93%D7%95%D7%93-%D7%95%D7%94%D7%A1%D7%91%D7%99%D7%91%D7%94/",
+          "title": "צילום אירועים באזור אשדוד והסביבה - בחרו צלם חתונות - בזק B144"
+        },
+        {
+          "url": "https://easy.co.il/page/10136781",
+          "title": "ארטפיקסל - דניאל הנביא 11, אשדוד - צלמי אירועים | איזי"
+        },
+        {
+          "url": "https://www.b144.co.il/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/%D7%90%D7%96%D7%95%D7%A8-%D7%90%D7%A9%D7%93%D7%95%D7%93-%D7%95%D7%94%D7%A1%D7%91%D7%99%D7%91%D7%94/",
+          "title": "צילום אירועים באזור אשדוד והסביבה - בחרו צלם חתונות - בזק B144"
+        }
+      ],
+      "answer": "ממליץ על כמה צלמי חתונות חזקים באשדוד שכדאי לבדוק מקרוב\n- Photoshot – סטודיו מקומי עם צוות סטילס+וידאו, חבילות “הכל כלול” (כולל רחפן, טרש, קליפ Highlight ואלבומים). כתובת: חיים משה שפירא 24, אשדוד. טל’ 052-828-2308. מתאים לזוגות שרוצים חבילה רחבה במקום אחד. ([photoshot.co.il](https://photoshot.co.il/))\n- ארטפיקסל (ArtPixel) – צלם אירועים מנחם קיריל; דגש על חבילות מסודרות ומחירים שקופים באתר Easy, כולל פירוט חבילות חתונה (לדוגמה: חבילת בסיס/VIP, סטילס+וידאו+רחפן). כתובת: דניאל הנביא 11, אשדוד. טל’ 053‑2700772. טוב למי שרוצה לדעת מראש מה מקבלים ובאיזה מחיר. ([easy.co.il](https://easy.co.il/page/10136781))\n- פוטו רפי – ותק רב באשדוד; סטודיו וניסיון רחב בצילום אירועים, עם חוות דעת טובות מהאזור. כתובת: האורגים 16 (נמל אשדוד). מתאים למי שמעדיף צלם ותיק ומקומי. ([d.co.il](https://www.d.co.il/7722930/42450/?utm_source=openai))\n- פריים טיים סטודיו – סטודיו צילום והפקה באורגים 25; נותנים מעטפת צילום ועריכה במקום אחד, עם המלצות מגולשים. מתאים למי שמחפש צוות סטודיו מסודר. ([d.co.il](https://www.d.co.il/80029040/42450/?utm_source=openai))\n- פוטו דוד אסייג (“מברוק”) – סטודיו ותיק במרכז הקריה; צילום חתונות וכל סוגי האירועים, עם ביקורות ודירוגים במדריכים המקומיים. כתובת: הבנים 1, אשדוד. טוב למי שמעדיף סטודיו מרכזי עם ניסיון רב. ([b144.co.il](https://www.b144.co.il/b144_sip/481404134470655D4E120C134575665B4D/?utm_source=openai))\n\nטווחי מחירים והערות\n- לפי מדריך המחירים המעודכן של B144, חבילת בסיס לחתונה נעה בערך 2,000–6,000 ₪; חבילה מלאה 5,000–12,500 ₪; “הכל כלול” (שניים סטילס+וידאו, רחפן/מגנטים/טראש) 8,000–17,000 ₪, תלוי בהרכב הצלמים והDeliverables. ([b144.co.il](https://www.b144.co.il/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/%D7%90%D7%96%D7%95%D7%A8-%D7%90%D7%A9%D7%93%D7%95%D7%93-%D7%95%D7%94%D7%A1%D7%91%D7%99%D7%91%D7%94/))\n- דוגמה קונקרטית מאשדוד: בארטפיקסל מפורטות חבילות חתונה (למשל חבילת בסיס/‏VIP) עם מחירים מעודכנים בעמוד Easy. בדקו זמינות ומחיר ליום הספציפי שלכם. ([easy.co.il](https://easy.co.il/page/10136781))\n\nטיפים קצרים לפני סגירה\n- בקשו לראות גלריה מלאה מחתונה באולם/גן דומה, כולל צילומי רחבה בתאורה חלשה.\n- ודאו מה כלול: כמה שעות כיסוי, כמה צלמים, וידאו/סטילס/רחפן, אלבומים, קליפ Highlight, קבצים ערוכים, זמני אספקה, ומדיניות גיבוי/החלפה. ([b144.co.il](https://www.b144.co.il/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/%D7%90%D7%96%D7%95%D7%A8-%D7%90%D7%A9%D7%93%D7%95%D7%93-%D7%95%D7%94%D7%A1%D7%91%D7%99%D7%91%D7%94/))\n- תיאום ציפיות לגבי סגנון: טבעי-דוקומנטרי מול מבוים-אופנתי.\n- חתמו על הזמנה מפורטת עם מועדים ותוצרים.\n\nתרצו שאסנן לפי מה שחשוב לכם? כתבו:\n- תאריך ומיקום האירוע\n- סגנון מועדף (טבעי/דוקו, מבוים, “קולנועי”)\n- האם צריך גם וידאו/רחפן/מגנטים\n- מספר מוזמנים ותקציב משוער\n\nאם תרצו, אוכל ליצור לכם shortlist קצרה עם זמינות ליום שלכם ולחבר אתכם ישירות.",
+      "error": null
+    },
+    {
+      "promptId": "p04",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ בתל אביב",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "luz-weddings.com",
+        "styleandweddings.com",
+        "en.danielnotcake.com",
+        "haimafriat.com",
+        "amora-studios.com",
+        "midrag.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://www.luz-weddings.com/?utm_source=openai",
+          "title": "HOME - LUZ"
+        },
+        {
+          "url": "https://styleandweddings.com/vendor-page/%D7%A4%D7%99%D7%A4%D7%9C-%D7%A4%D7%95%D7%98%D7%95%D7%92%D7%A8%D7%A4%D7%99/",
+          "title": "פיפל פוטוגרפי - Style & Weddings"
+        },
+        {
+          "url": "https://en.danielnotcake.com/wedding?utm_source=openai",
+          "title": "Wedding Photographer in Israel - Wedding Photography Tel Aviv Jerusalem"
+        },
+        {
+          "url": "https://haimafriat.com/?utm_source=openai",
+          "title": "עמוד בית - חיים אפריאט"
+        },
+        {
+          "url": "https://www.amora-studios.com/?utm_source=openai",
+          "title": "צילום חתונות בתל אביב — וידאו וסטילס | Amora Studio"
+        },
+        {
+          "url": "https://www.midrag.co.il/Search/Results/?ntla=7136NZ7BI863844O5D0X92E939N9873GMK76M2&utm_source=openai",
+          "title": "צלם חתונות מומלץ בתל אביב | המלצות וחוות דעת על צלמים - במידרג"
+        }
+      ],
+      "answer": "הנה כמה צלמי/סטודיואי חתונות חזקים בתל אביב (סגנונות שונים), שכדאי לבדוק תיק עבודות וזמינות לתאריך שלכם:\n\n- LUZ Weddings – סטודיו מוכר עם צוות קבוע ואסתטיקה נקייה־מודרנית; מתאים גם לזוגות בינלאומיים. ([luz-weddings.com](https://www.luz-weddings.com/?utm_source=openai))\n- People Photography – סטודיו תל־אביבי עם הרבה המלצות, דוקומנטרי־אומנותי ושחור־לבן מוקפד. כתובת ופרטי קשר בת״א. ([styleandweddings.com](https://styleandweddings.com/vendor-page/%D7%A4%D7%99%D7%A4%D7%9C-%D7%A4%D7%95%D7%98%D7%95%D7%92%D7%A8%D7%A4%D7%99/))\n- Daniel Notcake – צלם זוכה פרסים שפועל גם בת״א, מציע חבילות סטילס+וידאו וצוות מלא ליום האירוע. ([en.danielnotcake.com](https://en.danielnotcake.com/wedding?utm_source=openai))\n- Haim Afriat – צלם אמנותי מת״א עם דגש על אסתטיקה, ליווי ותכנון של היום. ([haimafriat.com](https://haimafriat.com/?utm_source=openai))\n- Amora Studio – סטודיו תל־אביבי שמספק סטילס+וידאו עם שלושה צלמים, אספקה מהירה ותוספות כמו מגנטים. ([amora-studios.com](https://www.amora-studios.com/?utm_source=openai))\n\nטווחי מחירים ריאליים לצילום סטילס בלבד (עד ~200 מוזמנים) בת״א נעים לרוב סביב 4,000–6,500 ש״ח, וחבילות סטילס+וידאו עולות יותר, תלוי בהיקף והצוות. ([midrag.co.il](https://www.midrag.co.il/Search/Results/?ntla=7136NZ7BI863844O5D0X92E939N9873GMK76M2&utm_source=openai))\n\nרוצה שאצמצם את הרשימה לפי הצרכים שלך? כתוב/י:\n- תאריך ומיקום מדויק\n- סגנון מועדף (דוקו טבעי, עריכתי/אופנתי, קלאסי)\n- האם צריך גם וידאו ותוספות (רחפן, מגנטים, אלבומים)\n- תקציב מוערך ומספר מוזמנים\n\nאשמח גם לבדוק עבורך זמינות לתאריך ולתאם שיחות היכרות.",
+      "error": null
+    },
+    {
+      "promptId": "p05",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ בירושלים",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "bigpicturestories.com",
+        "larryphotography.com",
+        "yaniveitan.co.il",
+        "aharondahan.co.il",
+        "photodima.com",
+        "en.danielnotcake.com",
+        "midrag.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://www.bigpicturestories.com/?utm_source=openai",
+          "title": "Professional wedding photographer in Jerusalem, Israel | Jeremy Lerman, the English Photographer"
+        },
+        {
+          "url": "https://www.larryphotography.com/?utm_source=openai",
+          "title": "Larry Brandt Photography | Wedding photography | Jerusalem"
+        },
+        {
+          "url": "https://www.yaniveitan.co.il/%D7%97%D7%95%D7%A4%D7%94/?utm_source=openai",
+          "title": "יניב איתן - צלם חתונות חרדי | צילום אירועים אומנותי לקהל הדתי והחרדי"
+        },
+        {
+          "url": "https://aharondahan.co.il/?utm_source=openai",
+          "title": "אהרון דהן – צלם חתונות"
+        },
+        {
+          "url": "https://photodima.com/?utm_source=openai",
+          "title": "צלם חתונות מקצועי בישראל | Black & White | דימיטרי קוסטינסקי"
+        },
+        {
+          "url": "https://en.danielnotcake.com/wedding?utm_source=openai",
+          "title": "Wedding Photographer in Israel - Wedding Photography Tel Aviv Jerusalem"
+        },
+        {
+          "url": "https://www.midrag.co.il/Search/Results?ntla=T130Y37M881VZ46Z60E665O7T7L304264980S3&utm_source=openai",
+          "title": "צלם חתונות מומלץ בירושלים | המלצות וחוות דעת על צלמים - במידרג"
+        }
+      ],
+      "answer": "בשמחה! הנה כמה צלמי חתונות חזקים בירושלים (וסביבתה), בסגנונות וקהל יעד שונים:\n\n- Jeremy Lerman – Big Picture Stories: סגנון דוקומנטרי–מערכתי, דובר אנגלית שוטפת ומנוסה מאוד בחתונות ירושלמיות ובקהל דובר אנגלית. ([bigpicturestories.com](https://www.bigpicturestories.com/?utm_source=openai))\n- Larry Brandt: ירושלמי, צילום נקי וקלאסי; מציג עבודות חתונה ועדויות לקוחות באתר. ([larryphotography.com](https://www.larryphotography.com/?utm_source=openai))\n- יניב איתן: מתמחה בחתונות דתיות/חרדיות, שם דגש על צניעות והבנת ההלכה ותנאי התאורה באולמות ירושלמיים. ([yaniveitan.co.il](https://www.yaniveitan.co.il/%D7%97%D7%95%D7%A4%D7%94/?utm_source=openai))\n- אהרון דהן: ייעודי למגזר החרדי, סגנון טבעי עם דגש על אווירה וסיפור היום. ([aharondahan.co.il](https://aharondahan.co.il/?utm_source=openai))\n- Black & White (דימיטרי קוסטינסקי): מציע צוותים נפרדים (צלם/צלמת) לחתונות בהפרדה מלאה, פעיל גם בירושלים. ([photodima.com](https://photodima.com/?utm_source=openai))\n- Daniel Notcake: צוות צילום+וידאו עטור פרסים בינלאומיים; מציין שאין דמי נסיעה לירושלים בחבילות משולבות, ומתאים גם לדוברי אנגלית/רוסית. ([en.danielnotcake.com](https://en.danielnotcake.com/wedding?utm_source=openai))\n\nטווח מחירים להערכה: לפי “מידרג”, סטילס לחתונה עד ~200 מוזמנים נע סביב כ-3,500–6,000 ש״ח (ללא וידאו/אלבומים; בפועל משתנה לפי חבילה והיקף שעות). ([midrag.co.il](https://www.midrag.co.il/Search/Results?ntla=T130Y37M881VZ46Z60E665O7T7L304264980S3&utm_source=openai))\n\nכדי לדייק לך המלצה אישית ולבדוק זמינות/הצעות מחיר, אשמח לפרטים:\n- תאריך ומקום החתונה (כולל אם זה ערב/צהריים).\n- סגנון צילום מועדף: טבעי–דוקו, מבויים–אומנותי, או שילוב.\n- האם דרוש גם וידאו, אלבומים, צילומי זוגיות/חינה/רחפן/מגנטים.\n- מאפיינים הלכתיים (למשל צוותים נפרדים/הפרדה מלאה).\n- תקציב משוער.\n\nרוצה שאבדוק עבורך זמינות לכמה שמות מהרשימה לתאריך שלך ואחזור עם הצעות מסודרות?",
+      "error": null
+    },
+    {
+      "promptId": "p06",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ בחיפה והצפון",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [],
+      "cites": [],
+      "answer": "בשמחה! כדי להמליץ הכי מדויק, אשאל כמה דברים קצרים:\n- מתי החתונה? (תאריך מדויק, למשל: 12.11.2026)\n- איפה בדיוק בצפון/חיפה? (אולם/גן אירועים)\n- סגנון מועדף: טבעי־דוקומנטרי, קלאסי, דרמטי/אמנותי, אור־טבעי וכו’?\n- תקציב משוער לצילום סטילס? והאם צריך גם וידאו/רחפן/אלבומים?\n- העדפות ייחודיות: שומר/ת שבת, מצלמת/צלם אישה, צניעות/הפרדה, שפות?\n- צלם מקומי מצפון או שגם מתאים ממרכז עם נסיעות?\n\nאם אתם ממהרים, אוכל כבר עכשיו לשלוח רשימת צלמים חזקים בחיפה והצפון בסגנונות שונים + טווחי מחירים משוערים, ולבדוק זמינות לתאריך שלכם.",
+      "error": null
+    },
+    {
+      "promptId": "p07",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ בבאר שבע והדרום",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mit4mit.co.il",
+        "easy.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://www.mit4mit.co.il/biz/91578?utm_source=openai",
+          "title": "דוד אברמוב - צילום אירועים | David Abramov - Photography | צלמי סטילס | חוות דעת, ביקורות, המלצות, מחירים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=41&rankDown=&rankUp=",
+          "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד | מתחתנים למען מתחתנים עמוד 41"
+        },
+        {
+          "url": "https://easy.co.il/page/8837162?utm_source=openai",
+          "title": "דודי מבט - הרצל 122, באר שבע - צלמי אירועים | איזי"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown",
+          "title": "צלמי סטילס בדרום"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown",
+          "title": "צלמי סטילס בדרום"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown",
+          "title": "צלמי סטילס בדרום"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown",
+          "title": "צלמי סטילס בדרום"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown",
+          "title": "צלמי סטילס בדרום"
+        }
+      ],
+      "answer": "מזל טוב! הנה רשימת צלמי חתונות ששווה לבדוק בבאר שבע והדרום, על סמך דפי ספקים וסקירות עדכניות:\n\n- דוד אברמוב — באר שבע. סטילס לאירועים/חתונות; דף ספק פעיל עם חוות דעת. ([mit4mit.co.il](https://www.mit4mit.co.il/biz/91578?utm_source=openai))\n- סטודיו פוזות (Posez) — דרך חברון 60, באר שבע. סטילס+וידאו; מופיע ברשימת הצלמים המומלצים. ([mit4mit.co.il](https://www.mit4mit.co.il/top/54719c753be563f2f3059220/?page=41&rankDown=&rankUp=))\n- דודי מבט — באר שבע. בית עסק ותיק לצילום אירועים; פרטי כתובת וחוות דעת באתי מדריכים/דירוגים. ([easy.co.il](https://easy.co.il/page/8837162?utm_source=openai))\n- נועה שרביט — אופקים. צלמת סטילס; מופיעה בקטגוריית “צלמי סטילס בדרום”. ([mit4mit.co.il](https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown))\n- Happy moment – Tal Shtal — קריית גת. סטילס/וידאו; ברשימת “צלמי סטילס בדרום”. ([mit4mit.co.il](https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown))\n- קלוד שחף — אשקלון. סטילס/וידאו; ברשימת הדרום. ([mit4mit.co.il](https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown))\n- ליאור דהרי — מושב משען (דרום). צלם חתונות; מופיע עם חוות דעת בקטגוריית הדרום. ([mit4mit.co.il](https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown))\n- ArtPixel — אשדוד. סטילס+וידאו; מדורג בקטגוריית הדרום. ([mit4mit.co.il](https://www.mit4mit.co.il/category/337/%D7%90%D7%96%D7%95%D7%A8%3A%D7%93%D7%A8%D7%95%D7%9D/?reviewsDown=&reviewsUp=&sort=reviewsDown))\n\nאיך לבחור מהר ונכון\n- הגדירו סגנון: טבעי/דוקומנטרי מול מבוים.\n- בדקו חבילה: סטילס בלבד או סטילס+וידאו, כמות צלמים, רחפן, אלבומים, גלריה דיגיטלית וזמני אספקה.\n- עברו על 2–3 חתונות מלאות ולא רק “היילייטס”.\n- ודאו חוזה מסודר: שעות, נסיעות בדרום, גיבוי קבצים וזכויות שימוש.\n\nרוצה שאסנן לך לפי הצרכים שלך? כתבי:\n- תאריך ומיקום מדויק (אולם/גן) ב-פורמט יום.חודש.שנה.\n- מה סגנון/אווירה שאת אוהבת.\n- תקציב משוער והאם צריך גם וידאו/רחפן/אלבומים.\n\nאשמח גם לשלוח לך 2–3 מועמדים פנויים לתאריך שלך ולחבר לשיחה קצרה.",
+      "error": null
+    },
+    {
+      "promptId": "p08",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות בסגנון טבעי, דוקומנטרי וקולנועי, את מי כדאי לבדוק?",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "gershonabramashvili.com",
+        "idan-hasson.com",
+        "luz-weddings.com",
+        "itayaharon.com",
+        "almogwedd.com",
+        "danieleliwedding.com",
+        "tamireytan.com",
+        "set-productions.com",
+        "bemazal.com",
+        "bigpicturestories.com",
+        "weddingart.co.il",
+        "weddingday.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://gershonabramashvili.com/?utm_source=openai",
+          "title": "Gershon Abramashvili | Documentary Wedding Photography Israel"
+        },
+        {
+          "url": "https://www.idan-hasson.com/?utm_source=openai",
+          "title": "Idan Hasson – עידן חסון – Photography"
+        },
+        {
+          "url": "https://www.luz-weddings.com/team/?utm_source=openai",
+          "title": "TEAM - LUZ"
+        },
+        {
+          "url": "https://www.itayaharon.com/?utm_source=openai",
+          "title": "Home | ItayAharon - Wedding photography | איתי אהרון צלם חתונות"
+        },
+        {
+          "url": "https://www.almogwedd.com/?utm_source=openai",
+          "title": "צלם, צלם חתונות, צלם אירועים מקצועי ורגיש | אלמוג גבאי"
+        },
+        {
+          "url": "https://danieleliwedding.com/?utm_source=openai",
+          "title": "דניאל אלי - צלם חתונות טבעי שמביא ליום שלכם שילוב נדיר של מקצועיות"
+        },
+        {
+          "url": "https://www.tamireytan.com/?utm_source=openai",
+          "title": "Wedding Photography | Tamir Eytan Photography | ישראל"
+        },
+        {
+          "url": "https://set-productions.com/?utm_source=openai",
+          "title": "ראשי - צלם חתונות | צלם לחתונה | צילום חתונות"
+        },
+        {
+          "url": "https://www.bemazal.com/stills-photography/wedding-stills/?utm_source=openai",
+          "title": "צילום סטילס לחתונה | צלם חתונות בסגנון קולנועי - סטאס מוזיקוב - המרכז לצילום אמנותי"
+        },
+        {
+          "url": "https://www.bigpicturestories.com/?utm_source=openai",
+          "title": "Professional wedding photographer in Jerusalem, Israel | Jeremy Lerman, the English Photographer"
+        },
+        {
+          "url": "https://www.weddingart.co.il/?utm_source=openai",
+          "title": "צלם חתונות מומלץ | Wedding Art - צילום חתונות אומנותי בזווית אחרת"
+        },
+        {
+          "url": "https://gershonabramashvili.com/?utm_source=openai",
+          "title": "Gershon Abramashvili | Documentary Wedding Photography Israel"
+        },
+        {
+          "url": "https://set-productions.com/?utm_source=openai",
+          "title": "ראשי - צלם חתונות | צלם לחתונה | צילום חתונות"
+        },
+        {
+          "url": "https://set-productions.com/?utm_source=openai",
+          "title": "ראשי - צלם חתונות | צלם לחתונה | צילום חתונות"
+        },
+        {
+          "url": "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai",
+          "title": "Wedding Day"
+        }
+      ],
+      "answer": "בשביל סגנון טבעי-דוקומנטרי עם טאץ’ קולנועי, הנה שמות שכדאי לבדוק (עם דגש על סטילס; חלקם מציעים גם וידאו):\n\n- גרשון אברמשוילי — דוקומנטרי טהור “ללא בימוי”, חבר WPJA ו-This is Reportage. ([gershonabramashvili.com](https://gershonabramashvili.com/?utm_source=openai))\n- Idan Hasson — טבעי-רומנטי ונקי, מוכר ומנוסה; שווה לעבור על תיק העבודות והביקורות. ([idan-hasson.com](https://www.idan-hasson.com/?utm_source=openai))\n- LUZ Weddings (סטודיו, תל־אביב) — צוותים מנוסים ואסתטיקה אמנותית; מתאים לזוגות שרוצים לוק מודרני ועקבי. ([luz-weddings.com](https://www.luz-weddings.com/team/?utm_source=openai))\n- איתי אהרון — טבעי/דוקו עם נגיעות פאשן וסטייל, דגש על אותנטיות. ([itayaharon.com](https://www.itayaharon.com/?utm_source=openai))\n- אלמוג גבאי — תיעוד עדין ואותנטי, עריכה נקייה וטבעית. ([almogwedd.com](https://www.almogwedd.com/?utm_source=openai))\n- Daniel Eli — גישה לא מבוימת, נינוחה; וידאו בסגנון קולנועי למי שרוצה גם סרט. ([danieleliwedding.com](https://danieleliwedding.com/?utm_source=openai))\n- Tamir Eytan — טבעי, עריכה מינימלית, ניסיון רחב בארץ ובעולם. ([tamireytan.com](https://www.tamireytan.com/?utm_source=openai))\n- SET Productions — שילוב מובהק של דוקו וקולנועי, צוות סטילס+וידאו תחת אותה קורת גג. ([set-productions.com](https://set-productions.com/?utm_source=openai))\n- Stas Muzikov (המרכז לצילום אמנותי) — צבעים טבעיים, קומפוזיציה נקייה וסטילס/וידאו קולנועי. ([bemazal.com](https://www.bemazal.com/stills-photography/wedding-stills/?utm_source=openai))\n- Jeremy Lerman (Big Picture Stories, ירושלים) — דוקומנטרי עם רקע עיתונאי; חזק גם לזוגות דוברי אנגלית. ([bigpicturestories.com](https://www.bigpicturestories.com/?utm_source=openai))\n\nאיך לסנן מהר ובבטחה\n- בקשו לראות לפחות סיפור חתונה מלא (לא רק היילייטס לאינסטה) כדי לבדוק עקביות בתאורה, צבעים ורגעים אמיתיים. ([weddingart.co.il](https://www.weddingart.co.il/?utm_source=openai))\n- ודאו שהשפה היא באמת “ללא בימוי” וששומרים על סקין-טון טבעי ועריכה עדינה. ([gershonabramashvili.com](https://gershonabramashvili.com/?utm_source=openai))\n- אם מזמינים גם וידאו, בקשו סרט מלא/סטוריז לדוגמה באותו הסגנון הקולנועי שביקשתם. ([set-productions.com](https://set-productions.com/?utm_source=openai))\n- תזמון: בעונת השיא (מאי–אוקטובר) מומלץ לסגור 6–10 חודשים מראש. ([set-productions.com](https://set-productions.com/?utm_source=openai))\n- הנה צ’ק-ליסט קצר לשאלות לצלם לפני סגירה (זמינות, גיבוי, זמן אספקה, חוזה, גלריות מלאות). ([weddingday.co.il](https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai))\n\nכדי לחדד המלצות מדויקות יותר, תרצה/י לשתף?\n- תאריך ומיקום בארץ\n- תקציב משוער לסטילס (ולוידאו אם צריך)\n- גודל וסוג האירוע (חופה/אולם/טבע, דתי/חילוני)\n- האם חשוב צלם יחיד או צוות, ואלבומים/רחפן וכו’\n\nאם תרצה/י, אבנה לך רשימת מועמדים מצומצמת ופנויה בתאריך שלך עם הערות בסגנון ובתקציב.",
+      "error": null
+    },
+    {
+      "promptId": "p09",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם סטילס ווידאו לחתונה באותה חבילה, המלצות",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mit4mit.co.il",
+        "studioayalon.co.il",
+        "lunsoul.com",
+        "hupa.co.il",
+        "midrag.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://www.mit4mit.co.il/biz/95730",
+          "title": "בראשית I ישראל ואיריס פרסי | צילום וידאו וסטילס | חוות דעת, ביקורות, המלצות, מחירים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/biz/90564",
+          "title": "מומנטוס | momentos | Momentos | צילום וידאו וסטילס | חוות דעת, ביקורות, המלצות, מחירים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/biz/24792",
+          "title": "אספוסה | esposa | צילום וידאו וסטילס | חוות דעת, ביקורות, המלצות, מחירים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/biz/34009",
+          "title": "גלושא צלמים | צילום וידאו וסטילס | חוות דעת, ביקורות, המלצות, מחירים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/biz/138",
+          "title": "אריאל אריכא | צלם | Ariel Aricha | צילום וידאו וסטילס | חוות דעת, ביקורות, המלצות, מחירים"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/category/11/?id=11&only_team=false&sort=rankDown",
+          "title": "צילום וידאו וסטילס"
+        },
+        {
+          "url": "https://studioayalon.co.il/%D7%94%D7%97%D7%91%D7%99%D7%9C%D7%94-%D7%94%D7%94%D7%99%D7%91%D7%A8%D7%93%D7%99%D7%AA/?utm_source=openai",
+          "title": "החבילה-ההיברדית - סטודיו אילון צלם לחתונה"
+        },
+        {
+          "url": "https://lunsoul.com/vendor-articles/photographer-price-israel?utm_source=openai",
+          "title": "כמה עולה צלם לחתונה · מחירון צילום אירועים 2026 | לונסול | לונסול"
+        },
+        {
+          "url": "https://hupa.co.il/photography.php?utm_source=openai",
+          "title": "צילום ווידאו | חופה"
+        },
+        {
+          "url": "https://www.midrag.co.il/Content/Tip/1049?utm_source=openai",
+          "title": "איך לבחור צלם לחתונה | טיפים לבחירת צלם לחתונה - במידרג"
+        },
+        {
+          "url": "https://www.midrag.co.il/content/feedbacksindex/481139?utm_source=openai",
+          "title": "צילום סטילס ווידאו | המלצות - באתר מידרג"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/category/11/?id=11&only_team=false&sort=rankDown",
+          "title": "צילום וידאו וסטילס"
+        }
+      ],
+      "answer": "בשמחה! הנה צלמי/סטודיואים בישראל שמציעים חבילת סטילס + וידאו, עם דירוגים וחוות דעת עדכניות:\n\n- בראשית – ישראל ואיריס פרסי (כל הארץ). חבילות סטילס+וידאו; מחיר ממוצע שזוגות ציינו לאחרונה: כ־12,300 ₪. סגנון משולב ותיק, הרבה חוות דעת ופרסים “בחירת הזוגות”. ([mit4mit.co.il](https://www.mit4mit.co.il/biz/95730))\n- Momentos מומנטוס (כל הארץ). סטילס+וידאו, כולל קליפים, עריכה, אופציית רחפן; מחיר ממוצע כ־12,190 ₪; מציינים גם מחירון עונתי. ([mit4mit.co.il](https://www.mit4mit.co.il/biz/90564))\n- אספוסה Esposa (כל הארץ). חבילות מלאות/חלקיות, זוגיות/טראש/חינה; מחיר ממוצע כ־10,590 ₪; מחירון קיץ/חורף מפורט. ([mit4mit.co.il](https://www.mit4mit.co.il/biz/24792))\n- גלושא צלמים (איזור חיפה, עובדים בכל הארץ). טבעי-תיעודי, סטילס+וידאו+עריכה; מחיר ממוצע כ־11,735 ₪; מציינים טווחי מחיר לעונות. ([mit4mit.co.il](https://www.mit4mit.co.il/biz/34009))\n- אריאל אריכא (כל הארץ). סגנון טבעי-קולנועי, סטילס+וידאו, אופציית רחפן; מחיר ממוצע כ־13,966 ₪. ([mit4mit.co.il](https://www.mit4mit.co.il/biz/138))\n- עוד אופציות בדירוג גבוה ב-Mit4Mit (אפשר למיין לפי אזור/סגנון): רן שיינברגר “ברגש”, PHOTOSHOT, יניב באיו ועוד. ([mit4mit.co.il](https://www.mit4mit.co.il/category/11/?id=11&only_team=false&sort=rankDown))\n\nלאירועים קטנים במיוחד: “חבילה היברידית” עם צלם אחד שעושה סטילס + קטעי וידאו בסיסיים (חסכונית ומתאימה לחתונות אינטימיות). דוגמה: סטודיו אילון – מסבירים מה בדיוק נמסר בחבילה ההיברידית. ([studioayalon.co.il](https://studioayalon.co.il/%D7%94%D7%97%D7%91%D7%99%D7%9C%D7%94-%D7%94%D7%94%D7%99%D7%91%D7%A8%D7%93%D7%99%D7%AA/?utm_source=openai))\n\nטווחי מחירים נפוצים לחבילת סטילס+וידאו ב־2026 בישראל\n- בסיס: בערך 8,000–12,000 ₪\n- ביניים: בערך 12,000–18,000 ₪\n- פרימיום: 20,000 ₪ ומעלה (יותר צוות, רחפן, אלבומים, קליפים נוספים)\nהערכות אלה מתיישבות עם מחירונים/כתבות עדכניות בישראל. בדקו תמיד מה כלול בפועל בכל הצעת מחיר. ([lunsoul.com](https://lunsoul.com/vendor-articles/photographer-price-israel?utm_source=openai))\n\nמה לבדוק לפני שסוגרים\n- לראות לא רק היילייטס אלא גם סרט מלא; כמה עורכים עובדים ומה זמני האספקה; האם יש רישיון רחפן תקף במידת הצורך. ([hupa.co.il](https://hupa.co.il/photography.php?utm_source=openai))\n- חוזה ברור: שעות כיסוי, צלם/ת שני/ה, מספר תמונות ערוכות, סוג הסרטים (היילייטס/מלא), גיבויים וביטוח. ([midrag.co.il](https://www.midrag.co.il/Content/Tip/1049?utm_source=openai))\n- לקרוא חוות דעת מרובות ומעודכנות. ([midrag.co.il](https://www.midrag.co.il/content/feedbacksindex/481139?utm_source=openai))\n\nכדי לחדד התאמה: באיזה תאריך ומיקום החתונה? כמה אורחים צפויים? איזה סגנון אתם אוהבים (טבעי/תיעודי, קולנועי, קליל)? ומה התקציב המועדף? עם הפרטים האלה אשבץ לכם 2–3 מועמדים פנויים לתאריך שלכם ואשלח הצעות ממוקדות. ([mit4mit.co.il](https://www.mit4mit.co.il/category/11/?id=11&only_team=false&sort=rankDown))",
+      "error": null
+    },
+    {
+      "promptId": "p10",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם לחתונה קטנה ואינטימית, המלצות",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "eyalrokser.com",
+        "denisbutnaru.com",
+        "weddingart.co.il",
+        "premiumphotography.co.il",
+        "mit4mit.co.il",
+        "midrag.co.il",
+        "origin.mazaltov.walla.co.il",
+        "picime.com",
+        "lunsoul.com",
+        "lawrence.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://eyalrokser.com/hatuna-ktana.html?utm_source=openai",
+          "title": "צלם לחתונה קטנה | אייל רוכסר"
+        },
+        {
+          "url": "https://www.denisbutnaru.com/?utm_source=openai",
+          "title": "Wedding Photography | Denis Butnaru Photography | ישראל"
+        },
+        {
+          "url": "https://www.weddingart.co.il/?utm_source=openai",
+          "title": "צלם חתונות מומלץ | Wedding Art - צילום חתונות אומנותי בזווית אחרת"
+        },
+        {
+          "url": "https://www.premiumphotography.co.il/wedding-photographers-tel-aviv?utm_source=openai",
+          "title": "צלמי חתונות בתל אביב - פרימיום צילום חתונה"
+        },
+        {
+          "url": "https://www.mit4mit.co.il/top/54719c753be563f2f3059220?sort=relevanceUp&utm_source=openai",
+          "title": "צילום אירועים - כל הצלמים הכי מומלצים במקום אחד | מתחתנים למען מתחתנים"
+        },
+        {
+          "url": "https://www.midrag.co.il/Search/Results/?ntla=7136NZ7BI863844O5D0X92E939N9873GMK76M2&utm_source=openai",
+          "title": "צלם חתונות מומלץ בתל אביב | המלצות וחוות דעת על צלמים - במידרג"
+        },
+        {
+          "url": "https://origin.mazaltov.walla.co.il/wedding-production/eventsphotographer/?utm_source=openai",
+          "title": "צלם חתונות ואירועים | צלמים מומלצים לחתונות ואירועים"
+        },
+        {
+          "url": "https://picime.com/blog/event-photography-costs-israel?utm_source=openai",
+          "title": "כמה עולה צלם לאירוע ולחתונה בישראל? טווחי מחירים 2026 | PiciMe"
+        },
+        {
+          "url": "https://www.premiumphotography.co.il/wedding-photographers-tel-aviv?utm_source=openai",
+          "title": "צלמי חתונות בתל אביב - פרימיום צילום חתונה"
+        },
+        {
+          "url": "https://picime.com/blog/event-photography-costs-israel?utm_source=openai",
+          "title": "כמה עולה צלם לאירוע ולחתונה בישראל? טווחי מחירים 2026 | PiciMe"
+        },
+        {
+          "url": "https://lunsoul.com/vendor-articles/photographer-price-israel?utm_source=openai",
+          "title": "כמה עולה צלם לחתונה · מחירון צילום אירועים 2026 | לונסול | לונסול"
+        },
+        {
+          "url": "https://www.lawrence.co.il/jaffas-golden-hour-why-wedding-photographers-love-to-shoot-around-a-small-wedding-venue-in-tel-aviv-jaffa-if-you-ask-any-veteran-wedding-photographer-what-the-first-thing-they-check-when-th/?utm_source=openai",
+          "title": "שעת הזהב של יפו: למה צלמי חתונות אוהבים לצלם סביב מקום לחתונה קטנה בתל אביב-יפו - הלורנס אולם אירועים בתל אביב יפו"
+        }
+      ],
+      "answer": "מזל טוב! בשמחה אכוון – אשמח לדעת: תאריך ומיקום (עיר/אזור), סגנון צילום מועדף (דוקומנטרי/אומנותי/קלאסי), סטילס בלבד או גם וידאו, וגודל האירוע/תקציב. ככה אוכל לדייק. בינתיים, הנה שמות ולוחות זמנים/מקורות אמינים להתחלה:\n\nצלמים שמתאימים במיוחד לחתונה קטנה ואינטימית\n- אייל רוכסר (שרון/מרכז) – מתמחה בחתונות קטנות עם גישה דוקומנטרית רגועה. מתאים לבית/חצר/מקום אינטימי. ([eyalrokser.com](https://eyalrokser.com/hatuna-ktana.html?utm_source=openai))\n- Denis Butnaru (כל הארץ) – סטילס + וידאו, חבילות מותאמות וזמינות ארצית, עם דגש על רגעים טבעיים. ([denisbutnaru.com](https://www.denisbutnaru.com/?utm_source=openai))\n- Wedding Art – שגיא בן יצחק (מרכז/כל הארץ) – צוות סטילס+וידאו, סגנון אומנותי ואלבומים מעוצבים. ([weddingart.co.il](https://www.weddingart.co.il/?utm_source=openai))\n- Premium Photography TLV (ת״א) – צוותים קטנים וגמישים, כולל חבילות קצרות; טוב לאירועים מצומצמים בעיר. ([premiumphotography.co.il](https://www.premiumphotography.co.il/wedding-photographers-tel-aviv?utm_source=openai))\n\nאיפה עוד מחפשים אמין\n- מתחתנים למען מתחתנים (Mit4mit) – מאגר גדול עם ביקורות מאומתות; חפשו זוכי “בחירת הזוגות” ובדקו דוגמאות מלאות. ([mit4mit.co.il](https://www.mit4mit.co.il/top/54719c753be563f2f3059220?sort=relevanceUp&utm_source=openai))\n- מידרג – רשימות צלמים לפי אזור עם מחירים משוערים וזמינות עדכנית (לסטילס בחתונה עד ~200 אורחים לרוב סביב 4,000–5,000 ש״ח, תלוי שעות). ([midrag.co.il](https://www.midrag.co.il/Search/Results/?ntla=7136NZ7BI863844O5D0X92E939N9873GMK76M2&utm_source=openai))\n- פורטל “מזל-טוב” – עוד ספקים ומסננים לפי אזור ושירות. ([origin.mazaltov.walla.co.il](https://origin.mazaltov.walla.co.il/wedding-production/eventsphotographer/?utm_source=openai))\n\nמחירים משוערים ל”קטנה ואינטימית” (נכון ל-2026, משתנה לפי שעות/צוות/תוצרים)\n- סטילס בלבד, 3–5 שעות: בערך 3,500–6,000 ש״ח. ([picime.com](https://picime.com/blog/event-photography-costs-israel?utm_source=openai))\n- סטילס+וידאו בסיסי: לרוב 8,000–15,000 ש״ח; חבילות גדולות יותר יכולות להגיע גבוה יותר כשמוסיפים רחפן/צלם נוסף/אלבומים. בדקו גם זמני אספקה (תמונות מול סרט ערוך). ([premiumphotography.co.il](https://www.premiumphotography.co.il/wedding-photographers-tel-aviv?utm_source=openai))\n\nטיפים קצרים לבחירה נכונה\n- בקשו לראות חתונה שלמה (לא רק “היילייטס”), במיוחד של אירוע קטן בשעה/אור דומים לשלכם. ([picime.com](https://picime.com/blog/event-photography-costs-israel?utm_source=openai))\n- תיאום ציפיות: כמה שעות, רשימת משפחה/חברים חשובה, האם דרוש צלם נוסף, ומה בדיוק נמסר (גלריה, קליפים, אלבומים) ובאיזה לוח זמנים. ([lunsoul.com](https://lunsoul.com/vendor-articles/photographer-price-israel?utm_source=openai))\n- לוקיישן ועיתוי לצילומים: אם זה בת״א–יפו, “שעת הזהב” סביב שקיעה נותנת סטים מהממים בעיר ובנמל באותו אזור. ([lawrence.co.il](https://www.lawrence.co.il/jaffas-golden-hour-why-wedding-photographers-love-to-shoot-around-a-small-wedding-venue-in-tel-aviv-jaffa-if-you-ask-any-veteran-wedding-photographer-what-the-first-thing-they-check-when-th/?utm_source=openai))\n\nרוצה שאסנן לך 4–5 אופציות פנויות לתאריך שלך (כולל מחירים מדויקים וחבילות של 3–5 שעות)? כתוב/י לי תאריך, עיר, ושאלה אם צריך גם וידאו.",
+      "error": null
+    },
+    {
+      "promptId": "p11",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "צלם לחתונת שטח בטבע, המלצות",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "finephotography.co.il",
+        "tamireytan.com",
+        "itayaharon.com",
+        "danieleliwedding.com",
+        "denisbutnaru.com",
+        "almogwedd.com",
+        "avivhagaystudio.co.il",
+        "oferm.co.il",
+        "thisisreportage.com"
+      ],
+      "cites": [
+        {
+          "url": "https://finephotography.co.il/2026/01/31/colorful-wedding-photography-bayaar-hadera/?utm_source=openai",
+          "title": "צילום חתונה ביער | אדיטוריאלי וצבעוני | Fine Photography"
+        },
+        {
+          "url": "https://www.tamireytan.com/?utm_source=openai",
+          "title": "Wedding Photography | Tamir Eytan Photography | ישראל"
+        },
+        {
+          "url": "https://www.itayaharon.com/?utm_source=openai",
+          "title": "Home | ItayAharon - Wedding photography | איתי אהרון צלם חתונות"
+        },
+        {
+          "url": "https://danieleliwedding.com/?utm_source=openai",
+          "title": "דניאל אלי - צלם חתונות טבעי שמביא ליום שלכם שילוב נדיר של מקצועיות"
+        },
+        {
+          "url": "https://www.denisbutnaru.com/?utm_source=openai",
+          "title": "Wedding Photography | Denis Butnaru Photography | ישראל"
+        },
+        {
+          "url": "https://www.almogwedd.com/?utm_source=openai",
+          "title": "צלם, צלם חתונות, צלם אירועים מקצועי ורגיש | אלמוג גבאי"
+        },
+        {
+          "url": "https://www.avivhagaystudio.co.il/wedding-photography-north?utm_source=openai",
+          "title": "צילום חתונה בצפון | צלם חתונות בעכו, חיפה והקריות - אביב חגי"
+        },
+        {
+          "url": "https://oferm.co.il/?utm_source=openai",
+          "title": "צלם חתונות - צלם אירועים - עופר מתיתיהו"
+        },
+        {
+          "url": "https://thisisreportage.com/best-documentary-wedding-photographers-israel/",
+          "title": "Best Documentary Wedding Photographers in Israel"
+        }
+      ],
+      "answer": "מזל טוב! בשמחה אעזור. כדי לדייק המלצות לצלם שמתאים לחתונת שטח/טבע, אשמח לדעת:\n- היכן ומתי החתונה (תאריך ומיקום משוער)?\n- סגנון צילום מועדף: דוקו טבעי/אמנותי-אדיטוריאלי/קלאסי?\n- טווח תקציב לסטילס בלבד או סטילס+וידאו?\n- כמה אורחים והאם מתוכננים טקס/ריקודים בחוץ בלבד?\n\nבינתיים, הנה צלמים וצוותים בארץ שמציגים עבודות יפות בחוץ/בטבע, כדי שתוכלו להתחיל לעיין בתיקי עבודות:\n- Fine Photography – סגנון אדיטוריאלי-צבעוני; פוסט עדכני מצילום חתונה ב“ביער” חדרה (טבע/יער). ([finephotography.co.il](https://finephotography.co.il/2026/01/31/colorful-wedding-photography-bayaar-hadera/?utm_source=openai))\n- Tamir Eytan – דוקו טבעי עם דגש על זוגות וחתונות חוץ (כולל “ביער” וחתונה בגבעה). ([tamireytan.com](https://www.tamireytan.com/?utm_source=openai))\n- Itay Aharon – טבעי-דוקומנטרי עם נגיעות פאשן; מתאים לחתונות בשטח וללוקיישנים פתוחים. ([itayaharon.com](https://www.itayaharon.com/?utm_source=openai))\n- Daniel Eli – סטילס מלא רגש + וידאו קולנועי; עובד הרבה בסביבות פתוחות. ([danieleliwedding.com](https://danieleliwedding.com/?utm_source=openai))\n- Denis Butnaru – צוות צילום אמנותי, חבילות סטילס+וידאו; ניסיון באירועים חוץ. ([denisbutnaru.com](https://www.denisbutnaru.com/?utm_source=openai))\n- Almog Gabay – דוקו נקי ואותנטי; צילומי זוגיות בחוף/טבע לפני היום עצמו. ([almogwedd.com](https://www.almogwedd.com/?utm_source=openai))\n- Aviv Hagay (צפון) – סטודיו לצילום חתונות בצפון, סגנון רגוע וטבעי; טוב לחתונות חוץ בגליל/כרמל. ([avivhagaystudio.co.il](https://www.avivhagaystudio.co.il/wedding-photography-north?utm_source=openai))\n- Ofer Matityahu – קו נקי ואלגנטי; צוות שמכסה יום שלם בשטח. ([oferm.co.il](https://oferm.co.il/?utm_source=openai))\n- מחפשים דוקו “נטו-רגעים”? בדקו גם את מדריך This is Reportage – רשימת צלמי דוקו בישראל. ([thisisreportage.com](https://thisisreportage.com/best-documentary-wedding-photographers-israel/))\n\nטיפים קצרים לצלם לחתונת שטח\n- בקשו לראות גלריות מלאות מחתונות חוץ (לא רק “Highlights”), כולל טקס אחרי שקיעה ותנאי תאורה קשים.\n- ודאו גיבוי ציוד, התמודדות עם אבק/רוח/גשם, ותיאום “תוכנית ב’” לצילומי זוג בשעת הזהב.\n- אם שוקלים רחפן – בדקו שיש רישוי מתאים ותיאום בטיחות מול ההפקה והשטח.\n- הגדירו דדליין ותכולות: כמה תמונות מעובדות, זמני מסירה, סרט קצר/ארוך, אלבומים, וזכויות שימוש.\n\nרוצים שאסנן ואצור לכם “טופ 5” מותאם אישית ואפילו אבדוק זמינות לתאריך שלכם? כתבו לי:\n- תאריך מדויק\n- מיקום (אזור/לוקיישן)\n- סגנון ותקציב משוער\nואחזור עם התאמות מדויקות וקישורים לגלריות רלוונטיות.",
+      "error": null
+    },
+    {
+      "promptId": "p12",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "כמה עולה צלם חתונות בישראל ב-2026?",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "picime.com",
+        "ulami.co.il",
+        "d.co.il",
+        "pix-online.com",
+        "yes-please.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://picime.com/blog/event-photography-costs-israel?utm_source=openai",
+          "title": "כמה עולה צלם לאירוע ולחתונה בישראל? טווחי מחירים 2026 | PiciMe"
+        },
+        {
+          "url": "https://ulami.co.il/blog/wedding-costs-israel-2026/?utm_source=openai",
+          "title": "כמה עולה חתונה ב-2026? המחיר לחתונה - אולמי - פורטל אולמות האירועים של ישראל"
+        },
+        {
+          "url": "https://www.d.co.il/priceList-42450/?utm_source=openai",
+          "title": "מחירון צלמים וסטודיו לצילום - דפי זהב"
+        },
+        {
+          "url": "https://ulami.co.il/blog/wedding-costs-israel-2026/?utm_source=openai",
+          "title": "כמה עולה חתונה ב-2026? המחיר לחתונה - אולמי - פורטל אולמות האירועים של ישראל"
+        },
+        {
+          "url": "https://www.pix-online.com/blog/wedding-photography-pricing?utm_source=openai",
+          "title": "תמחור צילום חתונות 2026 — כמה לגבות ואיך לא לעבוד בהפסד"
+        },
+        {
+          "url": "https://www.yes-please.co.il/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D.html?utm_source=openai",
+          "title": "מחירון צילום אירועים 2026: כמה עולה צלם? | יס פליז"
+        },
+        {
+          "url": "https://www.pix-online.com/blog/wedding-photography-pricing?utm_source=openai",
+          "title": "תמחור צילום חתונות 2026 — כמה לגבות ואיך לא לעבוד בהפסד"
+        }
+      ],
+      "answer": "נכון לספטמבר 2026, רוב הזוגות בישראל סוגרים צילום חתונה “רגיל” (באולם, סטילס/וידאו, צוות של 1–2) בטווח של כ-6,000–12,000 ₪, תלוי בשעות, בגודל הצוות ובמה שכלול. ([picime.com](https://picime.com/blog/event-photography-costs-israel?utm_source=openai))  \nחבילה מלאה יותר (סטילס + וידאו + אלבומים) נעה לרוב סביב 9,000–16,000 ₪. ([ulami.co.il](https://ulami.co.il/blog/wedding-costs-israel-2026/?utm_source=openai))\n\nטווחים לפי רמות/היקף:\n- בסיסי/צלם יחיד ליום אירוע: בערך 6,000–9,000 ₪. ([d.co.il](https://www.d.co.il/priceList-42450/?utm_source=openai))  \n- סטנדרטי עם שני צלמים וידאו/סטילס ואלבומים: בערך 9,000–16,000 ₪. ([ulami.co.il](https://ulami.co.il/blog/wedding-costs-israel-2026/?utm_source=openai))  \n- פרימיום/צוות גדול (3–4), רחפן ואלבומים יוקרתיים: כ-15,000–25,000 ₪ ואף יותר לאירועים גדולים במיוחד. ([pix-online.com](https://www.pix-online.com/blog/wedding-photography-pricing?utm_source=openai))  \n- מיקרו-חתונות/אירועים קטנים במיוחד בבית: יש גם עסקאות סביב 1,200–1,800 ₪ (לרוב סטילס בלבד, שעות מוגבלות). ([yes-please.co.il](https://www.yes-please.co.il/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D.html?utm_source=openai))\n\nמה משפיע על המחיר:\n- מספר שעות וכמות אנשי הצוות (צלם שני, וידאו).  \n- מה כלול: אלבומים מודפסים/דיגיטליים, קליפ, סרט מלא, צילומי זוגיות.  \n- עונה ויום בשבוע, מיקום בארץ והוצאות נסיעה.  \n- מוניטין וניסיון, זמני אספקה, תוספות כמו רחפן ומגנטים. ([pix-online.com](https://www.pix-online.com/blog/wedding-photography-pricing?utm_source=openai))\n\nרוצה שאכוון אותך להצעת מחיר ריאלית לפי התקציב, התאריך והמיקום? אם תתן/י: תאריך, אזור, מספר אורחים, סטילס/וידאו/אלבומים/רחפן—אוכל לאמוד נקודתית ולהמליץ על רמות וסגנונות שמתאימים.",
+      "error": null
+    },
+    {
+      "promptId": "p13",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "איך בוחרים צלם חתונות? על מה להסתכל ואיפה לקרוא ביקורות",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [],
+      "cites": [],
+      "answer": "מזל טוב! הנה מדריך קצר ומעשי לבחירת צלם/ת חתונות + איפה לקרוא ביקורות בישראל.\n\nמה להגדיר לפני שמחפשים\n- סגנון: טבעי/דוקומנטרי, קלאסי, או אופנתי‑מבוים. שמרו 8–10 תמונות השראה שמייצגות את הטעם שלכם.\n- תנאי האירוע: יום/לילה, קיץ/חורף, פנים/חוץ, כמה אור יהיה בחופה וברחבה.\n- היקף: מספר אורחים, האם צריך שני צלמים, האם צריך גם וידאו, ודד־ליין רצוי לקבלת החומרים.\n- תקציב משוער וטווח תאריכים.\n\nאיך להעריך תיק עבודות\n- בקשו לראות לפחות 2–3 גלריות מלאות (לא רק היילייטס), כולל:\n  - חופה בלילה/אור קשה, רחבת ריקודים מהירה, וצילומי משפחה מסודרים.\n  - עקביות: פוקוס, צבעים טבעיים, סקין‑טונים, ושפות עריכה דומות לאורך כל היום.\n  - שליטה באור: שימוש נכון בפלאש (און/אוף‑קמרה) כשמחשיך.\n  - סיפוריות: רגעים אמיתיים לעומת תמונות מבוימות בלבד.\n- ודאו ניסיון רלוונטי: סוג הטקס (רבני/רפורמי/לא‑דתי), תרבויות/מנהגים, גודל אולם דומה.\n\nפגישה/שיחה עם צלמ/ת – שאלות מפתח\n- תיאום ציפיות סגנוני: כמה מבוים לעומת תיעודי, כמה זמן לצילומי זוגיות.\n- לוגיסטיקה: שעות הגעה, כמה שעות כיסוי, כמה אנשי צוות, האם עובדים קבוע יחד עם צוות הווידאו.\n- תהליך וגיבויים: צילום בדואל‑קארד, גיבוי מיד אחרי האירוע, איפה נשמרים הקבצים ובכמה עותקים.\n- לוחות זמנים: טיזר, גלריה מלאה, בחירת תמונות לאלבום, זמן עיצוב והדפסה.\n- זכויות ושימוש: האם מותר לכם להדפיס/לשתף, והאם נדרש אישור לפני פרסום שלכם.\n- תוספות אפשריות: רחפן ורישוי, נסיעות/חניה, שעות נוספות, אלבומים להורים, ארוחת צוות.\n\nחוזה – סעיפים שכדאי לוודא\n- מה בדיוק כלול: מספר תמונות מעובדות, גלריה אונליין, אלבום/ים, שני צלמים או אחד.\n- עלויות וזמנים: מקדמה, מועדי תשלום, מחיר שעות נוספות.\n- ביטולים ודחיות: מדיניות במקרה מחלה, כוח עליון או שינוי מועד; מי המחליף וכיצד מאשרים אותו.\n- מסירה: תאריכים ספציפיים לאספקה ולתיקונים, מי בוחר את תמונות האלבום וכמה סבבי תיקון כלולים.\n- קבצים: האם מקבלים גם קבצים ברזולוציה להדפסה, ומה המדיניות לגבי RAW.\n\nדגלים אדומים\n- אין נכונות להראות גלריות מלאות; רק “היילייטס”.\n- הבטחות לא ריאליות במחיר זול במיוחד או זמן אספקה קצר מדי.\n- חוסר שקיפות לגבי גיבויים/חוזה/תשלומים.\n- תלות ב“קומבינה” עם האולם בלי בחירה חופשית שלכם.\n\nאיפה לקרוא ביקורות (ישראל)\n- Google Maps: חפשו את שם הצלמ/ת או הסטודיו ובדקו ביקורות עם פירוט ולא רק “מושלם!”.\n- Facebook ו‑Instagram: עיינו בתגובות, סטוריז היילייטס ו‑Tagged Photos כדי לראות איך נראות מסירות אמיתיות.\n- קבוצות פייסבוק של כלות/חתונות: חפשו פוסטים בשם הספק וקראו שרשורים (“כלות אורבניות”, “מתחתנות למען מתחתנות”, קבוצות לפי שם האולם).\n- אתרי חיתונות ובלוגים מקומיים: מדריכי ספקים וכתבות השראה עם תגובות (למשל דירקטוריז וכתבות של אתרי חתונות ישראליים).\n- המלצות של האולם/המפיקים טוב לשמוע, אבל הצליבו עם מקורות בלתי תלויים.\n\nאיך לקצר תהליך בשבוע\n1) הגדירו 3–4 סגנונות שאהבתם. 2) בנו רשימת 5–7 שמות. 3) בקשו גלריות מלאות וענה קצרה על שאלות לוגיסטיות. 4) דברו עם 2–3 לקוחות עבר ל‑10 דק’ כל אחד. 5) השוו חבילות וחוזים—ואז שריינו.\n\nטיימינג\n- לתאריכי שיא (אפריל–אוקטובר, במיוחד חמישי) כדאי לשריין 9–12 חודשים מראש. לתאריכי חורף אפשר לרוב להתקדם גם 4–6 חודשים מראש.\n\nרוצים שאעזור לצמצם רשימה? כתבו לי:\n- תאריך ומיקום משוער, היקף אורחים, פנים/חוץ ולילה/יום.\n- סגנון מועדף וקישורי השראה.\n- האם צריך גם וידאו.\n- טווח תקציב.  \nאשמח גם לעבור איתכם על חוזה לפני חתימה.",
+      "error": null
+    },
+    {
+      "promptId": "p14",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "Who are the best wedding photographers in Israel? Give names and websites.",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "idan-hasson.com",
+        "lironerelco.com",
+        "peoplepho.co.il",
+        "ranbergman.com",
+        "luz-weddings.com",
+        "herschelgutmanphotography.com",
+        "mywed.com",
+        "bigpicturestories.com",
+        "invisible.co.il",
+        "eranbeeri.com",
+        "en.danielnotcake.com",
+        "antonmislawsky.com"
+      ],
+      "cites": [
+        {
+          "url": "https://www.idan-hasson.com/?utm_source=openai",
+          "title": "Idan Hasson – עידן חסון – Photography"
+        },
+        {
+          "url": "https://www.lironerelco.com/?utm_source=openai",
+          "title": "Liron Erel | Luxury, Editorial Wedding Photographer"
+        },
+        {
+          "url": "https://www.peoplepho.co.il/?utm_source=openai",
+          "title": "פיפל פוטוגרפי פיפול פוטוגרפי צלם צילום חתונות WEDDING ISRAEL"
+        },
+        {
+          "url": "https://www.ranbergman.com/category/weddings/?utm_source=openai",
+          "title": "WEDDINGS - Ran Bergman"
+        },
+        {
+          "url": "https://www.luz-weddings.com/team/",
+          "title": "TEAM - LUZ"
+        },
+        {
+          "url": "https://herschelgutmanphotography.com/?utm_source=openai",
+          "title": "Wedding Photographer Israel | Herschel Gutman Photography"
+        },
+        {
+          "url": "https://mywed.com/en/photographer/carmi/?utm_source=openai",
+          "title": "Ori Carmi (carmi), a wedding photographer in Tel Aviv-Yafo, Israel"
+        },
+        {
+          "url": "https://www.bigpicturestories.com/?utm_source=openai",
+          "title": "Professional wedding photographer in Jerusalem, Israel | Jeremy Lerman, the English Photographer"
+        },
+        {
+          "url": "https://invisible.co.il/professional-wedding-and-event-photographer-in-jerusalem-and-in-israel/?utm_source=openai",
+          "title": "Wedding Photographers in Jerusalem Israel | The Invisible Wedding PhotographerThe Invisible Wedding Photographer"
+        },
+        {
+          "url": "https://www.eranbeeri.com/?utm_source=openai",
+          "title": "ERAN BEERI WEDDING PHOTOGRAPHY"
+        },
+        {
+          "url": "https://en.danielnotcake.com/wedding?utm_source=openai",
+          "title": "Wedding Photographer in Israel - Wedding Photography Tel Aviv Jerusalem"
+        },
+        {
+          "url": "https://antonmislawsky.com/?utm_source=openai",
+          "title": "Anton Mislawsky - Wedding photographer and videographer in Israel, Russia and worldwide"
+        }
+      ],
+      "answer": "Here are some highly regarded wedding photographers in Israel (active as of September 2026), with their websites:\n\n- Idan Hasson — https://www.idan-hasson.com/ ([idan-hasson.com](https://www.idan-hasson.com/?utm_source=openai))\n- Liron Erel — https://www.lironerelco.com/ ([lironerelco.com](https://www.lironerelco.com/?utm_source=openai))\n- People Photography (Tom Beigel & Elad Dayan) — https://www.peoplepho.co.il/ ([peoplepho.co.il](https://www.peoplepho.co.il/?utm_source=openai))\n- Ran Bergman — https://www.ranbergman.com/ ([ranbergman.com](https://www.ranbergman.com/category/weddings/?utm_source=openai))\n- LUZ Weddings (studio) — https://www.luz-weddings.com/ ([luz-weddings.com](https://www.luz-weddings.com/team/))\n- Herschel Gutman — https://herschelgutmanphotography.com/ ([herschelgutmanphotography.com](https://herschelgutmanphotography.com/?utm_source=openai))\n- Ori Carmi — https://www.oricarmi.com/ ([mywed.com](https://mywed.com/en/photographer/carmi/?utm_source=openai))\n- Jeremy Lerman (Big Picture Stories) — https://www.bigpicturestories.com/ ([bigpicturestories.com](https://www.bigpicturestories.com/?utm_source=openai))\n- The Invisible Wedding Photographer (Jerusalem) — https://invisible.co.il/ ([invisible.co.il](https://invisible.co.il/professional-wedding-and-event-photographer-in-jerusalem-and-in-israel/?utm_source=openai))\n- Eran Be’eri — https://www.eranbeeri.com/ ([eranbeeri.com](https://www.eranbeeri.com/?utm_source=openai))\n- Daniel Notcake — https://en.danielnotcake.com/wedding ([en.danielnotcake.com](https://en.danielnotcake.com/wedding?utm_source=openai))\n- Anton Mislawsky — https://antonmislawsky.com/ ([antonmislawsky.com](https://antonmislawsky.com/?utm_source=openai))\n\nIf you share your date, venue/city, style (documentary vs. editorial), and budget range, I can narrow this to a shorter, better‑matched shortlist and check availability.",
+      "error": null
+    },
+    {
+      "promptId": "p15",
+      "engine": "chatgpt",
+      "model": "gpt-5",
+      "date": "2026-09-14",
+      "prompt": "Recommended wedding photographer and videographer in Tel Aviv for a wedding in Israel",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "luz-weddings.com",
+        "en.danielnotcake.com",
+        "amora-studios.com",
+        "visionwedding.co.il",
+        "idan-hasson.com",
+        "sagivfilms.com",
+        "premiumphotography.co.il",
+        "mabroukday.com",
+        "weddingday.co.il",
+        "mitchatnim.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://www.luz-weddings.com/?utm_source=openai",
+          "title": "HOME - LUZ"
+        },
+        {
+          "url": "https://en.danielnotcake.com/wedding?utm_source=openai",
+          "title": "Wedding Photographer in Israel - Wedding Photography Tel Aviv Jerusalem"
+        },
+        {
+          "url": "https://www.amora-studios.com/?utm_source=openai",
+          "title": "צילום חתונות בתל אביב — וידאו וסטילס | Amora Studio"
+        },
+        {
+          "url": "https://www.visionwedding.co.il/?utm_source=openai",
+          "title": "vision צילום חתונות – ויזן -הפקות תמונות ווידאו לחתונות | צוות צלמים מהשורה הראשונה | סיורי כלה ע׳׳י צוות צלמות"
+        },
+        {
+          "url": "https://www.idan-hasson.com/?utm_source=openai",
+          "title": "Idan Hasson – עידן חסון – Photography"
+        },
+        {
+          "url": "https://www.sagivfilms.com/?utm_source=openai",
+          "title": "sagiv leykind films | צלם וידאו"
+        },
+        {
+          "url": "https://www.premiumphotography.co.il/wedding-photographers-tel-aviv?utm_source=openai",
+          "title": "צלמי חתונות בתל אביב - פרימיום צילום חתונה"
+        },
+        {
+          "url": "https://mabroukday.com/providers/category/photo-video/tel-aviv?utm_source=openai",
+          "title": "הצילום ווידאו הטובים ביותר בתל אביב-יפו | חוות דעת ומחירים 2026 | MazalDay"
+        },
+        {
+          "url": "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai",
+          "title": "Wedding Day"
+        },
+        {
+          "url": "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai",
+          "title": "Wedding Day"
+        },
+        {
+          "url": "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai",
+          "title": "Wedding Day"
+        },
+        {
+          "url": "https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai",
+          "title": "Wedding Day"
+        },
+        {
+          "url": "https://www.mitchatnim.co.il/wedding/events-photography/video/tel-aviv/?utm_source=openai",
+          "title": "צילום אירועים בתל אביב: צלמי חתונות - צילום וידאו - מתחתנים"
+        }
+      ],
+      "answer": "Great choices in Tel Aviv. If you want one team that handles both photography and video, these Tel Aviv–based options are strong and current:\n\n- LUZ Weddings (לוז), Tel Aviv — an established studio with in‑house photo and video teams; well reviewed locally. ([luz-weddings.com](https://www.luz-weddings.com/?utm_source=openai))\n- Daniel Notcake team, Tel Aviv — photo+video packages with transparent pricing; example as of September 2026: photo+video “Short but gold” (≈6 hours) ₪7,500; “Smart” (≈9 hours) ₪9,500; “Optimal” (≈9 hours + long film) ₪12,000. They also offer photography‑only from ₪4,000 (6h). ([en.danielnotcake.com](https://en.danielnotcake.com/wedding?utm_source=openai))\n- Amora Studio (אמורה), Tel Aviv — films + photography under one roof; offers drone, highlight film, and typical delivery in ~30 days. ([amora-studios.com](https://www.amora-studios.com/?utm_source=openai))\n- Vision Wedding (ויז’ן), Tel Aviv — photo & video teams; also women‑only “bridal tour” option if relevant. ([visionwedding.co.il](https://www.visionwedding.co.il/?utm_source=openai))\n\nPrefer separate specialists?\n- Photographers: Idan Hasson (עידן חסון) — widely recommended; works nationwide. Yoni Mashiah (יוני משיח) — documentary + artistic look, posts delivery timelines and a 2026 pricing guide. ([idan-hasson.com](https://www.idan-hasson.com/?utm_source=openai))\n- Videographers: Sagiv Leykind Films — cinematic wedding films. NEROM Films — authentic, timeless style; active in Tel Aviv. Leyli Films — wedding films including Tel Aviv events. ([sagivfilms.com](https://www.sagivfilms.com/?utm_source=openai))\n\nWhat budgets to expect (Tel Aviv, September 2026)\n- Typical “basic” package in Tel Aviv (stills + video) often falls around ₪6,000–₪12,000, though top teams and longer coverage run higher. Example current bundles from Daniel Notcake (above) range ₪7,500–₪12,000 for combined coverage. ([premiumphotography.co.il](https://www.premiumphotography.co.il/wedding-photographers-tel-aviv?utm_source=openai))\n\nHow far in advance to book\n- Plan to secure your photographer/videographer about 6–12 months before the wedding, especially for popular dates. ([mabroukday.com](https://mabroukday.com/providers/category/photo-video/tel-aviv?utm_source=openai))\n\nQuick checklist to choose well\n- Ask to see at least two full wedding galleries and a complete film (not just highlights). ([weddingday.co.il](https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai))\n- Confirm exactly who will shoot your date (studio vs named lead), coverage hours, overtime, and backup/archiving policy. ([weddingday.co.il](https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai))\n- Nail down deliverables and timelines (number of edited photos, highlight length, long‑form film, galleries/albums). ([weddingday.co.il](https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai))\n- If booking video separately, align style and schedules with the photographer to avoid crowding. A simple pre‑wedding call between teams helps. ([weddingday.co.il](https://www.weddingday.co.il/wp-content/uploads/2020/05/%D7%A6%D7%9C%D7%9E%D7%99-%D7%A1%D7%98%D7%99%D7%9C%D7%A1.pdf?utm_source=openai))\n\nBrowse and compare more\n- Local directories with current reviews and pricing snapshots: Mitchatnim (photographers/video in Tel Aviv) and Midrag (top‑rated wedding videographers in the Tel Aviv area). ([mitchatnim.co.il](https://www.mitchatnim.co.il/wedding/events-photography/video/tel-aviv/?utm_source=openai))\n\nIf you share:\n- Wedding date and venue\n- Preferred style (documentary/candid vs editorial/cinematic)\n- Coverage needs (hours, prep, drone, next‑day teaser)\n- Budget range and language needs\n\n…I’ll narrow this to 3 tailored, available teams and draft outreach messages for you.",
+      "error": null
+    },
+    {
+      "promptId": "p01",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "מי צלם חתונות מומלץ בישראל? תן לי כמה שמות עם אתרים",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "parparim.co.il",
+        "walla.co.il",
+        "topinisrael.com",
+        "danielnotcake.com",
+        "antonmislawsky.com",
+        "pixieset.com",
+        "shutters.studio",
+        "evanto.co.il",
+        "thephotographer.co.il",
+        "mit4mit.co.il",
+        "iplan.co.il",
+        "engaged.co.il",
+        "bereshitebara.com",
+        "13tv.co.il",
+        "inn.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGiKoNK2D8y_kS_M2r42q0ckxMuw5QGSHcMwf8UvZGsKDY_sTYT2jxlBVKGpMQCh90-zy1JByEyAI9IVhZpoPTCvze-fAopDAA7w3iFcEayFkjnY6G1C6i_9-Xj12supEgT7uWMMy_UEqszC3cO0H2e-jZsUSH9itganeuXQO_AGqpf0nZkF9dhP_4CsRVGsNxXLFHu27GHkoX-CBOVnk2U_aoLXPAcGBXL8zsvvNVf5yldnpFTaXk0QEcGR6Na_ZB9S3fE-Uwx5-e2F2QstLkKOzoHCsmwXOP_fjc=",
+          "title": "parparim.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTvT5Av6tB2Asa3p1sRbYPNIqT3o5NqtDw9zjav1Fwg9ciNUOzMf61ku-iiDeqOVk88K1cZqi8Rnnm2_ZFyDysFdE-b83mrj678-HPqLv-26cE1CTM5-weD4h8efLSC4U_UIjMYigGk-U0LtxYjsB_0u7oS22BH1Pp",
+          "title": "walla.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEo4vliXwfrv5HTzCYivorxEFKONmEIObjDIHO-8RMfrN7b2pR4E_vKxbOO1hhLR7EDmWHdEGcFtDEEVrZxAUt9MNrQdzEpvKrOHRFPkLHuYbqIW9UpBIuQ4IDha381y20-SW-tiKjVhz4BIe_PbPvw7l2OpA==",
+          "title": "topinisrael.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzeIJJ6ZV3yLvZWOawqZIuVwNcLFLY1fUC0nOFQLxLzpGmOP9ruHGyZ49Eh21mObS-ulaOFlT6deP40cp8qDDC4xQWslUaqbo6t38JdMOqolIwhtJr",
+          "title": "danielnotcake.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExA2SBTqFHsJlTHzeBOT9OGvrOvVrJ5q3ObBGIy2kn1wy6-RhfTPLnq3TIvziBu2MNghlo5HtNNcmA4OQ7vCf_P0nT9B9hifoDzdqu6LG0v-G1UX-v_QpjNs9lKugnL-qL4NXEOJ30L_uE_n6pAUjH5TRaWg==",
+          "title": "topinisrael.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1LNC0jC94ulFQ30FZOHpdS5tZMeKe4SYik91ovA3biPQc3tHW9Bv-IlgxFrVuI8VfCYyfMJ674Foaph0_KSoONOR53Iy0n-h1KMOkzXZESgWqJQXyGAY6vXc=",
+          "title": "danielnotcake.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEElqh5AU6dWuMjK_Ln8gIiKp42msz6nBP6psiZUIhSB4_ir8TKDK1kz1z1bZJ8yMgiY3H9-bAhyh3bmZkTzEcV9fBSkBah7W43BvWjXQq3srXJNw==",
+          "title": "danielnotcake.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMMBTncjiOaUlrcc-Bkx9xAhjJExokD7wOetwwcuo2e7o2zg_f-MrfXEvR5nnuD3q8-bGEhGZKFmfXpIVLOgoCqcufzU_a8CutdQJc9L7NGg==",
+          "title": "danielnotcake.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHu6vT78J8zw-qZYIamde8kOWIzTJGFSvAJdwzQcpBoH33o8w5s5ClmNCyNotHOsOft7p0gwQzyiWlt9jGfSLqHC6wBMHYW7osHqbzyrmvzc9rjBT3RfQ9tZXS4-gbGC1ir5xb_Q1zKQKycGgAcBJ0eM2zFDaSFUkgTPUHaUAEnqw==",
+          "title": "antonmislawsky.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExA2SBTqFHsJlTHzeBOT9OGvrOvVrJ5q3ObBGIy2kn1wy6-RhfTPLnq3TIvziBu2MNghlo5HtNNcmA4OQ7vCf_P0nT9B9hifoDzdqu6LG0v-G1UX-v_QpjNs9lKugnL-qL4NXEOJ30L_uE_n6pAUjH5TRaWg==",
+          "title": "topinisrael.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHv5A5ZAgSDpLPayNPs31MKbmpgtIzgUH03tL0k1VOq-4eVZjI2lP6XkntUCL8q2jHPQs8gRD2t_QeMcqsIvzcl1svdxXcOrUszi1k-6jeOVZqZ96AKLTjn5i0=",
+          "title": "pixieset.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgYi4SOI1vrNHwYPgHinHSI26F2L3MuyNlJn7N-tYwTLTlbHs1TgRFH4fi4tt0BVTR8EX8DZQubhuXm5gRvMUo4c1Fv6dtEtsRZZNGMl8Czl3MvharwVk_c8MmeeK7749TWMjHS-ymzg6yALrb4G61iYBQkildCQBO1wDOgwYYJirHYSBitxYBPVybd70vtLHEn-JETDp2rw==",
+          "title": "antonmislawsky.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnO63jCx8HtB5mbNk7ApXS84yq9Nv8o5D9L-YfzSnyb57B3adUiP66inIWR_trkaZnAXr0QzANfhYl8FX68MGPeLvXcC6Ef0CnG4HLP167w0fgCc8BUkmbM8CO8A==",
+          "title": "shutters.studio"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEPTpVO2QmsIeHlvJeCld-aNQqkouwATKge8bVeOFgcrenW8f8jFqBNC5-KkFCvji8PNsvmnUto0Nyf93Ff6B63W_71Y8pj0v0WDsVs33-WQUuY-ZzrEw5YIGIYM_jMChLR1yu2JMmS3c1eGeCHmDVLmSEODi755YhLOjwvOIGGlMssxl-ph0_ih46RqIWwd13bf2r7MMAulJWeYMP19oxOJKAnyfqUXwfqOzmrHC4grFI7bn6O_ns3Om0Yo_jIIVDtVhiRWdJRUyji6d0c1y-RhpZlew1XC2DuvA==",
+          "title": "evanto.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEyCKZnLuzmfqvzUGKWXR0i0cB8koy1TWFi5eOUfCxZjucbCU8kvSjB5AYBxofCU1tMQSFkCBibW9ELST_WG8_-W1-4G6y1ZbT1E6uoFHmssLn8FinDOfZzUb-bgbTFD-NfyaBnURcfQlHOidJL-leH0tze63n60irwJ_0hntvo4mSqJnSFYAhT_KN2CxwGus8_hZt6gA==",
+          "title": "thephotographer.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8fTKylgRnWZDmolfkUHQaGu7b0tfTgdcRujJEDTuoVo02EGwE2yfSIKCOc3q0hng_aRzpvY_ZuTkBy1HsQcjmAmQ4O8qSowgptu5Hq6vie9xizpvehqtiQg==",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsekX5NKvJO1YL1E9IdvbaKpUEACrrOrPvPAa_XqIiUOJNnptzSoIjdU_GHLLsM4iuetPLfdZeaLJqXSxwWd7Wc_2Y8QnHFG48GyJxisjAR6POlJLM09ZxmLFPJslPhII_GKLU_mPHuxnhjyS4T57s3vja71fw9ag_P0n-67m9ZCeffgccv7qJgQyyrkWX16R5BsbvAFXHBduMusLHizL1x311I1snO-AwBbUBarwx4V1p2TMEzXfiyFcskMJjkF6ZUpk=",
+          "title": "iplan.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHyOIEUsV9XuE9pnJx-OAuXWuNS0VyHhs9nf8BIK84hDzjWoxycjhPVIw-Ot69lg5bhloy75ompQgb5qUVBaW55D3xMm13vnDT_wFOAkrbloS5h1fh7wHRJUQxOSF1LPKz1CqqWg2_lJdOu0iBZ1b9-rsTKNOofdQ9s1u2HQXSR0lDgCaNGUkewb4kJoc2L0082tO7n",
+          "title": "engaged.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqpWhEwXEtD86RoUrWfUojdpnePfONd50vJncWJugwJDJZWstOI4ttZh41p5IeCFQ40BQs-e2W6a4m_drmHr_6ro6JZ48BrgIxmGLZkiHXD0adv5GSNisM55liHrnWXkjEAlKZj7Em2AtL78AqkzEP6Jf2-8c-FjOBxUPIPousRXRv4JVcUaZ7KCSyqALRJHbigocC",
+          "title": "bereshitebara.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFbpsQpAnlHMJGSN85VrsEb3g3cgqXmqsZe-n9x6iIdu4TzUR4cohyq5AlM2MQjPYOEyoi0HsXhl0kI--rtjRdPRs8jleKz8JhnHVSMJWA_0KsKFfLoF82IJRLVL9Kxq1ma0jS1lhNEq60HK2ipq-x38FB6URIHENMqeW2PgbrtIDGkJuWXLlkhg5rfVVnnC8uggNDc4c-WDg03TddkoO9WivYurxIrnxSTmaOgwuQtOH2PNR11bnVXnaoramBlBAXJQygQ128GFtjE7ofYSt9fCVld",
+          "title": "engaged.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG35RGW2lel4br9voDsrjkwLbggbOTJCgUcJD6LECXtmMSpvbE_i2SCy42e5iO4Iak1QqbWg2zMFuctTv28aLLKy1Vcp7u8VjrTBAfIT5EA1uA8vt3WPwxbe8pfCBebwJmjj3T3oSR4nVIgrLWITzcSpKB3I-SGLuPfyQ==",
+          "title": "13tv.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6pjgu-vXFXlJOXEvhZ8C5iniwqGjpyhRbSBMsh5C7CVnBP1fNmdH3ybORfdJKB0sRARtaWgIAwstKxhOwFzwiL3Q7-Ca8jRoGZms7x-MB16i8P0BRvP8=",
+          "title": "inn.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHn4aDKLHht1yqBiTuzLONVl5FuDPChI6GkZZrbH3xR2f6NFvZiRFEWVA9zQJaTjfWMnMkumV0mDHUCmjfBdz35Tt9pcQfVCWN4W2dPFMf2mfuwFjJItza2lXrwaBdXhLJtijiRKvClVtJO55lRT0vr0_lEqB8AGJDIipBP5978v2EpmLLF_mLy9A==",
+          "title": "evanto.co.il"
+        }
+      ],
+      "answer": "בישראל יש המון צלמי חתונות מוכשרים ברמה בינלאומית, והבחירה תלויה מאוד בסגנון שאתם מחפשים (דוקומנטרי, אומנותי, קלאסי או מגזיני) ובתקציב שלכם. \n\nהנה כמה מהשמות הבולטים והמומלצים ביותר כיום בארץ (לפי דירוגים באתרים בינלאומיים ופלטפורמות כמו Mit4Mit ו-MyWed), יחד עם האתרים שלהם כדי שתוכלו להתרשם מתיק העבודות:\n\n1. **דניאל נוט קייק (Daniel Notcake)**\nצלם שזוכה לדירוגים הגבוהים ביותר (מדורג במקום ה-1 בישראל באתר MyWed במשך מספר שנים ברצף). הוא מציע צוות של צלמי סטילס ווידאו שעובדים יחד, וידוע בסגנון צילום מיוחד וטבעי, התופס רגעים לא שגרתיים בלוקיישנים מרהיבים בארץ ובעולם.\n* **אתר:** [danielnotcake.com](https://danielnotcake.com/)\n\n2. **אנטון מיסלאבסקי (Anton Mislawsky)**\nמככב דרך קבע ברשימות הצלמים הטובים בישראל ובאתרי חתונות בינלאומיים. יש לו ניסיון רב בחתונות בישראל ובחו\"ל (Destination weddings). הסגנון שלו משלב צילום אומנותי ודוקומנטרי עם המון רגש, ויש לו צוות וידאו מקצועי שעובד לצידו (Shutter Studio).\n* **אתר:** [antonmislawsky.com](https://antonmislawsky.com/)\n\n3. **אורי כרמי (Ori Carmi)**\nצלם חתונות מוערך מאוד מהמרכז עם מאות המלצות של זוגות. אורי מתאפיין בגישה דוקומנטרית, טבעית ואותנטית, שתופסת את הרגעים הקטנים (מבטים, צחוקים ודמעות) לצד פורטרטים מוקפדים, וללא בימוי יתר.\n* **אתר:** [oricarmi.com](https://oricarmi.com/)\n\n4. **בראשית צילום (ישראל ואיריס פרסי)**\nסטודיו ותיק ומוכר מאוד (מעל 20 שנות ניסיון), שמקבל ביקורות מעולות באתרים כמו \"מתחתנים\" (Mit4Mit) ו\"מאורסים מאורסות\". הם מציעים מעטפת מלאה של סטילס, וידאו, מגנטים ורחפן, וידועים בשירות חם, אדיב ומקצועי מאוד המלווה את הזוג לאורך כל היום.\n* **אתר:** [bereshitebara.com](https://bereshitebara.com/)\n\n💡 **כמה טיפים קטנים לפני שסוגרים:**\n* **חיבור אישי (כימיה):** הצלם הולך ללוות אתכם במשך שעות ארוכות ואינטנסיביות ביום הכי מרגש שלכם. חשוב שתרגישו בנוח מולו ושתהיה לכם כימיה טובה. \n* **הסתכלו על התמונה המלאה:** ודאו שאתם מתחברים לא רק לתמונות המבוימות בצילומי הזוגיות, אלא גם לתמונות מהאירוע עצמו (רחבת הריקודים, החופה, והרגעים הספונטניים של המשפחות).\n* **זמינות:** צלמי חתונות מובילים נסגרים חודשים רבים מראש, אז מומלץ ליצור קשר בהקדם ברגע שיש לכם תאריך ואולם. \n\nהמון מזל טוב!",
+      "error": null
+    },
+    {
+      "promptId": "p02",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ במרכז הארץ, מי הכי טובים?",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "walla.co.il",
+        "mit4mit.co.il",
+        "spicy-photo.co.il",
+        "t.co.il",
+        "engaged.co.il",
+        "saveadate.co.il",
+        "urbanbridesmag.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWjXRXBz2txIbm0Dv7Ecl6saECetZtHGF9rl9PjMLtikf2KoZPgOVVhw4pppNFfboFIGHNHqIHh1vjSnEf0k2yv0ngyv9CwMZx-AOWOcLV00A4oENc1i41HdpZCt4OelWfw99mWukyvPsjlLd32UkvLOhb2cn0p3rjNmGHO9HXTw==",
+          "title": "walla.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFlMnHyHmU9XAlv0hTVyNnhLdS5i0E40ka8s7TKJjP1TjOyKLCrAQLCb-RE_E8NHq-ue4lzwocvcdhQ0CfwB8wKmZvBb8pSuMhlxpJ79LxzpLyD9XmazQhmI02mO6SHrZIVAlUxx-JEREnw6R2q",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8y6hsKRW7aduL1fMEp9_rxzKpPGEGck_5bobsp-Cl7NqrAT5u-fToldazHwvFD_3Ko6CK--5W04exvGK-T6gLidXNWBZ6n-K6TL0tNhbsSawRn0tyZUnIkgfVYzDSM3Tt3wXRIEzm3V0z2kaBB7N07U296t2enHk=",
+          "title": "spicy-photo.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8y6hsKRW7aduL1fMEp9_rxzKpPGEGck_5bobsp-Cl7NqrAT5u-fToldazHwvFD_3Ko6CK--5W04exvGK-T6gLidXNWBZ6n-K6TL0tNhbsSawRn0tyZUnIkgfVYzDSM3Tt3wXRIEzm3V0z2kaBB7N07U296t2enHk=",
+          "title": "spicy-photo.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPzAChqPQWXh_akzqH4REEAN0WE0v0VpCgX6F3rGJA1i2U3OR-uCZgO4MZybHh_Ekx05mVukFdFb_MS8BKMRbGGbHkBL9OnpzyL0WOoqk1okeXdnPguWa1DzgE5csFyN2B0he4IOFx0s1pEm3oKydFu3V1BM4ovmLuQB-PYc5Kb3C4xkJ-PqZfgTxErFfGJ6vQSE-1JPIK2nDP7ZUFVcKpQdvT_z_u1us7I7WfY5ETOoRtINp1U8tWpryUA0kcfasLOtk0g2m12Srk_7Y3JJ-fHSG8KFJ8WEvSzvmHoaXHFbCTTeZKt1lFYOR8gwGW3EZC3IpUalLXAQ==",
+          "title": "t.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHfujTQgw5waAfsWZ5r2CytCqVpJzU3CLmHyKnuPWin7g2KISrN_oQnJ6OOJ09ypkgtXoqjgFc30j0xnccYZdI0rEhwlIVneLwrOb-G3cd5ztOqj86MaPVzydROZOBRAaaC7YMop1vHP-Wnv_0XrkmPxVaVAL6DTuzfoaiZoXWgTnODKNKclTAUJS0dRIfhcbx51XJw",
+          "title": "engaged.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFn0vUWHcCQ2cUpMz1TT9WCE4wPRvQWAggJaBwULG2qQHKaCZF6S2bj-P086iNxHqvYwlXQU_1ev8CE1JgftYnX7x1GTON57EV903V1kDX02U9rHfs0eeq8fEFQKP_JYbm_66hDC8g=",
+          "title": "saveadate.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFs3rK0eVqV4pawnhlGatPsrBVLMLiL91E8QYEse4NlONoau0HHBLwvwGxQshg9S5hmuIl7EkJX_QcW6oAR4t09zXUEokLbyK1nwa13mBysnUW4edxDuEQ8peKMJ9mm05hU1xI4cMhhNFsOBld0lpVNdN-jlWukg4Q0-1kx9J3a_KGnTPUbL46sDkyzPiRdEwoz_UprFJy0lpKNFVfZaM0O0R-rgzZNZ6gmSbvGge-P54uFhUIACE5c59N-85L7tjUD",
+          "title": "urbanbridesmag.co.il"
+        }
+      ],
+      "answer": "בחירת צלם חתונות היא אחת ההחלטות החשובות ביותר בארגון החתונה, שכן התמונות והווידאו הם המזכרת שתישאר לכם לכל החיים. מאחר שאזור המרכז רווי באנשי מקצוע מעולים, התשובה לשאלה \"מי הכי טוב?\" היא סובייקטיבית ותלויה מאוד בסגנון העיצובי שאתם מחפשים (דוקומנטרי, אופנתי, קלאסי) ובתקציב שלכם. \n\nהנה כמה מצלמי החתונות והסטודיואים המוכרים והמומלצים ביותר באזור המרכז, שזוכים באופן קבוע לשבחים בקרב זוגות ובאתרי הביקורות המובילים:\n\n1. **חיים אפריאט (Haim Afriat):** נחשב לאחד מצלמי החתונות הבולטים בארץ. הסגנון שלו נוטה לכיוון האופנתי (Fashion/Fine Art), הוא מצטיין בשימוש מדויק בתאורה, ותמונותיו נראות לעיתים קרובות כאילו נלקחו ממגזין.\n2. **עידן חסון (Idan Hasson):** צלם מוערך מאוד שמתמחה בצילום ספונטני, טבעי ומלא ברגש. הוא יודע לתפוס רגעים אותנטיים ומרגשים מבלי לגרום לזוג להרגיש שהוא מביים אותם יותר מדי.\n3. **ארן חן צלמים (Aran Chen):** סטודיו מוכר עם צוות צלמים גדול ומנוסה. הם מציעים חבילות צילום מקיפות (כולל סטילס, וידאו, רחפן ואלבומים) וידועים בשירות מעולה, אמינות וזמינות לאורך כל התהליך.\n4. **שגיא הורביץ (Sagi Horovitz):** צלם שמקבל המלצות חמות מאוד על היחס האישי שלו והאווירה הנינוחה שהוא משרה ביום החתונה, לצד תמונות מדויקות, יצירתיות וטבעיות.\n5. **שרון רביבו (Sharon Revivo):** שם בולט בתחום, הידוע בסגנון צילום נקי, קלאסי, רומנטי ומרגש.\n6. **ספייסי צלמים (Spicy):** צוות שזוכה לביקורות מעולות במרכז, וידוע ביכולת שלו למצוא לוקיישנים מיוחדים ויצירתיים לצילומי זוגיות (בעיר או בטבע), תוך שמירה על אווירה זורמת וקלילה ביום האירוע.\n7. **סטודיו אלירון:** זוכה להמלצות רבות בזכות כריזמה, אנרגיות גבוהות ויכולת להוציא מהזוג את המיטב על הרחבה ובצילומי החוץ, גם אם הזוג פחות מורגל לעמוד מול מצלמה.\n\n**איך לבחור את הצלם שהכי נכון לכם?**\n\n* **חיבור וכימיה אישית:** הצלם (וצוות הצילום שלו) ילוו אתכם מהבוקר בהתארגנות ועד השעות הקטנות של הלילה על הרחבה. חשוב שזה יהיה מישהו שנוח לכם איתו, שמרגיע אתכם ושמצחיק אתכם. אל תוותרו על פגישת היכרות (פנים מול פנים או בזום) כדי להרגיש את ה\"ווייב\".\n* **סגנון צילום:** אל תסתכלו רק על תמונות ההיילייטס (\"הבסט אוף\") באינסטגרם. בקשו לראות גלריה מלאה של חתונה מההתחלה ועד הסוף. האם אתם אוהבים צילום דוקומנטרי (תפיסת רגעים טבעיים ללא בימוי), או שאתם מעדיפים תמונות אומנותיות, רומנטיות ומבוימות יותר?\n* **מה כוללת החבילה:** ודאו מראש כמה צלמי סטילס וווידאו מגיעים לאירוע (זה לרוב נגזר מכמות האורחים). בדקו האם החבילה כוללת אלבומים, צילום רחפן, צילומי זוגיות לפני החתונה (Save the Date), והכי חשוב - עד איזו שעה הצלם נשאר על הרחבה בסוף הערב.\n* **המלצות:** היכנסו לאתרים כמו *Mit4Mit*, *מאורסים מאורסות* או *כלות אורבניות* כדי לקרוא חוות דעת של זוגות שהתחתנו בשנה האחרונה.\n\nמומלץ לבחור 2-3 שמות שהעבודות שלהם ברשתות החברתיות תפסו לכם את העין, ליצור איתם קשר לקבלת הצעת מחיר – ולראות עם מי יש לכם את הקליק הכי טוב!",
+      "error": null
+    },
+    {
+      "promptId": "p03",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ באשדוד",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "t.co.il",
+        "mit4mit.co.il",
+        "facebook.com",
+        "youtube.com"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxwXzN_iabRirJexFEOZ2CUaB0S_Q1XOAA7NM7Ouck6tNgNaw93rPudMrQumDlSIhWA1q8OKyw20qMPFS2OH6vU8Z8vnyUGm6ZokZdESYuzcZcS4K-nbpEo557uRfEYiQ_TlPeZcIiyUP1-Udugont-MWn6BpvYOq68zEyG4oOyflbEgbOohS7Ovh4iVNkS3uYBRRd2jYLinBObPlMtpINgoU-S3lctVC-D7gui8DBVnvrc2MwYMMtalWroA-YfS8ckfB93tLknz3cpmn3Otrk_2LMwxwLxJN8uwEpdOhlNuA=",
+          "title": "t.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE9xONH7YLt6xRtbQybT9C4O5Z7vE3ldrBPa6NAjlQWcOTzjx3uJFKLAj5sc8AQvr4C25-i6MiiJIJZdh4CaW3-VT-PXHbk-OAkh2FKJcRDdm8R9_0qOxHQgAE1VWe232F62dzLXJFtj8wXYSCaKn_aJRlZO8h8uduK861XJBPWLFElSQRYjxjHXSMZJ3g=",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHigDPiqjkXajKINrlaAqHarzNu-cVr849Y8fGKYM1YpLXXD4nB871bS8q1Tq9u0dCVeQNbrZKF-5BxROK1_pKudhULtl_mldJrP0BxYLKn3LnohtV5ToB7yp5wlPDuVnCEemlw0FiAFZjUEuuGTkGOzUKvafZ34x3HZQ==",
+          "title": "facebook.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcMGbAqqGKG6TE05QvBex3M5cI4LhG--RvDGRU2MKzeOiqM9Unr6e2pmDiTJMI-S_7nyeRLzuKm4i0F4Kb8d86J0y3RsIL7tm-n3UcIOuzb1pZniULHKj25SGRek9RMzI9",
+          "title": "youtube.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfrsGZoaNL9Z5ZtbG4V9d3xRhkzCivLvv6wOwiwkagbkJ0oWME6dMCh4fZQPNrGaSPhTbD1SAPz7pEhF6Ond0UsJTCNUvvoKOdQwAAQonFVhtu7yQqCFKTy9RyQ7o5358b",
+          "title": "youtube.com"
+        }
+      ],
+      "answer": "מזל טוב על החתונה! בחירת צלם היא אחת ההחלטות החשובות ביותר בארגון האירוע. ריכזתי עבורך כמה מצלמי החתונות וסטודיו הצילום המומלצים ביותר באשדוד, על סמך חוות דעת, דירוגים באתרי מתחתנים (כמו Mit4Mit) והמלצות בקבוצות פייסבוק עדכניות:\n\n**1. ארטפיקסל צילום אירועים (Artpixel)**\n* **מיקום:** דניאל הנביא 11, אשדוד.\n* **למה מומלץ:** מקבלים דירוגים גבוהים מאוד (97/100 ב-Mit4Mit). זוגות רבים מציינים לשבח את הסבלנות, ההומור והיכולת להקליל את האווירה ביום הלחוץ, תוך שמירה על מקצועיות ויצירת תמונות מדהימות מכל הזוויות.\n\n**2. פריים טיים סטודיו (Prime Time Studio)**\n* **מיקום:** האורגים 25, אשדוד.\n* **למה מומלץ:** סטודיו ותיק, גדול ומוכר באשדוד שזוכה להמון ביקורות חיוביות על איכות הצילום, שירות הלקוחות, והתיעוד הבלתי נשכח. מתאים מאוד למי שמחפש צוות צלמים מסודר המציע חבילות מלאות.\n\n**3. פוטו רפי (Photo Rafi)**\n* **מיקום:** האורגים 16, אשדוד.\n* **למה מומלץ:** נחשב לאחד הצלמים האהובים באזור. זוגות מעידים על שירות מכל הלב, סבלנות, אנרגיות חיוביות וזרימה עם \"השגעונות\" של הזוג, עם תוצאות שעולות על המצופה גם בווידאו וגם בסטילס.\n\n**4. דוד גורל (David Goral Photography)**\n* **למה מומלץ:** דוד מככב באופן קבוע בהמלצות רבות בקבוצות פייסבוק של כלות באזור אשדוד והדרום. הוא מתואר כצלם מקצועי, עכשווי, אמין, קשוב ומוכשר מאוד שהאווירה איתו סופר כיפית ורגועה.\n\n**5. עדי פרץ (Adi Peretz Photography)**\n* **מיקום:** שלזינגר 1, אשדוד.\n* **למה מומלץ:** מקצוען עם יחסי אנוש מעולים. הזוגות מציינים את המחירים ההוגנים ואת התוצאות המשגעות גם בצילומי החוץ וגם באירוע עצמו. \n\n**6. מומלץ למגזר הדתי / חרדי באשדוד:**\n* **יוסף אילוז הפקות צילום:** סטודיו בולט מאוד המותאם במיוחד לחתונות במגזר החרדי והדתי באשדוד והסביבה. מספקים מעטפת מלאה תוך הקפדה על אופי האירוע, סגנון הצילום החסידי/דתי ואפשרות לצוותים מופרדים (מסריטות וצלמות) במידת הצורך.\n\n**💡 טיפים לבחירת צלם באשדוד:**\n* **פגישת היכרות היא קריטית:** מעבר לתיק העבודות, ודאו שיש לכם \"קליק\" וכימיה טובה עם הצלם הראשי שילווה אתכם מההתארגנות בבוקר ועד סוף הלילה. \n* **צילומי נוף באזור:** באשדוד יש לוקיישנים נהדרים לצילומי חוץ (המצודה, חופי הים, פארק נחל לכיש, ואזורי תעשייה עם גרפיטי). כדאי להתייעץ עם הצלם על המסלול ביום החתונה כדי לא לבזבז זמן בפקקים או בנסיעות ארוכות מחוץ לעיר.\n* **בקשו לראות אלבום שלם:** תמונות בודדות באינסטגרם לא תמיד משקפות. בקשו לראות גלריה שלמה או אלבום חתונה מאירוע אחד מתחילתו ועד סופו, כדי להרגיש את סגנון הצילום האמיתי שלו לאורך כל שלבי החתונה.",
+      "error": null
+    },
+    {
+      "promptId": "p04",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ בתל אביב",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mit4mit.co.il",
+        "midrag.co.il",
+        "walla.co.il",
+        "wedding-x.com",
+        "spicy-photo.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5zGZ7ImcWEHHhnZa_plGBEZ9TjPfT6y6jKg7zPP60NirVESWbNQtxP47Gj1DBytrT1-lNqzyL4lPZM21Lk3AKimBWBclRXwYTCu-83lT7XBsSpCPCTsUKPl4xCN1X8k7G5mIuD8f1kMhEMJ03",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHupqcXCUu01ugDflsdhBUEaCVKUOi4esKTQkyj2gRvFTT-VNEKZ38K4Esp7OfSKwZnoVJ26ZaP5USMadmLz1Dz1LtlpBzeIkO0M7TB9zVS3-LDm5W18OlGRFIFtsK5dCr7BqYYKkG1ShyXsa7RUVdrJRPVXyu1Q_Ryon8mj2tL1DP_A7bPq3zTxA==",
+          "title": "midrag.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE1oSLqx95Dk_s4bby7l_Wk8B_KsGhAYjqcUA4N-aYjJzowY0NW8tOjnQcoatqMsazecZafplH0917-xCreeivzlnOQEdJF7EvKdSUUzAe1iHHzSB9OLtXRi-jJM1XvrMVljmrsaudbo2pUmRGBWF1Ek59SM6BHO52Pjm7E_09BY0OV18ANR8v4mUAfZyaNb1xC5yifUS_xR42x9I_IC6lhM00X-eoLLjT3VvdRBXrp9yVfzfQ-vWonwFazClqp2Gd-4OMIpB1gQKIGSil6v9fP3SoMxulcFas=",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGIJt5kxe0l5-lAPy8j5W_Ldc71ExnLBly9jkx7JlEirk1DruH3dwI_LL49EWx0yyfShN6R3wK0wMjL7LoYa1ufqzTVS06j1oLKssh1C5QPpCb1CLRx7NAJsv4Y2DOf2kPNskEx0fomrHHHax6xwWx_eboIuUDv0-th",
+          "title": "walla.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZLPYyFpLs2cY09_ey8NcQ0GBrZHOoNNImCFsAHJb3l1PwkkfMg9XvDSYN7bxldFfDdJPjC4WhS4x2QIpg3aJINmTuN8QH8bKiUGsTctC1mCUc2-r9h4w5I2pIlelZYkP9WsCEQm4=",
+          "title": "wedding-x.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNEPxea8ezy-UTOFRBWhtePfcw7TPt2AgRh_UEkU9CrNOp8BMa19QXbKUihR5owkLhdQbMhOH1gDCkXs-bt1FwMPiUjY5sFBPflj8VaJme2cX9f65mDFaogIbfKmaot8qo-q_SjzSMTZW7QTy8IDQcpe3LPNmO7I0kz96GZQ==",
+          "title": "spicy-photo.co.il"
+        }
+      ],
+      "answer": "מזל טוב! בחירת צלם לחתונה היא אחת ההחלטות החשובות ביותר בארגון האירוע, שכן התמונות והווידאו הם המזכרת שתישאר לכם לכל החיים. \n\nבישראל ישנם צלמים מצוינים, ובהתבסס על דירוגים עדכניים מאתרי חוות דעת מובילים (כמו \"מידרג\" ו\"מתחתנים למען מתחתנים - mit4mit\"), ריכזתי עבורך רשימה של צלמי חתונות וסטודיו לצילום מהמומלצים ביותר הפועלים באזור תל אביב:\n\n1. **עופר מתיתיהו (Ofer Matityahu)**\n* **מיקום:** פלורנטין, תל אביב.\n* **למה כדאי:** נחשב לאחד מצלמי החתונות המוערכים והמבוקשים, עם מאות המלצות ברשת. זוגות מציינים את המקצועיות, את האווירה הנינוחה והכיפית שהוא והצוות שלו משרים במהלך יום ההתארגנות, ואת התוצאות הטבעיות והמרגשות.\n\n2. **שני (צלמת)**\n* **דירוג:** ממוקמת במקום ה-1 בדירוג צלמי החתונות של אתר \"מידרג\" באזור תל אביב. \n* **למה כדאי:** זוכה לציון כמעט מושלם (9.95) המבוסס על עשרות חוות דעת של זוגות. לקוחות מציינים את שביעות הרצון הגבוהה מאיכות התמונות, המקצועיות והיחס האישי והמרגיע לאורך כל היום.\n\n3. **כוכב הפקות (מאיר)**\n* **מיקום:** רחוב הסוללים, תל אביב.\n* **למה כדאי:** סטודיו שזוכה לשבחים רבים ב-mit4mit. ההמלצות מתארות את מאיר כאיש מקצוע מהמעלה הראשונה שיודע להפוך את יום הצילומים לחוויה משוחררת, שמחה וזורמת, עם יכולת נהדרת לתפוס רגעים ספונטניים.\n\n4. **וידיטאו (Viditeo - איגור)**\n* **מיקום:** תל אביב.\n* **למה כדאי:** צוות צילום שמוזכר לטובה בזכות שירותי הסטילס והווידאו שלהם. איגור זוכה להמלצות חמות על כך שהוא נעים הליכות, סבלני ויודע לתעד את האירוע בצורה מושלמת מבלי \"להיות מורגש\" או להפריע למהלך החתונה.\n\n5. **אמיליה (צלמת)**\n* **דירוג:** מדורגת בצמרת הגבוהה של אתר \"מידרג\" (ציון 9.95).\n* **למה כדאי:** זוכה לשבחים על איכות צילום יוצאת דופן, ירידה לפרטים, סבלנות ויכולת לתת לזוג להרגיש בנוח מול המצלמה ביום הלחוץ של החתונה.\n\n💡 **כמה טיפים לבחירת הצלם המדויק עבורכם:**\n\n* **סגנון הצילום:** לפני שסוגרים, היכנסו לאינסטגרם או לאתר של הצלמים. האם אתם מתחברים לסגנון טבעי ודוקומנטרי (תפיסת רגעים ספונטניים ללא העמדות) או לסגנון מוקפד, אומנותי ו\"מגזיני\" יותר?\n* **הכימיה האישית (הווייב):** הצלם נמצא איתכם מהרגע שבו אתם מתלבשים ועד השעות הקטנות של הלילה ברחבה. חשוב מאוד שתיפגשו איתו פנים מול פנים (או בשיחת וידאו), שתרגישו שהוא משרה עליכם רוגע ושנעים לכם בחברתו.\n* **תיאום ציפיות וחבילה:** ודאו מראש מה החבילה כוללת - כמה צלמי סטילס מגיעים? האם יש צלם וידאו? כמה תמונות ערוכות תקבלו, תוך כמה זמן, והאם כלולים אלבומים?\n* **לוקיישנים לתמונות זוגיות:** צלם שמכיר היטב את תל אביב יידע לקחת אתכם ללוקיישנים שהכי מתאימים לאופי שלכם - החל מסמטאות נווה צדק ויפו העתיקה לאווירה אורבנית-רומנטית, דרך שפת הים ונמל תל אביב, ועד למקומות עם המון גרפיטי ואופי תעשייתי כמו קריית המלאכה או פלורנטין.\n\nמומלץ לבחור 2-3 צלמים שאתם הכי אוהבים את תיק העבודות שלהם, לבדוק מולם זמינות בתאריך החתונה שלכם, ולקבוע פגישת היכרות. המון מזל טוב!",
+      "error": null
+    },
+    {
+      "promptId": "p05",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ בירושלים",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "t.co.il",
+        "easy.co.il",
+        "mit4mit.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnZAbnrOfTo0j2tbzgc0eSnekH4QqCWP2nemh5UqHXTnt21M8Tdqs6bHKFvzJEBlYZhsYPrWLGCwNr4Ik3S0I9_VN1exmCF0nLQfVByszFuDm9LVCazpYXvXIXPULeHMYCmB2HNEjUxgT7IH4X5SFIbsSyXJb8OJAkLdZQHefStjzMCnsF6FGSZUcNCeu8kmrjiYz-Hbs2q_7M-9W6ZeGgF__tCySwpiAVqSLhxrrH9oJiPWuUd9KEmS3VvMcy_v05l8UyqV41oclXfdZcsqxlmH-dqIHe9TkZ0Z0DpxpyvMgC2U5hVCpvcOX0_zY=",
+          "title": "t.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHXSky3t97jGVXisy30Y32MaX3WZb-ekgIApOoaPmv24_2fFhgI11JqWic6lW55F6crfzNzItOjvnqkT2T7QQNa4gdwdUpeEoCn-ReX203lv33imAoJs5QBtb8gyUeTn13LbYjQ8-BNdECJQ==",
+          "title": "easy.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFaLhDc_8YCqDsBouH7nvo_CKvPo9vTpePlWU7_BprZeL65zHVg-TELAx1lTGRsexjRskcio1go3lZQLflUnuVF6vhgcf3MrsIi6nIRk1JweE9WBdqLVpgswDgrROxTLLB0vCR7p7J4MXK-69JcRCgCO-XE0lArgMRGIwIwz84njl2pB_fiR93Ew0WBXoXF55GRzr16NxY--CG50q-vo2Hk0FO1_2cTMXZ2u--BLtKVyWqdm01BoH1Gn5yAoVNn87Jt",
+          "title": "mit4mit.co.il"
+        }
+      ],
+      "answer": "בחירת צלם לחתונה היא אחת ההחלטות החשובות בארגון האירוע, שכן התמונות והווידאו הם המזכרת שתישאר לכם לשנים רבות. בירושלים יש לא מעט צלמים מצוינים שזוכים להמלצות חמות מזוגות. \n\nהנה כמה מהצלמים ואולפני הצילום המומלצים והבולטים בירושלים, על בסיס חוות דעת ודירוגים עדכניים של זוגות:\n\n1. **לארי ברנדט (Larry Brandt Photography):** צלם ותיק, מקצועי ומוכר מאוד באזור ירושלים. מקבל באופן קבוע ביקורות מעולות על סבלנות, מקצועיות ללא פשרות ויצירת אווירה נינוחה ונעימה ביום האירוע.\n2. **אלעד דוידי צילום אירועים (גבעת שאול):** סטודיו שזוכה לשבחים על ארגון מעולה, צוות מקצועי, ורמת צילום איכותית ומרשימה גם תחת לחץ או באירועים מורכבים.\n3. **אביעד תבל:** צלם שמתואר על ידי זוגות כ\"אומן\". מעבר לתמונות מדהימות ואיכותיות, הוא ידוע ביכולת שלו להשרות אווירה רגועה, חברית וכיפית לכל אורך יום הצילומים.\n4. **סטודיו לצילום ענת אורן (קרית ענבים / סביבת ירושלים):** אם אתם מחפשים סגנון קצת יותר יצירתי ואומנותי, ענת מומלצת מאוד. היא מתמחה בתפיסת רגעים טבעיים ומוציאה תוצרים מרהיבים בלוקיישנים ירושלמים ייחודיים (כמו סמטאות העיר והשוק).\n5. **סטודיו קליפ:** צוות שמקבל המלצות רבות על תמורה מעולה למחיר והוגנות. מספקים שירותי סטילס ווידאו באיכות גבוהה עם יחס אישי ושירותי.\n6. **סטודיו Y - אולפני צילום (ירושלים):** הסטודיו (בניהולו של יאיר) זוכה לביקורות חמות על סגנון צילום איכותי שמזכיר \"צילומי אופנה\". הצוות מיומן ומוציא תמונות ווידאו עוצרי נשימה.\n7. **זוג הפקות:** ממוקמים בעמק רפאים בירושלים ומהווים בחירה פופולרית מאוד, עם צוות גדול ומנוסה שמעניק שירותי צילום מקיפים.\n\n**טיפים חשובים לבחירת צלם בירושלים:**\n* **הכרת לוקיישנים בעיר:** ירושלים מלאה בפנינות צילום עוצרות נשימה (משכנות שאננים וימין משה, עין כרם, סמטאות העיר העתיקה, ימק\"א, או שוק מחנה יהודה). צלם מקומי שמכיר את המקומות האלו ואת השעות הנכונות מבחינת האור – יעשה הבדל עצום.\n* **כימיה וחיבור אישי:** הצלם יהיה איתכם צמוד מהרגע שתתחילו להתארגן ועד סוף הלילה. קבעו פגישת היכרות קצרה (אפילו בזום) וודאו שאתם מרגישים איתו בנוח ושהוא משרה עליכם רוגע.\n* **בקשו לראות \"גלריה מלאה\":** אל תסתפקו רק ב-10 התמונות הכי יפות באינסטגרם. בקשו לראות אלבום שלם של חתונה אחת מתחילתה ועד סופה, כדי לוודא שגם רגעי הריקודים, החופה ותמונות המשפחה מצולמים לטעמכם.\n* **תיאום ציפיות (חוזה):** ודאו שברור לכם כמה צלמי סטילס וידאו מגיעים, האם החבילה כוללת צילומי רחפן, אלבומים וכדומה, ומהו זמן ההתחייבות למסירת החומרים לאחר החתונה. \n\nשיהיה המון מזל טוב!",
+      "error": null
+    },
+    {
+      "promptId": "p06",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ בחיפה והצפון",
+      "brandNamed": null,
+      "brandCited": false,
+      "sourceDomains": [],
+      "cites": [],
+      "answer": null,
+      "error": "503 {\"code\":503,\"message\":\"The service is currently unavailable.\",\"status\":\"UNAVAILABLE\"}"
+    },
+    {
+      "promptId": "p07",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות מומלץ בבאר שבע והדרום",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "photovictoria.co.il",
+        "mit4mit.co.il",
+        "midrag.co.il",
+        "easy.co.il",
+        "t.co.il",
+        "olegbell.com",
+        "engaged.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFq2A4diNoM1Kj41MHDCHC4VO6IvfUFnLNTWG4_-4deCk6sDwCYxxJfizfXD2BfLL1INqvbNwtzLVdbTN-ZuHH3ONiBVmn8hAnFieV-iVSL9Ddh-0pjMMCyzxhR7RQ83JDd67WhDVhCvNP1ydoTJ6LkQQJPOxHHxB0rWbvEGU2yRarajcu01fZIBT6CEHAjvfFqTCFKC0X3xFEQfWpvFFtvI9JD3bObHeYZN9GENZAn7RmZIIBc242rQ7GCF5jJPCVVdjo5CTvtEgMYNz_aqGHSs1FngaFR3YcrJ_QN6sGDbNhViW2M6ZfUOPr7JmpRXK-HXv2sJgCHL1QE-_Ci81Rx12vHU70tGiOxiz2E4SdUG8zLUg0swA==",
+          "title": "photovictoria.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEGB4J9MMCVQ1GY5-F3StYEh1qG42gSj3YMu2T4xyB-SIy74OMP9e9kEp-DUyjhDDz_DWZm7bOIYObLvLGH5NanrQXyZHxfI3cP_EAFvrQOysV8Y4D3eeOVx93cUJHdP7anebRPCxOI8BtU2OIFavjekPpiLIDkr6BL0oAlIViPGBzZDL5F52Nu7cEyf2k=",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6eHdWGuHhCG1MHATOiuTnQmgcVA1a3W4qW3H_IuqIKNjsaFfTZVLmpQceB6Q1O0cQqo-PA0vp3xH7jN1RI8E87GxUaVqwb4n4wgEq9chsmx77nYBPBqSNkVKMlYudzlOt3Y0ryRyLSfkxyyKtUaT1mPGxqMPqntfp-v39mT-lR1wNySJqF_-wDg==",
+          "title": "midrag.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-taZle8TtlJJCiGkgSjHqCHhJ2-uPoJPRvYFu6dI0k6oBWjsE90SZfNIYtBIdpcJy7sfM_YeM5Q4yuB6wvOs9zQHForyB6rP6RCxB2yu0aokAX9x0rmO5JUJ20BuSBqLBpWhiHUITBo6Qnw==",
+          "title": "easy.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHi9U11oOKqAxg9GlVvLV_VNDQvrAJbqFT4FWHvzBy71nYG-CAIggWvtQHIP_B2wLD7BpiW63XWbDLaQqzYaGTFPRYa93P3w79-wbeXIviCiSJXh3Uc4pyzfZu4uf716R7LzoSy3a67ffpi8u006kvuH546Gq9dB08cbNn9cVeGE4KbTgg_qC1ITHW5WxTz999xgoDavfu2xRucopJOwx-kuKx2PElm-HM3O3lOBsjzEYBTzA03bVSYWqzBzp-PhfO9vfxZbAz0c7ay0RJk_bZfz-CQYVRm-3IeweGuHDb13ZHK15PTgYPg",
+          "title": "t.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTbPp9IfhG8cInCAC_iDQ9eP9zA03J6dBqUIPg9J2nQ2jVZ5GjEpAZN6GjxdhVNDiq_bsQbr2N9Fap7m3sUMAHoqRamJrYArAaDvsJ4uZY0vz83DQHaIwEzePMCE5w_vRSsMYz3kMukLJwL19HKOqw0DPDAYs4hW9q",
+          "title": "olegbell.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHKnmRYBNvX1WvJ1yWTdva5kE-qudRezA2YdbvLg3ZX7S2nEAhMBT3M_rKyYCoeul0lQScUz0ZLWKz4wFyYK3BC1noVdedNPmEQlF9IaJapv7NKpJJUJTeDB_IrVNebxE5la9-HSP7joFSEAfV1zMAaxLotv8u8poWReP_sG3J6aDG3Z0khLpf6gKqlECqx",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFgNlw6gTQH3qKrOFwQxEB8b1DN_P69tK9NH2YcekN9r0iZmKTIeR2QphVhg8DMrA0jWyxtarbL5pLRhER-1wJ_o8Thn8_37kI8e-YSooSSnZ4-NXMVUTNZ3JCopM6trSZpAciyf-cMGkqAhs4lQiOnwH1uF2LZMY4nDAF1yHz2JFzzgHFzgXDUJzIWhGYK_j2ZtOKsX6XOhVDeB1BCiEL75A==",
+          "title": "engaged.co.il"
+        }
+      ],
+      "answer": "מזל טוב על החתונה המתקרבת! 💍 צילום חתונות באזור באר שבע והדרום מציע יתרון אדיר – נופים פראיים, תאורה טבעית מדהימה בשעות השקיעה, ומרחבים ייחודיים כמו בתרונות רוחמה, יער יתיר או נופי המדבר הפתוחים.\n\nריכזתי עבורך רשימה של צלמי חתונות וסטודיואים מומלצים ביותר בבאר שבע והדרום, על סמך דירוגים גבוהים מאתרי ביקורות כמו \"מתחתנים\", \"מידרג\" ו\"איזי\", וחוות דעת של זוגות:\n\n1. **דותן ניר (צילום אירועים וסטודיו)** - ממוקם בבאר שבע. מדורג בציונים גבוהים מאוד (94/100 באתר מתחתנים). זוגות מציינים את הסבלנות הרבה, האנרגיות הטובות שלו ורמת המקצועיות הגבוהה שהוא מפגין בצילומי וידאו וסטילס.\n2. **פוטו ויקטוריה (Photo Victoria)** - גוף מוכר ומוביל לצילום אירועים וחתונות בדרום. הם מתמחים בשילוב הטבע הפראי של הדרום בצילומים, ומכירים היטב לוקיישנים נסתרים בטבע שמספקים תמונות עוצרות נשימה באווירה רומנטית.\n3. **אפרת צילום** - סטודיו/צלמת שמדורגת במקום הראשון באתר \"מידרג\" באזור באר שבע, עם ציון מושלם של 10 וחוות דעת נהדרות של לקוחות על איכות הצילום והשירות הלבבי.\n4. **ליצ'י צלמי אירועים** - סטודיו הממוקם בבאר שבע שזוכה לציון גבוה (8.8) באפליקציית איזי, עם ביקורות רבות שמשבחות את איכות התמונות, הזמינות ושירות הלקוחות האדיב במיוחד.\n5. **עידן הצילום** - צלם ותיק ומוכר בבאר שבע. זוכה לחוות דעת חיוביות מאוד על כך שהוא מעניק חבילת צילום מלאה ואיכותית, ומלווה במקצועיות את הזוגות מההכנות ועד לתוצרים הסופיים (אלבומים וסרט).\n6. **טום בס (Tom Bass)** - צלם חתונות (וידאו וסטילס) מומלץ מאוד שמלווה זוגות רבים בדרום וזוכה לציון של 95/100 בפורטל \"מתחתנים\".\n7. **פוטו מארק / יוחאי מימון** - צלמים וסטודיואים מקומיים בבאר שבע שזוכים לשבחים על עבודה מקצועית, שירות מכל הלב וכישרון לתפוס את הרגעים הטבעיים של האירוע.\n\n💡 **טיפים לבחירת הצלם המושלם עבורכם:**\n* **כימיה וחיבור אישי:** הצלם הולך להיות איתכם לאורך כל יום החתונה, מההתארגנות ועד השעות הקטנות של הלילה. חשוב שתרגישו בנוח בחברתו, שכן האנרגיות שלו ישפיעו ישירות על איך שתראו בתמונות.\n* **תיק עבודות ואלבום מלא:** אל תסתפקו רק ב\"תמונות ההיילייטס\" באינסטגרם. בקשו לראות אלבום חתונה שלם מהתקופה האחרונה כדי להבין איך הצלם מתמודד עם תנאי תאורה משתנים (בחוץ בשמש, בקבלת הפנים, ובתוך האולם בחושך עם פלאשים).\n* **סגנון הצילום:** ודאו שהסגנון של הצלם (דוקומנטרי/טבעי, אופנתי/מבוים, או רומנטי עם צבעים חמים) תואם לאיך שאתם מדמיינים את המזכרת שלכם.\n* **לוקיישן לצילומי זוגיות בדרום:** התייעצו עם הצלמים מראש על מיקומים (כמו מכתש רמון, יער יתיר או בתרונות רוחמה) ובדקו האם הם מכירים את שעות האור המחמיאות ביותר באזורים אלו.\n\nמומלץ לקבוע פגישת היכרות קצרה עם 2-3 צלמים שהתחברתם לסגנון שלהם, כדי להרגיש את ה\"וייב\" ביניכם לפני שסוגרים. שיהיה המון מזל טוב, באהבה ובשמחה!",
+      "error": null
+    },
+    {
+      "promptId": "p08",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם חתונות בסגנון טבעי, דוקומנטרי וקולנועי, את מי כדאי לבדוק?",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "antonmislawsky.com",
+        "engaged.co.il",
+        "almogsafadi.com",
+        "mit4mit.co.il",
+        "oferm.co.il",
+        "bemazal.com",
+        "urbanbridesmag.co.il",
+        "bereshitebara.com"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQETslhLDxTeB1odsGGo33Lnq80Bq8ft6O8PBopKPMZWdoBt7r5GPTpI4_U7PYdKuM0XzqmrT3i4KowVxzlvhR7Uwtfi-U2ogMQ1ckY9_jWjsnk0nhml9QK9XOxFICyoNH4qQMzusc4X97V-tJFILoNvU0t-TNAg4yKdR6uNJ2Y4zg==",
+          "title": "antonmislawsky.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEyfsGfeyyEhnb_6HBV3TUoIKLjaVUGjfyz7gTEYZdf5FiYxalToagEWeA-6bEkfMBtudbbeTH3EX5IGgX14rsxu-iHAozwHGpWjqIGNaROB53vMFNgvCueC-SAHzetOwIqOnxoWC2uqRydOefTlN7hTxODBPMznfW4e2O_XYoH1SiSXyTqneYF7zWu2s_D95Hc_f_2",
+          "title": "engaged.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfc5yn7V_jNyxKZU8lA3ZTHj-slvwLwESrCMtGzZ-IIXUKic6_59DWDUp03FUxgv6tM3Kynv7wuMYyUr5IBsgws37SqcubP458jKWaMrA=",
+          "title": "almogsafadi.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_I-jShiy5m1NZpKYvcAxA1TN2MCcgMebcIAomBrXQIqlpoPnhZP1oRHDa5voaj3DTVw2G5KXfYJ7_OtyLndNgHjXg5pe-fcmdtAySr7wHgWyOye7OXJHiSxBrE1wdyWq9is51P92wWyO-Qby_DwwTofGdevUBaWl4goJ6KNWj96siUn5DJGs9Cn-bgx2QXysOFdT98RfyIgdVMNpkPbJLNtNdD3ogNhyTiu_gPzskVcdMoW7yQD0Kf2g=",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF9rJg5NAVQMRWtDpwBikIu87mBxgy-ogziVqYY6k0mQThEX-yCl24MP5-Ck3fGlzFdcWwie8BvJcWC7bRuinWWa06oszSgvGuvcg==",
+          "title": "oferm.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE1atCu5PQeaqDzYavZIpoFxDzqKvOz3rYydbG1wTsYxgMSFE7lWM3ScZXzVxKX65PkKbl3zm7Uj5Bol74hfreFCC4uB_pWW3vMkxBmV8hjCokurN06-GOz8q5kzsP2h1dSI6okTog0GpzL-z1KgnXWlYPUGJl2_A69e8MnysKmpDCEH7uLn1bgQR_Gb9NNvCs1fMBvXNVGEbDrQ7prEyLPens8j1JhtnBrH1lsORtufoGdZqkVAuZFD5a5_rk_AF8zRAG3Z06fKwEXMK4_6ZkYw-t4iXfrjS3qNsoR8OSTl1VSV0FXDX1bnLA9sHsQGSfbUwjBXCGD4d7rJMUNG2oZnkIO",
+          "title": "bemazal.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1PAPVHa-xmV0jim81-SStCXKA_PFsQRNl3T2TfUBb4I9YVgOrqBzwn6jndwOS6RlqrKTiQaw_85wj8WVwf-WeK5wsIRjguiBWuCUBrckq6mbGyMvxAMHwvs8ehL7PAYyNUDOztUM41bTSofsHHN9U7Ci4Wm_hQ2WoydUcgpMi9keWlcOsHoCYPA==",
+          "title": "urbanbridesmag.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG8gs0j8HosFGb9K96RVyaAibhwbsyoDCU3JqyEyJlCwOaaYVQ7ScUgNeTl9SjKp7GqYAHqJLwEF_um50_rqoGCCoRSDGFjlzpxRvBLjOy9WVeH1IpBljIL5EeWZ3mhLkzemcK-DV-enMBzTBXTW0T_qmdjli2wIQ==",
+          "title": "antonmislawsky.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMTs4-3C7ce4WyLjZiKni7OYeDCVceyHXOdfQ3IWoDBhXT_ZL9LOl8OIvLAfLYdJUVRzh6u4tE6-Xu-1Sb4ekTk15KPxeAuiqKPVuSIK7XPLgE-09-IEfPCB3Ju1TsKmeCXYH5gxtVO-FM4GEgFrmByPEhij_X6cBxLrbFmO5KdPw-",
+          "title": "bereshitebara.com"
+        }
+      ],
+      "answer": "בחירת צלם לחתונה בסגנון שמשלב **טבעי, דוקומנטרי וקולנועי (Cinematic)** היא בחירה מעולה. הסגנון הזה אומר שאתם מחפשים תמונות וסרטים שלא נראים \"מבוימים\" או מאולצים מדי (דוקומנטרי/טבעי), אבל יחד עם זאת בעלי איכות גבוהה, תאורה מחמיאה, צבעים עמוקים ועריכה ברמה של סרט קולנוע (קולנועי).\n\nהנה כמה צלמים וצוותי צילום ישראלים בולטים שמתמחים בדיוק בשילוב הזה וכדאי לכם לבדוק את עבודותיהם:\n\n**1. אלמוג ספדי (BUZZ. WED ART)**\n*   **למה כדאי?** אלמוג מגדיר את עצמו כצלם חתונות \"קולנועי ודוקומנטרי\". הגישה שלו מתמקדת בסיפור אהבה דרך העדשה, תוך חיפוש של רגעים אמיתיים (מבטים, חיוכים, תנועה) בלי יותר מדי העמדות מאולצות. התמונות שלו מאופיינות ב\"לוק\" של סרט, עם צבעים חמים ועל-זמניים.\n\n**2. מיכאל נוה (דוקו. רגש. ואתם.)**\n*   **למה כדאי?** אחד הצלמים המדורגים והאהובים ביותר בפורטלים של חתונות (כמו mit4mit) תחת הקטגוריה הטבעית-דוקומנטרית. כשמו כן הוא, הוא שם דגש חזק מאוד על הרגש, על רגעים שלא יחזרו ועל תיעוד האירוע \"כמו שהוא\", אבל ברמה אסתטית גבוהה מאוד ועם המון כימיה מול הזוגות.\n\n**3. עופר מתיתיהו**\n*   **למה כדאי?** עופר משלב סגנון צילום דוקומנטרי עם \"טאץ' קולנועי\". הוא מתעד את רגעי היום בצורה זורמת ואותנטית, תוך שמירה על קו נקי, אלגנטי ודינמי שגורם לתמונות להיראות כמו סצנות מתוך סרט.\n\n**4. סטאס מוזיקוב (המרכז לצילום אומנותי)**\n*   **למה כדאי?** מתמחה ב\"קולנועי-דוקו\". הגישה שלו היא ללמוד את בני הזוג לפני האירוע כדי לדעת לצלם אותם בזוויות הכי טבעיות שלהם, מה שמאפשר לו לתעד את האירוע בצורה אמנותית אך טבעית. הוא מתאים מאוד גם לחתונות אינטימיות וקטנות. \n\n**5. אביב וטלי (Aviv & Tali)**\n*   **למה כדאי?** אם המילה \"קולנועי\" חשובה לכם, קריטי לבחור בצלמי וידאו מתאימים. אביב וטלי הם צוות (בחיים ובעבודה) שמומלצים מאוד בקהילות כמו \"כלות אורבניות\" בזכות סרטי החתונה הדוקומנטריים והקולנועיים שלהם. הם ידועים בכך שהם מביאים סרטים מלאי הומור, רגש וקלילות, וגורמים ליום להרגיש סופר טבעי.\n\n**6. אנטון מיסלאבסקי (Anton Mislawsky / Shutters Studio)**\n*   **למה כדאי?** מתמחה בסגנון בינלאומי קפדני וקולנועי מאוד (סטילס ווידאו). העבודות שלו נקיות, מרשימות ויש להן אופי של הפקת אופנה אלגנטית, אך יחד עם זאת הן שומרות על תיעוד טבעי וחי של האירוע ושל הזוג.\n\n**טיפים לבדיקה נכונה של צלם בסגנון הזה:**\n*   **בקשו לראות \"גלריה מלאה\" מחתונה אחת:** באינסטגרם קל מאוד להראות 10 תמונות קולנועיות ומדהימות של צילומי הזוגיות. צלם דוקומנטרי נמדד בגלריה המלאה - איך הוא תפס את הרגעים בחופה? איך נראית רחבת הריקודים? האם גם שם זה נראה טבעי וקולנועי?\n*   **צבעוניות ועיבוד:** בסגנון הקולנועי יש שתי גישות עיקריות - \"Dark & Moody\" (תמונות קונטרסטיות, צבעים חמים וכהים יותר, אווירה דרמטית) ו-\"Light & Airy\" (תמונות בהירות, נקיות, מוארות מאוד). ודאו שהעריכה של הצלם תואמת לטעם האישי שלכם.\n*   **הכימיה איתו:** סגנון \"טבעי\" מחייב שתרגישו בנוח 100%. אם תרגישו מבוכה מול הצלם, שום פילטר קולנועי לא יסתיר את זה שהתמונה מבוימת. שיחת זום או פגישה מקדימה היא חובה.",
+      "error": null
+    },
+    {
+      "promptId": "p09",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם סטילס ווידאו לחתונה באותה חבילה, המלצות",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "patrick-photographer.co.il",
+        "bereshitebara.com",
+        "midrag.co.il",
+        "yossioz.co.il",
+        "mit4mit.co.il",
+        "studioayalon.co.il",
+        "alexart.co.il",
+        "10comm.com",
+        "engaged.co.il",
+        "photoshot.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJXPB345AzDKDZ8AR0-icu72xcGKVwSXSUtoDXUKy-SbOIiyNaNFr2NH8R358ZCii6KAntlgELha9Wa_2W0YdMIIhAPM43R2PXCOGvYN24fIYGRyFUCup8UVmcAm7kPJD31oc6Y4df2jcopfeWjOBDHwaQDlleVwj-DIqM6PwvYJsKQixyEtXo33XM-btjcj4Sq9s3iSugIYkikvHvRuJ7x_ZLXcXNYgOpluVn18jJ_w1mdedNnvwQJGdej6A=",
+          "title": "patrick-photographer.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGFEoimbUlA1lgv02_tqCLXoPT9CPi7GQMmTMJTL0cwkc2xu-Zusrkmd7cydElY5hNHb6NiVWbgRT_XBXJNv8mc-S2vTdyC9n_bTyjs8KWqYg==",
+          "title": "bereshitebara.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwrDHOeK9s-yJaKNnzZB6x1JBdrGTE-RDF1O1nmarxf-sx4VqWmlCK2ccOAU36jR8MVX0VlBlVyjVKeJrwtGKKdRgtrZAV0-3ZeEL-8eP9i6iLJKEdBc1R9upFTbn4m_wnZw==",
+          "title": "midrag.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSQ24ALccTnkykdif-Pc7Lg2J4piqraBSsPFq_s0xw8KwlG1FLgkTAKoe7DQQ9wHgSJ2eijf7pK7DkFGsiXvfhSEux5DhHByjxKv-05nSXXdfbVNTpRX95OIeo5-A13b-eCBycDd1tBT1dJm1rkNsQRftgCZkDp7cSFClmYCj9ycUnfwBo9enz36bAv06RNOH90PCx1OMpAtoNFYd24CcGfxi4CZhMuvhsRmRqwiCdOOOimAt9j-DLzf6el8OQtqCmHpdbXjWEn_F_R3XdncUttTzC7qZYTforYJUCjw_oy3jjIkpDTPtyayOz7Ry-5vz9-weze5omrpTvQS3RlGt8EsQpOqogMpjOBBCuK89E",
+          "title": "yossioz.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEhQsG5zcO-9QpXGix9sQ0C0jOShg3VNBeKdXvYzyRMuppyz7_sJDbu6h-9GbGsYV45miIwX2L5Qv3pqkRT0OQzzGWVpRq-qdkp19pEqnrS63mSsXLOE9FHuAI=",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHaq2dOgen0Zu5zPuKtjuo9kXdnRw2xF3PVT7XWP4ldPSwZZCt9kOtxogbwNV_bouTicsfKD0nT_vKPjhYEeoH6DrqhDg_F_uPCrSBHDbiBGuegUAwDQ7nVoR4W",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoaT6uZ0B6jRONOgNvrpUiBaWlW37ptP9lUzy6_Ppguvfi6WzbWSQQR8nevmmbuMti_46LewpFkRXX62n8YpW0eAOwwSUypu35BbRHiJKCZqyoPj7rbIgFX3x4K56aNjPcFqkP7ftpg52-L_L95xxb2DrK",
+          "title": "studioayalon.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoaT6uZ0B6jRONOgNvrpUiBaWlW37ptP9lUzy6_Ppguvfi6WzbWSQQR8nevmmbuMti_46LewpFkRXX62n8YpW0eAOwwSUypu35BbRHiJKCZqyoPj7rbIgFX3x4K56aNjPcFqkP7ftpg52-L_L95xxb2DrK",
+          "title": "studioayalon.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHAXKC5UJTd3bASmAO4wlLMPO2PM5a98oQgw-NaCSJ_UFJtsnLmoKx5-AKQLe1rK8xNsjo04BX8pmStBZNjYkwk6qOT1CI1xZ2uOVmetLXqxIiP-_Q7XEDQFH7vCP4fztrBWpfhnVr1RrntaCvzVaouUMwi24YamwjpoMx9rl9-wV2j0-K-4TNFstysg436Qd76xPS6qG4YCH6ZtR8HRkBbTskpXzK1uqLl5Fj-EXfXz_mDAAsGiqqNhzMDEVfJ",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtPXWnq05w2MDIO-78uYzr6zIJQyRbRVR3vvwzqAxhd8Je87mZSPRu8aoGBRHum0mb7ctHmcThlH7eXNAs4Ke9_LnFSoVliTX9aRiY73acQ_e7n7A9tac=",
+          "title": "alexart.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtPXWnq05w2MDIO-78uYzr6zIJQyRbRVR3vvwzqAxhd8Je87mZSPRu8aoGBRHum0mb7ctHmcThlH7eXNAs4Ke9_LnFSoVliTX9aRiY73acQ_e7n7A9tac=",
+          "title": "alexart.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjuQq3EMw1j4BoEZLB_6MvQOYgcAXS9pnSWwf1H0YvGtinpbTySbNdZqfA9Y138O-xAApF1FdsooXDPGJ-gbzlYgCRBHSByEUcJ9l3Vszd67PuMUn8gnUzh6OlOw==",
+          "title": "10comm.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG2OUFusvVgJHQJmuu2dV5GZWNGsAjdh4Jd5sWjOgea4CkrIulTKQp3238-mrPp-3BDPtKFcberWzeWd3WOVm5gMgYL0_tOzVatt6FjQA3XFSfmf9FooawgywoCuwg3jdXkNaiAV7ZP2bqg2DR1Rmcq-Df92yk05uDbvx3ZtqIAHZhDONj238e2-FBnSLTj-HarpoqwkQyY5Q1HGRyCu1H_zenK3HjaSLL0U54wuHFdP8L4N9LDy1goWBB4lvSVe2u7KAQ7IkVk2B0ebWBAeorLCcYZ",
+          "title": "engaged.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsYXon2RFowSHWHyiP6LpJLjfSDqWBRCdE7NOrW-ng1DGOxMb4tfmxvCRYwE4_dmJqfLV20kGLW5bPXQ7gqQkT6BBY2oGs6HskJMbPYrLS301kBTegOWj66tDKVb9I8VuJtp9_xWjD3UV9atU5_JE-Aab65LGQfkmSC2kDsEvKFlCnrI3kmZGddAHHw7Lt315Teg==",
+          "title": "photoshot.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcY9MYqTX851nFl3LZsFt50j-QUr2dHsXWzjgep2vuJB-0sWR03Oe-OItrMd8lqj4pdUWxluSlGG8eyWP7Q128bbcmylfY3X-xqFsNZYImdr0lw9yBBC68V3D2EKv5T4XLEz4w6xRFFnqoytqmzw0ifrZSzxLXhSkqHyGtpBzq7SYydTrU4Z30XjILWkDNzaZXT1nx",
+          "title": "engaged.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsYXon2RFowSHWHyiP6LpJLjfSDqWBRCdE7NOrW-ng1DGOxMb4tfmxvCRYwE4_dmJqfLV20kGLW5bPXQ7gqQkT6BBY2oGs6HskJMbPYrLS301kBTegOWj66tDKVb9I8VuJtp9_xWjD3UV9atU5_JE-Aab65LGQfkmSC2kDsEvKFlCnrI3kmZGddAHHw7Lt315Teg==",
+          "title": "photoshot.co.il"
+        }
+      ],
+      "answer": "מזל טוב! סגירת חבילה משולבת של צילום סטילס ווידאו מאותו סטודיו או צוות היא ההחלטה המומלצת, הנפוצה והחכמה ביותר כיום בעולם החתונות. \n\nריכזתי עבורך את כל מה שצריך לדעת, כולל היתרונות של חבילה כזו והמלצות לצלמים וסטודיו שזוכים לביקורות מעולות בקרב זוגות בישראל.\n\n### למה מומלץ לקחת סטילס ווידאו באותה חבילה?\n1. **סנכרון וצוות מגובש:** כשצלם הסטילס וצלם הווידאו מגיעים מאותו צוות, הם רגילים לעבוד יחד. הם יודעים איך לא להסתיר אחד לשני בחופה, איך לחלק את העבודה בשלב ההתארגנות, והדינמיקה ביניהם הופכת את יום הצילומים לזורם ורגוע יותר.\n2. **סגנון אחיד:** תקבלו תוצר סופי (גם סרטון וגם תמונות ואלבומים) שמדבר באותה שפה עיצובית ובאותה אווירת צבעים ועריכה.\n3. **חיסכון כלכלי:** סגירת צוות אחד תמיד תהיה משתלמת יותר מאשר תשלום לצלם סטילס בנפרד ולצלם וידאו (ופרמיירות עריכה) בנפרד.\n4. **ראש שקט והתנהלות נוחה:** חוזה אחד, מקדמה אחת, וכתובת אחת לפניות אחרי החתונה כשאתם ממתינים לחומרים ולאלבומים.\n\n### צלמים וסטודיו מומלצים (על בסיס דירוגים גבוהים בפלטפורמות המובילות):\nהנה כמה שמות של צלמים וצוותים שבולטים מאוד בהמלצות של מתחתנים בישראל (דוגמת האתרים Mit4mit ומאורסים) ומציעים חבילות משולבות:\n\n*   **גיא לוי (Guy Levi Weddings):** מדורג בטופ של טבלאות המומלצים עם מאות חוות דעת חיוביות. מספק מעטפת מלאה של סטילס ווידאו, וידוע בתוצרים ברמה גבוהה מאוד ובמחירים הוגנים (לעתים קרובות מציע חבילות קומפלט אטרקטיביות).\n*   **פטריק הצלם (Patrick Photographer):** צוות שזוכה להמון שבחים על התכנון המוקפד של האירוע ועל האווירה הנינוחה. חבילות הדגל שלו בנויות בצורה חכמה וכוללות לרוב 2 צלמי סטילס, צלם וידאו, ואפשרות נוחה לשילוב רחפן בהתאם למיקום.\n*   **יניב באיו - צילום בסגנון קולנועי (Yaniv Baio):** אם חשוב לכם וידאו שמצולם ונערך ברמה של סרט קולנוע יחד עם סטילס מוקפד, יניב מקבל ביקורות פנומנליות (ציון כמעט מושלם בפורטלי המתחתנים). הוא והצוות שלו מעניקים תוצר אומנותי מאוד.\n*   **סטודיו אילון (Studio Ayalon):** סטודיו מנוסה שמציע חבילות וידאו וסטילס מקיפות. הגישה שלהם דוגלת בצילום טבעי, בלי בימוי מוגזם (\"פשוט תהיו אתם\"), מה שמוריד המון לחץ מהזוג ביום החתונה.\n*   **ענב מור (Enav Mor):** צלם שמקבל המלצות רותחות במיוחד על ה\"וייב\" והכיף שהוא מביא איתו ביום החתונה, לצד צוות מקצועי שעובד יחד בסנכרון מושלם לסטילס ולווידאו.\n*   **AlexArt (אלכס ארט):** מציעים מסלולים מסודרים וברורים (Basic לחתונות קטנות / Lux לחתונות גדולות) המשלבים מצלמות DSLR לווידאו, סטילס, אלבומים מעוצבים ולעיתים גם מגנטים, הכל תחת קורת גג אחת.\n\n### מה אמורה לכלול חבילה ממוצעת? (לאירוע של כ-250 עד 400 מוזמנים)\nעלות של חבילה כזו נעה כיום לרוב בין 7,000 ל-11,000 ש\"ח (תלוי בוותק הצלמים ובעונה). היא אמורה לכלול:\n*   **2 צלמי סטילס:** צלם ראשי שמלווה אתכם משלב ההתארגנות בבוקר, וצלם שני שמצטרף ישירות לאולם לקבלת הפנים ולחופה.\n*   **1 צלם וידאו:** מצלם לרוב בציוד DSLR.\n*   **תוצרי וידאו:** סרט חתונה ערוך (לרוב באורך של 30-40 דקות) + קליפ היילייטס קצר של כ-3 דקות המותאם גם לרשתות החברתיות.\n*   **אלבומים:** אלבום דיגיטלי גדול לזוג (בדרך כלל 30x80 ס\"מ כשהוא פתוח) ועוד 2 אלבומים מוקטנים להורים.\n*   *אופציות לשדרוג שניתן לסגור בחבילה:* צילומי רחפן, מצלמת 360, צילום מגנטים/בלוקים מעץ, או צילומי זוגיות (טראש) לפני החתונה.\n\n### 4 טיפים של אלופים לפני שחותמים:\n1. **בקשו לראות גלריה מלאה, לא רק היילייטס:** קל מאוד להציג את 50 התמונות הטובות ביותר באינסטגרם. תבקשו לראות אלבום שלם מחתונה אחת (מתחילתה ועד סופה) כדי לוודא שאיכות הצילום נשמרת גם בתנאי תאורה קשים ברחבת הריקודים.\n2. **ודאו מי מגיע בפועל:** אם נפגשתם עם בעל הסטודיו ואהבתם את האנרגיה שלו ואת התיק שלו, ודאו שהוא ספציפית נרשם בחוזה בתור *הצלם הראשי* שלכם, ולא איש צוות אחר. \n3. **כימיה היא המפתח:** הצלמים הם האנשים שיבלו איתכם הכי הרבה שעות ביום המתוח והמרגש הזה. מעבר למקצועיות, חפשו אנשים שמשרים עליכם רוגע, מצחיקים אתכם וזורמים עם האופי שלכם.\n4. **זמני אספקה בחוזה:** ודאו שכתוב בחוזה תוך כמה ימי עסקים אתם אמורים לקבל את התמונות, את סרט הווידאו ואת האלבומים לאחר שבחרתם את התמונות. \n\nבהצלחה וים של מזל טוב!",
+      "error": null
+    },
+    {
+      "promptId": "p10",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם לחתונה קטנה ואינטימית, המלצות",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "natigold.com",
+        "inbalbetzer.com",
+        "bemazal.com",
+        "mit4mit.co.il",
+        "alexart.co.il",
+        "image11.co.il",
+        "jacobensimon.com",
+        "yossioz.co.il",
+        "midrag.co.il",
+        "spicy-photo.co.il"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEzn9odcGldFfkuVOwwa-fR2Vf3w4yLUfzTELnb7cfpEg_3ZvLtpK06LZMfhX527TE4dk0xKt6F2I24g3tULfsv7-eoMZ9BhgMKmDxXkBZ4UXl7AQvETsvlJvhBvWMh6396HmW75kQ-rZwU-KFx",
+          "title": "natigold.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDWtRjVrtTkLYHNB0qW1nv3bKVZv1-Fp1gXXDJDP1GIaI2t8OUsTjZXv8YfIq5enJXcF1qus-6CQnikpPrckfYSBv65WRpeDdpffNZGo2B5ERnG6Xn-9x7DPZdfgpI",
+          "title": "inbalbetzer.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE5HszuZ6OlvsSUb65sZNB_U1PXbxs9nAOSGumRhQZdqmxNDbj3oeH5clyZxDQ_Xp5rf5X1Jtqo57rm0zbj7R8NaOhkC3f7-Exl62ho8gtWMcqLu0WE7DaXsDnhDtz85yp6Q50wQjsuorDd8P5ai0SJm2G1Ywm4U8rzVFlZWCV2yEVIYkQc7qhmtiwDdia14Vg76vt0UfrjWfzsxU1jVMjPhdqDYd9jF73tQA0tCdYQe21Xpuz1rCIokRouzswV73xdmpkGFAm3pbbH-NefFr0gBE3juvAZC7Gkmb0H38T-MK3yNoBxdnTSt9ZtVmj5IFz02w5UdQee19uJd9wZpmc0CjFI",
+          "title": "bemazal.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFo2mzJYLdZIVcsvJz2_03Omf9rD6egE-Bzrt6H7pfWChKyaFAeZDr33NgT5ccCT25reQNXDoE7IEdMe2FlTU71TdKqkcS1hWdfQtBpin1D0qkoOZ6pHru9Cg==",
+          "title": "mit4mit.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHg3gfqg7CXY_HRuBuHRFDsaRSegwLPF5RsfpK40IlWO9GvxI77jvLMsPj-c4T85BFpfmHxuoohBWw_yHZ0Eep0n4gjo414QxQO8ArM4Xubs06Nd13_2c=",
+          "title": "alexart.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6PktHkT5O6O3z638744F3p0BsQQQSe-2uB_qUhIpGZT3m1E0O7GCENlrmVhg7B_uxRNQkb7c2PCAF_b9nRicX98SenTWhV3i5V3sAD0HuPIbVUdhq7JCvwZverKG9W-oK9NAiDyEoAnQIWDaqFm5XfaYezR6tZQrpZnD0UY10Rxx5XY2vWR08U7Y88Y6RNhXY-YchlyvQsVH94I5QKgHk86wRClQ446chBLWz9xoIFk3JUU1c",
+          "title": "image11.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNQvJtEZ8L52O2bZu46JaGunK_hhtFgKonl7Bt93Z1M8LzapO2d-T8akKG2Eb71rp5n3x1JlbVpoPlYK-suS8dIav-9_tI2LQMYDz9lVMkVBdhEX0VOyCVX7MYnAU5",
+          "title": "jacobensimon.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEmugZe14C6jfH2d2ZByEf-_e5hLotu-hT7-OzCdSWKIkEOemz3eVitmuWPHybR5AJyxv_2gM3QR8k2CDMrDkYjWJ11_lsDl-aq5DGdJmjaZg_64scThpChk-4F5hMdSw==",
+          "title": "jacobensimon.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHQ-soONcwvcdZM4rhdNiAqeTlv1uQe0YKB48LEHlT_hvQbl9Vr5IHeYfUB4Pp5sy69OPMnEQMwbBfXPBZpP4syMcLw0f7cW2XIeL-NF9vw_3eTOjKHkdfQMtANIafr9W4vbmtQkjaRcfWtdfGfKueUdT1OjK_-hbnBcPOVJG8GNTiH7VRv5jiiYHgzBs1bwyldlsvMF08fJ7y6X6qkKv9Id1zjkeDiBM-pCMWyyoq8pst7bZ8iFP4bn7uBKmwVW8c3i-ECkWOj53O9DuK6wFv5Ip8kBnFOai8z2F2PfZ9n8KMR4jkLwDZ7TBHjBt7Fj-XZ_bkQth3IVzgOIzUQ5dnonrsyPNGwmSC5MMV8SLkcw==",
+          "title": "yossioz.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZMDkkfWc87ljxEHKUnoSq37OwGi_G793XFEUb1K5kfSayXtH8nuFT5jsF07ZLxKLd1PzEcCXTpM6VypM0lEttc9rJhSNdW3Z9JPx75rSCxilIgi01RFpFOVfRixKdPgo=",
+          "title": "midrag.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcpevTsXiZmJXYHFkmzSR-WQYTHyf0xLsTSE0QVYtgP5xHExYIwNq7kOlHIeYlTxsibczED6xJcSAeLgV7LkKboYhRCdTilEvp4C8Mng9CaCgP1b_A2-sGzJP8KWs4kPx8C43uL6Md4EQOsXp8eUozqxB1JA_lN4aa7WyT",
+          "title": "spicy-photo.co.il"
+        }
+      ],
+      "answer": "מזל טוב! תכנון חתונה קטנה ואינטימית (חתונת בוטיק) דורש התייחסות קצת שונה מחתונות ענק מסורתיות. באירוע כזה, הצלם נמצא הרבה יותר קרוב אליכם ואל האורחים שלכם, ולכן חשוב למצוא איש מקצוע רגיש, בעל יחסי אנוש מעולים, שיודע להיות \"רואה ואינו נראה\" ולתעד את הרגעים באופן טבעי ואותנטי.\n\nהנה כמה צלמים וצוותי צילום שמתמחים ומקבלים המלצות חמות ברשת על צילום חתונות קטנות ואינטימיות:\n\n1. **נתי גולד (Nati Gold)** - צלם שמתמחה במיוחד בגישה דוקומנטרית לחתונות אינטימיות (30-80 אורחים). הוא שם דגש על תיעוד דיסקרטי כדי לא להפריע לדינמיקה הקרובה של האירוע, ועובד עם ציוד שקט ותנועה מינימלית כדי ללכוד רגעים טבעיים ומרגשים.\n2. **ענבל בצר (Inbal Betzer)** - צלמת בעלת סגנון דוקומנטרי וטבעי. ענבל מצטיינת בצילום אירועים קטנים (כמו חתונות בחצר, מסעדה, חלל בוטיק או בית כנסת) תוך התמקדות בתיעוד הרגעים ללא התערבות ובימוי של הזוג, כך שתוכלו פשוט להיות עצמכם.\n3. **סטאס מוזיקוב (המרכז לצילום אומנותי)** - סגנון קולנועי וחמים. סטאס מציין שבחתונות אינטימיות הוא מקדיש עריכה אישית ועמוקה יותר לכל תמונה, מתוך הבנה שהדגש הוא על סיפור נרטיבי רך ומרגש ופחות על צילומי \"אווירת מסיבה\" המוניים.\n4. **גיא חמוי (Guy Hamui)** - זוגות ממליצים עליו מאוד בזכות ה\"וויב\" הטוב והיחס האישי. בחתונה קטנה, חשוב במיוחד לבחור בצלם שמרגיש כמו חבר ויודע לגרום לזוג להרגיש נינוח ומשוחרר מול המצלמה.\n5. **אלכס ונינה (Alex Art)** - צוות צילום שזוכה להמון שבחים מלקוחות על שירותיות, אדיבות וסבלנות נדירה. הם יודעים להשתלב היטב באירוע, לעזור בלוקיישנים ולהעניק יחס אישי שעושה את כל ההבדל.\n6. **מני וליז (Image11)** - צוות צילום שמתאפיין ביצירת אווירה קלילה, רגועה ושמחה. זוגות רבים מעידים שביום החתונה כמעט ולא הרגישו את המצלמה מול הפנים, מה שהוביל לתוצאות טבעיות ומרגשות.\n7. **קובי בן שמעון (Kobi Ben Shimon)** - למי שמחפש חבילות צילום אטרקטיביות ומשתלמות במיוחד. קובי מציע צילום חם ומרגש לחתונות קטנות ומתאים את החבילה (סטילס, וידאו קצר, מגנטים) לגודל האירוע.\n\n**טיפים חשובים לבחירת צלם לחתונה קטנה:**\n\n* **כימיה ויחסי אנוש:** מכיוון שמדובר באירוע אינטימי, הצלם יורגש הרבה יותר מאשר באולם עם 500 איש. היפגשו איתו (או ערכו שיחת וידאו) וודאו שאתם משדרים על אותו גל ושהוא אדם נעים ונינוח.\n* **התאמת החבילה לגודל האירוע:** בחתונה של עד 80-100 מוזמנים, ממש אין צורך בצוות ענק. לרוב יספיק צלם סטילס אחד וצלם וידאו אחד, ולפעמים (בחתונות של פחות מ-50 איש) אפילו צלם סטילס בודד יעשה עבודה מצוינת. ודאו שהמחיר משקף את העובדה שיש פחות שעות, פחות צוות ופחות חומרי גלם לעבור עליהם.\n* **ניסיון בחללים קטנים / אור טבעי:** חתונות בוטיק לרוב נערכות בגינות פרטיות, מסעדות או יקבים. תאורה של מקומות כאלה היא שונה לחלוטין מתאורת הלד של אולמות אירועים. בקשו לראות תיק עבודות של חתונות קטנות באור טבעי או בחללים סגורים וחשוכים יותר, כדי לראות איך הצלם מתמודד עם תנאי השטח.\n\nהאם תרצו שאמקד עבורכם צלמים באזור ספציפי בארץ (מרכז, צפון, דרום) או בתקציב מסוים?",
+      "error": null
+    },
+    {
+      "promptId": "p11",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "צלם לחתונת שטח בטבע, המלצות",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "deretz.co.il",
+        "studioayalon.co.il",
+        "edstudio.co.il",
+        "facebook.com",
+        "benlapid.com",
+        "image11.co.il",
+        "antonmislawsky.com"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYt8B-snwins-tsXko29IFii9RfydmVuUiVDpZOHBVIqYNyufj_O2rX0-yiBcWQNkcW-pUPY-PeGh5vaA1vVTsxeBMjvrw9xwxY2hZeS150HNOJ94kk-HFaDEgmDCHntZaH8-Y",
+          "title": "deretz.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYQXvux282QRbCZ13jrBRrN_eem-SrzspnM3daVkPMM-el1BxvaWqCjYiIet0GaL6C6wBqkGQ0CNkCYWiqj4k_0sv3qwss0NSxL-4Fx9ocCUpaH-GSag9SSlC6H8HNchpyXNl4CqyMWFy86cS1z40bVa0Zg14WDqeuBhfXMtJr3NzeFTOcs81HjF7Z",
+          "title": "studioayalon.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ0unTbbRqvncMoKr8Vhb3_c8u_AUoossXoPBur0-b_eMeoVwBTOxB9FXbcGwyI6bVWwPtzXYU5xkj8Z4m34PqGWd7teXTUUDkii1kfUBDbtgOD5quKodFQC5MtaYZF4EGiWVHD6-lpT3ELTObnq7_AleUrwaH_zfAe7H9GuD6qB5_vd_KyhjMbPER4vNN1c3hawk0XOiaVXO4pDmCkvwcSMHOrIxq3rnf5CEUZKdmwVhh_3tio7s=",
+          "title": "edstudio.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHluAQnKeyjNXI00kDbtm1isP0gA5vIO6NKzlQVsUCPDP5zPSZRb7pbvnSYSJgrdGGUYuR5xw9q1atsVsmrpVHWOYhNN92YhxEP6vOKAy02NRQHwqdWHrOBqpw8G_M4b256W73qp7qAN5QzSno5lqGIR1i1Lyg_wt4ur0V8XRUTK6IU_R49s-Ltc8dIg4TUTMmABmFU0mvwFO3mgOZM5vB1-fjj6HqfheI54B0Z_rNqqB6WpkrxOHs=",
+          "title": "edstudio.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHThE7LfZEihZLBGMaV1-AAGOFQZZ5LfgE_Zfmgjoqny_x15DvjIR_7CFPhFx5TI_akDA0cq0hDgph2JNqAXHNAUTkFqiXzSvIzHTtFlxFNI3LHba5rP9xieAv5OAKecM3wceKw7DrScC-_6oWt4ReOaMGzW84O4x1q4mPQFw==",
+          "title": "facebook.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0iUVJGmYlrLC0QKxfvpWQtErHi8LekM4eYg2zCQUoFT70aF78rvw38Mc7wZvwJBuuWh9M3sid-O_cBPeoYD44N1LbTpqKXX0D6Iv3FNeGyxvooA_Mdn-jEm0JuIwaFEu0ClSWVXbbgp4UGTDTd2BnnVfPWNxabqPF7p-qQJ5wjPYZzGw1Ij6PIoZKNje2QHh2sCghqoOyMo76GzZJ1tCrBxutlmAVorpozzD9U9E=",
+          "title": "benlapid.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUQWWSJqHCn9G_wTT8I_rM3XvHks8ZuZ8eNEmn03NreJlizNEh_9S0VaZQocAWQOHlLWRHqU5oVkgjV3-H7Ffa14xAT6nGr594qDi7MDl4ykGQINu2Q0Om4XfORy7R3zzWps-1PgPM8iHt-dExNhlkW0ou2XxbXg4vn47QOtHw13KjRMMdIKZChO-gMBLXjTXAb3MMUHzn5xEKkJoPnYDY3xu4xOb3TNM5gdyngRPI0fudpMcq",
+          "title": "image11.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0U9Mec9b7qmMEPgXCQOrk_r7wIeIrBzZYTXtMRdrtJmE7r5Y5tTK7MYeHppc94YR06XFAxoJf-uE-qxJUcZWUipI2D_JbRliak1n35ghnOkcyKAqKJdbVEMzgqCxdWDVbtnKFl06U2HH4YivHjs4mtwb1JHfgVKPrjlV7CDIgyg==",
+          "title": "antonmislawsky.com"
+        }
+      ],
+      "answer": "מזל טוב! חתונת שטח בטבע (יער, מדבר, חוף ים או מטע פקאנים) היא חוויה קסומה וייחודית, אך היא דורשת צלם עם מיומנויות ספציפיות. בניגוד לאולם סגור שבו אפשר לשלוט בתאורה, בטבע הצלם חייב לדעת לעבוד עם תאורה טבעית משתנה, להתמודד עם תנאי שטח ולנצל את הנוף בצורה הטובה ביותר. \n\nהנה כמה צלמים וצוותי צילום מומלצים בישראל שיש להם ניסיון רב בחתונות שטח וטבע, יחד עם טיפים לבחירה נכונה:\n\n### צלמי חתונות שטח מומלצים:\n1. **EDSTUDIO (דניאל ואליאב):** צוות צלמים שמקבל המון המלצות חמות ברשת, במיוחד על צילומי חוץ וחתונות בטבע. הם ידועים בווייב קליל, צעיר וזורם שמפיג את הלחץ, ומספקים תמונות טבעיות ומוארות.\n2. **אקפלה צלמים (Acapella):** סטודיו שמאגד מספר צלמים אמנים (כמו רוני פוקס, אסף ספקטור וסיני קורן) שזוכים להמלצות רבות בקבוצות מתחתנים על חתונות שטח. הם מתמחים בצילום דוקומנטרי-אומנותי ומציעים חבילות משתלמות.\n3. **בני לפיד:** צלם בעל ניסיון רב המקדיש תשומת לב מיוחדת לחתונות בטבע ולסיפור המשפחתי שמאחוריהן. הסגנון שלו מאוד תיעודי-טבעי, והוא מצטיין בלכידת הרגעים הקטנים והאותנטיים עם הרבה רגישות לזוג ולמשפחות.\n4. **סטודיו אילון (משה רון אילון):** מתמחה בלוקיישנים פתוחים כמו חופי ים, מדבר ושמורות טבע. הוא יודע בדיוק איך לנצל את תנאי מזג האוויר ועונות השנה (שלכת, פריחה, שקיעות חורפיות) כדי לייצר תמונות עוצרות נשימה.\n5. **אימג' 11 (מני וליז):** צוות צילום שמקבל ביקורות מעולות על יחס אישי, סבלנות ויכולת לתפוס רגעים מרגשים בטבע באווירה נינוחה. הם מנוסים מאוד גם בצילומי \"טראש\" בטבע הפתוח ובלוקיישנים לא שגרתיים.\n\n### דגשים וטיפים לבחירת צלם לחתונת שטח:\n\n*   **ניסיון בתאורה טבעית:** זהו הקריטריון החשוב ביותר. בחתונת חוץ אין תקרה להקפיץ ממנה פלאשים. הצלם חייב לדעת לעבוד עם שמש ישירה, צללים של עצים, \"שעת הזהב\" של השקיעה, וחשכה מוחלטת לאחר מכן. בקשו לראות גלריות שלמות של חתונות בטבע כדי לוודא שהאיכות נשמרת בכל שעות היום.\n*   **צילום רחפן:** בחתונת טבע, הלוקיישן הוא חלק בלתי נפרד מהסיפור. רחפן יכול לצלם את הקרחת ביער, אוהל הטיפי או החופה על רקע המדבר – אל תוותרו על צלם שמציע שילוב של וידאו וסטילס מהאוויר.\n*   **התמודדות עם איתני הטבע:** צלם שטח מנוסה יגיע עם ציוד גיבוי מתאים, ידע להגן על המצלמות מאבק או חול (אם אתם במדבר או בים), ויהיה מוכן להתרוצץ בשטח לא מפולס.\n*   **סיור מקדים (Location Scouting):** בחתונות שטח רבות ההתארגנות וקבלת הפנים מתרחשות כולן באותו אזור. צלם טוב יגיע מוקדם או יעשה סיור מקדים כדי למצוא את הפינות הפוטוגניות והאינטימיות ביותר לצילומי הזוגיות, הרחק מעמדות הקייטרינג שמוקמות באותו זמן.\n*   **וייב וכימיה:** חתונות בטבע נוטות להיות קלילות, משוחררות ופחות רשמיות מחתונות באולם. חשוב לבחור צלם שמשדר את אותו התדר – קליל, זורם, שלא מביים אתכם יותר מדי אלא פשוט \"לוכד את הרגע\".\n\n**המלצה לסיום:** כנסו לאינסטגרם של הצלמים ולפורטלים כמו Mit4Mit או \"מאורסים מאורסות\", וחפשו ספציפית אלבומים תחת ההאשטאגים `#חתונתשטח` או `#חתונהבטבע`. כשתראו צלם שהצבעים בעבודות שלו (ירוק של יער או צהוב של מדבר) נראים לכם טבעיים ומחמיאים – תדעו שזה הכיוון.",
+      "error": null
+    },
+    {
+      "promptId": "p12",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "כמה עולה צלם חתונות בישראל ב-2026?",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "mithatnimgroup.com",
+        "lunsoul.com",
+        "midrag.co.il",
+        "jacobensimon.com",
+        "yoyomagnet.com"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEc_AhJq77Fm2dv7HQa3GBSYN0_9CXr7SxquOpA2K5L_IUXtL8wl7GfiVDY-2x07B04CpmOHTaEvHWVP__dGJntkiwQ0zBa4mCM5AATKUDMg0nTnLgPizEFXqTx9XJwOxDkpR1j4tzCEl9mIIEjo8c-Poj2aPCtUViExuy_7UZjDHPh4HbEvmtoj3_c0_4aLWvA6heEyYMuPCSAwAPF_UiVETUpWEEoK4LIkw7-quk3dV2zwwyfkWo1ckpwFDMp8jCGfxF47ZgB62PseyH4DT76jTsWb6AhdqYk5OplHpbUcp6oiw1i6IUpX1-M66kj-nUDTCsBAK_A83RCByIjBhWp",
+          "title": "mithatnimgroup.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnTiSffQ2B3dlayo73OE2LESSOaE9BWgc_sFBlTy21IMcT1H6PlWNCC0TyxIZRkmRfJVRl7ky-yDiWxSgTyZjKqMMiVvf8Jp4VpRotK1OM2RsbhS61b_VKhktT_NbQCHx0KooPhfTBxosKJHpzFeO0iGw=",
+          "title": "lunsoul.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHv5a3lHGk7SDFmkpRgWmKc7pay7jm_Lu6ZsID_ZXNoueMvWT2rHg9IgNV7fjWwQ9W5g5VmGn_adIgSqXXAARPIo4QY298g9m7IEvZ_YfXdZs7x3YgwBPG-5WFQKlAs1Wgf",
+          "title": "midrag.co.il"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFk2HImMLN0lUtrX-TpyFw-QsY3H6w2_96YEo88VW54-eu5Tc_Ac3zwVY4o6xuuS5YX2xiDKHU6b-3MCyO2EV2bzsDO1vJJNfLGAb19d2tCc5NlitaqYcx4UjCEZhNrI-0=",
+          "title": "jacobensimon.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGfad8FC8nY8y2x2d7Id0LT5vro5ZSnwc5W65lhqoxdTjlCeumqeiaAVMN49eoJrQ52KHIEOVaNOKiC5FZLhsKEe3tYRV6qjKofCIAeBW-moZNltrGnqkg09k9mQx_BVxu_XXpoIvAO0jEDEOyV_1kdM80kFBehmjVvMvvHiHtE8Qj5o7g=",
+          "title": "yoyomagnet.com"
+        }
+      ],
+      "answer": "נכון לשנת 2026, עלות צלם חתונות בישראל משתנה מאוד ותלויה בניסיון של הצלם, בגודל הצוות שיגיע לאירוע ובהרכב החבילה שתבחרו. \n\n**טווח המחירים והממוצע:**\n* **טווח כללי:** המחירים נעים לרוב בין 4,000 ₪ ויכולים להגיע עד ל-25,000 ₪.\n* **ממוצע לחבילת צילום:** ממוצע המחירים לחבילה בארץ נע בין 7,000 ₪ ל-11,000 ₪. עם זאת, חבילה \"סטנדרטית\" ומלאה יותר הכוללת צלם סטילס, צלם וידאו ואלבומים, תעלה בממוצע כ-15,000 ₪.\n\n**חלוקה לפי רמת מקצועיות ומוניטין:**\n* **צלם מתחיל:** 4,000 – 6,000 ₪.\n* **צלם מקצועי ומנוסה:** 6,000 – 10,000 ₪.\n* **צלם מוביל ומבוקש:** 10,000 – 15,000 ₪.\n* **צלם פרימיום (מותגים מובילים והפקות יוקרה):** 15,000 – 25,000 ₪.\n\n**עלויות של תוספות נפוצות לחבילה:**\n* **צילום מגנטים:** תוספת של כ-800 – 1,200 ₪.\n* **צילומי זוגיות / \"טראש דה דרס\" (Save the Date):** כ-600 – 1,500 ₪. לרוב, סגירת יום צילומים זה מראש כחלק מחבילת החתונה תוזיל את העלות.\n* **תוספת מרחק/נסיעות:** אם תזמינו צלם מאזור המרכז לחתונה בצפון או בדרום, ייתכן שתתבקשו להוסיף 200 – 300 ₪ על הוצאות נסיעה וזמן.\n* **רחפן או צלם עזר נוסף:** ייקרו את החבילה הבסיסית בהתאם, מאחר ונדרש איש צוות נוסף.\n\n**מה עוד משפיע על המחיר?**\n1. **עונת השנה:** חודשי הקיץ הם שיא \"עונת החתונות\" והמחירים בהתאם. חתונת חורף עשויה לחסוך לכם כמה מאות ועד אלפי שקלים.\n2. **התוצרים הסופיים:** האם החבילה כוללת רק תמונות על גבי דיסק-און-קי, או גם הדפסת אלבומים (לזוג ולהורים)? האם סרט הווידאו הוא קליפ תקציר (היילייטס) או סרט ארוך המקיף את כל האירוע? כל תוצר נוסף מתומחר בנפרד.\n3. **שעות העבודה ביום האירוע:** רוב חבילות הצילום מכסות כ-12 שעות עבודה (לרוב משעות הצהריים בשלב ההתארגנות ועד אזור 1:00 בלילה). חריגה אל תוך השעות הקטנות של הלילה עלולה לגרור תוספת תשלום.\n\n**טיפ חשוב:** לפני הסגירה, אל תוותרו על פגישת היכרות ובקשו הצעת מחיר מסודרת וחוזה המפרט בדיוק את שעות העבודה, מספר הצלמים בפועל, לוח הזמנים לקבלת התוצרים ומדיניות ביטולים.",
+      "error": null
+    },
+    {
+      "promptId": "p13",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "איך בוחרים צלם חתונות? על מה להסתכל ואיפה לקרוא ביקורות",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [],
+      "cites": [],
+      "answer": "בחירת צלם חתונות היא אחת ההחלטות החשובות ביותר בארגון החתונה, פשוט כי התמונות (והווידאו) הם מה שיישאר לכם למזכרת אחרי שהאוכל ייאכל והמוזיקה תיפסק. \n\nהנה מדריך מפורט שיעזור לכם לבחור נכון:\n\n### 1. על מה להסתכל כשבוחרים צלם?\n\n*   **סגנון הצילום:** לכל צלם יש \"טביעת אצבע\". האם אתם מתחברים לסגנון טבעי ודוקומנטרי (תפיסת רגעים ללא בימוי), סגנון קלאסי ומבויים, סגנון אופנתי ואמנותי, או סגנון \"מואר ונקי\" (Light & Airy) לעומת \"דרמטי\" (Dark & Moody)? \n*   **בקשו לראות \"גלריה מלאה\":** זה הכלל החשוב ביותר! כל צלם יכול לבחור 20 תמונות מדהימות לאינסטגרם. בקשו לראות אלבום שלם או גלריה מלאה של 2-3 חתונות מתחילתן ועד סופן. כך תראו איך הצלם מתמודד עם סיטואציות שונות: צילומי זוגיות באור יום, קבלת פנים, חופה (לרוב בתנאי תאורה קשים/חושך), ורחבת הריקודים.\n*   **החיבור האישי (כימיה):** הצלם הוא הספק שיהיה איתכם הכי הרבה שעות ביום החתונה – מההתארגנות בבוקר ועד אחרון השיכורים בלילה. אם הוא לא נעים, מלחיץ או שאין לכם כימיה איתו, זה יורגש בתמונות. חשוב להיפגש (או לפחות לעשות שיחת וידאו) ולראות שאתם מרגישים איתו בנוח.\n*   **עיבוד (עריכת התמונות):** שימו לב לצבעים של התמונות. האם עור הפנים נראה טבעי? האם העריכה מוגזמת מדי או מחמיאה? \n*   **צוות וגיבוי:** כמה צלמים מגיעים לאירוע (בד\"כ מומלץ 2 צלמי סטילס וצלם וידאו, תלוי בגודל האירוע)? האם הוא עובד עם מחליפים במקרה חירום? האם יש לו ציוד גיבוי (מצלמה נוספת) ואיך הוא מגבה את התמונות בסוף הערב?\n*   **החוזה וזמני אספקה:** מתי תקבלו טעימה ראשונה? מתי כל התמונות יהיו מוכנות? מתי האלבומים? האם מקבלים את התמונות ללא סימן מים ובאיכות הדפסה?\n\n---\n\n### 2. איפה לקרוא ביקורות ואיך לחקור?\n\nבישראל יש כמה פלטפורמות מצוינות לבדיקת אמינות ואיכות של ספקי חתונות:\n\n*   **אתר Mit4Mit (מתחתנים למען מתחתנים):** \n    ה-מקום לביקורות על חתונות בישראל. מדובר באתר שמבוסס נטו על חוות דעת של זוגות שהתחתנו. חפשו את שם הצלם וקראו גם את הביקורות הישנות וגם את החדשות. שימו לב לא רק למחמאות על התמונות, אלא למה שאומרים על האווירה שהצלם השרה ביום עצמו, על העמידה בזמנים ועל שירות הלקוחות אחרי החתונה.\n*   **קבוצות פייסבוק ייעודיות:**\n    ישנן קבוצות חזקות מאוד שבהן כלות וחתנים משתפים חוויות (ולפעמים גם אזהרות שלא תמצאו בשום מקום אחר). קבוצות בולטות:\n    *   *כלות אורבניות (Urban Brides)*\n    *   *מאורסים מאורסות בדרך לחתונה*\n    *   *מתחתנים 2026/2027* (או כל שנה רלוונטית)\n    *טיפ:* עשו חיפוש (Search) בתוך הקבוצה על שם הצלם. אם אתם רוצים להיות בטוחים, אפשר להעלות פוסט אנונימי ולבקש \"המלצות או דיס-המלצות על הצלם X, אפשר גם בפרטי\". הרבה פעמים זוגות יכתבו לכם בפרטי דברים שהם מתביישים לכתוב פומבית.\n*   **אינסטגרם - תמונות מתויגות (Tagged Photos):**\n    אל תסתכלו רק על הפיד של הצלם (שם נמצאות יצירות המופת שלו). היכנסו ללשונית \"התמונות המתויגות\" בפרופיל שלו. שם תראו תמונות שזוגות ואורחים העלו בעצמם. \n    *טיפ זהב:* שלחו הודעה פרטית באינסטגרם ל-2-3 כלות/חתנים שהתחתנו בחודשים האחרונים עם אותו צלם ושאלו: \"היי, אנחנו חושבים לסגור עם X, הייתם מרוצים? איך הוא היה ביום עצמו? קיבלתם את התמונות בזמן?\". זוגות אחרי חתונה בדרך כלל מאוד שמחים לעזור!\n*   **גוגל (Google Reviews):**\n    בדיקה פשוטה ומהירה בגוגל מאפשרת לראות את הדירוג הכללי של העסק. אם יש תלונות על חוסר מקצועיות או אי-מסירת חומרים, הן לרוב יצוצו שם.\n\n**לסיכום:** הגדירו לכם תקציב וסגנון ויזואלי מועדף, סננו 3-4 צלמים שמתאימים לדרישות, בדקו את הביקורות שלהם ב-Mit4mit ובפייסבוק, וקבעו פגישה עם 1-2 שהכי אהבתם כדי לראות אם יש \"קליק\". המון מזל טוב!",
+      "error": null
+    },
+    {
+      "promptId": "p14",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "Who are the best wedding photographers in Israel? Give names and websites.",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "topinisrael.com",
+        "mywed.com",
+        "oricarmi.com",
+        "kudrik.com",
+        "wordpress.com"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPGz5EZynJU6V8mb6frBLDfWYRXJ2VSjsC6aO5xDTtgbTeLAVPEtSScRe20oy0Yk5QYy5MgyR6EXw3_soZL8vAi6U95TsNx2VIvpplgRN1QEpud47JaNknWeGnBiLG4pKF4ulsf9JEW_2A9elF27gSBsRhYg==",
+          "title": "topinisrael.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxcp6QNirOOHppPpxVrUutluPNrDo8TfIVFNxFKvRRuFuy13h_CXmhy9fFOetSxP-pxEGcBFenBYU2GQy4wrTo3q4dLHyH8v0LWP233FzBBgT2upD28RO5JlcvETuuIZcsK0dpka7A",
+          "title": "mywed.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFY11cZAJFB1AjXGMdbnnYKWBjmcDE4SAGd-Xh6WobbyyupcTpQ9JF6PQPfs3IWXZ21ri1TvTeT4qmZUotVgmiIn4JXiJfy0f75CwI=",
+          "title": "oricarmi.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFB0jOzVYjklMR-G7lavCyBu25MhL8ov5kxrIwjT2pseg5Hy6P6pQbbgFj8U8TqLRbKBLb0medrsr_x7kK5dgfDw3V50w-RO5Y6VbTGSRWjyImOTphX",
+          "title": "kudrik.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgFaTV-iJG0jOGjN80NxgYb_d5lZRKUDvdAfYY-2oCTEXTvcp0XSW-GYsm9_r4-5g8IrYqXf-K-B5hZQH8JyCK-TDpfhmNwTodlwiRVdhoxYyd61O6vwTAui9uueM_hw==",
+          "title": "wordpress.com"
+        }
+      ],
+      "answer": "When looking for the best wedding photographers in Israel, there are several highly acclaimed professionals who consistently rank at the top of local and international directories (such as MyWed and Fearless Photographers). Many of them cater to destination weddings, offer both photography and videography, and speak fluent English. \n\nHere is a list of some of the best and most highly recommended wedding photographers in Israel, along with their websites:\n\n**1. Daniel Notcake**\n*   **Overview:** Often ranked as the #1 wedding photographer in Israel by directories like MyWed. Based in Tel Aviv, he and his team provide multi-shooter photo and in-house video coverage all over the country and worldwide. He is heavily sought after for large and destination weddings. \n*   **Website:** [danielnotcake.com](https://danielnotcake.com/)\n\n**2. Anton Mislawsky**\n*   **Overview:** Tel Aviv-based photographer and filmmaker specializing in Jewish and destination weddings globally. He works in English, Hebrew, and Russian, making him highly recommended for Anglo and international couples. \n*   **Website:** [antonmislawsky.com](https://antonmislawsky.com/)\n\n**3. Shahar Vin (Shahar Vinitsky)**\n*   **Overview:** Based in Haifa, Shahar is an internationally awarded photographer recognized by MyWed and Fearless Photographers. He is known for a candid, photojournalistic style that prioritizes capturing raw, authentic emotions rather than staged poses.\n*   **Website:** [shaharvin.com](https://shaharvin.com/)\n\n**4. Jeremy Lerman (Big Picture Stories)**\n*   **Overview:** If you are getting married in Jerusalem, Jeremy Lerman is widely recommended. He specializes in English-speaking traditional and Orthodox weddings in the Jerusalem area.\n*   **Website:** [bigpicturestories.com](https://bigpicturestories.com/) (also [jeremylerman.com](https://jeremylerman.com/))\n\n**5. Ori Carmi**\n*   **Overview:** An award-winning destination wedding photographer based in Tel Aviv. He shoots in a highly elegant, timeless style and works with couples throughout central Israel and beyond.\n*   **Website:** [oricarmi.com](https://oricarmi.com/)\n\n**6. Alexey Kudrik**\n*   **Overview:** Known for his artistic point of view and seamless reportage style. Alexey is highly praised by couples for blending into the background so clients can relax while he captures the true, natural energy of the day. \n*   **Website:** [kudrik.com](https://kudrik.com/)\n\n**7. Herschel Gutman**\n*   **Overview:** Extremely experienced in the Israeli wedding market, Herschel specializes in both local and destination Jewish weddings and events across the country.\n*   **Website:** [herschelgutmanphotography.com](https://herschelgutmanphotography.com/)\n\n*Tip: Wedding dates in Israel (especially during the spring, early summer, and after the high holidays) book up incredibly fast. It is recommended to reach out to these photographers 6 to 12 months in advance to secure your date.*",
+      "error": null
+    },
+    {
+      "promptId": "p15",
+      "engine": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "date": "2026-09-14",
+      "prompt": "Recommended wedding photographer and videographer in Tel Aviv for a wedding in Israel",
+      "brandNamed": false,
+      "brandCited": false,
+      "sourceDomains": [
+        "danielnotcake.com",
+        "topinisrael.com",
+        "antonmislawsky.com",
+        "smashingtheglass.com",
+        "wedaward.com",
+        "wordpress.com",
+        "luz-weddings.com",
+        "oricarmi.com",
+        "myportfolio.com",
+        "livestreamsimcha.com"
+      ],
+      "cites": [
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFkvEwtzC-YR2gtkyFm3uOuWPBVRrQ6DUZoBfmwwzzLv8RI-SUym1Cd3h_zzEQS7bbYmjymoLucTym6NII3iKtrqbFE5EMnkkUSqOjACiT7H-AVrypIPtKM",
+          "title": "danielnotcake.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrZJO7V0jrNDEpIDnfiAkyJ8f1C9VImrz8H1VdXwt2auPgiM1lDGrzaktR68EPhvec_FxhaFY1pRzS9qBa9lmfJ8M7J1xxjXBLSTiFyeH6My7cjSiP4soH31x8gM5K4hisPNp6FhZ9p0llal0DF30Tiff3nQ==",
+          "title": "topinisrael.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFST6pxpj2iSUJ6Pjtk7qSh5As_sdhlXkLaVONUPyuiYfk7Ax2HEfNP2Oc11mfXWarRPqxt-Lxoozc3_mfIB2aitUGxG4e2LQl0Tpf5cyXjQR6PQGXnnC8aHEM9Q0vqlyzoJ8M52LRgl5rz98PDs8hV0rRQAcADuqsRo-3bT1g=",
+          "title": "antonmislawsky.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwpdvkKHeLWf32CmvOTYdCamoMmPPnz0TKxBIO0eaY4ghAoo5j2F_-fv8sm6ngFmowPcNkJjvkdXn4Sibv3P4AjFq2jtlpdRzdDIwvfRoPhF4=",
+          "title": "antonmislawsky.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoULEzKUH4NX49SLDuhiC8wluoC1b29skIpjsHlRTHAztNXrKk6fLdeWvcASyX2ImcI7HKzCDB3EdHpedtu_iaOogIPf1JoPfyHies_cf2l2SvqZV8-UCX0FjH31byhpIoxmcqwvQRfFci9YQ_HZHGStylpAeFMyiGaNu41jnx6kncPk9-EFg9OM85OxAYDw==",
+          "title": "smashingtheglass.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE7kXJnmP-u3OSgtjCjcr63LB3lOejGVuIZs0vBcHxgeCx6pS9fE3JiTtNjHb3vhrk9DmcVrH9HgsALZvdKJKULBQfn4-cnC2eiKm0TKr5Ef7y53fDXGsSAy02wT2MHcIKeKA9ugGHIVq1l3rmgE10=",
+          "title": "wedaward.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBtf_bardZDnyVfGhxjUV0jqDjt2MatMVtkICR-vFpJDMfx3CKZOW6WjH5fweNtjsCHmJixX1pd2-m92wKQTS-YksCwQqxOdESu2j8SC1wxEBzXFiV5BgBz9bbCvBfbw==",
+          "title": "wordpress.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFVtKcjI-o6xLPRwTYJ_3XEWi9ji6fiB0Pl1lw1bFHOFIB0tw2sC-b7D7FA1FPj62PWg3w5wecpA98zbbJP91A10TM_23OOIvquqOxwz3MeFcWoEg==",
+          "title": "luz-weddings.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFOSNborbQGQ81KVzHxUTDM6P_KjcR2Z4dNVmQYSB_ytnRGRB1jdIcX0aDjYETYmf_8lCD_5go7Rk7uC3FiaUrGuXUY_JPEj25YpYo=",
+          "title": "oricarmi.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSXclQ1KWzZtxHkNI2Wou9V-H1MMuXYeggtLHaiPZ50yHBW7TPoMNiJRJ751H2kQdA9MXF76JBT_oKo21ILW_C4BLMBiJn8anjKhsLHslxbc0JFUgvE70L",
+          "title": "myportfolio.com"
+        },
+        {
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoOTBX3erKs1cf_fInVLdLvhoNINf2sJPgJr1OYtIZeRIyVedwvIvwLYcw982Wi9AMn4DI7yyzAWORsxbQHrV7ptfL4P0TwtsY1hP0dsn8ThGFFd7TBEGSJe4x6C-BfZRFAfUcjUp4FG-YoWVV1TchdIeOTs-hfLX7oNM=",
+          "title": "livestreamsimcha.com"
+        }
+      ],
+      "answer": "If you are planning a wedding in Israel and looking for professionals based in or around Tel Aviv, there are some incredibly talented photographers and videographers who cater to local, Anglo, and destination weddings. \n\nHere is a curated list of highly recommended wedding photographers and videographers in the Tel Aviv area, categorized by their offerings and styles:\n\n### 📸🎥 Best All-in-One Studios (Photography + Videography)\nBooking a team that handles both photography and videography is often highly recommended, as they share the same visual style and are used to staying out of each other's shots. \n\n**1. Daniel Notcake & Alice Notcake**\n*   **Why they stand out:** Daniel Notcake is frequently ranked as one of the top wedding photographers in Israel (and holds the #1 spot on MyWed). Together with Alice Notcake, their studio provides a seamless photo and video package. \n*   **Style:** Very high-end, dynamic, and vibrant. They do an excellent job capturing raw emotion alongside highly polished, magazine-quality portraits.\n*   **Perks:** Because they have an in-house team of shooters, you can get multi-angle coverage without having to manage separate vendors. They speak English, Hebrew, and Russian.\n\n**2. Anton Mislawsky**\n*   **Why he stands out:** Based in Tel Aviv, Anton is both an accomplished photographer and a cinematic filmmaker. He is highly experienced with traditional Jewish weddings, Anglo couples, and destination weddings. \n*   **Style:** Natural, candid, and cinematic. He is great at blending in and catching unstaged moments. \n*   **Perks:** He offers comprehensive services, including drone footage, livestreaming to YouTube/Facebook for relatives overseas, and even film photography (Kodak/Fujifilm) if you want a vintage touch. \n\n### 📸 Top Wedding Photographers \n\n**3. Herschel Gutman Photography**\n*   **Why he stands out:** Based in Herzliya (just minutes north of Tel Aviv), Herschel is an award-winning photographer who is highly popular among English-speaking couples. \n*   **Style:** Romantic, soft, and deeply focused on candid moments and natural interactions. \n*   **Vibe:** Reviews consistently mention his calm, reassuring, and relaxed demeanor, which is a massive plus on a high-adrenaline wedding day. \n\n**4. LUZ Weddings**\n*   **Why they stand out:** If you are having a sleek, modern Tel Aviv wedding, LUZ is a premier choice. \n*   **Style:** The founders have backgrounds in architecture and design, and their style is heavily inspired by geometry, urban environments, high fashion, and striking compositions. Their photos look like they belong in *Vogue*.\n\n**5. Ori Carmi**\n*   **Why he stands out:** A highly sought-after, award-winning destination wedding photographer based right in Tel Aviv. \n*   **Style:** Exceptional use of lighting, energetic party shots, and a knack for framing sweeping, dramatic portraits that showcase the beautiful Israeli landscape or city backdrops. \n\n### 🎥 Top Wedding Videographers\n\n**6. Arty Films (Arthur)**\n*   **Why he stands out:** Arthur is a true *cinéma vérité* filmmaker who went to film school in Tel Aviv and has had his work screened at Cannes and the Docaviv Film Festival. \n*   **Style:** Documentary-style wedding films. If you hate heavy staging, awkward posing, and cliché wedding video tropes, he is the perfect fit. He uses natural light and a handheld aesthetic to create a deeply intimate, timeless film. \n\n**7. Live Stream Simcha**\n*   **Why they stand out:** While they specialize in high-quality videography, they are specifically the absolute best in the business if you have family abroad who cannot make it to Israel. \n*   **Style:** Traditional, reliable, and highly respectful of religious nuances. They do professional-grade, multi-camera live broadcasting rather than just setting up a laptop on Zoom. \n\n### Tips for Booking in Israel:\n*   **Languages:** Most top-tier vendors in Tel Aviv speak fluent English, making it incredibly easy for Anglo couples to coordinate.\n*   **Packages:** When pricing things out, ask if travel fees are included. Many Tel Aviv-based photographers will travel to Jerusalem, Caesarea, or the desert without extra charges, but it is always best to confirm.\n*   **Book Early:** The wedding season in Israel (especially May-June and September-October) gets booked up exceptionally fast, often a year in advance.",
+      "error": null
+    }
+  ]
+}

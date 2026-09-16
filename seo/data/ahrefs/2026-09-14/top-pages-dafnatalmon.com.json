@@ -1,0 +1,39 @@
+{
+  "pages": [
+    {
+      "url": "https://www.dafnatalmon.com/dating",
+      "sum_traffic": 32,
+      "keywords": 4,
+      "top_keyword": "צילום לאתרי הכרויות",
+      "top_keyword_volume": 90
+    },
+    {
+      "url": "https://www.dafnatalmon.com/datingappstips",
+      "sum_traffic": 1,
+      "keywords": 1,
+      "top_keyword": "תמונות לטינדר",
+      "top_keyword_volume": 40
+    },
+    {
+      "url": "https://www.dafnatalmon.com/",
+      "sum_traffic": 0,
+      "keywords": 1,
+      "top_keyword": "דפנה טלמון",
+      "top_keyword_volume": 0
+    },
+    {
+      "url": "https://www.dafnatalmon.com/about",
+      "sum_traffic": 0,
+      "keywords": 1,
+      "top_keyword": "דפנה טלמון",
+      "top_keyword_volume": 0
+    },
+    {
+      "url": "https://www.dafnatalmon.com/photography",
+      "sum_traffic": 0,
+      "keywords": 1,
+      "top_keyword": "דפנה טלמון",
+      "top_keyword_volume": 0
+    }
+  ]
+}
