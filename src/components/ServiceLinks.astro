@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import campaigns from "@/data/landing.js";
 
 // Every /lp/ page was orphaned: nothing on the site linked to any of them, so
@@ -39,6 +40,12 @@ const GROUPS = [
     slugs: ["wedding-photographer-israel", "weddings-ashdod"],
   },
 ];
+
+// Guides link straight from the homepage hub so each one gets an internal
+// inbound link the day it is published. Drafts are skipped, as on /blog.
+const guides = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .map((post) => ({ href: `/blog/${post.slug}/`, label: post.data.title }));
 
 const known = new Set(campaigns.map((c) => c.slug));
 const groups = GROUPS.map((g) => ({
@@ -84,6 +91,16 @@ const groups = GROUPS.map((g) => ({
       <nav class="svclinks__col" data-reveal aria-label="מהבלוג">
         <h3 class="svclinks__coltitle">מדריכים</h3>
         <ul class="svclinks__list">
+          {guides.map((g) => (
+            <li>
+              <a class="svclinks__link" href={g.href}>
+                <span>{g.label}</span>
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 6l-6 6 6 6" />
+                </svg>
+              </a>
+            </li>
+          ))}
           <li>
             <a class="svclinks__link" href="/blog/">
               <span>הבלוג שלנו</span>

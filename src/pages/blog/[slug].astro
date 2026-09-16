@@ -57,7 +57,34 @@ const dateLabel = d.publishDate.toLocaleDateString("he-IL", {
 
     <div class="post__body container">
       <Content />
+
+      {d.faq && d.faq.length > 0 && (
+        <section class="post__faq" aria-labelledby="post-faq-title">
+          <h2 id="post-faq-title">שאלות ותשובות</h2>
+          {d.faq.map((item) => (
+            <>
+              <h3>{item.q}</h3>
+              <p>{item.a}</p>
+            </>
+          ))}
+        </section>
+      )}
     </div>
+
+    {d.faq && d.faq.length > 0 && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: d.faq.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a },
+          })),
+        })}
+      />
+    )}
 
     <aside class="post__cta">
       <div class="container post__cta-inner">

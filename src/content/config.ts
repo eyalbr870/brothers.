@@ -24,6 +24,9 @@ const blog = defineCollection({
     keyword: z.string().optional(),
     readingMinutes: z.number().default(6),
     draft: z.boolean().default(false),
+    // Q&A shown at the end of the post and emitted as FAQPage structured data,
+    // so Google and AI engines can lift each answer on its own.
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 
