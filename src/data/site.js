@@ -96,6 +96,9 @@ export const site = {
     title: "הרגעים\nהאמיתיים\nשלכם",
     subtitle:
       "צילום חתונות בגישה טבעית וקולנועית, כי הסיפור האמיתי נמצא ברגעים הקטנים שביניכם.",
+    // Gallery photo id shown full-bleed behind the hero copy.
+    imageId: "aa398",
+    ctaWhatsapp: "בדיקת תאריך בוואטסאפ",
     ctaPrimary: { label: "לגלריה", href: "#gallery" },
     ctaSecondary: { label: "לתיאום פגישה", href: "#contact" },
     scrollHint: "גללו למטה",

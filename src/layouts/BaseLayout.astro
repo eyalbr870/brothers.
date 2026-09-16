@@ -3,12 +3,13 @@ import "@/styles/global.css";
 import site from "@/data/site.js";
 import { localBusinessSchema } from "@/lib/schema.js";
 import Analytics from "@/components/Analytics.astro";
+import manifest from "@/data/gallery.generated.json";
+import { srcset, resolveItem } from "@/lib/images.js";
 
 const { title = site.title, description = site.description } = Astro.props;
-// The hero renders the brand plate, not a photo, so the LCP element is the
-// logo. Preloading the gallery hero fetched 148 KB at top priority for an
-// image that never painted.
-const heroPreload = "/logo/brothers-plate.png";
+// The homepage hero photo is the LCP element; preload the exact responsive
+// set the <picture> will pick from.
+const heroImage = resolveItem(manifest, site.hero.imageId);
 // Canonical from the configured production domain (astro.config `site`).
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).href
@@ -54,7 +55,14 @@ const businessSchema = localBusinessSchema({
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Preload critical assets -->
-    <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      imagesrcset={srcset(heroImage, "webp")}
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <link
       rel="preload"
       as="font"

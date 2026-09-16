@@ -1,36 +1,51 @@
 ---
 import site from "@/data/site.js";
+import manifest from "@/data/gallery.generated.json";
+import { srcset, fallbackSrc, resolveItem } from "@/lib/images.js";
+
+// One screen: a strong photo, one line, and a way to reach Yariv. The previous
+// scroll-driven logo reveal took ~3 screen heights before any content, which
+// lost visitors arriving from Instagram on a phone.
+const h = site.hero;
+const bg = resolveItem(manifest, h.imageId);
+const titleLines = h.title.split("\n");
+const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(site.contact.whatsappText)}`;
 ---
 
 <section class="hero" id="hero">
-  <!-- The hero is a logo image by design, which left the homepage with no H1
-       at all. This carries the primary keyword for crawlers without touching
-       the visual treatment. -->
-  <h1 class="sr-only">
-    צילום חתונות בכל הארץ - {site.brand} צילום ווידאו לחתונות ואירועים מאת {site.photographer}
-  </h1>
+  <div class="hero__media">
+    <picture>
+      <source type="image/webp" srcset={srcset(bg, "webp")} sizes="100vw" />
+      <source type="image/jpeg" srcset={srcset(bg, "jpg")} sizes="100vw" />
+      <img
+        src={fallbackSrc(bg, "jpg")}
+        alt={`זוג מתנשק בשקיעה על חוף הים - ${site.brand} צילום חתונות`}
+        width={bg.width}
+        height={bg.height}
+        fetchpriority="high"
+        decoding="async"
+        style={`background-image:url('${bg.lqip}')`}
+      />
+    </picture>
+    <div class="hero__scrim"></div>
+  </div>
 
-  <div class="se-track" data-se-track>
-    <div class="se-stage" data-se-stage>
-      <!-- Brand mark that grows from small to full-screen as you scroll -->
-      <div class="se-logo" data-se-logo>
-        <img
-          class="se-logo__img"
-          data-se-logo-img
-          src="/logo/brothers-plate.png"
-          alt={`${site.brand} - ${site.photographer}`}
-          width="1800"
-          height="527"
-          fetchpriority="high"
-          decoding="async"
-        />
-      </div>
-
-      <!-- Scroll cue on the resting field -->
-      <div class="se-hint" data-se-hint aria-hidden="true">
-        <span class="se-hint__text">{site.hero.scrollHint}</span>
-        <span class="se-hint__line"></span>
-      </div>
+  <div class="hero__inner container">
+    <h1 class="hero__title">
+      <span class="eyebrow hero__eyebrow">צילום חתונות בכל הארץ · {site.photographer}</span>
+      {titleLines.map((line, i) => (
+        <span class="hero__line" style={`--i:${i}`}>{line}</span>
+      ))}
+    </h1>
+    <p class="hero__subtitle">{h.subtitle}</p>
+    <div class="hero__actions">
+      <a class="btn btn--light" href={wa} target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.5 9.5 0 01-4.84-1.33l-.35-.2-3.6.94.96-3.5-.23-.36a9.46 9.46 0 01-1.45-5.05c0-5.23 4.26-9.49 9.5-9.49 2.54 0 4.92.99 6.72 2.78a9.43 9.43 0 012.78 6.72c0 5.24-4.26 9.5-9.5 9.5zm5.53-15.01A11.42 11.42 0 0012.03.5C5.74.5.62 5.62.62 11.9c0 2.09.55 4.13 1.6 5.92L.5 23.5l5.82-1.53a11.36 11.36 0 005.71 1.46h.01c6.28 0 11.4-5.12 11.4-11.4 0-3.05-1.19-5.91-3.35-8.06z"></path>
+        </svg>
+        <span>{h.ctaWhatsapp}</span>
+      </a>
+      <a class="btn btn--outline-light" href={h.ctaPrimary.href}>{h.ctaPrimary.label}</a>
     </div>
   </div>
 </section>
@@ -38,221 +53,105 @@ import site from "@/data/site.js";
 <style>
   .hero {
     position: relative;
-  }
-
-  .se-track {
-    position: relative;
-    width: 100%;
-    /* Real height is set by the script; this keeps a sensible first paint. */
+    isolation: isolate;
     min-height: 100svh;
-  }
-
-  .se-stage {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding-block: 7rem clamp(2.6rem, 1.8rem + 5vw, 6rem);
+    color: #fff;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Clean cream field matching the logo plate's ground. */
-    background: #e7d7c2;
-  }
-
-  .se-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 6%;
-    pointer-events: none;
-    will-change: transform, opacity;
-  }
-  .se-logo__img {
-    /* Size at full expansion (scale 1); the script scales it down at rest. */
-    width: min(90vw, 900px);
-    height: auto;
-    transform: scale(0.34);
-    transform-origin: center;
-    will-change: transform;
-    user-select: none;
-    -webkit-user-drag: none;
-  }
-
-  .se-hint {
-    position: absolute;
-    inset-block-end: 1.6rem;
-    inset-inline-start: 50%;
-    transform: translateX(50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.7rem;
-    pointer-events: none;
-    will-change: opacity, transform;
-  }
-  .se-hint__text {
-    font-family: var(--font-label);
-    font-size: 0.62rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--ink-60);
-  }
-  .se-hint__line {
-    width: 1px;
-    height: 46px;
-    background: linear-gradient(rgba(69, 50, 38, 0.55), rgba(69, 50, 38, 0));
-    position: relative;
-    overflow: hidden;
-  }
-  .se-hint__line::after {
-    content: "";
-    position: absolute;
-    inset-inline: 0;
-    top: -50%;
-    height: 50%;
     background: var(--espresso);
-    animation: seScrollDot 2.2s var(--ease) infinite;
   }
-  @keyframes seScrollDot {
-    0% { transform: translateY(0); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: translateY(300%); opacity: 0; }
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .hero__media picture,
+  .hero__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .hero__media img {
+    object-fit: cover;
+    /* Keeps the couple in frame on portrait phones. */
+    object-position: 44% 45%;
+    background-size: cover;
+    background-position: center;
+    animation: heroZoom 14s var(--ease) forwards;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.06); }
+    to { transform: scale(1); }
+  }
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(40, 28, 20, 0.82) 0%,
+      rgba(40, 28, 20, 0.35) 42%,
+      rgba(40, 28, 20, 0.1) 68%,
+      rgba(40, 28, 20, 0.45) 100%
+    );
   }
 
-  @media (max-height: 700px) {
-    .se-hint {
-      display: none;
+  .hero__inner {
+    width: 100%;
+  }
+  .hero__eyebrow {
+    display: block;
+    color: rgba(255, 255, 255, 0.88);
+    margin-block-end: 1.1rem;
+    line-height: 1.5;
+    /* Hebrew label: undo the Latin-only LTR + wide tracking from .eyebrow. */
+    direction: rtl;
+    letter-spacing: 0.12em;
+    text-shadow: none;
+  }
+  .hero__title {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: var(--fs-h1);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    color: #fff;
+    text-shadow: 0 2px 30px rgba(30, 20, 14, 0.35);
+  }
+  .hero__line {
+    display: block;
+    opacity: 0;
+    transform: translateY(32px);
+    animation: heroLine 0.9s var(--ease) forwards;
+    animation-delay: calc(0.1s + var(--i) * 0.1s);
+  }
+  @keyframes heroLine {
+    to { opacity: 1; transform: none; }
+  }
+  .hero__subtitle {
+    margin-block-start: 1.3rem;
+    max-width: 44ch;
+    font-size: var(--fs-lead);
+    font-weight: 300;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .hero__actions {
+    margin-block-start: 1.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 560px) {
+    .hero__actions .btn {
+      flex: 1 1 100%;
     }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__media img { animation: none; }
+    .hero__line { animation: none; opacity: 1; transform: none; }
   }
 </style>
-
-<script>
-  const clamp = (v: number, a: number, b: number) => (v < a ? a : v > b ? b : v);
-  const smoothstep = (e0: number, e1: number, x: number) => {
-    const t = clamp((x - e0) / (e1 - e0 || 1e-6), 0, 1);
-    return t * t * (3 - 2 * t);
-  };
-
-  // Tunable parameters for the logo expansion.
-  const START_SCALE = 0.34; // logo size at rest (fraction of its full width)
-  const END_SCALE = 1; // logo fills the stage
-  const GROW_DISTANCE = 1.0; // logo growth length, in stage heights
-  const REVEAL_DISTANCE = 1.0; // About slides up over the logo (keep at 1 for an exact cover)
-  const REVEAL_PARALLAX = 0.28; // how far the logo drifts up during the reveal, in stage heights
-  const SMOOTHING = 0.1; // follow time, seconds (0 = locked to scrollbar)
-
-  const init = () => {
-    const stage = document.querySelector<HTMLElement>("[data-se-stage]");
-    const track = document.querySelector<HTMLElement>("[data-se-track]");
-    const logo = document.querySelector<HTMLElement>("[data-se-logo]");
-    const logoImg = document.querySelector<HTMLElement>("[data-se-logo-img]");
-    const hint = document.querySelector<HTMLElement>("[data-se-hint]");
-    // The next section (About) slides up over the pinned logo to cover it —
-    // no gap, no fade over content. It needs to paint above the sticky stage.
-    const next = document.querySelector<HTMLElement>("#hero + *");
-    if (next) {
-      next.style.position = "relative";
-      next.style.zIndex = "2";
-    }
-    if (!stage || !track || !logoImg) return;
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const TOTAL = GROW_DISTANCE + REVEAL_DISTANCE;
-
-    let raf = 0;
-    let current = 0;
-    let target = 0;
-    let stageH = 0;
-    let running = false;
-
-    const applyProgress = (q: number) => {
-      const scrolled = q * TOTAL; // in stage heights
-
-      // Grow phase: the logo scales up to fill the stage.
-      const p = clamp(scrolled / GROW_DISTANCE, 0, 1);
-      const e = smoothstep(0, 1, p);
-      logoImg.style.transform = `scale(${START_SCALE + (END_SCALE - START_SCALE) * e})`;
-
-      // Reveal phase: the logo drifts up and fades as About rises to cover it,
-      // so it moves with the reveal instead of sitting frozen.
-      const r = clamp((scrolled - GROW_DISTANCE) / REVEAL_DISTANCE, 0, 1);
-      if (logo) {
-        logo.style.transform = `translate3d(0, ${-REVEAL_PARALLAX * stageH * smoothstep(0, 1, r)}px, 0)`;
-        logo.style.opacity = `${1 - smoothstep(0.1, 0.85, r)}`;
-      }
-
-      if (hint) {
-        const gone = smoothstep(0, 0.12, p);
-        hint.style.opacity = `${1 - gone}`;
-        hint.style.transform = `translateX(50%) translate3d(0, ${8 * gone}px, 0)`;
-      }
-    };
-
-    const measure = () => {
-      stageH = window.innerHeight;
-      if (stageH <= 0) return;
-      stage.style.height = `${stageH}px`;
-      track.style.height = `${stageH * (1 + TOTAL)}px`;
-      // Pull About up so it rises over the pinned logo during the reveal phase.
-      if (next) next.style.marginTop = `-${stageH * REVEAL_DISTANCE}px`;
-    };
-
-    const readProgress = () => {
-      const span = stageH * Math.max(0.01, TOTAL);
-      const top = track.getBoundingClientRect().top;
-      return clamp(-top / span, 0, 1);
-    };
-
-    const tick = () => {
-      const k = SMOOTHING <= 0 ? 1 : 1 - Math.exp(-1 / (60 * SMOOTHING));
-      current += (target - current) * k;
-      if (Math.abs(target - current) < 0.0004) {
-        current = target;
-        running = false;
-      }
-      applyProgress(current);
-      raf = running ? requestAnimationFrame(tick) : 0;
-    };
-
-    const kick = () => {
-      if (running) return;
-      running = true;
-      if (!raf) raf = requestAnimationFrame(tick);
-    };
-
-    const onScroll = () => {
-      target = readProgress();
-      if (SMOOTHING <= 0 || reduceMotion) {
-        current = target;
-        applyProgress(current);
-        return;
-      }
-      kick();
-    };
-
-    const onResize = () => {
-      measure();
-      target = readProgress();
-      current = target;
-      applyProgress(current);
-    };
-
-    measure();
-    target = readProgress();
-    current = target;
-    applyProgress(current);
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
-    const ro = new ResizeObserver(onResize);
-    ro.observe(stage);
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
-</script>

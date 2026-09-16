@@ -100,3 +100,17 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(sit
     .fab__icon::before { animation: none; }
   }
 </style>
+
+<script>
+  // Reveal the floating bubble only after the hero has scrolled mostly out of
+  // view, so it can never overlap the hero CTA buttons at any viewport width.
+  const root = document.documentElement;
+  const hero = document.getElementById("hero");
+  const update = () => {
+    const show = !hero || hero.getBoundingClientRect().bottom < window.innerHeight * 0.55;
+    root.classList.toggle("fabs-revealed", show);
+  };
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update, { passive: true });
+</script>
