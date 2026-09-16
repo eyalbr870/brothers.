@@ -13,10 +13,9 @@ export const ratingValue =
   Math.round((reviews.score / reviews.scoreMax) * 5 * 10) / 10;
 
 /**
- * Service + Offer markup for the three packages, mirroring the comparison
- * table on the homepage. No price is published (a deliberate business
- * decision), so each Offer carries availability and currency but no value -
- * an Offer with a fabricated or 0 price would be worse than none.
+ * Service + Offer markup for the three packages shown in the package finder.
+ * Prices on the site are "starting from" figures, so each Offer carries the
+ * stills-only price as its minPrice rather than as a fixed price.
  *
  * @param {string} siteUrl Absolute site root, with trailing slash.
  */
@@ -36,11 +35,13 @@ export function packagesServiceSchema(siteUrl) {
       "@type": "Offer",
       name: t.name,
       description: [t.tag, t.guests, ...t.stills].join(". "),
+      price: t.priceStills,
       priceCurrency: "ILS",
       availability: "https://schema.org/InStock",
-      // Quoted per event; see the note above on why no price is emitted.
+      // Starting price; the final quote depends on the event.
       priceSpecification: {
         "@type": "PriceSpecification",
+        minPrice: t.priceStills,
         priceCurrency: "ILS",
         valueAddedTaxIncluded: true,
       },

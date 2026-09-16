@@ -7,6 +7,7 @@ import LpBenefits from "@/components/lp/LpBenefits.astro";
 import LpGalleryStrip from "@/components/lp/LpGalleryStrip.astro";
 import LpAbout from "@/components/lp/LpAbout.astro";
 import LpValue from "@/components/lp/LpValue.astro";
+import PackageFinder from "@/components/PackageFinder.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import LpLeadForm from "@/components/lp/LpLeadForm.astro";
 import LpFaq from "@/components/lp/LpFaq.astro";
@@ -29,8 +30,11 @@ const { campaign } = Astro.props;
   <Statement />
   <LpBenefits campaign={campaign} />
   <LpGalleryStrip campaign={campaign} />
-  <LpAbout />
+  <LpAbout hasFinder={campaign.finder !== false} />
   <LpValue campaign={campaign} />
+  {campaign.finder !== false && (
+    <PackageFinder formAnchor="#lead" preset={campaign.finder} />
+  )}
   <Testimonials />
   <LpLeadForm campaign={campaign} />
   <LpFaq campaign={campaign} />

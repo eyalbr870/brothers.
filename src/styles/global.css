@@ -245,3 +245,9 @@ h4 {
   white-space: nowrap;
   border: 0;
 }
+
+/* Number inputs in the lead forms: no spinner arrows (they clash with the
+   floating label in RTL). */
+.field input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.field input[type="number"]::-webkit-inner-spin-button,
+.field input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }

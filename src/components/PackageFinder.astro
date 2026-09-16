@@ -2,6 +2,11 @@
 import site from "@/data/site.js";
 import { packagesServiceSchema } from "@/lib/schema.js";
 
+// formAnchor: where "continue" scrolls to (#contact on the homepage, #lead on
+//             landing pages).
+// preset:     optional { guests, coverage } starting point per campaign.
+const { formAnchor = "#contact", preset = {} } = Astro.props;
+
 const f = site.finder;
 const titleLines = f.title.split("\n");
 
@@ -22,10 +27,19 @@ const tierForGuests = (n) => {
 
 // --- Server-rendered defaults (progressive enhancement) ---
 const defaults = {
-  guests: guestsStep.default, // numeric guest count
-  coverage: "video",
+  guests: preset.guests ?? guestsStep.default, // numeric guest count
+  coverage: preset.coverage ?? "video",
   extras: [],
 };
+
+// "Starting from" price for a selection. Mirrored in the inline script below
+// (define:vars can't carry functions) - keep the two in sync.
+const priceFor = (pkg, coverage, extras) =>
+  pkg.priceStills +
+  (coverage === "video" ? pkg.priceVideoAdd : 0) +
+  extras.reduce((sum, id) => sum + (f.addons[id]?.price ?? 0), 0);
+const formatPrice = (n) =>
+  `${f.result.priceFrom}${n.toLocaleString("en-US")} ${f.result.currency}`;
 
 const pkg0 = f.packages[tierForGuests(defaults.guests)];
 const includes0 = [
@@ -46,10 +60,12 @@ const coverageLabel0 =
   defaults.coverage === "video"
     ? f.result.coverageVideo
     : f.result.coverageStills;
+const price0 = formatPrice(priceFor(pkg0, defaults.coverage, defaults.extras));
 const waMsg0 = f.result.whatsappText
   .replace("{pkg}", pkg0.name)
   .replace("{coverage}", coverageLabel0)
-  .replace("{extras}", "");
+  .replace("{extras}", "")
+  .replace("{price}", price0);
 const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waMsg0)}`;
 ---
 
@@ -157,16 +173,22 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
           <div class="panel__chips" data-r-chips></div>
         </div>
 
+        <div class="panel__price">
+          <p class="panel__subtitle">{f.result.priceTitle}</p>
+          <p class="panel__price-value" data-r-price aria-live="polite">{price0}</p>
+          <p class="panel__price-note">{f.result.priceNote}</p>
+        </div>
+
         <div class="panel__cta-block">
           <h3 class="panel__cta-heading">{f.result.ctaHeading}</h3>
           <p class="panel__cta-text">{f.result.ctaText}</p>
+          <a class="btn panel__cta" href={formAnchor} data-r-continue>{f.result.ctaContact}</a>
           <a
-            class="btn panel__cta"
+            class="panel__link"
             data-r-wa
             href={wa0}
             target="_blank"
             rel="noopener">{f.result.ctaWhatsapp}</a>
-          <a class="panel__link" href="#contact">{f.result.ctaContact}</a>
         </div>
       </aside>
     </div>
@@ -438,6 +460,26 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
     color: var(--chestnut);
   }
 
+  .finder .panel__price {
+    margin-block-start: 1.5rem;
+    padding-block-start: 1.4rem;
+    border-block-start: 1px solid var(--line);
+  }
+  .finder .panel__price .panel__subtitle { margin-block-end: 0.4rem; }
+  .finder .panel__price-value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1.6rem + 1.6vw, 2.7rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--espresso);
+  }
+  .finder .panel__price-note {
+    margin-block-start: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--ink-60);
+  }
+
   .finder .panel__cta-block {
     margin-block-start: clamp(1.6rem, 1rem + 2vw, 2.4rem);
     padding-block-start: clamp(1.4rem, 1rem + 1.5vw, 1.9rem);
@@ -475,14 +517,16 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
   .finder [data-r-tag],
   .finder [data-r-guests],
   .finder [data-r-includes],
-  .finder [data-r-addons] {
+  .finder [data-r-addons],
+  .finder [data-r-price] {
     transition: opacity 0.25s var(--ease);
   }
   .finder.is-updating [data-r-name],
   .finder.is-updating [data-r-tag],
   .finder.is-updating [data-r-guests],
   .finder.is-updating [data-r-includes],
-  .finder.is-updating [data-r-addons] {
+  .finder.is-updating [data-r-addons],
+  .finder.is-updating [data-r-price] {
     opacity: 0.35;
   }
   @media (prefers-reduced-motion: reduce) {
@@ -490,7 +534,8 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
     .finder.is-updating [data-r-tag],
     .finder.is-updating [data-r-guests],
     .finder.is-updating [data-r-includes],
-    .finder.is-updating [data-r-addons] { opacity: 1; }
+    .finder.is-updating [data-r-addons],
+    .finder.is-updating [data-r-price] { opacity: 1; }
   }
 </style>
 
@@ -526,6 +571,29 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
     const nAddons = root.querySelector("[data-r-addons]");
     const nChips = root.querySelector("[data-r-chips]");
     const nWa = root.querySelector("[data-r-wa]");
+    const nPrice = root.querySelector("[data-r-price]");
+    const nContinue = root.querySelector("[data-r-continue]");
+
+    // Mirrors priceFor / formatPrice in the frontmatter.
+    const priceFor = (pkg) =>
+      pkg.priceStills +
+      (state.coverage === "video" ? pkg.priceVideoAdd : 0) +
+      state.extras.reduce((sum, id) => sum + (f.addons[id]?.price ?? 0), 0);
+    const formatPrice = (n) =>
+      `${f.result.priceFrom}${n.toLocaleString("en-US")} ${f.result.currency}`;
+
+    // The selection is handed to the lead forms (LeadFunnel) through
+    // sessionStorage + a window event. Only saved once the visitor has actually
+    // interacted, so an untouched default is never reported as "their choice".
+    let touched = false;
+    let current = null;
+    const save = () => {
+      if (!touched || !current) return;
+      try {
+        sessionStorage.setItem("brothers:selection", JSON.stringify(current));
+      } catch {}
+      window.dispatchEvent(new CustomEvent("brothers:selection", { detail: current }));
+    };
 
     const render = () => {
       const pkg = f.packages[tierForGuests(state.guests)] || f.packages.classic;
@@ -551,23 +619,39 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
         nChips.innerHTML = "";
       }
 
+      // Price
+      const price = priceFor(pkg);
+      const priceText = formatPrice(price);
+      nPrice.textContent = priceText;
+
       // WhatsApp deep link
       const coverageLabel =
         state.coverage === "video"
           ? f.result.coverageVideo
           : f.result.coverageStills;
-      const extrasText = state.extras.length
-        ? f.result.extrasPrefix +
-          state.extras.map((id) => f.addons[id].name).join(", ")
+      const extraNames = state.extras.map((id) => f.addons[id].name);
+      const extrasText = extraNames.length
+        ? f.result.extrasPrefix + extraNames.join(", ")
         : "";
       const msg = f.result.whatsappText
         .replace("{pkg}", pkg.name)
         .replace("{coverage}", coverageLabel)
-        .replace("{extras}", extrasText);
+        .replace("{extras}", extrasText)
+        .replace("{price}", priceText);
       nWa.setAttribute(
         "href",
         `https://wa.me/${whatsapp}?text=${encodeURIComponent(msg)}`
       );
+
+      current = {
+        pkgName: pkg.name,
+        coverage: coverageLabel,
+        extras: extraNames,
+        guests: state.guests,
+        price,
+        priceText,
+      };
+      save();
     };
 
     const flash = () => {
@@ -594,10 +678,14 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
         );
         // Only rebuild the panel when the recommended tier actually changes.
         const tier = tierForGuests(val);
+        touched = true;
         if (tier !== lastTier) {
           lastTier = tier;
           flash();
           render();
+        } else if (current) {
+          current.guests = val;
+          save();
         }
       });
     }
@@ -610,6 +698,7 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
         const id = btn.getAttribute("data-id");
         const group = btn.closest("[data-opts]");
         const multi = group.getAttribute("data-multi") === "1";
+        touched = true;
 
         if (multi) {
           const i = state.extras.indexOf(id);
@@ -630,6 +719,12 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
         flash();
         render();
       });
+    });
+
+    // "Continue" counts as choosing the recommended package as-is.
+    nContinue?.addEventListener("click", () => {
+      touched = true;
+      save();
     });
 
     render();

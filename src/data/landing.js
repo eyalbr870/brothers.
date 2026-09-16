@@ -16,6 +16,8 @@
 //   faq[]       -> expanded Q&A (also emitted as FAQPage structured data)
 //   stats[]     -> optional override for the trust band (default: rating + count
 //                  from reviews.json + site.about.stats)
+//   finder      -> package finder preset ({ guests, coverage }), or false to
+//                  hide the finder (non-wedding pages)
 // ============================================================
 
 export const campaigns = [
@@ -24,6 +26,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "weddings-big-center",
+    finder: { guests: 500 },
     seo: {
       title: "צלם חתונות במרכז לאירועים גדולים | Brothers. - יריב ברוך",
       description:
@@ -73,6 +76,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "weddings-ashdod",
+    finder: {},
     seo: {
       title: "צלם חתונות באשדוד | Brothers. - יריב ברוך",
       description:
@@ -123,6 +127,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "weddings-outdoor",
+    finder: {},
     seo: {
       title: "צילום חתונות שטח וטבע | Brothers. - יריב ברוך",
       description:
@@ -172,6 +177,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "video",
+    finder: { coverage: "video" },
     seo: {
       title: "צלם וידאו לחתונה: סרט חתונה וקליפ Highlight | Brothers.",
       description:
@@ -221,6 +227,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "stills",
+    finder: { coverage: "stills" },
     seo: {
       title: "צלם סטילס לחתונה | Brothers. - יריב ברוך",
       description:
@@ -270,6 +277,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "video-stills",
+    finder: { coverage: "video" },
     seo: {
       title: "וידאו וסטילס לחתונה - חבילה מלאה | Brothers.",
       description:
@@ -318,6 +326,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "weddings-small",
+    finder: { guests: 80 },
     seo: {
       title: "צלם לחתונה קטנה ואינטימית | Brothers.",
       description:
@@ -367,6 +376,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "weddings-concept",
+    finder: {},
     seo: {
       title: "צילום חתונות קונספט - תיעוד אמנותי | Brothers.",
       description:
@@ -417,6 +427,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "business-events",
+    finder: false, // packages are wedding-only; this page keeps just the lead form
     seo: {
       title: "צילום כנסים ואירועים עסקיים | Brothers.",
       description:
@@ -474,6 +485,7 @@ export const campaigns = [
   // ---------------------------------------------------------
   {
     slug: "wedding-photographer-israel",
+    finder: {},
     seo: {
       title: "צלם חתונות בכל הארץ | Brothers. - יריב ברוך",
       description:
@@ -524,7 +536,7 @@ export const campaigns = [
       { q: "לאילו אזורים בארץ אתם מגיעים?", a: "לכל הארץ, בלי יוצא מן הכלל. מרכז וגוש דן, ירושלים, חיפה והצפון, השרון, השפלה, אשדוד ואשקלון, באר שבע והדרום ועד אילת." },
       { q: "יש תוספת תשלום על נסיעה לפריפריה?", a: "לא. המחיר שסיכמנו הוא המחיר, גם אם האירוע בגליל, בערבה או באילת. אין אצלנו הפתעות בחשבון." },
       { q: "כמה זמן מראש כדאי להזמין צלם חתונות?", a: "מומלץ בין חצי שנה לשנה מראש, במיוחד לתאריכים בעונת החתונות (אביב וקיץ). עם זאת, תמיד שווה לבדוק, לפעמים נפתחים תאריכים קרובים." },
-      { q: "כמה עולה צילום חתונה?", a: "המחיר נקבע לפי היקף האירוע, כמות הצלמים והאם נוסף גם וידאו. השאירו פרטים ותקבלו הצעה מותאמת ושקופה, בלי עלויות נסתרות." },
+      { q: "כמה עולה צילום חתונה?", a: "החבילות מתחילות מ-7,000 ₪ לסטילס ומ-12,000 ₪ עם וידאו. המחיר הסופי נקבע לפי היקף האירוע, כמות הצלמים והתוספות, בלי עלויות נסתרות." },
       { q: "אפשר לקחת גם צילום סטילס וגם וידאו?", a: "בהחלט, וזו גם ההמלצה שלנו. הצוות עובד יחד ומתואם, כך שאתם מקבלים גם תמונות וגם סרט חתונה קולנועי, בלי לתאם בין שני ספקים." },
       { q: "מתי מקבלים את התמונות?", a: "גלריה דיגיטלית מלאה, ערוכה ומסוננת, מגיעה אליכם תוך מספר שבועות מהאירוע. מבחר תמונות ראשוני נשלח כבר בימים שאחרי." },
       { q: "אתם מצלמים גם חתונות קטנות ואינטימיות?", a: "כן, ואנחנו מאוד אוהבים את זה. חתונות אינטימיות, אירועי גן, חתונות בטבע וחתונות קונספט, בכל היקף." },

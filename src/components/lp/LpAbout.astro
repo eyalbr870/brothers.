@@ -8,6 +8,7 @@ import Picture from "@/components/Picture.astro";
 // comes straight from site.about so the writing matches the homepage. Kept
 // focused (lead + pullquote + DNA), without the homepage stats block (the LP
 // already has its own trust band) and with a CTA that points to the LP form.
+const { hasFinder = true } = Astro.props;
 const a = site.about;
 const titleLines = (a.title ?? "").split("\n");
 const img =
@@ -48,7 +49,9 @@ const img =
       </ul>
 
       <div data-reveal>
-        <a class="btn" href="#lead">לתיאום פגישה</a>
+        {hasFinder
+          ? <a class="btn" href="#finder">לחבילות ומחירים</a>
+          : <a class="btn" href="#lead">לתיאום פגישה</a>}
       </div>
     </div>
   </div>
