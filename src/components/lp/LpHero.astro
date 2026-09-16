@@ -11,6 +11,13 @@ const titleLines = (h.title ?? "").split("\n");
 const waText = campaign.whatsappText ?? site.contact.whatsappText;
 const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waText)}`;
 const waLabel = campaign.cta?.whatsapp ?? "דברו איתי בוואטסאפ";
+
+// Wedding pages lead into the package finder (package -> price -> form);
+// pages without a finder go straight to the form.
+const hasFinder = campaign.finder !== false;
+const primary = hasFinder
+  ? { href: "#finder", label: "לחבילות ומחירים" }
+  : { href: "#lead", label: campaign.form?.submit ?? "השאירו פרטים" };
 ---
 
 <section class="lphero" id="hero">
@@ -40,7 +47,7 @@ const waLabel = campaign.cta?.whatsapp ?? "דברו איתי בוואטסאפ";
     </h1>
     {h.subtitle && <p class="lphero__subtitle">{h.subtitle}</p>}
     <div class="lphero__actions">
-      <a class="btn btn--light" href="#lead">{campaign.form?.submit ?? "השאירו פרטים"}</a>
+      <a class="btn btn--light" href={primary.href}>{primary.label}</a>
       <a
         class="btn btn--outline-light"
         href={wa}

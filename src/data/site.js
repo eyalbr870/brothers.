@@ -83,10 +83,10 @@ export const site = {
 
   nav: [
     { label: "בית", href: "#hero" },
+    { label: "אודות", href: "#about" },
     { label: "גלריה", href: "#gallery" },
     { label: "המלצות", href: "#testimonials" },
-    { label: "אודות", href: "#about" },
-    { label: "חבילות", href: "#finder" },
+    { label: "חבילות ומחירים", href: "#finder" },
     { label: "שאלות", href: "#faq" },
     { label: "צור קשר", href: "#contact" },
   ],
@@ -99,8 +99,7 @@ export const site = {
     // Gallery photo id shown full-bleed behind the hero copy.
     imageId: "aa398",
     ctaWhatsapp: "בדיקת תאריך בוואטסאפ",
-    ctaPrimary: { label: "לגלריה", href: "#gallery" },
-    ctaSecondary: { label: "לתיאום פגישה", href: "#contact" },
+    ctaPrimary: { label: "איזו חבילה מתאימה לנו?", href: "#finder" },
     scrollHint: "גללו למטה",
   },
 
@@ -131,7 +130,7 @@ export const site = {
       "אנחנו יודעים שחתונה היא לא רק “אירוע”. זה רגע חד־פעמי, טעון ומרגש, עמוס בפרטים קטנים שחשובים לכם באמת. ולכן אנחנו שם כדי לתפוס לא רק איך זה נראה, אלא איך זה הרגיש.",
     closingStrong:
       "אם אתם רוצים אנשים שייכנסו ליום שלכם באמת, שיהיו חלק מהאנרגיה, ושיתעדו את הסיפור שלכם כמו שהוא, ברוכים הבאים ל־Brothers.",
-    cta: { label: "לתיאום פגישה", href: "#contact" },
+    cta: { label: "לחבילות ומחירים", href: "#finder" },
     image: "cYB-617.jpg", // gallery id used as the section portrait
 
     // ---- Extractable facts strip (GEO / AI search + trust) ----
@@ -151,12 +150,14 @@ export const site = {
     loadMore: "עוד תמונות",
   },
 
-  // ---- Package finder (interactive, price-free) ----
+  // ---- Package finder (interactive, with "starting from" prices) ----
+  // Prices mirror the latest quote PDF (הצעת מחיר brothers., Sep 2026). They are
+  // starting prices - the final quote depends on event size, venue and extras.
   finder: {
     eyebrow: "PACKAGE FINDER",
     title: "איזו חבילה\nמתאימה לכם?",
     subtitle:
-      "כמה שאלות קצרות, ונגלה יחד איזו חבילת צילום מתאימה בול ליום שלכם. בלי מחירים, רק התאמה.",
+      "שלוש שאלות קצרות, ותראו מיד איזו חבילה מתאימה ליום שלכם, מה כלול בה וכמה היא עולה.",
     stepLabel: "שלב",
     ofLabel: "מתוך",
     backLabel: "חזרה",
@@ -210,6 +211,8 @@ export const site = {
     packages: {
       basic: {
         name: "Basic",
+        priceStills: 7000,
+        priceVideoAdd: 5000,
         tag: "לאירוע אינטימי וזורם",
         guests: "מתאים לעד 100 מוזמנים",
         stills: [
@@ -224,6 +227,8 @@ export const site = {
       },
       classic: {
         name: "Classic",
+        priceStills: 8000,
+        priceVideoAdd: 5000,
         tag: "הבחירה הפופולרית",
         guests: "מתאים לעד 450 מוזמנים",
         stills: [
@@ -238,6 +243,8 @@ export const site = {
       },
       premium: {
         name: "Premium",
+        priceStills: 8000,
+        priceVideoAdd: 6000,
         tag: "הכיסוי המלא ביותר",
         guests: "מתאים לאירועים גדולים, עד 800 מוזמנים",
         stills: [
@@ -262,10 +269,13 @@ export const site = {
       albums: {
         name: "סט אלבומים",
         desc: "שלושה אלבומים מודפסים (אחד 30×80 ושניים 24×50 ס״מ)",
+        price: 1500,
       },
       std: {
         name: "צילומי Save the Date",
         desc: "מפגש צילום מסוגנן עוד לפני החתונה",
+        price: 1500,
+        from: true, // "starting from" - the session price varies
       },
     },
 
@@ -274,15 +284,18 @@ export const site = {
       lead: "על סמך מה שסימנתם, זו החבילה שהכי מתאימה לכם:",
       includesTitle: "מה כלול",
       addonsTitle: "התוספות שבחרתם",
-      note: "המחיר הסופי נקבע לפי גודל האירוע, מיקום ותוספות. אשמח לבנות לכם הצעה אישית.",
-      ctaHeading: "מוכנים להתחיל?",
-      ctaText: "דברו איתנו לייעוץ אישי והצעה שמתאימה בדיוק ליום שלכם.",
-      ctaWhatsapp: "לקבלת הצעה בוואטסאפ",
-      ctaContact: "השאירו פרטים",
+      priceTitle: "מחיר",
+      priceFrom: "החל מ-",
+      currency: "₪",
+      priceNote: "מחירים התחלתיים, משתנים לפי גודל האירוע, מיקום ותוספות.",
+      ctaHeading: "מתאים לכם?",
+      ctaText: "השאירו פרטים עם החבילה שבחרתם, ונשריין לכם את התאריך.",
+      ctaContact: "להמשך ושריון תאריך",
+      ctaWhatsapp: "או שאלו אותי בוואטסאפ",
       noneLabel: "ללא",
       // {pkg} / {coverage} / {extras} get replaced before sending
       whatsappText:
-        "היי יריב,\nעשינו את שאלון החבילות באתר, והתוצאה שיצאה לנו:\nחבילה: {pkg}\nתיעוד: {coverage}{extras}\nתאריך האירוע: \nמיקום: \nנשמח לשמוע פרטים!",
+        "היי יריב,\nעשינו את שאלון החבילות באתר, והתוצאה שיצאה לנו:\nחבילה: {pkg}\nתיעוד: {coverage}{extras}\nמחיר: {price}\nתאריך האירוע: \nמיקום: \nנשמח לשמוע פרטים!",
       coverageStills: "סטילס בלבד",
       coverageVideo: "סטילס + וידאו",
       extrasPrefix: "\nתוספות: ",
@@ -299,6 +312,7 @@ export const site = {
       phone: "טלפון",
       email: "אימייל",
       date: "תאריך האירוע",
+      guests: "כמות אורחים משוערת",
       message: "ספרו לי על היום שלכם",
       submit: "שליחת פנייה",
       sending: "שולח…",
@@ -306,6 +320,31 @@ export const site = {
       error: "משהו השתבש. נסו שוב או פנו אליי בוואטסאפ.",
     },
     directLabel: "או ישירות",
+
+    // Selection summary shown above the form (filled from the package finder).
+    selection: {
+      title: "הבחירה שלכם",
+      change: "שינוי",
+      empty: "עוד לא בחרתם חבילה?",
+      emptyLink: "גלו מה מתאים לכם ומה המחיר",
+    },
+
+    // Replaces the form after a successful submission.
+    thankYou: {
+      eyebrow: "קיבלנו!",
+      title: "תודה{name}, הפרטים אצלנו",
+      lead: "יריב יחזור אליכם בהקדם. ככה זה ממשיך מכאן:",
+      steps: [
+        { title: "שיחה קצרה", text: "מדייקים פרטים: מיקום, שעות וצרכים מיוחדים." },
+        { title: "חוזה + מקדמה", text: "חוזה דיגיטלי פשוט, ומקדמה בביט או בהעברה בנקאית." },
+        { title: "התאריך שלכם", text: "משוריין רשמית, ואנחנו כבר מתרגשים." },
+      ],
+      urgency: "בעונת החתונות תאריכים נסגרים מהר. ההצעה תקפה ל-14 יום.",
+      ctaWhatsapp: "רוצים לזרז? שלחו לי בוואטסאפ",
+      // {name} {date} {summary} get replaced before sending
+      whatsappText:
+        "היי יריב, זה {name}.\nהשארתי עכשיו פרטים באתר.\nתאריך האירוע: {date}\n{summary}\nנשמח לשריין!",
+    },
   },
 
   // ---- FAQ (homepage), answer-shaped content for Google + AI search ----
@@ -315,7 +354,7 @@ export const site = {
     items: [
       {
         q: "כמה עולה צלם חתונות?",
-        a: "מחיר צילום חתונה נקבע אישית לפי גודל האירוע, המיקום, סוג התיעוד (סטילס בלבד או סטילס + וידאו) והתוספות שתבחרו. יש שלוש חבילות בסיס, Basic, Classic ו-Premium, ואשמח לבנות לכם הצעה מדויקת אחרי שיחה קצרה, בלי עלויות נסתרות ובלי הפתעות בחשבון.",
+        a: "צילום חתונה אצלנו מתחיל מ-7,000 ₪. יש שלוש חבילות: Basic (עד 100 מוזמנים) החל מ-7,000 ₪, Classic (עד 450 מוזמנים) החל מ-8,000 ₪ ו-Premium (עד 800 מוזמנים) החל מ-8,000 ₪. תוספת וידאו (סרט חתונה + Highlight) היא 5,000-6,000 ₪ לפי החבילה, וסט אלבומים 1,500 ₪. אלה מחירים התחלתיים, והמחיר הסופי נקבע לפי גודל האירוע, המיקום והתוספות, בלי עלויות נסתרות.",
       },
       {
         q: "לאילו אזורים אתם מגיעים?",

@@ -1,5 +1,7 @@
 ---
 import site from "@/data/site.js";
+import LeadSelection from "@/components/LeadSelection.astro";
+import LeadThankYou from "@/components/LeadThankYou.astro";
 
 const { campaign } = Astro.props;
 const base = site.contactSection.form;
@@ -19,9 +21,15 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
     <h2 class="lplead__title" data-reveal>{title}</h2>
     <p class="lplead__subtitle" data-reveal>{subtitle}</p>
 
+    <div data-lead-scope>
     <form
       class="form"
       data-lp-form
+      data-lead-form
+      data-campaign={campaign.slug}
+      data-sending={f.sending}
+      data-success={f.success}
+      data-error={f.error}
       name="lead"
       method="POST"
       data-netlify="true"
@@ -35,6 +43,7 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
       <p class="hidden-field" hidden>
         <label>אל תמלאו שדה זה: <input name="bot-field" /></label>
       </p>
+      <LeadSelection finderAnchor={campaign.finder === false ? null : "#finder"} />
       <div class="form__row">
         <div class="field">
           <input id="lf-name" name="name" type="text" required autocomplete="name" placeholder=" " />
@@ -47,13 +56,17 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
       </div>
       <div class="form__row">
         <div class="field">
-          <input id="lf-email" name="email" type="email" autocomplete="email" placeholder=" " />
-          <label for="lf-email">{f.email}</label>
-        </div>
-        <div class="field">
           <input id="lf-date" name="event_date" type="text" placeholder=" " onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" />
           <label for="lf-date">{f.date}</label>
         </div>
+        <div class="field">
+          <input id="lf-guests" name="guests" type="number" inputmode="numeric" min="0" step="10" placeholder=" " />
+          <label for="lf-guests">{f.guests}</label>
+        </div>
+      </div>
+      <div class="field">
+        <input id="lf-email" name="email" type="email" autocomplete="email" placeholder=" " />
+        <label for="lf-email">{f.email}</label>
       </div>
       <div class="field">
         <textarea id="lf-msg" name="message" rows="3" placeholder=" "></textarea>
@@ -64,6 +77,8 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
       </button>
       <p class="form__status" data-status role="status" aria-live="polite"></p>
     </form>
+    <LeadThankYou />
+    </div>
 
     <div class="lplead__direct" data-reveal>
       <span class="lplead__direct-label">{site.contactSection.directLabel}</span>
@@ -218,11 +233,8 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
   .clink svg { flex: none; }
 </style>
 
-<script is:inline define:vars={{ formCfg: { sending: f.sending, success: f.success, error: f.error }, slug: campaign.slug }}>
+<script is:inline define:vars={{ slug: campaign.slug }}>
   const form = document.querySelector("[data-lp-form]");
-  const status = form?.querySelector("[data-status]");
-  const submit = form?.querySelector("[data-submit]");
-  const label = form?.querySelector("[data-submit-label]");
   const referrer = form?.querySelector("[data-referrer]");
 
   // Capture the ad source (utm / click id / referrer) for attribution.
@@ -230,51 +242,21 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
     referrer.value = (location.search || "") + (document.referrer ? " | ref:" + document.referrer : "");
   }
 
-  // WhatsApp / Call attribution events.
-  form?.querySelector("[data-lp-wa]")?.addEventListener("click", () => {
+  // WhatsApp / Call / Instagram attribution events. The direct links sit
+  // outside the <form>, so look them up on the section.
+  const section = document.querySelector("#lead");
+  section?.querySelector("[data-lp-wa]")?.addEventListener("click", () => {
     window.lpTrack?.("Contact", { method: "whatsapp", campaign: slug });
   });
-  form?.querySelector("[data-lp-call]")?.addEventListener("click", () => {
+  section?.querySelector("[data-lp-call]")?.addEventListener("click", () => {
     window.lpTrackCustom?.("Call", { campaign: slug });
   });
-  document.querySelector("[data-lp-ig]")?.addEventListener("click", () => {
+  section?.querySelector("[data-lp-ig]")?.addEventListener("click", () => {
     window.lpTrackCustom?.("Instagram", { campaign: slug });
   });
+</script>
 
-  form?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    status.className = "form__status";
-    status.textContent = "";
-
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-      status.classList.add("is-err");
-      status.textContent = "בסביבת פיתוח הטופס אינו נשלח - יעבוד לאחר פריסה ל‑Netlify.";
-      return;
-    }
-
-    submit.disabled = true;
-    const original = label.textContent;
-    label.textContent = formCfg.sending;
-    try {
-      const res = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString(),
-      });
-      if (res.ok) {
-        form.reset();
-        status.classList.add("is-ok");
-        status.textContent = formCfg.success;
-        window.lpTrack?.("Lead", { campaign: slug });
-      } else {
-        throw new Error("bad response");
-      }
-    } catch {
-      status.classList.add("is-err");
-      status.textContent = formCfg.error;
-    } finally {
-      submit.disabled = false;
-      label.textContent = original;
-    }
-  });
+<script>
+  // Submit, selection summary, thank-you panel and the Lead event.
+  import "@/scripts/leadForm.js";
 </script>

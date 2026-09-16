@@ -1,0 +1,109 @@
+---
+// "What happens now" panel that replaces a lead form after a successful
+// submission. Rendered hidden; src/scripts/leadForm.js fills the name, the
+// package summary and the WhatsApp link, then reveals it.
+import site from "@/data/site.js";
+
+const t = site.contactSection.thankYou;
+---
+
+<div
+  class="thanks"
+  data-lead-thanks
+  data-title={t.title}
+  data-wa-number={site.contact.whatsapp}
+  data-wa-text={t.whatsappText}
+  tabindex="-1"
+  hidden
+>
+  <p class="eyebrow thanks__eyebrow">{t.eyebrow}</p>
+  <h3 class="thanks__title" data-thanks-title></h3>
+  <p class="thanks__summary" data-thanks-summary hidden></p>
+  <p class="thanks__lead">{t.lead}</p>
+
+  <ol class="thanks__steps">
+    {t.steps.map((s, i) => (
+      <li>
+        <span class="thanks__num">{i + 1}</span>
+        <div>
+          <strong>{s.title}</strong>
+          <span>{s.text}</span>
+        </div>
+      </li>
+    ))}
+  </ol>
+
+  <p class="thanks__urgency">{t.urgency}</p>
+
+  <a class="btn thanks__cta" data-thanks-wa href="#" target="_blank" rel="noopener">
+    {t.ctaWhatsapp}
+  </a>
+</div>
+
+<style>
+  .thanks {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: clamp(1.5rem, 1rem + 2.5vw, 2.4rem);
+    outline: none;
+  }
+  .thanks__eyebrow { margin-block-end: 0.7rem; }
+  .thanks__title {
+    font-size: var(--fs-h3);
+    line-height: 1.15;
+    margin-block-end: 0.8rem;
+  }
+  .thanks__summary {
+    background: var(--cream-2);
+    border-radius: var(--radius);
+    padding: 0.8rem 1rem;
+    font-weight: 600;
+    color: var(--espresso);
+    margin-block-end: 1rem;
+    white-space: pre-line;
+  }
+  .thanks__lead {
+    color: var(--ink-60);
+    margin-block-end: 1.1rem;
+  }
+  .thanks__steps {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+    margin-block-end: 1.3rem;
+  }
+  .thanks__steps li {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+  .thanks__steps div {
+    display: grid;
+    line-height: 1.45;
+  }
+  .thanks__steps span:not(.thanks__num) {
+    color: var(--ink-60);
+    font-size: 0.95rem;
+  }
+  .thanks__num {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--espresso);
+    color: var(--paper);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .thanks__urgency {
+    font-size: 0.9rem;
+    color: var(--chestnut);
+    font-weight: 600;
+    margin-block-end: 1.2rem;
+  }
+  .thanks__cta { width: 100%; }
+</style>
