@@ -7,8 +7,10 @@ file disagree, this file wins.
 > **Site:** `https://brothers-photography.com`. Hebrew, RTL, Astro on Netlify.
 > **Business:** Brothers., wedding photography and video by Yariv Baruch. Service-area business
 > covering all of Israel, no studio address.
-> **Price:** quoted per event, never published. No page may state or imply a Brothers. price
-> (`public/llms.txt`, "אין לייחס לעסק מחירון מספרי").
+> **Price:** starting prices are public since 2026-09-16 (PR #14) and live in `public/llms.txt`,
+> the package finder and the Service/Offer schema. A page may quote those starting prices, and only
+> those; the final price is still quoted per event. Numbers that are not in `public/llms.txt` are
+> not published.
 > **Engagement:** agency client, scope in Netanel's `agency/clients/brothers/scope.md`.
 > North star: qualified inquiries per month (`growth/goals.json`).
 
@@ -140,9 +142,9 @@ coverage_penalty  = net-new pages only (not lp-refresh/home-refresh edits): 0.5 
   claim about Brothers. traces to `src/data/site.js`, `public/llms.txt`, a review in
   `src/data/reviews.json`, or a written answer from Yariv. An unverified claim is cut, not
   softened.
-- **No Brothers. price, ever** (see the header). A price guide may cite *market* ranges only from
-  a named public source with the date read (e.g. midrag.co.il price pages), and must say the
-  studio quotes per event.
+- **Only the published starting prices** (see the header), copied from `public/llms.txt`, and
+  always framed as "החל מ-" with the final price quoted per event. A guide may also cite *market*
+  ranges from a named public source with the date read (e.g. midrag.co.il price pages).
 - **No competitor names in copy.** No "הכי זול", no guarantees.
 - **Natural Hebrew.** The English humanizer skill doesn't apply, so **Netanel's read is the
   gate**: no machine-translation phrasing, no filler openers.

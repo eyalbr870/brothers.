@@ -302,7 +302,7 @@
         "existingPath": "/lp/weddings-big-center/"
       },
       "needsClient": null,
-      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Part A done: seo.title, hero, form title and one faq moved to צלם חתונות במרכז / צלם לחתונה במרכז. Part B (venue copy) still waits on Yariv. || Part A (now): in src/data/landing.js campaign 'weddings-big-center', retarget seo.title and hero to the hiring phrasing 'צלם חתונות במרכז' (today's title is 'צילום חתונות גדולות במרכז', which matches no measured query). Put 'צלם לחתונה במרכז' in seo.description and one faq question. Keep the slug; ads point at it. Part B (waits on Yariv's venue list, scope human step due 2026-09-21): replace the shared benefits/included copy with center-specific detail (real halls and gardens shot in Gush Dan/Sharon, guest-count handling). This page is also the planned landing page for the Google Search center campaign, so copy and ad group should match.",
+      "notes": "UNIQUE-COPY PASS 2026-09-19 (branch content/lp-unique-copy-2026-09-19): benefits/included/faq rewritten per intent, so the page no longer shares its body with the other LPs. Measured on the built HTML, unique 5-grams per page went from 9-14% to 17-23%. Prices from public/llms.txt now answer the page's price query in faq[]. || IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Part A done: seo.title, hero, form title and one faq moved to צלם חתונות במרכז / צלם לחתונה במרכז. Part B (venue copy) still waits on Yariv. || Part A (now): in src/data/landing.js campaign 'weddings-big-center', retarget seo.title and hero to the hiring phrasing 'צלם חתונות במרכז' (today's title is 'צילום חתונות גדולות במרכז', which matches no measured query). Put 'צלם לחתונה במרכז' in seo.description and one faq question. Keep the slug; ads point at it. Part B (waits on Yariv's venue list, scope human step due 2026-09-21): replace the shared benefits/included copy with center-specific detail (real halls and gardens shot in Gush Dan/Sharon, guest-count handling). This page is also the planned landing page for the Google Search center campaign, so copy and ad group should match.",
       "score": 1.173,
       "scoreBreakdown": {
         "volume": 90,
@@ -415,7 +415,7 @@
         "existingPath": "/lp/stills/"
       },
       "needsClient": null,
-      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Retitled to צלם סטילס לחתונה; added faq כמה עולה צלם סטילס לחתונה answered without a number. || Retitle campaign 'stills' from 'צילום סטילס לחתונה' to the searched phrasing 'צלם סטילס לחתונה'. Answer the price-intent variant without a number: an H2/faq 'כמה עולה צלם סטילס לחתונה?' answering that the price is quoted per event and naming what drives it (hours, number of photographers, albums), then linking to the price guide once it exists. Unique copy per METHOD §7; the page is ~85% shared with the others (PR #8).",
+      "notes": "UNIQUE-COPY PASS 2026-09-19 (branch content/lp-unique-copy-2026-09-19): benefits/included/faq rewritten per intent, so the page no longer shares its body with the other LPs. Measured on the built HTML, unique 5-grams per page went from 9-14% to 17-23%. Prices from public/llms.txt now answer the page's price query in faq[]. || IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Retitled to צלם סטילס לחתונה; added faq כמה עולה צלם סטילס לחתונה answered without a number. || Retitle campaign 'stills' from 'צילום סטילס לחתונה' to the searched phrasing 'צלם סטילס לחתונה'. Answer the price-intent variant without a number: an H2/faq 'כמה עולה צלם סטילס לחתונה?' answering that the price is quoted per event and naming what drives it (hours, number of photographers, albums), then linking to the price guide once it exists. Unique copy per METHOD §7; the page is ~85% shared with the others (PR #8).",
       "score": 0.873,
       "scoreBreakdown": {
         "volume": 120,
@@ -520,7 +520,7 @@
         }
       ],
       "intent": "researching (price)",
-      "status": "blocked",
+      "status": "published",
       "serp": {
         "checked": "2026-09-14",
         "directoryDominated": true,
@@ -529,8 +529,8 @@
       "coverage": {
         "existingPath": null
       },
-      "needsClient": "May a Brothers. guide discuss typical market price ranges for wedding photography in Israel, cited to a public source (e.g. midrag.co.il's price page) with the date read, while stating that Brothers. quotes per event and publishes no price? (public/llms.txt currently forbids attributing a numeric price to the business, which this respects.)",
-      "notes": "DRAFT WRITTEN 2026-09-15 as src/content/blog/wedding-photographer-price.md with draft: true (market ranges cited to midrag, no Brothers. price). Still blocked on the client question; publishing = flip draft to false. || The largest winnable cluster on the site: 800 searches/mo across 16 variants, KD 0. One post owns all of them (METHOD §8). Structure: H2 per question (כמה עולה צלם לחתונה / מה משפיע על המחיר / סטילס מול וידאו / כמה צלמים צריך / מה כלול בחבילה / איך משווים הצעות), each with a 2–3 sentence direct answer first for AI engines. Market ranges only from a cited public source; no Brothers. price. Link to /lp/video-stills/ and the homepage #finder. Every claim about what Brothers. includes comes from public/llms.txt.",
+      "needsClient": null,
+      "notes": "PUBLISHED 2026-09-19 as src/content/blog/wedding-photographer-price.md (draft: false). The client question that blocked this is resolved by events: PR #14 (2026-09-16) put starting prices on the site, in the Service/Offer schema and in public/llms.txt, so the guide now answers the query with both the cited midrag market range (Sep 2026) and the Brothers. starting prices. || DRAFT WRITTEN 2026-09-15 as src/content/blog/wedding-photographer-price.md with draft: true (market ranges cited to midrag, no Brothers. price). Still blocked on the client question; publishing = flip draft to false. || The largest winnable cluster on the site: 800 searches/mo across 16 variants, KD 0. One post owns all of them (METHOD §8). Structure: H2 per question (כמה עולה צלם לחתונה / מה משפיע על המחיר / סטילס מול וידאו / כמה צלמים צריך / מה כלול בחבילה / איך משווים הצעות), each with a 2–3 sentence direct answer first for AI engines. Market ranges only from a cited public source; no Brothers. price. Link to /lp/video-stills/ and the homepage #finder. Every claim about what Brothers. includes comes from public/llms.txt.",
       "score": 0.871,
       "scoreBreakdown": {
         "volume": 800,
@@ -567,7 +567,7 @@
         "existingPath": "/lp/weddings-small/"
       },
       "needsClient": null,
-      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): LP retitled to צלם לחתונה קטנה; intimate-wedding post now targets חתונה קטנה / חתונה אינטימית, links to /lp/weddings-small/, and has 5 faq. || Cannibalization call: the blog post intimate-wedding-photography targets 'צילום חתונה קטנה / אינטימית' and the LP targets 'צילום חתונות קטנות'. Decision per METHOD §8: the LP owns the hiring phrasing 'צלם לחתונה קטנה' (retitle seo.title/hero); the post keeps the question/guide phrasing and must link to /lp/weddings-small/ in its first third. Check the post's current links before editing.",
+      "notes": "UNIQUE-COPY PASS 2026-09-19 (branch content/lp-unique-copy-2026-09-19): benefits/included/faq rewritten per intent, so the page no longer shares its body with the other LPs. Measured on the built HTML, unique 5-grams per page went from 9-14% to 17-23%. Prices from public/llms.txt now answer the page's price query in faq[]. || IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): LP retitled to צלם לחתונה קטנה; intimate-wedding post now targets חתונה קטנה / חתונה אינטימית, links to /lp/weddings-small/, and has 5 faq. || Cannibalization call: the blog post intimate-wedding-photography targets 'צילום חתונה קטנה / אינטימית' and the LP targets 'צילום חתונות קטנות'. Decision per METHOD §8: the LP owns the hiring phrasing 'צלם לחתונה קטנה' (retitle seo.title/hero); the post keeps the question/guide phrasing and must link to /lp/weddings-small/ in its first third. Check the post's current links before editing.",
       "score": 0.775,
       "scoreBreakdown": {
         "volume": 70,
@@ -645,7 +645,7 @@
         "existingPath": "/lp/video/"
       },
       "needsClient": null,
-      "notes": "IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Retitled to צלם וידאו לחתונה; added faq on film vs clip (90 min / 3-5 min per llms.txt). || Retitle campaign 'video' from 'צילום וידאו לחתונה - סרט חתונה קולנועי' to lead with 'צלם וידאו לחתונה'. The AI Overview cites pages that explain film vs highlight length and style; answer those in faq[] (סרט חתונה מלא מול קליפ Highlight, כמה זמן לוקח לקבל, צלם וידאו אחד או שניים) using only facts in public/llms.txt (film up to 90 minutes, highlight 3–5 minutes). Price questions go to the price guide, not here.",
+      "notes": "UNIQUE-COPY PASS 2026-09-19 (branch content/lp-unique-copy-2026-09-19): benefits/included/faq rewritten per intent, so the page no longer shares its body with the other LPs. Measured on the built HTML, unique 5-grams per page went from 9-14% to 17-23%. Prices from public/llms.txt now answer the page's price query in faq[]. || IN REVIEW 2026-09-15 (https://github.com/eyalbr870/brothers./pull/13): Retitled to צלם וידאו לחתונה; added faq on film vs clip (90 min / 3-5 min per llms.txt). || Retitle campaign 'video' from 'צילום וידאו לחתונה - סרט חתונה קולנועי' to lead with 'צלם וידאו לחתונה'. The AI Overview cites pages that explain film vs highlight length and style; answer those in faq[] (סרט חתונה מלא מול קליפ Highlight, כמה זמן לוקח לקבל, צלם וידאו אחד או שניים) using only facts in public/llms.txt (film up to 90 minutes, highlight 3–5 minutes). Price questions go to the price guide, not here.",
       "score": 0.653,
       "scoreBreakdown": {
         "volume": 150,
@@ -841,5 +841,5 @@
     "method": "seo/METHOD.md §5",
     "lastScored": "2026-09-14"
   },
-  "lastContentRun": "2026-09-15"
+  "lastContentRun": "2026-09-19"
 }
