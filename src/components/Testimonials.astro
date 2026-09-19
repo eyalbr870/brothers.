@@ -3,6 +3,14 @@ import data from "@/data/reviews.json";
 import manifest from "@/data/review-photos.generated.json";
 
 const INITIAL = 6;
+
+// Landing pages pass a per-campaign pick (campaign.reviews) and a cap, so each
+// page carries reviews that match its intent instead of the same wall of text.
+// The homepage passes nothing and keeps the full list. Names that no longer
+// exist in reviews.json are ignored, and the cap is filled from the rest, so a
+// deleted review degrades into a different card and never into a short page.
+const { feature = [], limit = 0 } = Astro.props;
+
 const reviewUrl = data.source;
 
 // Unified review cards: each review shows its text AND its attached photos.
@@ -20,7 +28,15 @@ const textOnly = data.reviews
   .map((r) => ({ name: r.name, text: r.text, date: r.date, photos: [] }));
 
 // Photo cards first, then the remaining text-only reviews.
-const cards = [...photoReviewers, ...textOnly];
+const all = [...photoReviewers, ...textOnly];
+
+const featured = feature
+  .map((name) => all.find((c) => c.name === name))
+  .filter(Boolean);
+const ordered = feature.length
+  ? [...featured, ...all.filter((c) => !featured.includes(c))]
+  : all;
+const cards = limit > 0 ? ordered.slice(0, limit) : ordered;
 
 // Per-card image sets (full-size) for the lightbox, indexed by card.
 const galleries = cards.map((c) =>

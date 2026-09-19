@@ -18,6 +18,13 @@
 //                  from reviews.json + site.about.stats)
 //   finder      -> package finder preset ({ guests, coverage }), or false to
 //                  hide the finder (non-wedding pages)
+//   reviews[]   -> reviewer names (src/data/reviews.json) shown on this page,
+//                  in order. Picked for what the reviewer talks about, so the
+//                  page does not repeat the same wall of quotes as its
+//                  neighbours. Unknown names are ignored and the six slots are
+//                  filled from the rest.
+//   related     -> { guides: [blog slug], pages: [campaign slug] } for the
+//                  "related" block. Landing pages used to link nowhere at all.
 // ============================================================
 
 export const campaigns = [
@@ -71,6 +78,11 @@ export const campaigns = [
       { q: "כמה תמונות מקבלים מאירוע של מאות אורחים?", a: "מאות תמונות ערוכות ומסוננות. מבחר ראשוני נשלח בימים שאחרי החתונה, והגלריה המלאה מגיעה תוך מספר שבועות." },
       { q: "כמה זמן מראש כדאי לסגור צלם לחתונה במרכז?", a: "בין חצי שנה לשנה מראש, במיוחד לאביב, לקיץ ולימי חמישי. תמיד שווה לבדוק גם תאריכים קרובים, לפעמים נפתחים." },
     ],
+    reviews: ["גלי", "noam", "Maor", "אורי", "Linda", "עידן"],
+    related: {
+      guides: ["how-to-choose-wedding-photographer", "wedding-photographer-price", "wedding-day-photography-plan"],
+      pages: ["video-stills", "stills", "wedding-photographer-israel"],
+    },
   },
 
   // ---------------------------------------------------------
@@ -121,6 +133,11 @@ export const campaigns = [
       { q: "מתי מקבלים את התמונות?", a: "גלריה דיגיטלית מלאה ומסוננת מגיעה אליכם תוך מספר שבועות מהאירוע." },
       { q: "אתם מצלמים גם באזור הדרום והשפלה?", a: "כן. אשדוד, אשקלון, גדרה, יבנה והסביבה, ללא הגבלת אזור." },
     ],
+    reviews: ["sharon", "שי", "Sergey", "טופז", "עירית", "Chen"],
+    related: {
+      guides: ["wedding-photographer-price", "how-to-choose-wedding-photographer"],
+      pages: ["wedding-photographer-israel", "stills", "weddings-small"],
+    },
   },
 
   // ---------------------------------------------------------
@@ -171,6 +188,11 @@ export const campaigns = [
       { q: "מתי הכי כדאי לצלם בטבע?", a: "סביב השקיעה, בשעת האור הזהוב, נתאם יחד את לוח הזמנים של היום כדי לתפוס אותה." },
       { q: "צריך אישורים לצילום בשטח פתוח?", a: "בחלק מהמקומות נדרש תיאום מראש עם רשות הטבע והגנים או בעל השטח. נשמח להנחות אתכם." },
     ],
+    reviews: ["Maor", "Shlomit", "yotamamor", "Nadav", "גלי", "sharon"],
+    related: {
+      guides: ["wedding-day-photography-plan", "pre-wedding-couple-shoot"],
+      pages: ["weddings-concept", "weddings-small", "stills"],
+    },
   },
 
   // ---------------------------------------------------------
@@ -224,6 +246,11 @@ export const campaigns = [
       { q: "הסרט מגיע עם מוזיקה וקולות מהאירוע?", a: "כן. עריכה מלאה עם פסקול, נאומים וקולות אמיתיים מהיום, שמחזירים אתכם אל הרגש." },
       { q: "אפשר וידאו בלי סטילס?", a: "אפשר, אך רוב הזוגות בוחרים בשילוב: אותו צוות מתעד גם בתמונות וגם בווידאו, בלי לתאם בין שני ספקים." },
     ],
+    reviews: ["Shlomi", "Maor", "עידן", "אורי", "noam", "Chen"],
+    related: {
+      guides: ["wedding-film-vs-clip", "wedding-photographer-price"],
+      pages: ["video-stills", "stills"],
+    },
   },
 
   // ---------------------------------------------------------
@@ -276,6 +303,11 @@ export const campaigns = [
       { q: "יש אפשרות לאלבום מודפס?", a: "כן, כתוספת לחבילה: סט של שלושה אלבומים מודפסים, אחד בגודל 30×80 ס״מ ושניים 24×50 ס״מ." },
       { q: "מה ההבדל בין צלם סטילס לצלם וידאו לחתונה?", a: "סטילס הוא התמונות, וידאו הוא הסרט והקליפ. רוב הזוגות לוקחים את שניהם ומקבלים גם גלריה וגם סרט חתונה. אפשר להוסיף וידאו לכל חבילת סטילס." },
     ],
+    reviews: ["רותם", "שי", "טופז", "Nadav", "Linda", "yotamamor"],
+    related: {
+      guides: ["wedding-album-guide", "wedding-photographer-price", "how-to-choose-wedding-photographer"],
+      pages: ["video-stills", "video"],
+    },
   },
 
   // ---------------------------------------------------------
@@ -327,6 +359,11 @@ export const campaigns = [
       { q: "מתי מקבלים את התמונות ואת הסרט?", a: "מבחר תמונות ראשוני מגיע בימים שאחרי החתונה, הגלריה המלאה וסרט התקציר תוך מספר שבועות, והסרט המלא לאחריהם." },
       { q: "מה בדיוק מקבלים בסוף?", a: "גלריה דיגיטלית עם מאות תמונות ערוכות ומסוננות, סרט חתונה מלא של עד 90 דקות וקליפ Highlight של 3-5 דקות לשיתוף. אפשר להוסיף סט אלבומים מודפסים." },
     ],
+    reviews: ["Shlomi", "גלי", "אורי", "Linda", "noam", "רותם"],
+    related: {
+      guides: ["wedding-film-vs-clip", "wedding-photographer-price", "wedding-album-guide"],
+      pages: ["video", "stills"],
+    },
   },
 
   // ---------------------------------------------------------
@@ -379,6 +416,11 @@ export const campaigns = [
       { q: "אפשר להוסיף וידאו לחתונה קטנה?", a: "כן, לכל חבילה. מקבלים סרט חתונה של עד 90 דקות וקליפ Highlight של 3-5 דקות, בדיוק כמו באירוע גדול." },
       { q: "מגיעים גם לאירוע בטבע או במקום מרוחק?", a: "כן, לכל מקום בארץ ובלי תוספת נסיעה, מהגליל ועד אילת." },
     ],
+    reviews: ["אורית", "Shlomit", "Sergey", "Chen", "Nadav", "עירית"],
+    related: {
+      guides: ["intimate-wedding-photography", "wedding-photographer-price"],
+      pages: ["weddings-outdoor", "stills"],
+    },
   },
 
   // ---------------------------------------------------------
@@ -429,6 +471,11 @@ export const campaigns = [
       { q: "אפשר צילומי טרום-חתונה בקונספט?", a: "כן. אפשר להוסיף צילומי Save the Date מסוגננים שמתכתבים עם הקונספט של האירוע." },
       { q: "כמה זמן מראש כדאי לתאם?", a: "כמה שיותר מוקדם, כדי שנוכל לתכנן יחד אור, לוקיישן וקומפוזיציה לכל פריט בקונספט." },
     ],
+    reviews: ["Shlomit", "רותם", "טופז", "שי", "עידן", "Chen"],
+    related: {
+      guides: ["pre-wedding-couple-shoot", "how-to-choose-wedding-photographer"],
+      pages: ["weddings-outdoor", "weddings-small"],
+    },
   },
 
   // ---------------------------------------------------------
@@ -486,6 +533,10 @@ export const campaigns = [
       { q: "אתם מגיעים לכל הארץ לאירועים עסקיים?", a: "כן. לכנסים, השקות, ערבי גאלה ואירועי חברה בכל רחבי הארץ." },
       { q: "אפשר תיאום מראש עם צוות ההפקה?", a: "בהחלט. נתאם לו״ז, נקודות צילום ודגשי מיתוג כדי לתפוס בדיוק את מה שחשוב לכם." },
     ],
+    reviews: ["אורי", "noam", "Linda", "טופז", "sharon", "Maor"],
+    related: {
+      pages: ["wedding-photographer-israel"],
+    },
   },
 
   // ---------------------------------------------------------
@@ -553,6 +604,11 @@ export const campaigns = [
       { q: "אתם מצלמים גם חתונות קטנות ואינטימיות?", a: "כן, ואנחנו מאוד אוהבים את זה. חתונות אינטימיות, אירועי גן, חתונות בטבע וחתונות קונספט, בכל היקף." },
       { q: "מה קורה אם התאריך שלנו כבר תפוס?", a: "נגיד לכם את זה מיד וביושר, ואם נוכל, נמליץ על צלם עמית שאנחנו סומכים עליו. לא נשאיר אתכם בלי מענה." },
     ],
+    reviews: ["עידן", "sharon", "Linda", "Shlomit", "אורי", "Maor"],
+    related: {
+      guides: ["wedding-photographer-price", "how-to-choose-wedding-photographer", "wedding-album-guide"],
+      pages: ["stills", "video", "video-stills", "weddings-small"],
+    },
   },
 ];
 
