@@ -7,8 +7,9 @@ file disagree, this file wins.
 > **Site:** `https://brothers-photography.com`. Hebrew, RTL, Astro on Netlify.
 > **Business:** Brothers., wedding photography and video by Yariv Baruch. Service-area business
 > covering all of Israel, no studio address.
-> **Price:** quoted per event, never published. No page may state or imply a Brothers. price
-> (`public/llms.txt`, "אין לייחס לעסק מחירון מספרי").
+> **Price:** "starting from" prices, published since PR #14 (Sep 2026 quote). The only source is
+> `site.finder.packages` / `site.finder.addons` in `src/data/site.js`; the final price is quoted
+> per event.
 > **Engagement:** agency client, scope in Netanel's `agency/clients/brothers/scope.md`.
 > North star: qualified inquiries per month (`growth/goals.json`).
 
@@ -140,9 +141,14 @@ coverage_penalty  = net-new pages only (not lp-refresh/home-refresh edits): 0.5 
   claim about Brothers. traces to `src/data/site.js`, `public/llms.txt`, a review in
   `src/data/reviews.json`, or a written answer from Yariv. An unverified claim is cut, not
   softened.
-- **No Brothers. price, ever** (see the header). A price guide may cite *market* ranges only from
-  a named public source with the date read (e.g. midrag.co.il price pages), and must say the
-  studio quotes per event.
+- **Brothers. prices come from `src/data/site.js` only** (see the header). Copy may state them
+  exactly as there, always as "החל מ-", including VAT, with the final price quoted per event.
+  Never invent a price, discount or add-on price, and never change one: prices are Yariv's call,
+  not a backlog item. Numbers appear only where they already live (the finder, the "how much"
+  FAQ answers, the Service/Offer schema, `public/llms.txt`) and in the price guide. Other pages
+  link to `/#finder` instead of repeating them, so a price change stays a short edit.
+- **Market prices:** a price guide may cite *market* ranges only from a named public source with
+  the date read (e.g. midrag.co.il price pages), kept clearly apart from Brothers.' own prices.
 - **No competitor names in copy.** No "הכי זול", no guarantees.
 - **Natural Hebrew.** The English humanizer skill doesn't apply, so **Netanel's read is the
   gate**: no machine-translation phrasing, no filler openers.
