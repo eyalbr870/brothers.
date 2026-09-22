@@ -2,6 +2,7 @@
 
 - **Phase:** 1, discovery and build (seo/METHOD.md §1)
 - **Last strategist run:** 2026-09-14 ([run log](runs/2026-09-14-strategy.md))
+- **Last content run:** 2026-09-19 (LP unique-copy pass, price guide published)
 - **Seed keywords:** v1 (METHOD §3)
 
 ## Where the site stands (2026-09-14)
@@ -39,11 +40,11 @@ with DR 0–12.
 | Cluster | Searches/mo | Page that owns it | Status |
 |---|---|---|---|
 | Head: צלם חתונות / צלם לחתונה / צלמי חתונות | 950 | `/` | refresh (long game, mostly GBP) |
-| Price: כמה עולה צלם לחתונה… | 800 | none | **blocked**: needs client OK |
-| Video: צלם וידאו לחתונה | 150 | `/lp/video/` | refresh: retitle |
-| Stills: צלם סטילס לחתונה | 120 | `/lp/stills/` | refresh: retitle |
-| Center: צלם חתונות במרכז / צלם לחתונה במרכז | 90 | `/lp/weddings-big-center/` | refresh: retitle now, venue copy later |
-| Small weddings: צלם לחתונה קטנה | 70 | `/lp/weddings-small/` + blog post | refresh: fix the overlap |
+| Price: כמה עולה צלם לחתונה… | 800 | `/blog/wedding-photographer-price/` | **published 2026-09-19** |
+| Video: צלם וידאו לחתונה | 150 | `/lp/video/` | done: retitled + unique copy 2026-09-19 |
+| Stills: צלם סטילס לחתונה | 120 | `/lp/stills/` | done: retitled + unique copy 2026-09-19 |
+| Center: צלם חתונות במרכז / צלם לחתונה במרכז | 90 | `/lp/weddings-big-center/` | retitled + unique copy 2026-09-19; venue copy still waits on Yariv |
+| Small weddings: צלם לחתונה קטנה | 70 | `/lp/weddings-small/` + blog post | done: overlap fixed, unique copy 2026-09-19 |
 | Rishon LeZion | 40 | none | **blocked**: needs real venues |
 | Ashdod and other cities | 0–10 each | `/lp/weddings-ashdod/` only | parked; keep Ashdod for ads |
 | Outdoor, concept, business events | no data | `/lp/weddings-outdoor/`, `/lp/weddings-concept/`, `/lp/business-events/` | no Ahrefs volume; serve paid, not SEO |
@@ -63,9 +64,9 @@ with DR 0–12.
 Every answer unblocks backlog work. None of it goes live without Netanel's read and the
 client's merge.
 
-1. **Price guide.** May a Brothers. guide cite typical *market* price ranges for Israel from a
-   public source (e.g. midrag.co.il), dated, while saying Brothers. quotes per event and
-   publishes no price? This unblocks the biggest winnable cluster (800 searches/mo).
+1. ~~**Price guide.**~~ Resolved by events: PR #14 (2026-09-16) published starting prices on the
+   site, in the Service/Offer schema and in `public/llms.txt`. The guide shipped on 2026-09-19 with
+   both the cited midrag market range and the Brothers. starting prices.
 2. **Center venues.** Which halls and gardens in Gush Dan and the Sharon have you shot, with
    real photos? This unblocks unique copy for `/lp/weddings-big-center/`, the page the center
    ads will use.
@@ -134,8 +135,8 @@ client's merge.
 - **One page per intent.** LPs own the hiring phrasing ("צלם ל…"); blog posts own the question
   phrasing ("כמה / איך / מה"). `/lp/weddings-small/` and the intimate-wedding post are the
   first case.
-- **The price guide never states a Brothers. price.** It cites market ranges with a source and
-  a date, or it doesn't ship.
+- ~~**The price guide never states a Brothers. price.**~~ Superseded 2026-09-16: the client
+  publishes starting prices. Market ranges still need a named public source and the date read.
 - **Head terms are a Google Business Profile and directory problem first,** and a copy problem
   second.
 - **Outdoor, concept and business-events LPs** get no SEO investment until a keyword source
