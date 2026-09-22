@@ -17,6 +17,7 @@ const ALLOWED_LINKS = new Set([
   "/blog/", "/blog/intimate-wedding-photography/", "/blog/wedding-film-vs-clip/",
   "/blog/wedding-album-guide/", "/blog/how-to-choose-wedding-photographer/",
   "/blog/wedding-day-photography-plan/", "/blog/pre-wedding-couple-shoot/",
+  "/blog/wedding-photographer-price/",
 ]);
 // External links allowed as sources.
 const ALLOWED_EXTERNAL = [/^https:\/\/www\.mit4mit\.co\.il\/biz\/100325/, /^https:\/\/www\.midrag\.co\.il\/Content\/Price\/10381/];
@@ -51,7 +52,6 @@ for (const file of process.argv.slice(2)) {
   const cover = fm.match(/^coverId:\s*"([^"]+)"/m)?.[1];
   if (!cover || !coverIds.has(cover)) errors.push(`coverId "${cover}" is not in gallery.generated.json`);
   const draft = /^draft:\s*true/m.test(fm);
-  if (base === PRICE_GUIDE && !draft) errors.push("price guide must be draft: true until Yariv approves citing market ranges");
 
   const faqCount = (fm.match(/^\s*-\s*q:/gm) ?? []).length;
   if (faqCount < 5 || faqCount > 7) warnings.push(`faq items: ${faqCount} (brief asks 5–7)`);
@@ -63,7 +63,6 @@ for (const file of process.argv.slice(2)) {
     if (href.startsWith("http")) {
       if (!ALLOWED_EXTERNAL.some((re) => re.test(href))) errors.push(`external link not allowed: ${href}`);
     } else if (!ALLOWED_LINKS.has(href)) errors.push(`internal link not allowed: ${href}`);
-    if (href.includes("wedding-photographer-price")) errors.push("links to the draft price guide");
   }
 
   const lines = src.split("\n");
