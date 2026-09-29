@@ -1,0 +1,106 @@
+---
+// The contract body: the services table and all 13 clauses.
+//
+// The legal wording is rendered at BUILD time straight from src/data/contract.js
+// and ships as static HTML. Only the deal numbers arrive at runtime, injected
+// into <span data-fill> slots by contractPage.js once the server has verified
+// the link. So no client-side templating ever touches the legal text - a JS
+// failure can leave a number blank, but it can never reword a clause.
+//
+// Conditional wording (clause 8.2's album pricing) ships as both variants,
+// hidden, and the verified deal picks one. Same for the services table: every
+// row renders, and only the rows in the package are revealed.
+import { clauses, services, servicesTable, header } from "@/data/contract.js";
+
+/** "סך של {{total}} ש\"ח" -> [{t:"סך של "},{k:"total"},{t:" ש\"ח"}] */
+function parts(text) {
+  const out = [];
+  const re = /\{\{(\w+)\}\}/g;
+  let last = 0;
+  let m;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push({ t: text.slice(last, m.index) });
+    out.push({ k: m[1] });
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push({ t: text.slice(last) });
+  return out;
+}
+---
+
+<section class="doc" aria-label="נוסח ההסכם">
+  {/* ---- services ---- */}
+  <h2 class="doc__h2">{servicesTable.eyebrow}</h2>
+
+  <div class="doc__tablewrap">
+    <table class="svc">
+      <thead>
+        <tr>
+          <th scope="col">{servicesTable.colService}</th>
+          <th scope="col" class="svc__qty">{servicesTable.colQty}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          services.map((s) => (
+            <tr data-service={s.id} hidden>
+              <td>{s.label}</td>
+              <td class="svc__qty" aria-label="כלול">✓</td>
+            </tr>
+          ))
+        }
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">{servicesTable.totalLabel}</th>
+          <td class="svc__qty">
+            <span class="money" dir="ltr">₪ <span data-fill="total"></span></span>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <p class="doc__note" data-deal-notes hidden></p>
+
+  {/* ---- clauses ---- */}
+  {
+    clauses.map((c) => (
+      <section class="clause">
+        <h3 class="clause__title">
+          <span class="clause__num" dir="ltr">{c.n}</span>
+          {c.title}
+        </h3>
+        <ol class="clause__items">
+          {c.items.map((it) =>
+            it.variants ? (
+              <li class="clause__item">
+                {it.n && <span class="clause__n" dir="ltr">{it.n}</span>}
+                <span class="clause__text">
+                  <span data-variant="included" hidden>{it.variants.included}</span>
+                  <span data-variant="extra" hidden>{it.variants.extra}</span>
+                </span>
+              </li>
+            ) : (
+              <li class="clause__item">
+                {it.n && <span class="clause__n" dir="ltr">{it.n}</span>}
+                <span class="clause__text">
+                  {it.title && <strong class="clause__lead">{it.title}</strong>}
+                  {it.title && " "}
+                  {parts(it.text).map((p) =>
+                    p.k ? <span class="fill" data-fill={p.k}></span> : <>{p.t}</>,
+                  )}
+                </span>
+              </li>
+            ),
+          )}
+        </ol>
+      </section>
+    ))
+  }
+
+  {/* Watched by IntersectionObserver: reaching it is what unlocks signing. */}
+  <div data-read-end aria-hidden="true"></div>
+
+  <p class="doc__witness">{header.witness}</p>
+</section>

@@ -1,0 +1,211 @@
+---
+// /contract/ - the per-couple signing page.
+//
+// Reached only via a signed link: https://.../contract/#<token>
+// The token lives in the FRAGMENT, never the query string, so it stays out of
+// server logs, analytics page_location and Referer headers. Nothing here is
+// meaningful until contract-verify has vouched for that token, so the whole
+// document ships hidden and contractPage.js reveals exactly one state.
+//
+// Every state exists in the markup. No client-side DOM construction, so a slow
+// or partial script can show a bare page but never a wrong contract.
+import ContractLayout from "@/layouts/ContractLayout.astro";
+import ContractDoc from "@/components/contract/ContractDoc.astro";
+import SignBlock from "@/components/contract/SignBlock.astro";
+import site from "@/data/site.js";
+import { ui, header } from "@/data/contract.js";
+
+const st = ui.states;
+const wa = `https://wa.me/${site.contact.whatsapp}`;
+---
+
+<ContractLayout>
+  {/* ---------- transient + terminal states ---------- */}
+  <section class="state" data-state="verifying">
+    <div class="state__box">
+      <div class="spinner" aria-hidden="true"></div>
+      <h1 class="state__title">{st.verifying.title}</h1>
+      <p class="state__body">{st.verifying.note}</p>
+    </div>
+  </section>
+
+  <section class="state" data-state="invalid" hidden>
+    <div class="state__box">
+      <h1 class="state__title">{st.invalid.title}</h1>
+      <p class="state__body">{st.invalid.body}</p>
+      <div class="state__cta">
+        <a class="btn" href={wa} rel="noopener">וואטסאפ ליריב</a>
+        <a class="btn btn--ghost" href={`tel:${site.contact.phoneIntl}`}>{site.contact.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="state" data-state="expired" hidden>
+    <div class="state__box">
+      <h1 class="state__title">{st.expired.title}</h1>
+      <p class="state__body" data-expired-body></p>
+      <div class="state__cta">
+        <a class="btn" href={wa} rel="noopener">בקשת קישור חדש</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="state" data-state="signed" hidden>
+    <div class="state__box">
+      <h1 class="state__title">{st.signed.title}</h1>
+      <p class="state__body" data-signed-body></p>
+      <div class="state__cta">
+        <button class="btn" type="button" data-resend>{st.signed.resend}</button>
+        <a class="btn btn--ghost" href={wa} rel="noopener">וואטסאפ ליריב</a>
+      </div>
+      <p class="form__status" data-resend-status role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  {/* ---------- the contract ---------- */}
+  <section class="state state--doc" data-state="ready" hidden>
+    <div class="sheet">
+      <header class="sheet__head">
+        <p class="eyebrow">{header.brandLine}</p>
+        <h1 class="sheet__title">{header.title}</h1>
+      </header>
+
+      {/* ---- locked deal terms ---- */}
+      <section class="deal" aria-labelledby="deal-h">
+        <div class="deal__top">
+          <h2 class="eyebrow" id="deal-h">{ui.deal.eyebrow}</h2>
+          <p class="deal__lock">
+            <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+            {ui.deal.lockNote}
+          </p>
+        </div>
+
+        <dl class="deal__grid">
+          <div><dt>שם הזוג</dt><dd data-fill="couple"></dd></div>
+          <div><dt>תאריך האירוע</dt><dd data-fill="dateHe"></dd></div>
+          <div><dt>מקום האירוע</dt><dd data-fill="venue"></dd></div>
+        </dl>
+
+        <dl class="deal__money">
+          <div><dt>{ui.deal.total}</dt><dd class="money" dir="ltr">₪ <span data-fill="total"></span></dd></div>
+          <div><dt>{ui.deal.deposit}</dt><dd class="money" dir="ltr">₪ <span data-fill="deposit"></span></dd></div>
+          <div><dt>{ui.deal.balance}</dt><dd class="money" dir="ltr">₪ <span data-fill="balance"></span></dd></div>
+        </dl>
+
+        <dl class="deal__grid deal__grid--sm">
+          <div><dt>{ui.deal.payMethodLabel}</dt><dd data-fill="payMethod"></dd></div>
+          <div><dt>{ui.deal.balanceDueLabel}</dt><dd data-fill="balanceDue"></dd></div>
+        </dl>
+
+        {/* The pressure-release valve that makes locking the terms acceptable. */}
+        <p class="deal__wrong">
+          <strong>{ui.deal.wrongTitle}</strong> {ui.deal.wrongBody}
+          <a href={wa} data-wrong-link rel="noopener">{ui.deal.wrongCta}</a>
+        </p>
+      </section>
+
+      <ContractDoc />
+
+      {/* ---- the couple's own details ---- */}
+      <form class="signform" novalidate>
+        <h2 class="eyebrow signform__eyebrow">{ui.form.eyebrow}</h2>
+        <p class="signform__intro">{ui.form.intro}</p>
+
+        <SignBlock which="a" label={ui.form.partnerA} />
+        <SignBlock which="b" label={ui.form.partnerB} />
+
+        <div class="form__row">
+          <div class="field">
+            <input id="c-phone" name="phone" type="tel" required inputmode="tel"
+              autocomplete="tel" pattern="[0-9+\-\s()]{9,}" placeholder=" " data-validate="phone" />
+            <label for="c-phone">{ui.form.phone} *</label>
+            <p class="field__err" data-err-for="phone" role="alert"></p>
+          </div>
+          <div class="field">
+            <input id="c-email" name="email" type="email" required
+              autocomplete="email" placeholder=" " data-validate="email" />
+            <label for="c-email">{ui.form.email} *</label>
+            <p class="field__err" data-err-for="email" role="alert"></p>
+          </div>
+        </div>
+        <p class="form__micro">{ui.form.emailHint}</p>
+
+        <div class="form__row">
+          <div class="field">
+            <input id="c-guests" name="guests" type="number" inputmode="numeric"
+              min="0" max="2000" step="10" placeholder=" " data-validate="guests" />
+            <label for="c-guests">{ui.form.guests}</label>
+            <p class="field__err" data-err-for="guests" role="alert"></p>
+          </div>
+          <div class="field">
+            <input id="c-album" name="albumAddress" type="text" autocomplete="street-address" placeholder=" " />
+            <label for="c-album">{ui.form.albumAddress}</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <input id="c-songs" name="songs" type="text" placeholder=" " />
+          <label for="c-songs">{ui.form.songs}</label>
+        </div>
+
+        <div class="field">
+          <textarea id="c-notes" name="notes" rows="2" placeholder=" "></textarea>
+          <label for="c-notes">{ui.form.notes}</label>
+        </div>
+
+        {/* ---- clause 3.3 opt-out: its own block, never buried in the grid ---- */}
+        <div class="optout">
+          <p class="optout__title">{ui.consent.marketingTitle}</p>
+          <label class="check">
+            <input type="checkbox" name="marketingOptOut" />
+            <span>{ui.consent.marketingLabel}</span>
+          </label>
+          <p class="optout__note">{ui.consent.marketingDefault}</p>
+        </div>
+
+        {/* ---- read gate + consent ---- */}
+        <div class="gate" data-gate>
+          <p class="gate__hint" data-gate-hint>{ui.consent.readGateHint}</p>
+          <label class="check check--strong">
+            <input type="checkbox" name="agreedRead" required data-validate="read" />
+            <span>{ui.consent.readLabel} *</span>
+          </label>
+          <p class="field__err" data-err-for="agreedRead" role="alert"></p>
+        </div>
+
+        <p class="form__required">{ui.form.requiredNote}</p>
+
+        <button class="btn signform__submit" type="submit" data-submit>
+          <span data-submit-label>{ui.submit.cta}</span>
+        </button>
+        <p class="form__status" data-status role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  {/* ---------- success ---------- */}
+  <section class="state" data-state="done" hidden>
+    <div class="state__box state__box--wide">
+      <p class="eyebrow">{ui.success.eyebrow}</p>
+      <h1 class="state__title">{ui.success.title}</h1>
+      <p class="state__body">{ui.success.lead}</p>
+      <ol class="steps">
+        {ui.success.steps.map((s) => (
+          <li><strong>{s.title}</strong><span>{s.text}</span></li>
+        ))}
+      </ol>
+      <div class="state__cta">
+        <a class="btn" href="#" data-download hidden>{ui.success.download}</a>
+        <button class="btn btn--ghost" type="button" data-print>{ui.success.print}</button>
+        <a class="btn btn--ghost" href={wa} rel="noopener">וואטסאפ ליריב</a>
+      </div>
+      <p class="state__note">{ui.success.spamNote}</p>
+    </div>
+  </section>
+</ContractLayout>
+
+<script>
+  import "@/scripts/contractPage.js";
+</script>

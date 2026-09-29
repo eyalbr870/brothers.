@@ -1,0 +1,62 @@
+---
+// Minimal layout for the per-couple contract signing page.
+//
+// Deliberately NOT BaseLayout: that one preloads the homepage hero image,
+// emits LocalBusiness JSON-LD and mounts <Analytics />. None of it belongs on
+// a page that carries two Israeli ID numbers and a signature.
+//
+// Zero third-party scripts run here. That is what makes it safe to keep the
+// access token in the URL fragment.
+import "@/styles/global.css";
+import "@/styles/contract.css";
+import "@/styles/contract-print.css";
+import site from "@/data/site.js";
+import { ui } from "@/data/contract.js";
+
+const { title = ui.pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang={site.lang} dir={site.dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    {/* Four layers keep this page out of search; netlify.toml's X-Robots-Tag
+        is the one that binds regardless of HTML parsing. */}
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    {/* Belt and braces for the fragment token: no Referer, ever. */}
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#453226" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    {/* Self-hosted, same-origin - which is also why html2canvas can rasterise
+        the print DOM without tainting the canvas. */}
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Assistant-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Assistant-SemiBold.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/FrankRuhlLibre-SemiBold.woff2" crossorigin />
+  </head>
+
+  <body class="contract-body">
+    <header class="doc-bar">
+      <a class="doc-bar__brand" href="/" aria-label={site.brand}>
+        <img src="/logo/logo-black.png" alt={site.brand} width="132" height="30" />
+      </a>
+      <p class="doc-bar__tag">הסכם צילום</p>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="doc-foot">
+      <p>{site.brand} · {site.photographer}</p>
+      <p>
+        <a href={`tel:${site.contact.phoneIntl}`}>{site.contact.phoneDisplay}</a>
+        <span aria-hidden="true"> · </span>
+        <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+      </p>
+    </footer>
+  </body>
+</html>

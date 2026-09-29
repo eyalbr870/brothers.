@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Per-couple contract signing links - not for crawling.
+Disallow: /contract
+
 Sitemap: https://brothers-photography.com/sitemap-index.xml

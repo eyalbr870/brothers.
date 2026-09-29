@@ -1,0 +1,64 @@
+---
+// One signature block: full legal name, Israeli ID, and a drawn signature.
+//
+// Two are always rendered; the second is revealed only when the link says
+// signers: 2. Rendering both up front keeps the markup static and lets the
+// verified deal decide, without client-side DOM construction.
+import { ui } from "@/data/contract.js";
+
+// NB: the prop is `which`, not `slot` - `slot` is reserved by Astro for
+// slot assignment and would never reach Astro.props.
+const { which, label } = Astro.props;
+const f = ui.form;
+const s = ui.signature;
+---
+
+<fieldset class="sign" data-sign-block={which}>
+  <legend class="sign__legend">{label}</legend>
+
+  <div class="form__row">
+    <div class="field">
+      <input
+        id={`sig-${which}-name`}
+        name={`name_${which}`}
+        type="text"
+        required
+        autocomplete="name"
+        placeholder=" "
+        maxlength="80"
+        data-validate="name"
+      />
+      <label for={`sig-${which}-name`}>{f.fullName} *</label>
+      <p class="field__err" data-err-for={`name_${which}`} role="alert"></p>
+    </div>
+
+    <div class="field">
+      <input
+        id={`sig-${which}-id`}
+        name={`id_${which}`}
+        type="text"
+        required
+        inputmode="numeric"
+        autocomplete="off"
+        placeholder=" "
+        maxlength="9"
+        data-validate="id"
+      />
+      <label for={`sig-${which}-id`}>{f.idNumber} *</label>
+      <p class="field__err" data-err-for={`id_${which}`} role="alert"></p>
+    </div>
+  </div>
+
+  <div class="pad">
+    <div class="pad__head">
+      <span class="pad__hint">{s.hint}</span>
+      <button class="pad__clear" type="button" data-clear={which}>{s.clear}</button>
+    </div>
+
+    {/* touch-action:none (in contract.css) is what stops the page scrolling
+        under a finger mid-signature. */}
+    <canvas class="pad__canvas" data-canvas={which} aria-label={`${label} — ${s.hint}`}></canvas>
+    <div class="pad__rule" aria-hidden="true"><span>✗</span></div>
+  </div>
+  <p class="field__err field__err--pad" data-err-for={`sig_${which}`} role="alert"></p>
+</fieldset>

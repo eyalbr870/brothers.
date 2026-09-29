@@ -12,7 +12,15 @@ export default defineConfig({
   compressHTML: true,
   // Without <lastmod> every sitemap entry looks equally stale to a crawler.
   // Stamped at build time, so each deploy refreshes the recrawl signal.
-  integrations: [sitemap({ lastmod: new Date() })],
+  // /contract/ is a per-couple signing page reached only by a signed link.
+  // It must never appear in the sitemap - filter it out at the source rather
+  // than relying on the noindex alone.
+  integrations: [
+    sitemap({
+      lastmod: new Date(),
+      filter: (page) => !page.includes("/contract"),
+    }),
+  ],
   build: {
     inlineStylesheets: "auto",
   },

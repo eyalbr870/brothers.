@@ -1,0 +1,234 @@
+/* ============================================================
+   The A4 sheet used for the PDF and for window.print().
+
+   Constraints that exist for the rasteriser, not for looks:
+   - hex/rgb colours only. No CSS variables in colour positions, no filter,
+     no oklch. html2canvas-pro handles modern colour functions, but pinning
+     the print stylesheet to the boring subset removes the whole class of
+     "the PDF came out grey" bugs.
+   - fixed px sizing. 794x1123px is A4 at 96dpi; the pixel grid has to be
+     predictable for pagination to land where it says it will.
+   ============================================================ */
+
+.pdf-doc {
+  position: fixed;
+  inset-inline-start: -10000px;
+  top: 0;
+  width: 794px;
+  direction: rtl;
+  text-align: right;
+  background: #ffffff;
+  color: #453226;
+  font-family: "Assistant", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.7;
+  z-index: -1;
+}
+
+.pdf-page {
+  position: relative;
+  width: 794px;
+  height: 1123px;
+  padding: 56px 54px 64px;
+  background: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pdf-page__num {
+  position: absolute;
+  inset-inline: 54px;
+  bottom: 26px;
+  font-size: 9px;
+  color: #9a7b66;
+  text-align: center;
+  direction: ltr;
+}
+
+/* ---- header ---- */
+.pdf-head {
+  text-align: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e7d7c2;
+  margin-bottom: 18px;
+}
+.pdf-head__brand {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #9a7b66;
+  direction: ltr;
+  margin-bottom: 8px;
+}
+.pdf-head__title {
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* ---- key/value details ---- */
+.pdf-details {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+.pdf-details th,
+.pdf-details td {
+  border: 1px solid #d9cfc0;
+  padding: 7px 10px;
+  text-align: right;
+  vertical-align: top;
+}
+.pdf-details th {
+  width: 32%;
+  background: #f7f1e8;
+  font-weight: 600;
+}
+
+/* ---- services ---- */
+.pdf-h2 {
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.pdf-svc {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+  margin-bottom: 14px;
+}
+.pdf-svc th,
+.pdf-svc td {
+  border: 1px solid #d9cfc0;
+  padding: 6px 9px;
+  text-align: right;
+  vertical-align: top;
+}
+.pdf-svc thead th {
+  background: #1b140f;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+}
+.pdf-svc tbody tr:nth-child(even) td { background: #f7f1e8; }
+.pdf-svc .qty { text-align: center; width: 70px; }
+.pdf-svc tfoot th,
+.pdf-svc tfoot td { background: #f7f1e8; font-weight: 700; font-size: 12.5px; }
+
+.pdf-note {
+  font-size: 11px;
+  color: #6b5445;
+  background: #f7f1e8;
+  border-right: 3px solid #7d5844;
+  padding: 7px 10px;
+  margin-bottom: 14px;
+}
+
+/* ---- clauses ---- */
+.pdf-clause { margin-bottom: 14px; }
+.pdf-clause__title {
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #ece2d4;
+}
+.pdf-clause__title span { color: #7d5844; }
+.pdf-clause__item {
+  display: flex;
+  gap: 6px;
+  font-size: 11.5px;
+  line-height: 1.75;
+  margin-bottom: 4px;
+}
+.pdf-clause__n {
+  flex: 0 0 auto;
+  min-width: 26px;
+  color: #9a7b66;
+  font-weight: 600;
+  direction: ltr;
+  text-align: right;
+}
+.pdf-clause__lead { font-weight: 700; }
+
+/* ₪ 15,000 and 18:30 must not reorder inside RTL text. */
+.pdf-ltr { unicode-bidi: isolate; direction: ltr; display: inline-block; }
+
+/* ---- signatures ---- */
+.pdf-sign { margin-top: 18px; }
+.pdf-sign__witness { font-weight: 700; margin-bottom: 10px; }
+.pdf-sign__row {
+  display: flex;
+  gap: 16px;
+}
+.pdf-sign__col {
+  flex: 1 1 0;
+  border: 1px solid #d9cfc0;
+  padding: 12px;
+  min-height: 150px;
+  box-sizing: border-box;
+}
+.pdf-sign__label {
+  font-weight: 700;
+  font-size: 11.5px;
+  margin-bottom: 6px;
+}
+.pdf-sign__ink {
+  height: 62px;
+  border-bottom: 1px solid #453226;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: flex-end;
+}
+.pdf-sign__ink img { max-height: 58px; max-width: 100%; }
+.pdf-sign__who { font-size: 11px; line-height: 1.6; }
+.pdf-sign__who span { color: #6b5445; }
+.pdf-sign__digital { font-size: 10px; color: #6b5445; margin-top: 4px; }
+
+/* ---- evidence ---- */
+.pdf-eviq {
+  margin-top: 16px;
+  border: 1px solid #d9cfc0;
+  background: #f7f1e8;
+  padding: 10px 12px;
+  font-size: 10.5px;
+  line-height: 1.7;
+  color: #6b5445;
+}
+.pdf-eviq strong { color: #453226; }
+
+/* ============================================================
+   window.print(): the vector, selectable copy the couple can keep.
+   Same sheet, printed by the browser instead of rasterised.
+   ============================================================ */
+@media print {
+  .doc-bar,
+  .doc-foot,
+  .state,
+  .signform { display: none !important; }
+
+  .pdf-doc {
+    position: static;
+    inset-inline-start: auto;
+    z-index: auto;
+    width: auto;
+  }
+  .pdf-page {
+    width: auto;
+    height: auto;
+    min-height: 0;
+    padding: 0 0 18px;
+    overflow: visible;
+    break-after: page;
+    page-break-after: always;
+  }
+  .pdf-page:last-child { break-after: auto; page-break-after: auto; }
+  .pdf-page__num { display: none; }
+
+  @page { size: A4; margin: 14mm; }
+}
