@@ -13,16 +13,36 @@
 
     <div class="fld">
       <label for="f-password">סיסמה</label>
-      <input
-        id="f-password"
-        name="password"
-        type="password"
-        autocomplete="current-password"
-        autocapitalize="off"
-        spellcheck="false"
-        required
-        enterkeyhint="go"
-      />
+      <div class="pw">
+        <input
+          id="f-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          autocapitalize="off"
+          spellcheck="false"
+          required
+          enterkeyhint="go"
+        />
+        <button
+          class="pw__eye"
+          type="button"
+          aria-label="הצגת הסיסמה"
+          aria-pressed="false"
+          aria-controls="f-password"
+          data-pw-toggle
+        >
+          <svg data-eye-open viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+          <svg data-eye-shut viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" hidden>
+            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+            <circle cx="12" cy="12" r="3" />
+            <path d="M3 3l18 18" />
+          </svg>
+        </button>
+      </div>
       <p class="fld__err" data-err-for="password" role="alert"></p>
     </div>
 

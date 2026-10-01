@@ -12,7 +12,7 @@
 import { signPayload } from "../../src/lib/contractToken.js";
 import { buildDeal } from "../../src/lib/contractDeal.js";
 import { buildPayload, formatExpDate } from "../../src/lib/contractPayload.js";
-import { putMinted } from "./lib/store.mjs";
+import { putMinted, putShortCode } from "./lib/store.mjs";
 import { verify as verifySession } from "./lib/adminSession.mjs";
 import { json, guardPost, readJson, linkSecrets, misconfigured } from "./lib/http.mjs";
 
@@ -57,7 +57,16 @@ export default async (req) => {
   // production deploy mints production ones - with no host hardcoded here.
   // Fragment, not query: the token never reaches a server log, an analytics
   // page_location, or a Referer header.
-  const url = `${new URL(req.url).origin}/contract/#${token}`;
+  //
+  // A short code stands in for the token when Blobs can store it; the full
+  // token is the fallback, because a long link that works beats no link.
+  let ref = token;
+  try {
+    ref = await putShortCode(token);
+  } catch {
+    console.error("[contract] short code failed, minting a full-length link");
+  }
+  const url = `${new URL(req.url).origin}/contract/#${ref}`;
 
   const full = buildDeal(payload);
   const expText = formatExpDate(payload.exp);
