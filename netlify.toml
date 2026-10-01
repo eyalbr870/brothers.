@@ -55,3 +55,23 @@
     X-Robots-Tag = "noindex, nofollow, noarchive"
     Cache-Control = "no-store"
     Referrer-Policy = "no-referrer"
+
+# The admin page, same treatment as /contract/. Two rules because the bare
+# "/admin" request is not matched by "/admin/*".
+# A <meta name="robots"> tag only helps a crawler that fetched the HTML and
+# parsed it; the header is the layer that binds, because it rides on every
+# response - the HTML, a 302 to the login form, an asset, a bot that reads
+# headers only - and it is what keeps the admin URL out of a shared cache or
+# a Referer header on the way to anywhere else.
+[[headers]]
+  for = "/admin"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "no-store"
+    Referrer-Policy = "no-referrer"
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "no-store"
+    Referrer-Policy = "no-referrer"
