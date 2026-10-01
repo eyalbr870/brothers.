@@ -1,0 +1,139 @@
+---
+// The mint form. Every field the signed link carries.
+//
+// The service rows, the payment methods and the balance-due options are read
+// from src/data/contract.js - the same source the contract itself renders
+// from. Hardcoding them here is how a link ends up carrying a service id that
+// no clause describes.
+import { services, payMethods, balanceDueOptions } from "@/data/contract.js";
+---
+
+<form class="panel acreate" method="post" novalidate data-step="form">
+  <h1 class="panel__title">חוזה חדש</h1>
+  <p class="panel__intro">
+    הפרטים האלה נחתמים לתוך הקישור ונעולים לקריאה בלבד אצל הזוג. יש הגהה לפני שהקישור נוצר.
+  </p>
+
+  {/* Server-side 422s that do not match a field land here rather than nowhere. */}
+  <p class="acreate__alert" data-form-alert role="alert" hidden></p>
+
+  <div class="fld">
+    <label for="f-couple">שם הזוג *</label>
+    <input id="f-couple" name="couple" type="text" required maxlength="80" autocomplete="off" />
+    <p class="fld__err" data-err-for="couple" role="alert"></p>
+  </div>
+
+  <div class="grid2">
+    <div class="fld">
+      <label for="f-date">תאריך האירוע *</label>
+      <input id="f-date" name="date" type="date" required />
+      <p class="fld__err" data-err-for="date" role="alert"></p>
+    </div>
+    <div class="fld">
+      <label for="f-guests">מוזמנים (אופציונלי)</label>
+      <input id="f-guests" name="guests" type="number" inputmode="numeric" min="0" max="2000" step="10" />
+      <p class="fld__err" data-err-for="guests" role="alert"></p>
+    </div>
+  </div>
+
+  <div class="fld">
+    <label for="f-venue">מקום האירוע *</label>
+    <input id="f-venue" name="venue" type="text" required maxlength="120" autocomplete="off" />
+    <p class="fld__err" data-err-for="venue" role="alert"></p>
+  </div>
+
+  <div class="grid2">
+    <div class="fld">
+      <label for="f-total">סה"כ תמורה (₪) *</label>
+      <input id="f-total" name="total" type="number" inputmode="numeric" min="1" step="100" required />
+      <p class="fld__err" data-err-for="total" role="alert"></p>
+    </div>
+    <div class="fld">
+      <label for="f-deposit">מקדמה (₪) *</label>
+      <input id="f-deposit" name="deposit" type="number" inputmode="numeric" min="1" step="100" required />
+      <p class="fld__err" data-err-for="deposit" role="alert"></p>
+    </div>
+  </div>
+
+  {/* Live, derived - the same subtraction the contract does. */}
+  <p class="acreate__derived">
+    יתרה לתשלום: <span class="money" dir="ltr">₪ <span data-derived-balance>—</span></span>
+  </p>
+
+  <fieldset class="pick">
+    <legend class="pick__legend">שירותים שנכללים בחבילה</legend>
+    <p class="pick__note">הכל מסומן כברירת מחדל. הסירו סימון ממה שלא נכלל.</p>
+    {services.map((s) => (
+      <label class="check check--row">
+        <input type="checkbox" name="services" value={s.id} checked />
+        <span>{s.label}</span>
+      </label>
+    ))}
+    <p class="fld__err" data-err-for="services" role="alert"></p>
+  </fieldset>
+
+  <fieldset class="pick pick--inline">
+    <legend class="pick__legend">מספר חותמים</legend>
+    <div class="pick__row">
+      <label class="check check--chip">
+        <input type="radio" name="signers" value="1" checked />
+        <span>חותם אחד</span>
+      </label>
+      <label class="check check--chip">
+        <input type="radio" name="signers" value="2" />
+        <span>שני חותמים</span>
+      </label>
+    </div>
+    <p class="fld__err" data-err-for="signers" role="alert"></p>
+  </fieldset>
+
+  <div class="grid2">
+    <div class="fld">
+      <label for="f-pay">אמצעי תשלום *</label>
+      <select id="f-pay" name="pay">
+        {Object.entries(payMethods).map(([id, label]) => (
+          <option value={id} selected={id === "bit"}>{label}</option>
+        ))}
+      </select>
+      <p class="fld__err" data-err-for="pay" role="alert"></p>
+    </div>
+    <div class="fld">
+      <label for="f-balance-due">מועד תשלום היתרה *</label>
+      <select id="f-balance-due" name="balanceDue">
+        {Object.entries(balanceDueOptions).map(([id, label]) => (
+          <option value={id} selected={id === "event-day"}>{label}</option>
+        ))}
+      </select>
+      <p class="fld__err" data-err-for="balanceDue" role="alert"></p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="fld">
+      <label for="f-email">אימייל הזוג</label>
+      <input id="f-email" name="email" type="email" inputmode="email" autocomplete="off" spellcheck="false" />
+      <p class="fld__err" data-err-for="email" role="alert"></p>
+    </div>
+    <div class="fld">
+      <label for="f-phone">טלפון הזוג</label>
+      <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="off" />
+      <p class="fld__err" data-err-for="phone" role="alert"></p>
+    </div>
+  </div>
+
+  <div class="fld">
+    <label for="f-notes">הערות (נכנסות להסכם)</label>
+    <textarea id="f-notes" name="notes" rows="2" maxlength="400"></textarea>
+    <p class="fld__err" data-err-for="notes" role="alert"></p>
+  </div>
+
+  <div class="fld fld--short">
+    <label for="f-days">תוקף הקישור (בימים) *</label>
+    <input id="f-days" name="days" type="number" inputmode="numeric" min="1" max="90" step="1" value="30" />
+    <p class="fld__err" data-err-for="days" role="alert"></p>
+  </div>
+
+  <p class="panel__note">שדות עם * הם חובה.</p>
+
+  <button class="btn acreate__submit" type="submit">המשך להגהה</button>
+</form>

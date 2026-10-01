@@ -1,0 +1,38 @@
+---
+// The minted link, plus the WhatsApp message the server already composed.
+//
+// Both sit in readonly fields rather than in plain text: on a phone, "select
+// the text" is a fiddle, and the field gives the execCommand fallback
+// something real to select when navigator.clipboard is unavailable (iOS
+// Safari denies it outside a trusted gesture often enough to matter).
+---
+
+<section class="panel result" data-step="result" hidden>
+  <p class="eyebrow">נוצר</p>
+  <h1 class="panel__title">הקישור מוכן</h1>
+  <p class="panel__intro" data-result-sub></p>
+
+  <div class="copy">
+    <label class="copy__label" for="r-url">קישור לחתימה</label>
+    <div class="copy__row">
+      <input id="r-url" class="copy__field" type="text" readonly dir="ltr" data-result-url />
+      <button class="btn btn--ghost copy__btn" type="button" data-copy="url">העתק</button>
+    </div>
+    <p class="copy__status" data-copy-status="url" role="status" aria-live="polite"></p>
+  </div>
+
+  <div class="copy">
+    <label class="copy__label" for="r-wa">הודעה מוכנה לוואטסאפ</label>
+    <div class="copy__row copy__row--stack">
+      <textarea id="r-wa" class="copy__field copy__field--area" rows="7" readonly data-result-wa></textarea>
+      <button class="btn btn--ghost copy__btn" type="button" data-copy="wa">העתק הודעה</button>
+    </div>
+    <p class="copy__status" data-copy-status="wa" role="status" aria-live="polite"></p>
+  </div>
+
+  <div class="panel__cta">
+    {/* Only when the form carried a phone number. */}
+    <a class="btn" href="#" target="_blank" rel="noopener" data-result-wa-link hidden>פתיחה בוואטסאפ</a>
+    <button class="btn btn--ghost" type="button" data-again>צור חוזה נוסף</button>
+  </div>
+</section>
