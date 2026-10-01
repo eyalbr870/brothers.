@@ -80,10 +80,15 @@ node -e "console.log(crypto.randomBytes(32).toString('hex'))"
 לשים ב-`site/.env` בתור `CONTRACT_LINK_SECRET`, ואת אותו ערך ב-Netlify:
 
 ```bash
-netlify env:set CONTRACT_LINK_SECRET <הערך> --secret --scope functions
+netlify env:set CONTRACT_LINK_SECRET <הערך> --secret --scope functions \
+  --context production deploy-preview branch-deploy
 ```
 
 ה-scope חשוב: כך הסוד לא נחשף ל-build ולא ללקוח.
+
+ה-`--context` חובה: Netlify מסרב להגדיר ערך `--secret` בלי context מפורש,
+ו-`env:set --secret` לבד נכשל. בלי `deploy-preview` ו-`branch-deploy` גם
+תצוגה מקדימה לא תוכל לאמת קישור.
 
 ### 2. החתימה של יריב
 
@@ -103,17 +108,32 @@ Photography" עם מזהה המסמך. החוזה תקף — הוא פשוט נ�
 
 ### 3. מיילים (Resend)
 
-1. חשבון ב-resend.com, ליצור API key → `RESEND_API_KEY`.
-2. **עד לאימות הדומיין**, Resend שולח רק מ-`onboarding@resend.dev` ורק
-   לכתובת של בעל החשבון. לכן `CONTRACT_MAIL_MODE=test`: שני העותקים הולכים
-   ליריב, והעותק "של הזוג" מקבל באנר שאומר לאן הוא היה אמור להישלח.
-   הכישלון הזה גלוי במקום שקט.
-3. לאימות: Resend → Domains → להוסיף **`send.brothers-photography.com`**
-   (תת-דומיין, לא הדומיין הראשי — כך רשומות ה-SPF וההגדרות של הג'ימייל
-   הקיים לא נוגעים). להוסיף את שלוש הרשומות ב-Netlify DNS.
-4. אחרי שהדומיין ירוק:
-   - `CONTRACT_MAIL_FROM=Brothers Photography <contracts@send.brothers-photography.com>`
-   - `CONTRACT_MAIL_MODE=live`
+**המצב היום: הדומיין מאומת וההגדרה חיה.** ב-Netlify, גם ב-`production` וגם
+ב-`deploy-preview`:
+
+- `CONTRACT_MAIL_MODE=live`
+- `CONTRACT_MAIL_FROM=Brothers Photography <contracts@send.brothers-photography.com>`
+
+> **`deploy-preview` גם הוא `live`.** חתימה שנעשית בתצוגה מקדימה שולחת מייל
+> אמיתי לכתובת שבטופס. בדיקות — רק עם כתובת שלנו.
+
+`CONTRACT_MAIL_MODE=test` ב-`.env.example` הוא ברירת המחדל לעבודה מקומית,
+ושם הוא נשאר: במצב `test` שני העותקים הולכים ליריב, והעותק "של הזוג" מקבל
+באנר שאומר לאן הוא היה אמור להישלח — כישלון גלוי במקום שקט.
+
+**`CONTRACT_NOTIFY_EMAIL` לא מוגדר ב-Netlify באף context.** הקוד נופל לכתובת
+קשיחה — `yariv70@gmail.com` ב-`contract-sign.mjs:175` וב-`lib/email.mjs:186`
+(ה-`Reply-To` של העותק לזוג). כלומר העותק של הצלם מגיע ליריב **בגלל fallback,
+לא בגלל הגדרה**: ביום שהכתובת תשתנה, שינוי ב-Netlify לא יספיק. התיקון הוא
+להגדיר את המשתנה במפורש.
+
+איך זה הוקם, לתיעוד:
+
+1. חשבון ב-resend.com, API key → `RESEND_API_KEY`.
+2. Resend → Domains → **`send.brothers-photography.com`** (תת-דומיין, לא
+   הדומיין הראשי — כך רשומות ה-SPF וההגדרות של הג'ימייל הקיים לא נוגעים),
+   ושלוש הרשומות ב-Netlify DNS.
+3. אחרי שהדומיין ירוק — `CONTRACT_MAIL_FROM` ו-`CONTRACT_MAIL_MODE=live`.
 
 ---
 
@@ -140,6 +160,15 @@ npm run contract:test      # בדיקות האבטחה
 1. `CONTRACT_LINK_SECRET_PREV` = הסוד הישן
 2. `CONTRACT_LINK_SECRET` = החדש
 3. אחרי שכל הקישורים הישנים פגו (מקסימום 90 יום) — למחוק את `_PREV`
+
+```bash
+netlify env:set CONTRACT_LINK_SECRET_PREV <הישן> --secret --scope functions \
+  --context production deploy-preview branch-deploy
+netlify env:set CONTRACT_LINK_SECRET <החדש> --secret --scope functions \
+  --context production deploy-preview branch-deploy
+```
+
+גם כאן ה-`--context` חובה — בלעדיו הפקודה פשוט נכשלת.
 
 ---
 
