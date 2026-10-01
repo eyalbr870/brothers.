@@ -117,3 +117,11 @@ site/
 - **Build command:** `npm run build`
 - **Publish directory:** `dist`
 - **Base directory:** `site`
+
+## חוזה דיגיטלי
+
+`/contract/` — דף חתימה לזוג, נגיש רק דרך קישור חתום שנוצר ב-`npm run contract:link`.
+הזוג קורא, ממלא וחותם; יריב מקבל PDF חתום למייל; עותק נשמר בארכיון.
+
+הוראות מלאות — יצירת קישור, הגדרת הסוד, החתימה הסרוקה, אימות דומיין המיילים
+ושליפה מהארכיון — ב-[docs/CONTRACT.md](docs/CONTRACT.md).

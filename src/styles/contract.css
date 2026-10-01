@@ -1,0 +1,520 @@
+/* ============================================================
+   /contract/ - the signing page.
+   Screen styles only; the A4 print/PDF sheet lives in contract-print.css.
+   Everything here is built from the tokens in global.css.
+
+   The .field floating-label pattern is re-declared rather than imported:
+   Astro scopes component styles, so the original in Contact.astro is not
+   reachable from here. Same visual contract, same class names.
+   ============================================================ */
+
+.contract-body {
+  background: var(--cream);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+.contract-body main { flex: 1; }
+
+/* ---- slim brand bar ---- */
+.doc-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem var(--gutter);
+  background: var(--paper);
+  border-block-end: 1px solid var(--line);
+}
+.doc-bar__brand img { display: block; height: 26px; width: auto; }
+.doc-bar__tag {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mocha);
+}
+
+.doc-foot {
+  padding: 2rem var(--gutter) 2.6rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-45);
+  border-block-start: 1px solid var(--line-soft);
+}
+.doc-foot a { color: var(--ink-60); text-decoration: none; }
+.doc-foot a:hover { color: var(--chestnut); text-decoration: underline; }
+
+/* ---- states ---- */
+.state {
+  display: flex;
+  justify-content: center;
+  padding: clamp(2rem, 1rem + 5vw, 4.5rem) var(--gutter);
+}
+.state[hidden] { display: none; }
+
+.state__box {
+  width: 100%;
+  max-width: 34rem;
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.8rem, 1rem + 3vw, 3rem);
+}
+.state__box--wide { max-width: 44rem; }
+.state__title {
+  font-family: var(--font-head);
+  font-size: var(--fs-h3);
+  margin-block: 0.7rem 0.6rem;
+}
+.state__body { color: var(--ink-60); line-height: 1.7; }
+.state__note {
+  margin-block-start: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--ink-45);
+}
+.state__cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-block-start: 1.6rem;
+}
+.state__cta .btn { flex: 0 1 auto; }
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  margin-inline: auto;
+  border: 2px solid var(--sand);
+  border-top-color: var(--chestnut);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 2.4s; } }
+
+.steps {
+  list-style: none;
+  text-align: start;
+  margin-block: 1.6rem 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.steps li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.85rem 1rem;
+  background: var(--cream);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+.steps strong { font-weight: 700; }
+.steps span { color: var(--ink-60); font-size: 0.94rem; }
+
+/* ---- the sheet ---- */
+.state--doc { padding-block: clamp(1.4rem, 0.8rem + 3vw, 3rem); }
+.sheet {
+  width: 100%;
+  max-width: 52rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.4rem, 0.9rem + 3vw, 3.4rem);
+}
+.sheet__head {
+  text-align: center;
+  padding-block-end: 1.4rem;
+  border-block-end: 1px solid var(--line);
+  margin-block-end: 1.8rem;
+}
+.sheet__head .eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  display: block;
+  margin-block-end: 0.8rem;
+}
+.sheet__title {
+  font-family: var(--font-head);
+  font-size: clamp(1.3rem, 1rem + 1.6vw, 2rem);
+  line-height: 1.25;
+}
+
+/* ---- locked deal card ---- */
+.deal {
+  background: var(--cream-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 0.7rem + 1.4vw, 1.7rem);
+  margin-block-end: 2.2rem;
+}
+.deal__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-end: 1rem;
+}
+.deal__lock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--mocha);
+}
+.deal__grid,
+.deal__money {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+}
+.deal__grid { grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
+.deal__money {
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  padding-block: 1.1rem;
+  margin-block: 1.1rem;
+  border-block: 1px solid var(--line);
+}
+.deal__grid--sm { font-size: 0.94rem; }
+.deal dt {
+  font-family: var(--font-label);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mocha);
+  margin-block-end: 0.28rem;
+}
+.deal dd { margin: 0; font-weight: 600; }
+.deal__money dd {
+  font-family: var(--font-head);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: 1.15;
+}
+/* ₪ 15,000 must not reorder inside an RTL paragraph. */
+.money { unicode-bidi: isolate; }
+
+.deal__wrong {
+  margin-block-start: 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-60);
+}
+.deal__wrong strong { color: var(--espresso); }
+.deal__wrong a {
+  color: var(--chestnut);
+  font-weight: 600;
+  margin-inline-start: 0.3rem;
+}
+
+/* ---- contract body ---- */
+.doc__h2 {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  margin-block-end: 0.8rem;
+}
+.doc__tablewrap { overflow-x: auto; }
+.svc {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+.svc th,
+.svc td {
+  border: 1px solid #d9cfc0;
+  padding: 0.6rem 0.75rem;
+  text-align: start;
+  vertical-align: top;
+}
+.svc thead th {
+  background: #1b140f;
+  color: #fff;
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+.svc tbody tr:nth-child(even) td { background: var(--cream); }
+.svc__qty { text-align: center; width: 5.5rem; white-space: nowrap; }
+.svc tfoot th,
+.svc tfoot td {
+  background: var(--cream);
+  font-weight: 700;
+}
+
+.doc__note {
+  margin-block-start: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--ink-60);
+  padding: 0.6rem 0.8rem;
+  background: var(--cream);
+  border-inline-start: 3px solid var(--chestnut);
+}
+
+.clause { margin-block-start: 1.9rem; }
+.clause__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--font-head);
+  font-size: 1.08rem;
+  margin-block-end: 0.6rem;
+  padding-block-end: 0.4rem;
+  border-block-end: 1px solid var(--line-soft);
+}
+.clause__num {
+  color: var(--chestnut);
+  font-weight: 700;
+  unicode-bidi: isolate;
+}
+.clause__items {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+.clause__item {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 0.2rem;
+  line-height: 1.75;
+  font-size: 0.96rem;
+}
+.clause__item:has(> .clause__text:only-child) { grid-template-columns: 1fr; }
+.clause__n {
+  color: var(--mocha);
+  font-size: 0.85rem;
+  font-weight: 600;
+  unicode-bidi: isolate;
+}
+.clause__lead { font-weight: 700; }
+/* A blank fill is a bug, not a style - make it visible in dev rather than
+   letting an empty amount pass for a rendered one. */
+.fill { font-weight: 700; unicode-bidi: isolate; }
+.fill:empty::after { content: "—"; color: var(--ink-45); }
+
+.doc__witness {
+  margin-block-start: 2.4rem;
+  padding-block-start: 1.2rem;
+  border-block-start: 1px solid var(--line);
+  font-weight: 700;
+}
+
+/* ---- form ---- */
+.signform { margin-block-start: 2rem; }
+.signform__eyebrow { display: block; margin-block-end: 0.5rem; }
+.signform__intro {
+  color: var(--ink-60);
+  margin-block-end: 1.4rem;
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 560px) {
+  .form__row { grid-template-columns: 1fr; }
+}
+
+.field { position: relative; margin-block-end: 1rem; }
+.field input,
+.field textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--espresso);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.15rem 1rem 0.5rem;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.field textarea { padding-top: 1.4rem; resize: vertical; min-height: 84px; }
+.field label {
+  position: absolute;
+  inset-inline-start: 1rem;
+  top: 0.95rem;
+  font-size: 1rem;
+  color: var(--ink-45);
+  pointer-events: none;
+  transition: transform 0.22s var(--ease), font-size 0.22s var(--ease), color 0.22s var(--ease);
+  transform-origin: inline-start;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--chestnut);
+  box-shadow: 0 0 0 3px rgba(125, 88, 68, 0.12);
+}
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,
+.field textarea:not(:placeholder-shown) + label {
+  transform: translateY(-0.7rem) scale(0.8);
+  color: var(--chestnut);
+}
+.field input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.field input[type="number"]::-webkit-inner-spin-button,
+.field input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+.field.is-err input,
+.field.is-err textarea { border-color: #b0483a; }
+.field__err {
+  font-size: 0.82rem;
+  color: #b0483a;
+  margin-block-start: 0.25rem;
+  min-height: 0;
+}
+.field__err:empty { display: none; }
+.field__err--pad { margin-block-end: 0.8rem; }
+
+.form__micro {
+  margin-block: -0.4rem 1rem;
+  font-size: 0.85rem;
+  color: var(--ink-60);
+}
+.form__required {
+  margin-block: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+  color: var(--ink-45);
+}
+.form__status {
+  margin-block-start: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  min-height: 1.4em;
+}
+.form__status.is-ok { color: #4b7d4b; }
+.form__status.is-err { color: #b0483a; }
+
+.signform__submit { width: 100%; margin-block-start: 0.6rem; }
+.signform__submit[disabled] { opacity: 0.45; cursor: not-allowed; }
+.signform__submit[disabled]:hover { transform: none; box-shadow: none; background: var(--espresso); border-color: var(--espresso); }
+
+/* ---- signature ---- */
+.sign {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  margin-block-end: 1.3rem;
+  background: var(--cream);
+}
+.sign[hidden] { display: none; }
+.sign__legend {
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--chestnut);
+  padding-inline: 0.45rem;
+}
+
+.pad { position: relative; }
+.pad__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-block-end: 0.35rem;
+}
+.pad__hint { font-size: 0.82rem; color: var(--ink-45); }
+.pad__clear {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-60);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.9rem;
+  min-height: 44px; /* same touch target rule as .btn */
+  cursor: pointer;
+}
+.pad__clear:hover { background: var(--paper); color: var(--espresso); }
+
+.pad__canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 2;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  /* The rule that stops the page scrolling under a finger mid-stroke. */
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: crosshair;
+}
+.pad.is-err .pad__canvas { border-color: #b0483a; }
+.pad__rule {
+  position: absolute;
+  inset-inline: 1.2rem;
+  bottom: 1.5rem;
+  border-block-end: 1px solid var(--sand);
+  pointer-events: none;
+}
+.pad__rule span {
+  position: absolute;
+  inset-inline-start: -0.1rem;
+  bottom: 0.1rem;
+  color: var(--sand);
+  font-size: 0.95rem;
+}
+
+/* ---- opt-out + read gate ---- */
+.optout,
+.gate {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  margin-block: 1.3rem;
+  background: var(--cream);
+}
+.optout__title {
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--chestnut);
+  margin-block-end: 0.6rem;
+}
+.optout__note {
+  margin-block-start: 0.5rem;
+  font-size: 0.84rem;
+  color: var(--ink-45);
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  cursor: pointer;
+  line-height: 1.6;
+  font-size: 0.94rem;
+}
+.check input {
+  flex: 0 0 auto;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-block-start: 0.18rem;
+  accent-color: var(--chestnut);
+}
+.check--strong { font-weight: 600; font-size: 1rem; }
+
+/* Locked until the reader reaches the end of clause 13. */
+.gate { transition: opacity 0.3s var(--ease); }
+.gate.is-locked { opacity: 0.5; }
+.gate.is-locked .check { pointer-events: none; }
+.gate__hint {
+  font-size: 0.84rem;
+  color: var(--mocha);
+  margin-block-end: 0.6rem;
+}
+.gate:not(.is-locked) .gate__hint { display: none; }
+
+/* The signature + submit area is inert until the gate opens. */
+.signform.is-locked .sign,
+.signform.is-locked .signform__submit { opacity: 0.45; }
+.signform.is-locked .pad__canvas { pointer-events: none; }

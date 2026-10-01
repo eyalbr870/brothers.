@@ -17,3 +17,6 @@ scratch-contact-sheets/
 
 # local tooling
 .claude/
+
+# netlify dev state + local blobs store
+.netlify/

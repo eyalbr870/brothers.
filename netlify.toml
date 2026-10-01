@@ -7,6 +7,13 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# The contract signing endpoints. Plain functions alongside the static
+# build - no Astro adapter, so the existing Netlify Forms detection
+# (which scans the static HTML in dist at deploy time) keeps working.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # Nice-to-have security headers
 [[headers]]
   for = "/*"
@@ -38,3 +45,13 @@
   from = "/sitemap.xml"
   to = "/sitemap-index.xml"
   status = 200
+
+# The signed-contract page. Never indexed, never cached, never referred from.
+# The header is the layer that actually binds: it applies to the HTTP response
+# whether or not a crawler parses the HTML.
+[[headers]]
+  for = "/contract/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "no-store"
+    Referrer-Policy = "no-referrer"
