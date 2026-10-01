@@ -17,7 +17,6 @@
 
 import { createInterface } from "node:readline/promises";
 import { stdin, stdout } from "node:process";
-import { randomBytes } from "node:crypto";
 import { spawnSync } from "node:child_process";
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -25,12 +24,12 @@ import { dirname, join } from "node:path";
 
 import { signPayload } from "../src/lib/contractToken.js";
 import { services as allServices, payMethods, balanceDueOptions } from "../src/data/contract.js";
-import { buildDeal, formatDateHe } from "../src/lib/contractDeal.js";
+import { buildDeal } from "../src/lib/contractDeal.js";
+import { buildPayload, formatExpDate } from "../src/lib/contractPayload.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PROD_BASE = "https://brothers-photography.com";
 const LOCAL_BASE = "http://localhost:8888"; // netlify dev, never astro's 4321
-const MAX_DAYS = 90;
 
 // ---------- env ----------
 // npm run contract:link uses `node --env-file=.env`. This fallback keeps a
@@ -74,118 +73,41 @@ const die = (msg) => {
   process.exit(1);
 };
 
-// ---------- services ----------
-const SERVICE_IDS = allServices.map((s) => s.id);
+// ---------- messages ----------
+// The rules themselves live in src/lib/contractPayload.js, shared with the
+// /admin endpoint. Only the wording is local: on the command line an error has
+// to name the flag that caused it, which is no use to someone filling a form.
+const CLI_MESSAGES = {
+  "couple.missing": () => "חסר --couple (שם הזוג)",
+  "date.format": () => "--date חייב להיות בפורמט YYYY-MM-DD (למשל 2026-06-18)",
+  "venue.missing": () => "חסר --venue (מקום האירוע)",
+  "total.invalid": () => '--total חייב להיות מספר חיובי (בש"ח, כולל מע"מ)',
+  "deposit.invalid": () => "--deposit חייב להיות מספר חיובי",
+  "deposit.gtTotal": ({ deposit, total }) =>
+    `המקדמה (${deposit}) גדולה מהתמורה הכוללת (${total})`,
+  "guests.range": () => "--guests חייב להיות מספר בין 0 ל-2000",
+  "pay.invalid": ({ options }) => `--pay חייב להיות אחד מ: ${options.join(" | ")}`,
+  "balanceDue.invalid": ({ options }) =>
+    `--balance-due חייב להיות אחד מ: ${options.join(" | ")}`,
+  "email.invalid": () => "--email אינו כתובת תקינה",
+  "services.unknown": ({ id, available }) =>
+    `שירות לא מוכר: "${id}"\nזמינים: ${available.join(", ")}`,
+  "services.empty": () => "חייב להיכלל לפחות שירות אחד בהסכם",
+  "days.invalid": () => "--days חייב להיות מספר",
+  "date.past": ({ dateHe }) =>
+    `תאריך האירוע (${dateHe}) כבר עבר.\n` +
+      "תוקף הקישור נצמד לתאריך האירוע, ולכן הקישור היה נוצר פג-תוקף.\n" +
+      "בדקו את --date.",
+};
 
-/** "all" | "a,b,c" | "all,-std,-albums" */
-function parseServices(spec) {
-  const raw = String(spec ?? "all").trim();
-  if (!raw) return [...SERVICE_IDS];
-
-  const parts = raw.split(",").map((s) => s.trim()).filter(Boolean);
-  let set = new Set();
-
-  for (const part of parts) {
-    if (part === "all") {
-      set = new Set(SERVICE_IDS);
-    } else if (part.startsWith("-")) {
-      const id = part.slice(1);
-      if (!SERVICE_IDS.includes(id)) die(`שירות לא מוכר: "${id}"\nזמינים: ${SERVICE_IDS.join(", ")}`);
-      set.delete(id);
-    } else {
-      if (!SERVICE_IDS.includes(part)) die(`שירות לא מוכר: "${part}"\nזמינים: ${SERVICE_IDS.join(", ")}`);
-      set.add(part);
-    }
-  }
-  if (!set.size) die("חייב להיכלל לפחות שירות אחד בהסכם");
-  // keep the contract's own row order
-  return SERVICE_IDS.filter((id) => set.has(id));
-}
-
-// ---------- validation ----------
-const isDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(String(s ?? "")) && !Number.isNaN(Date.parse(s));
-const isEmail = (s) => !s || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(s));
-
-function buildPayload(a) {
-  const couple = String(a.couple ?? "").trim();
-  if (!couple) die("חסר --couple (שם הזוג)");
-
-  const date = String(a.date ?? "").trim();
-  if (!isDate(date)) die("--date חייב להיות בפורמט YYYY-MM-DD (למשל 2026-06-18)");
-
-  const venue = String(a.venue ?? "").trim();
-  if (!venue) die("חסר --venue (מקום האירוע)");
-
-  const total = Math.round(Number(a.total));
-  const deposit = Math.round(Number(a.deposit));
-  if (!Number.isFinite(total) || total <= 0) die('--total חייב להיות מספר חיובי (בש"ח, כולל מע"מ)');
-  if (!Number.isFinite(deposit) || deposit <= 0) die("--deposit חייב להיות מספר חיובי");
-  if (deposit > total) die(`המקדמה (${deposit}) גדולה מהתמורה הכוללת (${total})`);
-
-  const guests = a.guests == null ? null : Math.round(Number(a.guests));
-  if (guests != null && (!Number.isFinite(guests) || guests < 0 || guests > 2000)) {
-    die("--guests חייב להיות מספר בין 0 ל-2000");
-  }
-
-  const payMethod = String(a.pay ?? "bit").trim();
-  if (!(payMethod in payMethods)) {
-    die(`--pay חייב להיות אחד מ: ${Object.keys(payMethods).join(" | ")}`);
-  }
-
-  const balanceDue = String(a["balance-due"] ?? "event-day").trim();
-  if (!(balanceDue in balanceDueOptions)) {
-    die(`--balance-due חייב להיות אחד מ: ${Object.keys(balanceDueOptions).join(" | ")}`);
-  }
-
-  const signers = Number(a.signers ?? 1) === 2 ? 2 : 1;
-
-  const email = String(a.email ?? "").trim();
-  if (!isEmail(email)) die("--email אינו כתובת תקינה");
-
-  const services = parseServices(a.services);
-
-  // Expiry: requested days, capped at 90, and never past the wedding itself -
-  // a link that still works after the event is a liability, not a convenience.
-  const days = Math.min(Number(a.days ?? 30), MAX_DAYS);
-  if (!Number.isFinite(days)) die("--days חייב להיות מספר");
-  const now = Date.now();
-  const byDays = now + days * 86400000;
-  const eventEnd = Date.parse(`${date}T23:59:59+03:00`);
-
-  // Because expiry is clamped to the event date, a past date would mint a link
-  // that is dead on arrival - and silently, since the payload itself is valid.
-  // Refuse instead of handing over a link that shows "פג תוקף" to the couple.
-  if (eventEnd <= now) {
-    die(
-      `תאריך האירוע (${formatDateHe(date)}) כבר עבר.\n` +
-        "תוקף הקישור נצמד לתאריך האירוע, ולכן הקישור היה נוצר פג-תוקף.\n" +
-        "בדקו את --date.",
-    );
-  }
-
-  const exp = Math.floor(Math.min(byDays, eventEnd) / 1000);
-
-  const id = `c_${date.replace(/-/g, "")}_${randomBytes(3).toString("hex")}`;
-
-  return {
-    v: 1,
-    id,
-    iat: Math.floor(now / 1000),
-    exp,
-    couple,
-    date,
-    venue,
-    guests,
-    total,
-    deposit,
-    services,
-    signers,
-    payMethod,
-    balanceDue,
-    notes: String(a.notes ?? "").trim(),
-    email,
-    phone: String(a.phone ?? "").trim(),
-  };
+/**
+ * One die() on the first problem, as before: a flag typo is fixed one flag at
+ * a time, and a wall of errors would bury the first one.
+ */
+function validate(a) {
+  const res = buildPayload(a, { messages: CLI_MESSAGES });
+  if (!res.ok) die(Object.values(res.errors)[0]);
+  return res.payload;
 }
 
 // ---------- interactive ----------
@@ -221,10 +143,7 @@ async function prompt(a) {
 
 // ---------- output ----------
 function report(deal, url, payload) {
-  const expDate = new Date(payload.exp * 1000);
-  const expText = `${String(expDate.getDate()).padStart(2, "0")}/${String(
-    expDate.getMonth() + 1,
-  ).padStart(2, "0")}/${expDate.getFullYear()}`;
+  const expText = formatExpDate(payload.exp);
 
   const line = "─".repeat(64);
   console.log(`\n${line}`);
@@ -290,7 +209,7 @@ async function main() {
   const needsPrompt = !a.couple || !a.date || !a.venue || a.total == null || a.deposit == null;
   if (needsPrompt) a = await prompt(a);
 
-  const payload = buildPayload(a);
+  const payload = validate(a);
   const token = signPayload(payload, secret);
 
   const base = a.local ? LOCAL_BASE : String(a.base ?? PROD_BASE).replace(/\/+$/, "");
