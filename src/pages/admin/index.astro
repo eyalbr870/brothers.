@@ -1,0 +1,57 @@
+---
+// /admin - Yariv's console: mint a contract link, see what has been minted.
+//
+// Same shape as /contract/: every state exists in the markup and
+// adminPage.js reveals exactly one. Nothing on this page is meaningful until
+// admin-login has set the session cookie, so the app ships hidden.
+//
+// The password is never in the URL, never in storage and never in a GET - the
+// only thing that proves a session is the HttpOnly cookie, which is why every
+// fetch here goes out with credentials: "same-origin".
+import AdminLayout from "@/layouts/AdminLayout.astro";
+import LoginGate from "@/components/admin/LoginGate.astro";
+import CreateForm from "@/components/admin/CreateForm.astro";
+import ProofStep from "@/components/admin/ProofStep.astro";
+import ResultCard from "@/components/admin/ResultCard.astro";
+import ContractList from "@/components/admin/ContractList.astro";
+---
+
+<AdminLayout>
+  {/* One silent probe of admin-list decides between gate and app, so a live
+      8-hour cookie does not ask for the password again. */}
+  <section class="state" data-state="boot">
+    <div class="state__box">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="state__body">רגע אחד…</p>
+    </div>
+  </section>
+
+  <LoginGate />
+
+  <section class="state state--app" data-state="app" hidden>
+    <div class="app">
+      <div class="tabs" role="tablist" aria-label="מסכי ניהול">
+        <button class="tab is-on" type="button" role="tab" aria-selected="true" data-tab="create">
+          חוזה חדש
+        </button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="list">
+          רשימת חוזים
+        </button>
+      </div>
+
+      <div role="tabpanel" data-panel="create">
+        <CreateForm />
+        <ProofStep />
+        <ResultCard />
+      </div>
+
+      <div role="tabpanel" data-panel="list" hidden>
+        <ContractList />
+      </div>
+    </div>
+  </section>
+</AdminLayout>
+
+<script>
+  import "@/scripts/adminPage.js";
+</script>

@@ -1,0 +1,35 @@
+---
+// The password gate. One field, one button, one calm error line.
+//
+// method="post" is not decoration: if the script fails to boot, a native
+// submit must still never put the password in the query string.
+---
+
+<section class="state" data-state="gate" hidden>
+  <form class="panel panel--narrow gate-form" method="post" novalidate data-login>
+    <p class="eyebrow">Brothers.</p>
+    <h1 class="panel__title">כניסה לניהול</h1>
+    <p class="panel__intro">הדף הזה פרטי. הזינו את סיסמת הניהול כדי להמשיך.</p>
+
+    <div class="fld">
+      <label for="f-password">סיסמה</label>
+      <input
+        id="f-password"
+        name="password"
+        type="password"
+        autocomplete="current-password"
+        autocapitalize="off"
+        spellcheck="false"
+        required
+        enterkeyhint="go"
+      />
+      <p class="fld__err" data-err-for="password" role="alert"></p>
+    </div>
+
+    <button class="btn gate-form__submit" type="submit" data-login-submit>
+      <span data-login-label>כניסה</span>
+    </button>
+
+    <p class="panel__note">8 שעות של התחברות, ואז צריך להיכנס שוב.</p>
+  </form>
+</section>

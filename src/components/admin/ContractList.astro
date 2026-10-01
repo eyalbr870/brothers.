@@ -1,0 +1,38 @@
+---
+// רשימת החוזים. Metadata only - the endpoint returns no ID numbers, no
+// phones, no emails and no signed body, and this component asks for nothing
+// more than it returns.
+//
+// Rendered from a <template> rather than innerHTML: the markup stays in the
+// markup, and nothing from the server is ever parsed as HTML.
+---
+
+<section class="panel clist">
+  <div class="clist__top">
+    <h1 class="panel__title">רשימת חוזים</h1>
+    <button class="btn btn--ghost clist__refresh" type="button" data-list-refresh>רענון</button>
+  </div>
+
+  <p class="form__status" data-list-status role="status" aria-live="polite"></p>
+
+  <p class="clist__empty" data-list-empty hidden>
+    עוד לא נוצרו חוזים. התחילו ב״חוזה חדש״.
+  </p>
+
+  <ul class="clist__items" data-list></ul>
+
+  <template data-row>
+    <li class="citem">
+      <div class="citem__head">
+        <p class="citem__couple" data-cell="couple"></p>
+        <span class="badge" data-cell="status"></span>
+      </div>
+      <dl class="citem__grid">
+        <div><dt>תאריך האירוע</dt><dd data-cell="date"></dd></div>
+        <div><dt>מקום</dt><dd data-cell="venue"></dd></div>
+        <div><dt>סה"כ תמורה</dt><dd class="money" dir="ltr">₪ <span data-cell="total"></span></dd></div>
+        <div><dt>נוצר</dt><dd data-cell="created"></dd></div>
+      </dl>
+    </li>
+  </template>
+</section>

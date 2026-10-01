@@ -14,6 +14,11 @@ import { createHash } from "node:crypto";
 
 const contracts = () => getStore("contracts");
 const limits = () => getStore("contract-limits");
+// Minted-but-unsigned links. A SEPARATE store from `contracts` on purpose: the
+// archive holds signed records (and two ID numbers each), this holds operator
+// metadata. Mixing them would put unsigned rows in front of contract:list and
+// the signed-contract archive behind an HTTP endpoint.
+const minted = () => getStore("contract-links");
 
 /** Metadata only - enough to decide "already signed?" without pulling the record. */
 export async function getSignedMeta(id) {
@@ -51,6 +56,44 @@ export async function markEmailed(id, record, metadata) {
 export async function listContracts() {
   const { blobs } = await contracts().list();
   return blobs.filter((b) => b.key.endsWith(".json")).map((b) => b.key.replace(/\.json$/, ""));
+}
+
+/**
+ * Record a link the admin page just minted, so it can be listed later.
+ *
+ * The field list is not advice, it is enforced here: whatever the caller hands
+ * over, only these eight keys are written. The couple's email, phone and the
+ * token itself have no business in a store whose only reader is a list screen.
+ */
+export async function putMinted(id, rec) {
+  const r = rec ?? {};
+  await minted().setJSON(`${id}.json`, {
+    id: String(id),
+    couple: String(r.couple ?? ""),
+    date: String(r.date ?? ""),
+    venue: String(r.venue ?? ""),
+    total: Number(r.total) || 0,
+    deposit: Number(r.deposit) || 0,
+    exp: Number(r.exp) || 0,
+    createdAt: String(r.createdAt ?? new Date().toISOString()),
+  });
+}
+
+/** Every minted record, unsorted. The caller sorts and caps. */
+export async function listMinted() {
+  const store = minted();
+  const { blobs } = await store.list();
+  const keys = blobs.filter((b) => b.key.endsWith(".json")).map((b) => b.key);
+  const out = [];
+  for (const key of keys) {
+    try {
+      const rec = await store.get(key, { type: "json" });
+      if (rec && typeof rec === "object") out.push(rec);
+    } catch {
+      // One unreadable row must not blank the whole list.
+    }
+  }
+  return out;
 }
 
 /**
