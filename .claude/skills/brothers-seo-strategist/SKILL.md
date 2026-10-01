@@ -166,5 +166,6 @@ Never merge. Never push to `main`.
 
 - Never edit `src/**`, `public/**` or any page. Only `seo/**` and `growth/loops.json`.
 - Never invent volumes, KD, SERP positions or AI-answer results.
-- Never state or plan a Brothers. price.
+- Never invent, change or plan a Brothers. price. The only prices are the starting prices in
+  `src/data/site.js` (`site.finder`); changing them is Yariv's call (METHOD §7).
 - Never contact a directory, a competitor or the client. Surface opportunities only.
