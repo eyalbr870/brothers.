@@ -1,0 +1,54 @@
+---
+// Layout for /admin - Yariv's private console for minting contract links.
+//
+// Deliberately NOT BaseLayout, for the same reason as ContractLayout: no
+// Analytics, no JSON-LD, no hero preload. A page that holds a password field
+// and a list of deals has no business loading a third-party script.
+//
+// Nothing here is secret-by-obscurity: the gate is the server session. The
+// noindex meta is belt-and-braces next to the X-Robots-Tag header.
+import "@/styles/global.css";
+import "@/styles/admin.css";
+import site from "@/data/site.js";
+
+const { title = "ניהול חוזים — Brothers." } = Astro.props;
+---
+
+<!doctype html>
+<html lang={site.lang} dir={site.dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    {/* The header set in netlify.toml is the one that binds; this is the
+        in-HTML twin of it. */}
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#453226" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Assistant-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Assistant-SemiBold.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/FrankRuhlLibre-SemiBold.woff2" crossorigin />
+  </head>
+
+  <body class="admin-body">
+    <header class="doc-bar">
+      <a class="doc-bar__brand" href="/" aria-label={site.brand}>
+        <img src="/logo/logo-black.png" alt={site.brand} width="132" height="30" />
+      </a>
+      <p class="doc-bar__tag">ניהול חוזים</p>
+      {/* Revealed by adminPage.js only once a session exists. */}
+      <button class="doc-bar__out" type="button" data-logout hidden>יציאה</button>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="doc-foot">
+      <p>{site.brand} · {site.photographer}</p>
+    </footer>
+  </body>
+</html>

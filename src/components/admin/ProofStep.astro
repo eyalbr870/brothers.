@@ -1,0 +1,59 @@
+---
+// The הגהה step: the terms read back before anything is minted.
+//
+// A minted link cannot be edited - the HMAC is over the whole payload - so the
+// only place a typo in a date or an amount can still be caught for free is
+// here, between "המשך להגהה" and "צור קישור".
+//
+// Every row exists in the markup; adminPage.js fills it and hides the optional
+// rows that came back empty.
+---
+
+<section class="panel proof" data-step="proof" hidden>
+  <p class="eyebrow">הגהה</p>
+  <h1 class="panel__title">אלה התנאים שייחתמו</h1>
+  <p class="panel__intro">קראו שורה-שורה. אחרי יצירת הקישור אי אפשר לתקן — רק ליצור קישור חדש.</p>
+
+  <dl class="proof__grid">
+    <div><dt>שם הזוג</dt><dd data-proof="couple"></dd></div>
+    <div><dt>תאריך האירוע</dt><dd data-proof="date"></dd></div>
+    <div><dt>מקום האירוע</dt><dd data-proof="venue"></dd></div>
+    <div data-proof-row="guests"><dt>מוזמנים</dt><dd data-proof="guests"></dd></div>
+  </dl>
+
+  <dl class="proof__money">
+    <div><dt>סה"כ תמורה</dt><dd class="money" dir="ltr">₪ <span data-proof="total"></span></dd></div>
+    <div><dt>מקדמה</dt><dd class="money" dir="ltr">₪ <span data-proof="deposit"></span></dd></div>
+    <div><dt>יתרה לתשלום</dt><dd class="money" dir="ltr">₪ <span data-proof="balance"></span></dd></div>
+  </dl>
+
+  <dl class="proof__grid proof__grid--sm">
+    <div><dt>אמצעי תשלום</dt><dd data-proof="pay"></dd></div>
+    <div><dt>מועד תשלום היתרה</dt><dd data-proof="balanceDue"></dd></div>
+    <div><dt>חותמים</dt><dd data-proof="signers"></dd></div>
+    <div><dt>תוקף הקישור</dt><dd data-proof="expiry"></dd></div>
+  </dl>
+
+  <div class="proof__svc">
+    <p class="proof__svcTitle">שירותים בחבילה</p>
+    <ul class="proof__list" data-proof-services></ul>
+  </div>
+
+  <dl class="proof__grid proof__grid--sm">
+    <div data-proof-row="email"><dt>אימייל הזוג</dt><dd data-proof="email" dir="ltr"></dd></div>
+    <div data-proof-row="phone"><dt>טלפון הזוג</dt><dd data-proof="phone" dir="ltr"></dd></div>
+  </dl>
+
+  <div class="proof__notes" data-proof-row="notes">
+    <p class="proof__svcTitle">הערות</p>
+    <p data-proof="notes"></p>
+  </div>
+
+  <div class="panel__cta">
+    <button class="btn btn--ghost" type="button" data-proof-back>חזור לעריכה</button>
+    <button class="btn" type="button" data-proof-mint>
+      <span data-mint-label>צור קישור</span>
+    </button>
+  </div>
+  <p class="form__status" data-proof-status role="status" aria-live="polite"></p>
+</section>
