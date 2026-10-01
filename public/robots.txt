@@ -4,4 +4,7 @@ Allow: /
 # Per-couple contract signing links - not for crawling.
 Disallow: /contract
 
+# The password-protected admin page - not for crawling.
+Disallow: /admin
+
 Sitemap: https://brothers-photography.com/sitemap-index.xml
