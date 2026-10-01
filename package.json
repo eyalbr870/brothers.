@@ -17,7 +17,8 @@
     "contract:link": "node --env-file=.env scripts/contract-link.mjs",
     "contract:list": "node --env-file=.env scripts/contract-list.mjs",
     "contract:get": "node --env-file=.env scripts/contract-get.mjs",
-    "contract:test": "node scripts/test/contract.test.mjs"
+    "contract:test": "node scripts/test/contract.test.mjs",
+    "admin:test": "node scripts/test/admin.test.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
