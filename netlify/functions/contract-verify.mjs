@@ -10,7 +10,7 @@
 import { verifyToken } from "../../src/lib/contractToken.js";
 import { buildDeal, renderClauses } from "../../src/lib/contractDeal.js";
 import { contractVersion } from "../../src/data/contract.js";
-import { getSignedMeta, allow } from "./lib/store.mjs";
+import { getSignedMeta, allow, resolveToken } from "./lib/store.mjs";
 import { json, guardPost, readJson, clientIp, linkSecrets, misconfigured } from "./lib/http.mjs";
 
 export default async (req) => {
@@ -25,7 +25,7 @@ export default async (req) => {
   }
 
   const body = await readJson(req, 8000);
-  const result = verifyToken(body?.token, secrets);
+  const result = verifyToken(await resolveToken(body?.token), secrets);
 
   // One indistinguishable answer for every forgery mode, so an attacker cannot
   // learn whether it was the signature, the encoding or the JSON that failed.

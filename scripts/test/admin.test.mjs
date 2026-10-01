@@ -331,8 +331,13 @@ await t("200 with a link, the terms, and the whatsapp message", async () => {
   assert.equal(minted.deal.albumsIncluded, false);
   assert.deepEqual(minted.deal.services.map((s) => s.id), goodBody.services);
 });
-await t("the minted token verifies against the link secret", () => {
-  const token = minted.url.split("#")[1];
+await t("the link is short: a 10-character code, not the token", () => {
+  const code = minted.url.split("#")[1];
+  assert.match(code, /^[A-Za-z0-9]{10}$/);
+  assert.ok(minted.url.length < 70, minted.url);
+});
+await t("the code resolves to a token that verifies against the link secret", async () => {
+  const token = await store.resolveToken(minted.url.split("#")[1]);
   const r = verifyToken(token, [SECRET]);
   assert.equal(r.ok, true);
   assert.equal(r.payload.id, minted.id);
@@ -352,6 +357,25 @@ await t("the real contract-verify handler accepts the minted token", async () =>
   assert.equal(b.ok, true);
   assert.equal(b.deal.id, minted.id);
   assert.equal(b.clauses.length, 13);
+});
+const verifyWith = (token) =>
+  verify(
+    new Request("https://x/.netlify/functions/contract-verify", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-nf-client-connection-ip": ip() },
+      body: JSON.stringify({ token }),
+    }),
+  );
+await t("an unknown short code is rejected like a forgery", async () => {
+  const res = await verifyWith("ZZZZZZZZZZ");
+  assert.equal(res.status, 401);
+  assert.deepEqual(await res.json(), { ok: false, reason: "invalid" });
+});
+await t("a full-length token (links minted before short codes) still verifies", async () => {
+  const token = await store.resolveToken(minted.url.split("#")[1]);
+  assert.ok(token.includes("."));
+  const res = await verifyWith(token);
+  assert.equal(res.status, 200);
 });
 await t("the reply never echoes the couple's email or phone", () => {
   const raw = JSON.stringify(minted);

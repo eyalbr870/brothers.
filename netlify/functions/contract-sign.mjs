@@ -18,7 +18,7 @@ import { isValidIsraeliId, normalizeIsraeliId } from "../../src/lib/idnumber.js"
 import { contractVersion, ui } from "../../src/data/contract.js";
 import { YARIV_SIGNATURE_PNG } from "./lib/signature-yariv.mjs";
 import { yarivEmail, coupleEmail, sendMail } from "./lib/email.mjs";
-import { getSignedMeta, putRecord, putPdf, getPdf, markEmailed, allow } from "./lib/store.mjs";
+import { getSignedMeta, putRecord, putPdf, getPdf, markEmailed, allow, resolveToken } from "./lib/store.mjs";
 import {
   json, guardPost, readJson, clientIp, userAgent, linkSecrets, misconfigured,
 } from "./lib/http.mjs";
@@ -219,7 +219,7 @@ export default async (req, context) => {
   if (!body) return json({ ok: false, reason: "body" }, 400);
 
   // Step 2 of the page granted nothing. Verify from scratch.
-  const v = verifyToken(body.token, secrets);
+  const v = verifyToken(await resolveToken(body.token), secrets);
   if (!v.ok) {
     return json(
       { ok: false, reason: v.reason, expiredAt: v.expiredAt },

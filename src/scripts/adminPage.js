@@ -130,6 +130,7 @@ function showGate(msg) {
   gateErr(msg ?? "");
   show("gate");
   $("#f-password").value = "";
+  revealPassword(false);
 }
 
 /**
@@ -163,6 +164,16 @@ function gateErr(msg) {
   $(".gate-form").classList.toggle("is-err", Boolean(msg));
 }
 
+/** The eye button. Always resets to hidden once the field is wiped. */
+function revealPassword(on) {
+  const btn = $("[data-pw-toggle]");
+  $("#f-password").type = on ? "text" : "password";
+  btn.setAttribute("aria-pressed", on ? "true" : "false");
+  btn.setAttribute("aria-label", on ? "הסתרת הסיסמה" : "הצגת הסיסמה");
+  $("[data-eye-open]", btn).hidden = on;
+  $("[data-eye-shut]", btn).hidden = !on;
+}
+
 function gateBusy(on) {
   $("[data-login-submit]").disabled = on;
   $("[data-login-label]").textContent = on ? "מתחברים…" : "כניסה";
@@ -183,6 +194,7 @@ async function login(ev) {
   const r = await post(LOGIN, { password });
   // Out of the DOM the moment it has been sent, whatever the answer was.
   input.value = "";
+  revealPassword(false);
   gateBusy(false);
 
   if (r.ok && r.body.ok) {
@@ -602,6 +614,9 @@ async function loadList() {
 // ---------------------------------------------------------------- boot
 async function boot() {
   $(".gate-form").addEventListener("submit", login);
+  $("[data-pw-toggle]").addEventListener("click", () =>
+    revealPassword($("#f-password").type === "password"),
+  );
   $("[data-logout]").addEventListener("click", logout);
   formEl().addEventListener("submit", toProof);
   $("[data-proof-back]").addEventListener("click", () => step("form"));

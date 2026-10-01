@@ -227,7 +227,55 @@ async function ensureFonts() {
   }
 }
 
+/**
+ * Every rule the page has already parsed, as one string. html2canvas clones
+ * the DOM into an iframe, and the cloned <link rel=stylesheet> tags download
+ * the CSS AGAIN - on a real phone network the capture fires before they
+ * arrive, and the couple's PDF comes out as unstyled Times New Roman with a
+ * half-page signature. (Reproduced with 600ms latency; localhost never shows
+ * it.) Handing the clone the rules inline removes the race entirely.
+ */
+function inlineCss() {
+  let css = "";
+  for (const sheet of document.styleSheets) {
+    try {
+      for (const rule of sheet.cssRules) css += rule.cssText + "\n";
+    } catch {
+      /* cross-origin sheet: unreadable, and nothing on this page needs one */
+    }
+  }
+  return css;
+}
+
+async function onclone(cssText, doc) {
+  doc.querySelectorAll('link[rel="stylesheet"], style').forEach((n) => n.remove());
+  const style = doc.createElement("style");
+  style.textContent = cssText;
+  doc.head.append(style);
+  // The @font-face rules just arrived with the inline sheet, so the clone's
+  // fonts are only now starting to load. The files are in memory cache.
+  try {
+    await Promise.all([
+      doc.fonts.load('600 16px "Frank Ruhl Libre"'),
+      doc.fonts.load('400 14px "Assistant"'),
+      doc.fonts.load('600 14px "Assistant"'),
+      doc.fonts.load('600 10px "Montserrat"'),
+    ]);
+    await doc.fonts.ready;
+  } catch {
+    /* falls back to Arial, still laid out correctly */
+  }
+  // Last line of defence: refuse to photograph a sheet the print CSS never
+  // reached. A failed submit the couple can retry beats a broken contract in
+  // Yariv's inbox.
+  const sheet = doc.querySelector(".pdf-page");
+  if (sheet && doc.defaultView.getComputedStyle(sheet).paddingTop !== `${PAD_Y}px`) {
+    throw new Error("unstyled");
+  }
+}
+
 async function capture(html2canvas, pages, { scale, quality }) {
+  const cssText = inlineCss();
   const out = [];
   for (const page of pages) {
     // One capture per A4 page keeps each canvas around 3.5M pixels. A single
@@ -241,6 +289,7 @@ async function capture(html2canvas, pages, { scale, quality }) {
       width: PAGE_W,
       height: PAGE_H,
       windowWidth: PAGE_W,
+      onclone: (doc) => onclone(cssText, doc),
     });
     out.push(canvas.toDataURL("image/jpeg", quality).split(",")[1]);
   }

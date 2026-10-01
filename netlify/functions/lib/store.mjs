@@ -10,7 +10,7 @@
 // retained and readable from the dashboard.
 
 import { getStore } from "@netlify/blobs";
-import { createHash } from "node:crypto";
+import { createHash, randomInt } from "node:crypto";
 
 const contracts = () => getStore("contracts");
 const limits = () => getStore("contract-limits");
@@ -19,6 +19,13 @@ const limits = () => getStore("contract-limits");
 // metadata. Mixing them would put unsigned rows in front of contract:list and
 // the signed-contract archive behind an HTTP endpoint.
 const minted = () => getStore("contract-links");
+// Short code -> full signed token, so the link a couple gets on WhatsApp is
+// /contract/#k3Fp9xQ2aB rather than 900 characters of base64. The code is only
+// a lookup key: whatever comes back is still HMAC-verified like any token, so
+// this store cannot be used to forge a contract. It does hold the token, and
+// the token carries the couple's email and phone - which is why it is its own
+// store, read by nothing but resolveToken().
+const codes = () => getStore("contract-codes");
 
 /** Metadata only - enough to decide "already signed?" without pulling the record. */
 export async function getSignedMeta(id) {
@@ -94,6 +101,35 @@ export async function listMinted() {
     }
   }
   return out;
+}
+
+// 62^10 ≈ 8e17 codes against a verify budget of 30 guesses per IP per hour.
+const CODE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const CODE_LEN = 10;
+const CODE_RE = new RegExp(`^[A-Za-z0-9]{${CODE_LEN}}$`);
+
+/** Store `token` under a fresh short code and return the code. */
+export async function putShortCode(token) {
+  let code = "";
+  for (let i = 0; i < CODE_LEN; i++) code += CODE_ALPHABET[randomInt(CODE_ALPHABET.length)];
+  await codes().set(code, String(token));
+  return code;
+}
+
+/**
+ * What the couple's page sent -> the token to verify. A full token (it always
+ * contains a ".") passes through untouched, so every link minted before short
+ * codes existed keeps working. An unknown code resolves to "", which
+ * verifyToken rejects exactly like a forgery.
+ */
+export async function resolveToken(raw) {
+  const s = typeof raw === "string" ? raw : "";
+  if (!CODE_RE.test(s)) return s;
+  try {
+    return (await codes().get(s)) ?? "";
+  } catch {
+    return "";
+  }
 }
 
 /**

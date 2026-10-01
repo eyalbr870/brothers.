@@ -264,6 +264,47 @@
   border-color: #b0483a;
 }
 
+/* ---- password + show/hide eye. The eye sits at the inline END, so in RTL
+   it is on the left, clear of where the typing starts. ---- */
+.pw {
+  position: relative;
+}
+.fld .pw input {
+  padding-inline-end: 3rem;
+}
+.pw__eye {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: 3rem;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: 0;
+  color: var(--mocha);
+  cursor: pointer;
+}
+.pw__eye:hover,
+.pw__eye[aria-pressed="true"] {
+  color: var(--espresso);
+}
+.pw__eye:focus-visible {
+  outline: 2px solid var(--chestnut);
+  outline-offset: -4px;
+  border-radius: var(--radius);
+}
+.pw__eye svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* global.css gives svg a display, which beats the [hidden] attribute */
+.pw__eye svg[hidden] {
+  display: none;
+}
+
 .fld__err {
   font-size: 0.82rem;
   color: #b0483a;
