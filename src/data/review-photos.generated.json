@@ -1,6 +1,56 @@
 {
   "photos": [
     {
+      "id": "6ab8ce94eeee0d28047bde56-0",
+      "reviewId": "6ab8ce94eeee0d28047bde56",
+      "name": "הדר",
+      "card": "/reviews/6ab8ce94eeee0d28047bde56-0-640.webp",
+      "full": "/reviews/6ab8ce94eeee0d28047bde56-0-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADQAwCdASoQABgAPu1kqU2ppaQiMAgBMB2JYwCsACHef8pscFfHXAAA/tNGuZHCKq+ldJPw0WN5O1dnqC2zcp4j1g61Rgd2/AhVItF5IQbbIGjADF9ln+x8FGOGqxbfa9RDJNqnFIxUgF4NHJEEkLAWBIV/gAAA"
+    },
+    {
+      "id": "6ab8ce94eeee0d28047bde56-1",
+      "reviewId": "6ab8ce94eeee0d28047bde56",
+      "name": "הדר",
+      "card": "/reviews/6ab8ce94eeee0d28047bde56-1-640.webp",
+      "full": "/reviews/6ab8ce94eeee0d28047bde56-1-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAACwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JZgCdMoBnAVQS4Sd2d5vUUp7sNNT0AP7bjOmOoARjXvP04HPxFcWqI+z6qwTrOK1/aaqbP5TzHpgoqtgygvUNwm9fVL9lT7FygXE5eKLzZ0dYs3qwzZnkAkFLdRqfsEj8M0o2IiKy5Jl2wo5Z0GIfVdYw1QvRQ55HipxZePcmXMWiRe1gvlRVbstFUxGTUJO+YiQGS4OcBYAA"
+    },
+    {
+      "id": "6ab8ce94eeee0d28047bde56-2",
+      "reviewId": "6ab8ce94eeee0d28047bde56",
+      "name": "הדר",
+      "card": "/reviews/6ab8ce94eeee0d28047bde56-2-640.webp",
+      "full": "/reviews/6ab8ce94eeee0d28047bde56-2-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoQABgAPu1kqk2ppaQiMAgBMB2JYwCdACHUhvfOwwEIMS3lAAD+0wOE9lVXU5booX5i36lEfKsN7z5313sQbM7HPP9+A4+58VcM9nl7P6nN+XLpqzZAWoY5ME5Zi+t8kf87JwE3aWT6M6WJk9glNyzzAAA="
+    },
+    {
+      "id": "6ab8ce94eeee0d28047bde56-3",
+      "reviewId": "6ab8ce94eeee0d28047bde56",
+      "name": "הדר",
+      "card": "/reviews/6ab8ce94eeee0d28047bde56-3-640.webp",
+      "full": "/reviews/6ab8ce94eeee0d28047bde56-3-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQAwCdASoQABgAPu1iqk4ppaQiMAgBMB2JQAALd3Xtut4eox5sGAAA/t6pNcsBV1NwHLv9yJ90kp+MFl2V48LsYUlBqAfgqnONTNDCz6lMP9zZu+mNu+afFZSS7JuGUEgkQPFs+G2fVPKg5B7hbA8pJdFRq8niygzd/t0eAAA="
+    },
+    {
+      "id": "6ab8ce94eeee0d28047bde56-4",
+      "reviewId": "6ab8ce94eeee0d28047bde56",
+      "name": "הדר",
+      "card": "/reviews/6ab8ce94eeee0d28047bde56-4-640.webp",
+      "full": "/reviews/6ab8ce94eeee0d28047bde56-4-730.webp",
+      "w": 730,
+      "h": 1095,
+      "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JbACdMoADSGL//jL5urqihX4AAP7qGZ63BHJ19A8KyLCdm9JcnSP+pE7D3VyzqatBX7iCraBB4z5lDe4GvtnyJjn5yXEWsQ2eqJyUo8L/Z+/k6kr4DmqJeIsK1hf0HvQRaHCg7zpeEgnKIxe3+sXFRybG2FvtroUEPpDjj2S/os5NZh7uAAAA"
+    },
+    {
       "id": "6a75ac77eeee0d8269507d68-0",
       "reviewId": "6a75ac77eeee0d8269507d68",
       "name": "גלי",
@@ -198,7 +248,7 @@
       "full": "/reviews/6a5e16eceeee0d765c2e4e7f-0-730.webp",
       "w": 730,
       "h": 1095,
-      "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JQBOgO4AcTZs7w4k9e9LdOZFgAP65SwTgiB7seKuBgwVmLxXJVqlWTyon0fbHWqS3XVBQnO1Oj1AnHKYslr25ySF/yolBL8kxISLu5i2em+3luHFf3a6B707Ub7fNGshXS3b0lnbhnMvec/BI6IAA"
+      "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoQABgAPu1iqU2ppaQiMAgBMB2JQBOgA+4oPGdtx3d6WzoAAP65SwToEY4Y+fTCUGCsxeK5KtUqyeV9gZX2amK0NJKJY6RXC9FRnn4jzDkjFt1eh1lzhjN7fRvzM4OMrb7OdBBeMTKMX9QjiF0euLgq3mjw27n6VFW4+Wz+xyK9ygAA"
     },
     {
       "id": "6a5e16eceeee0d765c2e4e7f-1",
@@ -208,7 +258,7 @@
       "full": "/reviews/6a5e16eceeee0d765c2e4e7f-1-730.webp",
       "w": 730,
       "h": 1095,
-      "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JaAC7ACHOM2nQv4JyIDupHAD+62heOpZV7M+LQUzJdG1R3ZvmTDws+TfSSS4Bx1UibWsaoVhWhKG7mT4SZVLZAj855QbLPQq9C8rc3WvYZpZltInWP1aw0vFiPZIZjFFofe/1JqTQdrFBscnu3+LYNw1iHiAdULJda+oFgAA="
+      "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JaAC2yCHgkNdikdBAT4o3OsAAAP7raF46lwiazthMj9bnmnSayfKSw2U+YsJtrdWNLf0rMhjQq8e/5gz8rvhLk33LxSM4o37l69fo3lbGOWHdwlLbuvDfAj4DdPD3b8aum1soVMiiBgNCkSDNmGa143py2sY8in59a+oFgAA="
     },
     {
       "id": "6a5d48daeeee0dc6382e4e85-0",
@@ -429,73 +479,19 @@
       "w": 730,
       "h": 1039,
       "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADwBACdASoRABgAPu1wsFIppiSiqAgBMB2JQBftXkAvouBoZvCdZ2kzI8lbhjtA7hgA+5xf5tzJLqQlP+30cb0lhH9oGIjZwVoATjt9XsuQx1Pk7vaVGYlurdkSQfFh0VHCFPkvKD7kQmi2yz26XfhJcG1NjmuEIhfYRo1rUheLYVrM1MbA4d6wWyrTKDeSyzaoBw9ssl3REloURME6QKJGOIPMAAAA"
-    },
-    {
-      "id": "68ca6dc9eeee0d015378eb7b-0",
-      "reviewId": "68ca6dc9eeee0d015378eb7b",
-      "name": "עירית",
-      "card": "/reviews/68ca6dc9eeee0d015378eb7b-0-640.webp",
-      "full": "/reviews/68ca6dc9eeee0d015378eb7b-0-730.webp",
-      "w": 730,
-      "h": 1038,
-      "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACwBACdASoRABgAPu1kqk2ppaQiMAgBMB2JQBOgBDfvaFRBSgaugMJ3s9kB/wyQAP5drDD7fYsyTPGJCxJ4ceWO8eoPHTguxzWenrAbNEuxQZMtmQxp8NPJczRPOsde0sO9ThwADjgChMuqF20mXoAy2CcBNlflR26UiFszk9qjRBqEwEz4rXsNWs7uIwAA"
-    },
-    {
-      "id": "68ca6dc9eeee0d015378eb7b-1",
-      "reviewId": "68ca6dc9eeee0d015378eb7b",
-      "name": "עירית",
-      "card": "/reviews/68ca6dc9eeee0d015378eb7b-1-640.webp",
-      "full": "/reviews/68ca6dc9eeee0d015378eb7b-1-730.webp",
-      "w": 730,
-      "h": 1045,
-      "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAADQBACdASoRABgAPu1ur1IppiQiqAgBMB2JZQDH5A028HRn5SWU7Bam6QvTLTS2gAD4qTnzxFvYpUgmHvqJiEKyz6xnJTbkyqAIXpHOd263kQewDWK25NXZQcjYQHR+3gCNrKjpaTKKBoXIrAKdaEfMj+Rh3p9fR0jZw2dfSQKOiAUKM6mPMAfWhDQM6uE9J24OZVQSd3woAAAA"
-    },
-    {
-      "id": "68ca6dc9eeee0d015378eb7b-2",
-      "reviewId": "68ca6dc9eeee0d015378eb7b",
-      "name": "עירית",
-      "card": "/reviews/68ca6dc9eeee0d015378eb7b-2-640.webp",
-      "full": "/reviews/68ca6dc9eeee0d015378eb7b-2-730.webp",
-      "w": 730,
-      "h": 1043,
-      "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAABwBACdASoRABgAPu1sq1EppaOiqAqpMB2JYwAAHv4boEiT0UGuBBM0CxHB7AD+gm/au47gXhT4g8nq7FciKSk+ACkZGMdPi+LcEbz2MZK7DiqxfyN6k8wrsMYPdyoetTKH//3z0OzgsaOF/5QczeHLn9a32DIbZJqGOWRDgvJl64nARwyPzCyCxhYU57iHpApJjhklTjGsIxQA"
-    },
-    {
-      "id": "68ca6dc9eeee0d015378eb7b-3",
-      "reviewId": "68ca6dc9eeee0d015378eb7b",
-      "name": "עירית",
-      "card": "/reviews/68ca6dc9eeee0d015378eb7b-3-640.webp",
-      "full": "/reviews/68ca6dc9eeee0d015378eb7b-3-730.webp",
-      "w": 730,
-      "h": 1040,
-      "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBQCdASoRABgAPu1sqlEppaOiqAqpMB2JZQC/OA/h8a2nVmhne2UMsKFM/47uh6bxOodAAN2hb+ZcoVEXoaJpvN/3hr7Vv8KJi9i41nys2vfnUkRk6IiWjYqk+DS3aeYbqesRD6YTWBF4jpZQ4Vii+etUDL+nmyF7vr/kXPLebFkvPztHO2c+CYEbY1tJ8c4yyDad2k65hlh9FGf9QEhYeAAAAA=="
-    },
-    {
-      "id": "68ca6dc9eeee0d015378eb7b-4",
-      "reviewId": "68ca6dc9eeee0d015378eb7b",
-      "name": "עירית",
-      "card": "/reviews/68ca6dc9eeee0d015378eb7b-4-640.webp",
-      "full": "/reviews/68ca6dc9eeee0d015378eb7b-4-730.webp",
-      "w": 730,
-      "h": 1040,
-      "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABwBACdASoRABgAPu1ur1IppiQiqAgBMB2JaQAAKyDMrOFljQjBAX02eGBwAAD57uLVCuX/OWFuGpXpNfDsDDV9qydzjAYLpBK8VqtDnLb7iM2AWZPIle1sb4I21hFKp5aTeh81uOi8xYxgPr9sy0c+vLRGKbW+lcRj+xsWnzpK7jjaPgyUll4PQfWI4CEgAQhxTog5D9CV57DYAAA="
-    },
-    {
-      "id": "68ca6dc9eeee0d015378eb7b-5",
-      "reviewId": "68ca6dc9eeee0d015378eb7b",
-      "name": "עירית",
-      "card": "/reviews/68ca6dc9eeee0d015378eb7b-5-640.webp",
-      "full": "/reviews/68ca6dc9eeee0d015378eb7b-5-730.webp",
-      "w": 730,
-      "h": 1040,
-      "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAQBQCdASoRABgAPu1or1AppaSiqAqpMB2JQBdmcdgm+JLDJ+TJwgJYFla9B0RObf9AAP7k0ChvILWAjMpfEzzCqAmJ+nA0XtNQIYbvNCd9keao8whBEa15K6Knx84Ge9xpojfSJJWKurpmaN+uHkSYKxZ7JqwDvsD7M0blvkDnPO1wTVCjjdP2IvPoeQz3bv2NxH6HA7EkzX/rESIalrynUgOT8k7cCWSFJ1fZgAtwAA=="
     }
   ],
   "reviews": {
+    "6ab8ce94eeee0d28047bde56": {
+      "name": "הדר",
+      "text": "יריב והצוות המושלם שלו!!! צילמו בחתונה של האח הגדול של בעלי והיינו מרוצים ממש , תמונות סופר מקצועיות , איכותיות אבל חוץ מזה שזה הכי חשוב בעולם יותר מהכל זה החוויה איתם , מצחיקים , קלילים , מרימים !!!מהרגע שקיבלתי הצעה ידעתי שנסגור אותם גם לחתונה שלנו וזאת הבחירה הכי טובה שעשיתי !!! מהרגע שהם הגיעו הם עשו אווירה טובה מצחיקה , גרמו לי לצחוק אמיתי וראו את זה בתמונות !! רקדו איתי כאילו הם חלק מהאורחים והעיפו אותנו באוויר !! ממליצה ממש ממש ❤️❤️❤️ והנה עכשיו האח הקטן של בעלי סגר אותם גם לחתונה כי הם באמת ישרים !! מקצועיים !! שירות ממש ממש טוב !! 🥰🥰",
+      "date": "ספטמבר 2026",
+      "stars": 5
+    },
     "6a75ac77eeee0d8269507d68": {
       "name": "גלי",
       "text": "יריב ואייל היו מדהימים והיה לנו חיבור איתם מהרגע הראשון של היום !! אנשים חמים ומקצועיים !!! יריב הסתובב איתנו מההתארגנות, נתן לנו מראש מיקומים שהוא ממליץ להצטלם בהם והתמונות יצאו ואווווו",
-      "date": "לפני 15 שעות",
+      "date": "ספטמבר 2026",
       "stars": 5
     },
     "6a6778cdeeee0dd92fe62431": {
@@ -537,7 +533,7 @@
     "695ff8aaeeee0dfb598b457d": {
       "name": "noam",
       "text": "לירייב והצוות המטורף הייתם נדיריםםםם ‏היה הכי כיף שיש להעביר אתכם את היום ובאמת שכל הצוות היו מהממים סבלניים ומקצועיים 🙏🏻 ‏ההתלהבות בשיאאא מהטעימה הקטנה של התמונות שהעלת!!!",
-      "date": "לפני 6 חודשים",
+      "date": "פברואר 2026",
       "stars": 5
     },
     "695cd913eeee0de2118b47c4": {
@@ -549,25 +545,19 @@
     "69064a46eeee0d567f1f4335": {
       "name": "Shlomi",
       "text": "ואו ואו ואו! אי אפשר להסביר את האנרגיות המדהימות של יריב ושל דודו הצלם וידאו שהגיע איתו!!!! מצלמים באנרגיה מדהימה, יודעים את העבודה, מכוונים ועוזרים לאחת כמוני שבאמת לא אוהת כל כך להצטלם. התמונות יצאו איכותיות, מדהימות וכולם פשוט החמיאו לנו עליהן. אין המלצה טובה מהם!!!!",
-      "date": "לפני 8 חודשים",
+      "date": "נובמבר 2025",
       "stars": 5
     },
     "68ce9faeeeee0de85d78eb8f": {
       "name": "שי",
       "text": "הגעתי ליריב אחרי שראיתי תמונות שצילם לחברה טובה, שאמרה לי שזו הבחירה הכי טובה שעשתה בחתונה וזאת האמת!!!! הבחירה הכי טובה שעשינו! היה זמין, מצחיק ומקצועי לאורך כל הדרך בהכנות",
-      "date": "לפני 10 חודשים",
+      "date": "אוקטובר 2025",
       "stars": 5
     },
     "68ce8fafeeee0d9f1578eb7d": {
       "name": "Nadav",
       "text": "יריב לא רק צלם מוכשר – הוא בן אדם מדהים. עם חיוך, סבלנות והמון אנושיות, הוא הצליח לגרום לנו להרגיש הכי בנוח מול המצלמה, כאילו אנחנו פשוט עם חבר שמצלם אותנו. התמונות שקיבלנו הן לא סתם תמונות – הן זיכרונות אמיתיים, חוויות שהוקפאו בזמן. 10/10 ללא ספק. ממליצים מכל הלב.",
       "date": "ספטמבר 2025",
-      "stars": 5
-    },
-    "68ca6dc9eeee0d015378eb7b": {
-      "name": "עירית",
-      "text": "כבר משיחת הטלפון הראשונה ידעתי שזה זה! מעבר לתמונות המטורפות שראיתי, השיחה הייתה רגועה, קלילה, מלאה בהומור ובעיקר מלא מקצועיות. אחרי כמה דקות ספורות סגרנו הכל וידעתי שמאותו רגע אני יכולה להיות רגועה.",
-      "date": "2025",
       "stars": 5
     }
   }
