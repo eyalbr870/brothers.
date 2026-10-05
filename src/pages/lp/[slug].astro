@@ -36,7 +36,7 @@ const { campaign } = Astro.props;
   {campaign.finder !== false && (
     <PackageFinder formAnchor="#lead" preset={campaign.finder} />
   )}
-  <Testimonials feature={campaign.reviews ?? []} limit={6} />
+  <Testimonials feature={campaign.reviews ?? []} limit={6} ctaHref="#lead" />
   <LpLeadForm campaign={campaign} />
   <LpFaq campaign={campaign} />
   <LpRelated campaign={campaign} />

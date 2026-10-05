@@ -85,21 +85,27 @@ export const site = {
     { label: "בית", href: "#hero" },
     { label: "אודות", href: "#about" },
     { label: "גלריה", href: "#gallery" },
-    { label: "המלצות", href: "#testimonials" },
     { label: "חבילות ומחירים", href: "#finder" },
+    { label: "המלצות", href: "#testimonials" },
     { label: "שאלות", href: "#faq" },
-    { label: "צור קשר", href: "#contact" },
+    { label: "צור קשר", href: "#finder" },
   ],
 
   hero: {
     eyebrow: "WEDDING PHOTOGRAPHY",
-    title: "הרגעים\nהאמיתיים\nשלכם",
     subtitle:
       "צילום חתונות בגישה טבעית וקולנועית, כי הסיפור האמיתי נמצא ברגעים הקטנים שביניכם.",
     // Gallery photo id shown full-bleed behind the hero copy.
-    imageId: "aa398",
-    ctaWhatsapp: "בדיקת תאריך בוואטסאפ",
-    ctaPrimary: { label: "איזו חבילה מתאימה לנו?", href: "#finder" },
+    // cYB-745, chosen by Yariv (05/10): the couple sits left of centre, so on
+    // desktop the copy has the right side to itself. No big headline over it
+    // either - his call - so the photo does the talking.
+    imageId: "cYB-745",
+    ctaWhatsapp: "שאלו אותנו בוואטסאפ",
+    // Both lead into the finder, which is the lead form now. On phones only
+    // the primary shows, with ctaMicro under it.
+    ctaPrimary: { label: "בדיקת זמינות ומחיר בדקה", href: "#finder" },
+    ctaSecondary: { label: "לחבילות ומחירים", href: "#finder" },
+    ctaMicro: "5 שאלות קצרות · בלי התחייבות",
     scrollHint: "גללו למטה",
   },
 
@@ -107,6 +113,9 @@ export const site = {
     eyebrow: "BROTHERS.",
     text: "אני מאמין שתמונה טובה לא מבוימת. היא נתפסת. אני מלווה אתכם לאורך כל היום בשקט, קרוב מספיק כדי לתפוס כל מבט, צחוק ודמעה, ורחוק מספיק כדי לתת לרגע לקרות באמת.",
     signature: "יריב ברוך - צלם, אח.",
+    // Rendered only where <Statement cta /> is passed (the homepage). The
+    // /lp/* pages keep the section as a pure full stop.
+    cta: { label: "בדיקת זמינות לתאריך שלכם", href: "#finder" },
   },
 
   about: {
@@ -118,6 +127,7 @@ export const site = {
       "מאחורי Brothers עומד יריב ברוך, שנים של ניסיון בצילום חתונות, הבנה עמוקה של אנשים, ויכולת להפוך כל אירוע לסיפור שמרגיש חי גם שנים אחרי.",
     ],
     pullquote: "ביום החתונה שלכם אנחנו לא עומדים מהצד. אנחנו נכנסים פנימה.",
+    moreLabel: "קראו עוד עלינו",
     dnaIntro:
       "אבל Brothers זה כבר הרבה מעבר לאדם אחד. זו שיטה, זו רמה, זה צוות שנבחר בקפידה, עם אותו DNA:",
     dna: [
@@ -142,12 +152,60 @@ export const site = {
     ],
   },
 
+  // ---- Why us (rendered by lp/LpBenefits via the homeCampaign object) ----
+  // Every claim here traces to public/llms.txt; icon keys must exist in
+  // lp/LpBenefits.astro.
+  whyUs: {
+    eyebrow: "WHY US",
+    title: "למה לבחור ב-Brothers.",
+    items: [
+      {
+        icon: "camera",
+        title: "רגעים אמיתיים, בלי בימוי",
+        text: "מלווים אתכם לאורך כל היום, קרוב מספיק כדי לתפוס כל מבט וצחוק, ורחוק מספיק כדי לתת לרגע לקרות באמת.",
+      },
+      {
+        icon: "users",
+        title: "צוות שמותאם לגודל האירוע",
+        text: "בחבילת Basic מגיע צלם סטילס אחד, וב-Classic וב-Premium שני צלמי סטילס. אפשר להוסיף לכל חבילה גם צלם וידאו.",
+      },
+      {
+        icon: "clock",
+        title: "כיסוי רצוף מההתארגנות ועד 01:00",
+        text: "מתחילים בהתארגנות הכלה ונשארים עד השעה 01:00, כולל ריקודי הרחבה. אם האירוע מתחיל מוקדם או נמשך מאוחר יותר, מתאימים את השעות מראש.",
+      },
+      {
+        icon: "map",
+        title: "מגיעים לכל הארץ, בלי תוספת נסיעה",
+        text: "ממרכז וגוש דן, דרך ירושלים, השרון והשפלה, חיפה והצפון, אשדוד והדרום ועד אילת. בלי תוספת נסיעה לשום אזור.",
+      },
+    ],
+  },
+
+  // ---- What's included (rendered by lp/LpValue via homeCampaign) ----
+  // Copied from public/llms.txt "מה כלול", site.finder.common and
+  // site.finder.addons. The 4-step process is LpValue's approved default.
+  value: {
+    includedTitle: "מה כלול בכל חבילה",
+    included: [
+      "צוות צילום מותאם לחבילה: צלם סטילס אחד ב-Basic, שניים ב-Classic וב-Premium",
+      "כיסוי רצוף מהתארגנות הכלה ועד השעה 01:00",
+      "כל התמונות ערוכות ומסוננות באיכות גבוהה",
+      "גלריה דיגיטלית מלאה לשיתוף עם חברים ומשפחה",
+      "מבחר תמונות ראשוני כבר בימים שאחרי החתונה",
+      "הגלריה המלאה תוך מספר שבועות מהאירוע",
+      "אפשר להוסיף וידאו: סרט חתונה עד 90 דקות וסרט תקציר Highlight של 3-5 דקות",
+      "אפשר להוסיף צילומי Save the Date וסט של שלושה אלבומים מודפסים",
+    ],
+  },
+
   gallery: {
     eyebrow: "PORTFOLIO",
     title: "יום החתונה",
     subtitle:
       "מבחר רגעים מתוך יום מלא באהבה, מהבוקר המרגש ועד ריקודי הלילה.",
     loadMore: "עוד תמונות",
+    cta: { label: "לחבילות ומחירים", href: "#finder" },
   },
 
   // ---- Package finder (interactive, with "starting from" prices) ----
@@ -157,18 +215,31 @@ export const site = {
     eyebrow: "PACKAGE FINDER",
     title: "איזו חבילה\nמתאימה לכם?",
     subtitle:
-      "שלוש שאלות קצרות, ותראו מיד איזו חבילה מתאימה ליום שלכם, מה כלול בה וכמה היא עולה.",
+      "כמה שאלות קצרות, ותראו מיד איזו חבילה מתאימה ליום שלכם, מה כלול בה וכמה היא עולה.",
     stepLabel: "שלב",
     ofLabel: "מתוך",
     backLabel: "חזרה",
     restartLabel: "להתחיל מחדש",
     continueLabel: "לתוצאה",
     skipLabel: "דלגו",
+    nextLabel: "המשך",
 
     steps: [
       {
+        // Optional free-text step: carried into the lead form + WhatsApp text.
+        key: "details",
+        type: "details",
+        page: 1, // mobile stepper page; extras + discount share page 4
+        q: "מי מתחתנים ומתי?",
+        help: "לא חובה, אבל ככה נוכל לבדוק זמינות לתאריך שלכם.",
+        namesLabel: "שמות בני הזוג",
+        namesPlaceholder: "למשל: נועה ודניאל",
+        dateLabel: "תאריך האירוע",
+      },
+      {
         key: "guests",
         type: "slider",
+        page: 2,
         q: "כמה אורחים בערך מגיעים?",
         help: "גררו כדי לבחור את גודל האירוע.",
         min: 0,
@@ -183,6 +254,7 @@ export const site = {
       },
       {
         key: "coverage",
+        page: 3,
         q: "איזה תיעוד הכי מדבר אליכם?",
         help: "אפשר תמונות בלבד, ואפשר להוסיף גם סרט חתונה שנשאר לתמיד.",
         multi: false,
@@ -198,6 +270,7 @@ export const site = {
       },
       {
         key: "extras",
+        page: 4,
         q: "רוצים להוסיף משהו?",
         help: "אפשר לבחור כמה שבא לכם, או פשוט לדלג.",
         multi: true,
@@ -206,7 +279,25 @@ export const site = {
           { id: "std", label: "Save the Date", note: "צילומי טרום-חתונה" },
         ],
       },
+      {
+        key: "discount",
+        page: 4,
+        q: "מילואימניקים או סטודנטים?",
+        help: "מגיעה לכם 10% הנחה על כל החבילה, כתודה קטנה מאיתנו.",
+        multi: false,
+        options: [
+          { id: "reserve", label: "מילואימניק/ית", note: "10% הנחה", value: "reserve" },
+          { id: "student", label: "סטודנט/ית", note: "10% הנחה", value: "student" },
+          { id: "none", label: "לא", note: "בלי הנחה", value: "none" },
+        ],
+      },
     ],
+
+    // Applied to the whole "starting from" price (package + video + extras).
+    discounts: {
+      reserve: { name: "הנחת מילואימניקים", rate: 0.1 },
+      student: { name: "הנחת סטודנטים", rate: 0.1 },
+    },
 
     packages: {
       basic: {
@@ -232,7 +323,7 @@ export const site = {
         tag: "הבחירה הפופולרית",
         guests: "מתאים לעד 450 מוזמנים",
         stills: [
-          "שני צלמי סטילס (השני מצטרף בשיא הערב)",
+          "שני צלמי סטילס (השני מצטרף בהגעה לאולם, 18:30, כולל המשפחתיות)",
           "כיסוי מהתארגנות הכלה ועד השעה 01:00",
         ],
         video: [
@@ -288,17 +379,43 @@ export const site = {
       priceFrom: "החל מ-",
       currency: "₪",
       priceNote: "מחירים התחלתיים, משתנים לפי גודל האירוע, מיקום ותוספות.",
+      // {name} {pct} {saved} get replaced
+      discountNote: "כולל {name} של {pct}% (חיסכון של {saved}). בהצגת תעודה.",
       ctaHeading: "מתאים לכם?",
-      ctaText: "השאירו פרטים עם החבילה שבחרתם, ונשריין לכם את התאריך.",
-      ctaContact: "להמשך ושריון תאריך",
-      ctaWhatsapp: "או שאלו אותי בוואטסאפ",
+      ctaText: "שלחו ליריב את הבחירה שלכם בוואטסאפ, והוא יבדוק זמינות לתאריך שלכם.",
+      ctaWhatsapp: "שליחה ליריב בוואטסאפ",
+      ctaForm: "או השאירו פרטים ונחזור אליכם",
       noneLabel: "ללא",
-      // {pkg} / {coverage} / {extras} get replaced before sending
+      // {names} {pkg} {coverage} {extras} {discount} {price} {date} get
+      // replaced before sending
       whatsappText:
-        "היי יריב,\nעשינו את שאלון החבילות באתר, והתוצאה שיצאה לנו:\nחבילה: {pkg}\nתיעוד: {coverage}{extras}\nמחיר: {price}\nתאריך האירוע: \nמיקום: \nנשמח לשמוע פרטים!",
+        "היי יריב,\nעשינו את שאלון החבילות באתר, והתוצאה שיצאה לנו:{names}\nחבילה: {pkg}\nתיעוד: {coverage}{extras}{discount}\nמוזמנים: {guests}\nמחיר: {price}\nתאריך האירוע: {date}\nמיקום: \nנשמח לבדוק זמינות!",
+      namesPrefix: "\nשמות: ",
+      discountPrefix: "\nהנחה: ",
       coverageStills: "סטילס בלבד",
       coverageVideo: "סטילס + וידאו",
       extrasPrefix: "\nתוספות: ",
+    },
+
+    // Homepage only (<PackageFinder lead />): the result panel ends in a short
+    // form instead of a bare WhatsApp link. Submitting saves the lead to Netlify
+    // (form "finder") and then opens WhatsApp to Yariv with everything filled in.
+    lead: {
+      heading: "לאן יריב יחזור אליכם?",
+      text: "משאירים שם וטלפון, ונפתח לכם וואטסאפ עם כל הפרטים מוכנים לשליחה.",
+      nameLabel: "השם שלכם",
+      phoneLabel: "טלפון",
+      venueLabel: "מיקום / אולם (לא חובה)",
+      submit: "שליחה ליריב בוואטסאפ",
+      sending: "פותחים וואטסאפ…",
+      error: "משהו השתבש. נסו שוב או כתבו לנו ישירות בוואטסאפ.",
+      micro: "בלי התחייבות. יריב חוזר אליכם עוד באותו יום.",
+      direct: "מעדיפים לכתוב חופשי? וואטסאפ ישיר",
+      livePrice: "החבילה שלכם כרגע",
+      // {name} {summary} {guests} {date} {venue} get replaced; leadForm.js
+      // drops a line whose placeholders all came out empty.
+      whatsappText:
+        "היי יריב, זה {name}.\nעשינו את השאלון באתר:\n{summary}\nמוזמנים: {guests}\nתאריך האירוע: {date}\nמיקום: {venue}\nנשמח לבדוק זמינות!",
     },
   },
 
@@ -310,11 +427,17 @@ export const site = {
     form: {
       name: "שם מלא",
       phone: "טלפון",
+      phoneHint: "מספר טלפון, כולל קידומת",
       email: "אימייל",
       date: "תאריך האירוע",
+      venue: "מיקום / אולם",
       guests: "כמות אורחים משוערת",
       message: "ספרו לי על היום שלכם",
-      submit: "שליחת פנייה",
+      submit: "לבדיקת זמינות",
+      // Shown under the submit button on every lead form. "עוד באותו יום" is
+      // the same promise lp/LpValue.astro makes in step 1 - keep them in sync.
+      microcopy: "חוזרים אליכם עוד באותו יום לבדיקת זמינות ותיאום שיחה קצרה.",
+      requiredNote: "שדות המסומנים ב-* הם חובה.",
       sending: "שולח…",
       success: "הפנייה נשלחה! אחזור אליכם בהקדם ✨",
       error: "משהו השתבש. נסו שוב או פנו אליי בוואטסאפ.",
@@ -341,9 +464,16 @@ export const site = {
       ],
       urgency: "בעונת החתונות תאריכים נסגרים מהר. ההצעה תקפה ל-14 יום.",
       ctaWhatsapp: "רוצים לזרז? שלחו לי בוואטסאפ",
-      // {name} {date} {summary} get replaced before sending
+      // The finder form (data-wa-handoff) opens WhatsApp itself, so its panel
+      // confirms that instead and keeps the link only as a fallback.
+      handoff: {
+        title: "מעולה{name}, נפתח לכם וואטסאפ",
+        lead: "כל הפרטים כבר כתובים בהודעה, נשאר רק ללחוץ שליחה. ככה זה ממשיך מכאן:",
+        ctaWhatsapp: "הוואטסאפ לא נפתח? לחצו כאן",
+      },
+      // {name} {date} {venue} {summary} get replaced before sending
       whatsappText:
-        "היי יריב, זה {name}.\nהשארתי עכשיו פרטים באתר.\nתאריך האירוע: {date}\n{summary}\nנשמח לשריין!",
+        "היי יריב, זה {name}.\nהשארתי עכשיו פרטים באתר.\nתאריך האירוע: {date}\nמיקום: {venue}\n{summary}\nנשמח לשריין!",
     },
   },
 
@@ -351,6 +481,8 @@ export const site = {
   faq: {
     eyebrow: "FAQ",
     title: "שאלות נפוצות",
+    ctaText: "לא מצאתם תשובה? שלחו לנו את התאריך ונחזור אליכם עוד באותו יום.",
+    cta: { label: "בדיקת זמינות לתאריך שלכם", href: "#finder" },
     items: [
       {
         q: "כמה עולה צלם חתונות?",
@@ -385,6 +517,14 @@ export const site = {
         a: "הסתכלו על אלבום שלם מחתונה אחת ולא רק על תמונות נבחרות, כדי לראות אם הסגנון עקבי לאורך כל האירוע. בדקו שהצלם מתעד גם רגעים ספונטניים ולא רק פוזות מבוימות, ודאו מה בדיוק כלול בחבילה ומתי מקבלים את התמונות, והכי חשוב, דברו איתו לפני. הכימיה עם הצלם מרגישה בתמונות.",
       },
       {
+        q: "האם יש תוספת תשלום על נסיעה?",
+        a: "לא. אנחנו מגיעים לכל אזור בארץ בלי תוספת נסיעה ובלי הגבלת אזור, מהמרכז והשרון ועד חיפה והצפון, אשדוד והדרום ואילת. המחיר שסוכם הוא המחיר, בלי עלויות נסתרות.",
+      },
+      {
+        q: "איך סוגרים את התאריך?",
+        a: "קודם שיחה קצרה שבה מדייקים מיקום, שעות וצרכים מיוחדים. אחר כך נשלח אליכם חוזה דיגיטלי פשוט, והתאריך משוריין עם החתימה והמקדמה, בביט או בהעברה בנקאית. ההצעה שנשלחת אליכם תקפה ל-14 יום.",
+      },
+      {
         q: "אפשר להיפגש לפני החתונה?",
         a: "בהחלט. נשמח להיפגש או לדבר לפני, להכיר, להבין את החזון שלכם ולתאם ציפיות. אפשר גם להוסיף צילומי Save the Date עוד לפני החתונה.",
       },
@@ -395,6 +535,72 @@ export const site = {
     tagline: "צילום חתונות · יריב ברוך",
     rights: "כל הזכויות שמורות",
     credit: "Brothers. Photography",
+  },
+};
+
+/**
+ * The homepage rendered as a "campaign", so it can reuse the lp/Lp* sections.
+ *
+ * `stats` is deliberately omitted so LpStats renders its live rating +
+ * couples count from reviews.json, the same as the /lp/* pages.
+ *
+ * `process` is the homepage's own: its step 1 is the finder -> WhatsApp flow,
+ * which the /lp/* pages (a plain lead form) don't have. Four steps, matching
+ * LpValue's 4-column desktop grid. Promises here must match the rest of the
+ * page: "עוד באותו יום" (finder.lead.micro), 01:00 (whyUs), and the first
+ * selection within days + full gallery within weeks (value.included).
+ */
+export const homeCampaign = {
+  slug: "homepage", // matches the leadForm.js campaign fallback
+  process: [
+    {
+      title: "בודקים זמינות",
+      text: "עונים על 5 שאלות קצרות ושולחים ליריב בוואטסאפ. חוזרים אליכם עוד באותו יום.",
+    },
+    {
+      title: "מכירים וסוגרים",
+      text: "שיחת היכרות קצרה לדיוק החבילה והשעות, ואז חוזה דיגיטלי ומקדמה. התאריך שלכם משוריין.",
+    },
+    {
+      title: "מצלמים את היום",
+      text: "מלווים אתכם מההתארגנות ועד 01:00, קרוב לכל רגע, בלי לביים ובלי להפריע.",
+    },
+    {
+      title: "מקבלים את התמונות",
+      text: "מבחר ראשון כבר בימים שאחרי החתונה, והגלריה המלאה, ערוכה ומוכנה לשיתוף, תוך כמה שבועות.",
+    },
+  ],
+  benefitsEyebrow: site.whyUs.eyebrow,
+  benefitsTitle: site.whyUs.title,
+  benefits: site.whyUs.items,
+  includedTitle: site.value.includedTitle,
+  included: site.value.included,
+  whatsappText: site.contact.whatsappText,
+
+  // Forward CTAs for the shared lp/* sections, which otherwise end on a wall.
+  // These keys are absent from every campaign in landing.js, so the guards in
+  // those components render nothing there and /lp/* output is unchanged.
+  statsCta: { label: "לחבילות ולמחירים", href: "#finder" },
+  benefitsCta: { label: "בדיקת זמינות לתאריך שלכם", href: "#finder" },
+  valueCta: { label: "בדיקת זמינות ומחיר בדקה", href: "#finder" },
+
+  // Phone layout switches for the shared lp/* sections (homepage only):
+  // benefits and the how-it-works steps become swipeable rows, and the
+  // included list folds after its first items.
+  benefitsSwipe: true,
+  valueCompact: true,
+
+  // `lead` is what gates the sticky bar's third button: the LP campaigns have
+  // no cta key at all, so they keep the two-button bar.
+  //
+  // `single` (homepage only) collapses the bar to one full-width button into
+  // the finder, so nothing on the page skips past the questions to a bare
+  // WhatsApp chat. `resume` replaces the label once the finder is under way.
+  cta: {
+    single: true,
+    lead: "בדיקת זמינות ומחיר בדקה",
+    leadHref: "#finder",
+    resume: "המשיכו מאיפה שעצרתם · שלב {n} מתוך {total}",
   },
 };
 

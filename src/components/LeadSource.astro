@@ -1,0 +1,16 @@
+---
+// Hidden attribution fields, shared by both lead forms (Contact.astro on the
+// homepage, lp/LpLeadForm.astro on the campaign pages).
+//
+// They must exist in the STATIC html: Netlify Forms registers a form's fields
+// from the markup it sees at deploy time, so a field injected by script alone
+// would be dropped from the submission.
+//
+// Filled by applySource() in src/scripts/leadSource.js, which reads the source
+// captured on the first page of the visit. Empty values are normal in local dev
+// and on a hard-refreshed form; they never block a submit.
+---
+
+<input type="hidden" name="source" data-source-field="source" value="" />
+<input type="hidden" name="referrer" data-source-field="referrer" value="" />
+<input type="hidden" name="landing_page" data-source-field="landing_page" value="" />

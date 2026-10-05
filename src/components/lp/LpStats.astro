@@ -4,7 +4,7 @@ import reviews from "@/data/reviews.json";
 
 // Trust band. Real rating + couples count come from reviews.json (same
 // source as the homepage About strip); years/weddings from site.about.stats.
-const { campaign } = Astro.props;
+const { campaign, id } = Astro.props;
 
 const ratingValue =
   Math.round((reviews.score / reviews.scoreMax) * 5 * 10) / 10;
@@ -19,7 +19,7 @@ const stats = campaign.stats ?? [
 ---
 
 {stats.length > 0 && (
-  <section class="lpstats">
+  <section class="lpstats" id={id}>
     <div class="container">
       <dl class="lpstats__row">
         {stats.map((s) => (
@@ -32,6 +32,31 @@ const stats = campaign.stats ?? [
           </div>
         ))}
       </dl>
+      {campaign.statsCta && (
+        <a
+          class="lpstats__cta"
+          href={campaign.statsCta.href}
+          data-reveal
+          data-track="cta"
+          data-track-loc="stats"
+          data-track-label="packages"
+        >
+          <span>{campaign.statsCta.label}</span>
+          <svg
+            viewBox="0 0 24 24"
+            width="15"
+            height="15"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M15 6l-6 6 6 6" />
+          </svg>
+        </a>
+      )}
     </div>
   </section>
 )}
@@ -40,7 +65,39 @@ const stats = campaign.stats ?? [
   .lpstats {
     background: var(--sand);
     padding-block: clamp(2.2rem, 1.4rem + 3vw, 3.6rem);
+    /* --sand is the darkest of the light grounds, so the site-wide --ink-60
+       lands at 4.24:1 here and misses AA for the 0.8rem stat labels. This is
+       the only section on sand, so it carries its own stronger muted ink. */
+    --ink-60: rgba(69, 50, 38, 0.8);
   }
+  /* --espresso, not --chestnut: the ground here is --sand, where chestnut is
+     only 4.44:1 and fails AA at this size. Chestnut stays as the underline,
+     where 4.44:1 is fine for a decorative rule. */
+  .lpstats__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-block-start: clamp(1.4rem, 1rem + 1vw, 2rem);
+    padding-block-start: clamp(1.2rem, 0.9rem + 0.8vw, 1.6rem);
+    border-block-start: 1px solid var(--line);
+    min-height: 44px;
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 0.86rem;
+    letter-spacing: 0.02em;
+    color: var(--espresso);
+    transition: color 0.25s var(--ease);
+  }
+  .lpstats__cta span {
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+    text-decoration-color: var(--chestnut);
+  }
+  .lpstats__cta svg { transition: transform 0.25s var(--ease); }
+  .lpstats__cta:hover { color: var(--chestnut); }
+  .lpstats__cta:hover svg { transform: translateX(-3px); }
+
   .lpstats__row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -1,18 +1,11 @@
 ---
+import { faqPageSchema } from "@/lib/schema.js";
 const { campaign } = Astro.props;
 const items = campaign.faq ?? [];
 
 // FAQPage structured data so Google can show rich results and AI engines
 // can quote the answers directly.
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: items.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
-};
+const faqSchema = faqPageSchema(items);
 ---
 
 {items.length > 0 && (

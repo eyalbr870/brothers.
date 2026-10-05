@@ -1,14 +1,50 @@
 ---
 import site from "@/data/site.js";
 import { packagesServiceSchema } from "@/lib/schema.js";
+import LeadSource from "@/components/LeadSource.astro";
+import LeadSelection from "@/components/LeadSelection.astro";
+import LeadThankYou from "@/components/LeadThankYou.astro";
+import reviews from "@/data/reviews.json";
 
 // formAnchor: where "continue" scrolls to (#contact on the homepage, #lead on
 //             landing pages).
 // preset:     optional { guests, coverage } starting point per campaign.
-const { formAnchor = "#contact", preset = {} } = Astro.props;
+// edge:       hairline on top, for where this follows a near-identical ground.
+// lead:       homepage only. The card becomes the lead form itself (Netlify
+//             form "finder"): the panel ends in name + phone, and submitting
+//             saves the lead and opens WhatsApp to Yariv (scripts/leadForm.js,
+//             data-wa-handoff). On phones the questions also turn into a
+//             one-page-at-a-time stepper. Without it (/lp/*) nothing changes.
+const { formAnchor = "#contact", preset = {}, edge = false, lead = false } = Astro.props;
 
 const f = site.finder;
+const l = f.lead;
 const titleLines = f.title.split("\n");
+
+// Stepper pages: each question's `page`, then one more for the result + form.
+const pages = Math.max(...f.steps.map((s) => s.page ?? 1)) + 1;
+// /lp/* keeps its exact markup: no scope wrapper, a plain div card.
+const Scope = lead ? "div" : Fragment;
+const scopeAttrs = lead ? { class: "finder__scope", "data-lead-scope": "" } : {};
+const Card = lead ? "form" : "div";
+const cardAttrs = lead
+  ? {
+      name: "finder",
+      method: "POST",
+      "data-netlify": "true",
+      "netlify-honeypot": "bot-field",
+      "data-lead-form": "",
+      "data-wa-handoff": "",
+      "data-uses-finder": "",
+      "data-campaign": "homepage",
+      "data-sending": l.sending,
+      "data-error": l.error,
+      "data-wa-text": l.whatsappText,
+      "data-wa-number": site.contact.whatsapp,
+      "data-pages": pages,
+    }
+  : {};
+const waDirect = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(site.contact.whatsappText)}`;
 
 // All three tiers are server-rendered in this section (the quiz only controls
 // which one is displayed), so the Service/Offer markup describes content that
@@ -30,7 +66,13 @@ const defaults = {
   guests: preset.guests ?? guestsStep.default, // numeric guest count
   coverage: preset.coverage ?? "video",
   extras: [],
+  discount: "none",
+  names: "",
+  date: "",
 };
+
+// A wedding date in the past is never a real inquiry (same rule as LeadFields).
+const today = new Date().toISOString().slice(0, 10);
 
 // "Starting from" price for a selection. Mirrored in the inline script below
 // (define:vars can't carry functions) - keep the two in sync.
@@ -62,16 +104,20 @@ const coverageLabel0 =
     : f.result.coverageStills;
 const price0 = formatPrice(priceFor(pkg0, defaults.coverage, defaults.extras));
 const waMsg0 = f.result.whatsappText
+  .replace("{names}", "")
   .replace("{pkg}", pkg0.name)
   .replace("{coverage}", coverageLabel0)
   .replace("{extras}", "")
-  .replace("{price}", price0);
+  .replace("{discount}", "")
+  .replace("{guests}", guestsReadout0)
+  .replace("{price}", price0)
+  .replace("{date}", "");
 const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waMsg0)}`;
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
-<section class="finder" id="finder">
+<section class:list={["finder", edge && "section--edge", lead && "finder--lead"]} id="finder">
   <div class="finder__head container">
     <p class="eyebrow" data-reveal>{f.eyebrow}</p>
     <h2 class="finder__title" data-reveal>
@@ -80,16 +126,68 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
     <p class="finder__subtitle" data-reveal>{f.subtitle}</p>
   </div>
 
-  <div class="finder__card container" data-reveal data-finder>
+  <Scope {...scopeAttrs}>
+  <Card class="finder__card container" data-reveal data-finder {...cardAttrs}>
+    {lead && (
+      <Fragment>
+        <input type="hidden" name="form-name" value="finder" />
+        <p class="hidden-field" hidden>
+          <label>אל תמלאו שדה זה: <input name="bot-field" /></label>
+        </p>
+        <LeadSource />
+        <LeadSelection finderAnchor={null} />
+        <input type="hidden" name="event_date" data-sel-field="date" value="" />
+        <input type="hidden" name="guests" data-sel-field="guests" value="" />
+
+        {/* Stepper chrome. Hidden until the script switches a phone into
+            one-page-at-a-time mode; desktop never shows it. */}
+        <div class="fstep" data-stepper hidden>
+          <button type="button" class="fstep__back" data-back>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 6 15 12 9 18" /></svg>
+            {f.backLabel}
+          </button>
+          <p class="fstep__count" aria-live="polite">
+            {f.stepLabel} <b data-step-now>1</b> {f.ofLabel} {pages}
+          </p>
+          <div class="fstep__bar" aria-hidden="true"><span data-step-fill></span></div>
+        </div>
+      </Fragment>
+    )}
     <div class="finder__grid">
       <!-- ============ Inputs (right in RTL) ============ -->
       <div class="finder__inputs">
         {
           f.steps.map((step) => {
             const isMulti = !!step.multi;
+            // Only the stepper reads it; /lp/* markup stays untouched.
+            const pageAttr = lead ? step.page ?? 1 : undefined;
+            if (step.type === "details") {
+              return (
+                <div class="fq" data-page={pageAttr}>
+                  <h3 class="fq__label">{step.q}</h3>
+                  <p class="fq__help">{step.help}</p>
+                  <div class="fq__fields">
+                    <label class="fq__field">
+                      <span>{step.namesLabel}</span>
+                      <input
+                        type="text"
+                        data-detail="names"
+                        autocomplete="off"
+                        maxlength="80"
+                        placeholder={step.namesPlaceholder}
+                      />
+                    </label>
+                    <label class="fq__field">
+                      <span>{step.dateLabel}</span>
+                      <input type="date" data-detail="date" min={today} />
+                    </label>
+                  </div>
+                </div>
+              );
+            }
             if (step.type === "slider") {
               return (
-                <div class="fq">
+                <div class="fq" data-page={pageAttr}>
                   <div class="fq__slider-head">
                     <h3 class="fq__label">{step.q}</h3>
                     <span class="fq__readout" data-readout>{guestsReadout0}</span>
@@ -114,7 +212,7 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
               );
             }
             return (
-              <div class="fq">
+              <div class="fq" data-page={pageAttr}>
                 <h3 class="fq__label">{step.q}</h3>
                 <p class="fq__help">{step.help}</p>
                 <div
@@ -147,15 +245,27 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
             );
           })
         }
+        {lead && (
+          <div class="fnav" data-step-nav hidden>
+            <p class="fnav__live" data-live hidden>
+              {l.livePrice}: <b data-live-pkg>{pkg0.name}</b> · <span data-live-price>{price0}</span>
+            </p>
+            <button type="button" class="btn fnav__next" data-next data-next-label={f.nextLabel} data-last-label={f.continueLabel}>
+              <span data-next-text>{f.nextLabel}</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 6 9 12 15 18" /></svg>
+            </button>
+          </div>
+        )}
       </div>
 
       <!-- ============ Result panel (left in RTL) ============ -->
-      <aside class="finder__panel" data-panel>
+      <aside class="finder__panel" data-panel data-page={lead ? pages : undefined}>
         <div class="panel__banner">
           <p class="panel__eyebrow">{f.result.eyebrow}</p>
           <div class="panel__name" data-r-name>{pkg0.name}</div>
           <p class="panel__tag" data-r-tag>{pkg0.tag}</p>
           <p class="panel__guests" data-r-guests>{pkg0.guests}</p>
+          <p class="panel__couple" data-r-couple hidden></p>
         </div>
 
         <p class="panel__subtitle">{f.result.includesTitle}</p>
@@ -175,24 +285,92 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
 
         <div class="panel__price">
           <p class="panel__subtitle">{f.result.priceTitle}</p>
-          <p class="panel__price-value" data-r-price aria-live="polite">{price0}</p>
+          <p class="panel__price-value" data-r-price aria-live="polite">
+            <s class="panel__price-was" data-r-price-was hidden></s>
+            <span data-r-price-now>{price0}</span>
+          </p>
+          <p class="panel__discount" data-r-discount hidden></p>
           <p class="panel__price-note">{f.result.priceNote}</p>
         </div>
 
+        {lead ? (
+        <div class="panel__cta-block">
+          <h3 class="panel__cta-heading">{l.heading}</h3>
+          <p class="panel__cta-text">{l.text}</p>
+          <div class="flead">
+            <label class="fq__field">
+              <span>{l.nameLabel} *</span>
+              <input name="name" type="text" required autocomplete="name" maxlength="80" placeholder=" " data-lead-name />
+            </label>
+            <label class="fq__field">
+              <span>{l.phoneLabel} *</span>
+              <input
+                name="phone"
+                type="tel"
+                required
+                autocomplete="tel"
+                inputmode="tel"
+                pattern="[0-9+\-\s()]{9,}"
+                title={site.contactSection.form.phoneHint}
+                placeholder=" "
+              />
+            </label>
+            <label class="fq__field">
+              <span>{l.venueLabel}</span>
+              <input name="venue" type="text" autocomplete="off" maxlength="120" placeholder=" " />
+            </label>
+          </div>
+          <button class="btn panel__cta" type="submit" data-submit>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.5 9.5 0 01-4.84-1.33l-.35-.2-3.6.94.96-3.5-.23-.36a9.46 9.46 0 01-1.45-5.05c0-5.23 4.26-9.49 9.5-9.49 2.54 0 4.92.99 6.72 2.78a9.43 9.43 0 012.78 6.72c0 5.24-4.26 9.5-9.5 9.5zm5.53-15.01A11.42 11.42 0 0012.03.5C5.74.5.62 5.62.62 11.9c0 2.09.55 4.13 1.6 5.92L.5 23.5l5.82-1.53a11.36 11.36 0 005.71 1.46h.01c6.28 0 11.4-5.12 11.4-11.4 0-3.05-1.19-5.91-3.35-8.06z"/></svg>
+            <span data-submit-label>{l.submit}</span>
+          </button>
+          {/* Social proof at the moment of hesitation. Same source as the
+              trust band and the reviews section, never typed by hand. */}
+          <p class="flead__trust">
+            <span class="flead__stars" aria-hidden="true">★★★★★</span>
+            <span>{`${reviews.score}/${reviews.scoreMax} · ${reviews.count} זוגות ב-mit4mit`}</span>
+          </p>
+          <p class="form__micro">{l.micro}</p>
+          <p class="form__status" data-status role="status" aria-live="polite"></p>
+          <a
+            class="panel__link"
+            href={waDirect}
+            target="_blank"
+            rel="noopener"
+            data-track="contact"
+            data-track-method="whatsapp"
+            data-track-loc="finder_direct"
+          >{l.direct}</a>
+        </div>
+        ) : (
         <div class="panel__cta-block">
           <h3 class="panel__cta-heading">{f.result.ctaHeading}</h3>
           <p class="panel__cta-text">{f.result.ctaText}</p>
-          <a class="btn panel__cta" href={formAnchor} data-r-continue>{f.result.ctaContact}</a>
           <a
-            class="panel__link"
+            class="btn panel__cta"
             data-r-wa
+            data-track="contact"
+            data-track-method="whatsapp"
+            data-track-loc="finder"
             href={wa0}
             target="_blank"
-            rel="noopener">{f.result.ctaWhatsapp}</a>
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.5 9.5 0 01-4.84-1.33l-.35-.2-3.6.94.96-3.5-.23-.36a9.46 9.46 0 01-1.45-5.05c0-5.23 4.26-9.49 9.5-9.49 2.54 0 4.92.99 6.72 2.78a9.43 9.43 0 012.78 6.72c0 5.24-4.26 9.5-9.5 9.5zm5.53-15.01A11.42 11.42 0 0012.03.5C5.74.5.62 5.62.62 11.9c0 2.09.55 4.13 1.6 5.92L.5 23.5l5.82-1.53a11.36 11.36 0 005.71 1.46h.01c6.28 0 11.4-5.12 11.4-11.4 0-3.05-1.19-5.91-3.35-8.06z"/></svg>
+            <span>{f.result.ctaWhatsapp}</span>
+          </a>
+          <a class="panel__link" href={formAnchor} data-r-continue>{f.result.ctaForm}</a>
         </div>
+        )}
       </aside>
     </div>
-  </div>
+  </Card>
+  {lead && (
+    <div class="container finder__thanks">
+      <LeadThankYou variant="handoff" />
+    </div>
+  )}
+  </Scope>
 </section>
 
 <!-- Global because option pills / result nodes are re-rendered at runtime in
@@ -322,9 +500,37 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
     justify-content: space-between;
     margin-block-start: 0.6rem;
     font-size: 0.85rem;
-    color: var(--ink-45);
+    color: var(--ink-60);
     font-weight: 300;
   }
+
+  /* ---- Names + date ---- */
+  .finder .fq__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.7rem;
+  }
+  .finder .fq__field { display: grid; gap: 0.35rem; }
+  .finder .fq__field span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--espresso);
+  }
+  .finder .fq__field input {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.7rem 0.9rem;
+    font: inherit;
+    color: var(--espresso);
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    transition: border-color 0.3s var(--ease);
+  }
+  .finder .fq__field input::placeholder { color: var(--ink-60); font-weight: 300; }
+  .finder .fq__field input:hover,
+  .finder .fq__field input:focus { border-color: var(--mocha); outline: none; }
+  .finder .fq__field input:focus-visible { box-shadow: 0 0 0 3px var(--cream-2); }
 
   .finder .fq__opts {
     display: grid;
@@ -421,12 +627,20 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
     font-weight: 300;
     margin-block-start: 0.4rem;
   }
+  .finder .panel__couple {
+    margin-block-start: 0.9rem;
+    padding-block-start: 0.9rem;
+    border-block-start: 1px solid rgba(255, 255, 255, 0.16);
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    color: var(--paper);
+  }
   .finder .panel__subtitle {
     font-family: var(--font-label);
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--mocha);
+    color: var(--label);
     margin-block-end: 0.95rem;
   }
   .finder .panel__list { display: grid; gap: 0.65rem; }
@@ -473,6 +687,18 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
     line-height: 1.1;
     color: var(--espresso);
   }
+  .finder .panel__price-was {
+    display: block;
+    font-size: 0.5em;
+    color: var(--ink-60);
+    text-decoration-thickness: 1px;
+  }
+  .finder .panel__discount {
+    margin-block-start: 0.45rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--chestnut);
+  }
   .finder .panel__price-note {
     margin-block-start: 0.45rem;
     font-size: 0.85rem;
@@ -498,8 +724,10 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
   }
   .finder .panel__cta {
     width: 100%;
+    gap: 0.6rem;
     margin-block-end: 0.9rem;
   }
+  .finder .panel__cta svg { flex: none; }
   .finder .panel__link {
     display: block;
     text-align: center;
@@ -529,6 +757,204 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
   .finder.is-updating [data-r-price] {
     opacity: 0.35;
   }
+  /* ================= Lead mode (homepage) ================= */
+  /* The step and thank-you slide-ins travel sideways; clip them so a phone
+     never gets a moment of horizontal scroll. clip, not hidden: it creates no
+     scroll container, so the desktop panel stays sticky. */
+  .finder--lead { overflow-x: clip; }
+  .finder .flead {
+    display: grid;
+    gap: 0.7rem;
+    margin-block-end: 1.1rem;
+  }
+  .finder .flead .fq__field input:invalid:not(:placeholder-shown):not(:focus) {
+    border-color: #b0483a;
+  }
+  .finder .form__status:empty { display: none; }
+  .finder .form__status {
+    margin-block-start: 0.6rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .finder .form__status.is-err { color: #b0483a; }
+  .finder .form__micro { text-align: center; margin-block-end: 0.9rem; }
+  .finder__thanks { max-width: 760px; }
+  .finder .flead__trust {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.45rem;
+    margin-block: 0.2rem 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--espresso);
+  }
+  .finder .flead__stars { color: #c99a5b; letter-spacing: 0.08em; }
+
+  /* Phones: a compact head, so a CTA landing on #finder shows the whole
+     first step - question, fields and "continue" - in one screen. */
+  @media (max-width: 760px) {
+    .finder--lead { padding-block-start: 2.2rem; }
+    .finder--lead .finder__head { margin-block-end: 1rem; }
+    .finder--lead .finder__head .eyebrow { margin-block-end: 0.5rem; }
+    .finder--lead .finder__title {
+      font-size: 1.75rem;
+      margin-block-end: 0;
+    }
+    .finder--lead .finder__title span { display: inline; }
+    .finder--lead .finder__title span + span::before { content: " "; }
+    .finder--lead .finder__subtitle { display: none; }
+    .finder--lead .finder__card { padding: 1.1rem; }
+  }
+  .finder__thanks .thanks:not([hidden]) { animation: fstepIn 0.5s var(--ease) both; }
+
+  /* ---- Stepper (phones, set by the script) ---- */
+  .finder .fstep {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.6rem 1rem;
+    margin-block-end: 1.4rem;
+  }
+  .finder .fstep[hidden] { display: none; }
+  .finder .fstep__count {
+    grid-column: 2;
+    text-align: end;
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-60);
+  }
+  .finder .fstep__count b { color: var(--espresso); font-weight: 700; }
+  .finder .fstep__back {
+    grid-column: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-height: 44px;
+    font-family: var(--font-label);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--chestnut);
+  }
+  .finder .fstep__back[hidden] { visibility: hidden; display: inline-flex; }
+  .finder .fstep__bar {
+    grid-column: 1 / -1;
+    height: 4px;
+    border-radius: 100px;
+    background: var(--cream-2);
+    overflow: hidden;
+  }
+  .finder .fstep__bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: var(--chestnut);
+    transition: width 0.5s var(--ease);
+  }
+
+  .finder .fnav[hidden] { display: none; }
+  .finder .fnav {
+    margin-block-start: auto;
+    padding-block-start: 1.4rem;
+  }
+  .finder .fnav__live {
+    margin-block-end: 0.8rem;
+    padding: 0.65rem 0.9rem;
+    border-radius: 12px;
+    background: var(--cream-2);
+    font-size: 0.92rem;
+    text-align: center;
+    color: var(--ink-60);
+    transition: opacity 0.25s var(--ease);
+  }
+  .finder .fnav__live b {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--espresso);
+  }
+  .finder .fnav__live span { font-weight: 600; color: var(--chestnut); }
+  .finder.is-updating .fnav__live { opacity: 0.4; }
+  .finder .fnav__next {
+    width: 100%;
+    min-height: 58px;
+    font-size: 0.9rem;
+  }
+
+  /* The flex/grid displays below would otherwise beat the hidden attribute. */
+  .finder__card.is-stepper [data-page][hidden] { display: none; }
+  .finder__card.is-stepper .finder__inputs {
+    display: flex;
+    flex-direction: column;
+    min-height: 26rem;
+  }
+  .finder__card.is-stepper.is-result .finder__inputs { display: none; }
+  .finder__card.is-stepper .fq { margin-block-end: 1.6rem; }
+  .finder__card.is-stepper .fq__label { font-size: 1.6rem; }
+  /* One question per screen: give the choices room to be tapped. */
+  .finder__card.is-stepper .fq__opts { grid-template-columns: 1fr; }
+  .finder__card.is-stepper .pill {
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 62px;
+    padding-inline: 1.1rem;
+    text-align: start;
+  }
+  .finder__card.is-stepper .fq__slider { height: 8px; margin-block: 1.4rem 0.4rem; }
+  .finder__card.is-stepper .fq__slider::-webkit-slider-thumb { width: 34px; height: 34px; }
+  .finder__card.is-stepper .fq__readout { font-size: 1.5rem; }
+  .finder__card.is-stepper .fq__fields { grid-template-columns: 1fr; }
+
+  /* Result page: name and price first, then the send form, then the detail. */
+  .finder__card.is-stepper .finder__panel {
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem;
+    margin-inline: -0.3rem;
+  }
+  .finder__card.is-stepper .finder__panel > * { order: 3; }
+  .finder__card.is-stepper .panel__banner { order: 0; margin-block-end: 1.1rem; }
+  .finder__card.is-stepper .panel__price {
+    order: 1;
+    margin-block-start: 0;
+    padding-block-start: 0;
+    border: 0;
+    text-align: center;
+  }
+  .finder__card.is-stepper .panel__cta-block { order: 2; margin-block-end: 1.6rem; }
+  .finder__card.is-stepper .panel__cta-block + * {
+    padding-block-start: 1.4rem;
+    border-block-start: 1px solid var(--line);
+  }
+
+  /* Page swap: forward slides in from the left (RTL reading direction),
+     back from the right. */
+  .finder__card.is-stepper .is-on { animation: fstepIn 0.45s var(--ease) both; }
+  .finder__card.is-stepper.is-back .is-on { animation-name: fstepBack; }
+  .finder__card.is-stepper.is-result .panel__banner {
+    animation: fstepReveal 0.7s var(--ease) both;
+  }
+  @keyframes fstepIn {
+    from { opacity: 0; transform: translateX(-28px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes fstepBack {
+    from { opacity: 0; transform: translateX(28px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes fstepReveal {
+    0% { opacity: 0; transform: scale(0.92); }
+    60% { opacity: 1; transform: scale(1.02); }
+    100% { transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .finder__card.is-stepper .is-on,
+    .finder__card.is-stepper.is-result .panel__banner,
+    .finder__thanks .thanks:not([hidden]) { animation: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .finder.is-updating [data-r-name],
     .finder.is-updating [data-r-tag],
@@ -541,7 +967,7 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
 
 <script
   is:inline
-  define:vars={{ f, defaults, guestsStep, whatsapp: site.contact.whatsapp }}
+  define:vars={{ f, defaults, guestsStep, whatsapp: site.contact.whatsapp, lead, pages }}
 >
   (() => {
     const section = document.querySelector(".finder");
@@ -552,6 +978,9 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
       guests: defaults.guests, // numeric guest count
       coverage: defaults.coverage,
       extras: [...defaults.extras],
+      discount: defaults.discount,
+      names: defaults.names,
+      date: defaults.date,
     };
 
     // Map a numeric guest count to a package tier.
@@ -570,8 +999,13 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
     const nIncludes = root.querySelector("[data-r-includes]");
     const nAddons = root.querySelector("[data-r-addons]");
     const nChips = root.querySelector("[data-r-chips]");
-    const nWa = root.querySelector("[data-r-wa]");
-    const nPrice = root.querySelector("[data-r-price]");
+    const nWa = root.querySelector("[data-r-wa]"); // /lp/* only
+    const nLivePkg = root.querySelector("[data-live-pkg]"); // lead only
+    const nLivePrice = root.querySelector("[data-live-price]");
+    const nPriceNow = root.querySelector("[data-r-price-now]");
+    const nPriceWas = root.querySelector("[data-r-price-was]");
+    const nDiscount = root.querySelector("[data-r-discount]");
+    const nCouple = root.querySelector("[data-r-couple]");
     const nContinue = root.querySelector("[data-r-continue]");
 
     // Mirrors priceFor / formatPrice in the frontmatter.
@@ -581,12 +1015,20 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
       state.extras.reduce((sum, id) => sum + (f.addons[id]?.price ?? 0), 0);
     const formatPrice = (n) =>
       `${f.result.priceFrom}${n.toLocaleString("en-US")} ${f.result.currency}`;
+    const formatMoney = (n) => `${n.toLocaleString("en-US")} ${f.result.currency}`;
+    const readoutFor = (n) =>
+      n >= guestsStep.max ? guestsStep.maxLabel : `${n} ${guestsStep.unit}`;
+    // yyyy-mm-dd -> dd.mm.yyyy
+    const formatDate = (d) => (d ? d.split("-").reverse().join(".") : "");
 
     // The selection is handed to the lead forms (LeadFunnel) through
     // sessionStorage + a window event. Only saved once the visitor has actually
     // interacted, so an untouched default is never reported as "their choice".
     let touched = false;
     let current = null;
+    const campaign = location.pathname.startsWith("/lp/")
+      ? location.pathname.split("/")[2]
+      : "homepage";
     const save = () => {
       if (!touched || !current) return;
       try {
@@ -619,10 +1061,32 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
         nChips.innerHTML = "";
       }
 
-      // Price
-      const price = priceFor(pkg);
+      // Price (after the reserve-duty / student discount, if any)
+      const fullPrice = priceFor(pkg);
+      const disc = f.discounts[state.discount];
+      const saved = disc ? Math.round(fullPrice * disc.rate) : 0;
+      const price = fullPrice - saved;
       const priceText = formatPrice(price);
-      nPrice.textContent = priceText;
+      nPriceNow.textContent = priceText;
+      nPriceWas.hidden = !disc;
+      nPriceWas.textContent = disc ? formatPrice(fullPrice) : "";
+      nDiscount.hidden = !disc;
+      nDiscount.textContent = disc
+        ? f.result.discountNote
+            .replace("{name}", disc.name)
+            .replace("{pct}", String(Math.round(disc.rate * 100)))
+            .replace("{saved}", formatMoney(saved))
+        : "";
+      const discountText = disc
+        ? `${disc.name} (${Math.round(disc.rate * 100)}%)`
+        : "";
+
+      // Couple + date line in the banner
+      const names = state.names.trim();
+      const dateText = formatDate(state.date);
+      const couple = [names, dateText].filter(Boolean).join(" · ");
+      nCouple.hidden = !couple;
+      nCouple.textContent = couple;
 
       // WhatsApp deep link
       const coverageLabel =
@@ -634,22 +1098,34 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
         ? f.result.extrasPrefix + extraNames.join(", ")
         : "";
       const msg = f.result.whatsappText
+        .replace("{names}", names ? f.result.namesPrefix + names : "")
         .replace("{pkg}", pkg.name)
         .replace("{coverage}", coverageLabel)
         .replace("{extras}", extrasText)
-        .replace("{price}", priceText);
-      nWa.setAttribute(
+        .replace("{discount}", discountText ? f.result.discountPrefix + discountText : "")
+        .replace("{guests}", readoutFor(state.guests))
+        .replace("{price}", priceText)
+        .replace("{date}", dateText);
+      nWa?.setAttribute(
         "href",
         `https://wa.me/${whatsapp}?text=${encodeURIComponent(msg)}`
       );
+      if (nLivePkg) {
+        nLivePkg.textContent = pkg.name;
+        nLivePrice.textContent = priceText;
+      }
 
       current = {
         pkgName: pkg.name,
         coverage: coverageLabel,
         extras: extraNames,
         guests: state.guests,
+        guestsText: readoutFor(state.guests),
         price,
         priceText,
+        discount: discountText,
+        names,
+        date: state.date,
       };
       save();
     };
@@ -670,8 +1146,7 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
         const val = Number(slider.value);
         state.guests = val;
         // Update readout + track fill on every tick (cheap).
-        readout.textContent =
-          val >= max ? guestsStep.maxLabel : `${val} ${guestsStep.unit}`;
+        readout.textContent = readoutFor(val);
         slider.style.setProperty(
           "--fill",
           `${((val - min) / (max - min)) * 100}%`
@@ -682,13 +1157,23 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
         if (tier !== lastTier) {
           lastTier = tier;
           flash();
-          render();
-        } else if (current) {
-          current.guests = val;
-          save();
         }
+        // Always re-render: the WhatsApp text carries the exact guest count.
+        render();
       });
     }
+
+    // Wire up names + date (no flash: these don't change the recommendation)
+    root.querySelectorAll("[data-detail]").forEach((input) => {
+      const key = input.getAttribute("data-detail");
+      const update = () => {
+        state[key] = input.value;
+        touched = true;
+        render();
+      };
+      input.addEventListener("input", update);
+      input.addEventListener("change", update);
+    });
 
     // Wire up pills
     root.querySelectorAll(".pill").forEach((btn) => {
@@ -721,12 +1206,168 @@ const wa0 = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(wa
       });
     });
 
-    // "Continue" counts as choosing the recommended package as-is.
-    nContinue?.addEventListener("click", () => {
+    // Sending to WhatsApp or going to the form both count as choosing the
+    // recommended package as-is. Tracked here and not in save(), which runs on
+    // every slider tick.
+    const choose = () => {
       touched = true;
       save();
-    });
+      if (current) {
+        window.lpTrackCustom?.("SelectPackage", {
+          campaign,
+          item_name: current.pkgName,
+          coverage: current.coverage,
+          guests: current.guests,
+          value: current.price,
+          currency: "ILS",
+        });
+      }
+    };
+    nWa?.addEventListener("click", choose);
+    nContinue?.addEventListener("click", choose);
 
     render();
+    if (!lead) return;
+
+    // ================= Lead mode (homepage) =================
+    // The card is the <form>. Submitting counts as choosing the package as-is;
+    // this listener is registered before scripts/leadForm.js (a deferred
+    // module), so the selection is saved by the time that one reads it.
+    root.addEventListener("submit", choose);
+
+    // An Enter in the names/date step must not submit the whole form.
+    root.querySelectorAll("[data-detail]").forEach((input) =>
+      input.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return;
+        e.preventDefault();
+        if (stepper) go(page + 1);
+      })
+    );
+
+    // First touch of any question = the couple started the funnel.
+    let started = false;
+    root.addEventListener("input", markStart, true);
+    root.addEventListener("click", (e) => {
+      if (e.target.closest(".pill, [data-next]")) markStart();
+    }, true);
+    function markStart() {
+      if (started) return;
+      started = true;
+      window.lpTrackCustom?.("finder_start", { campaign });
+    }
+
+    // ---- Stepper: one page at a time on phones ----
+    const mq = window.matchMedia("(max-width: 760px)");
+    const pageEls = [...root.querySelectorAll("[data-page]")];
+    const chrome = root.querySelector("[data-stepper]");
+    const nav = root.querySelector("[data-step-nav]");
+    const live = root.querySelector("[data-live]");
+    const nextBtn = root.querySelector("[data-next]");
+    const nextText = root.querySelector("[data-next-text]");
+    const nameInput = root.querySelector("[data-lead-name]");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let stepper = false;
+    let page = 1;
+    let advanceTimer = 0;
+
+    const headerH = () =>
+      parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-h")) || 78;
+
+    // Keep the card's top edge in view as pages swap, so the next question is
+    // where the eye already is rather than somewhere above the fold.
+    const keepInView = () => {
+      const top = root.getBoundingClientRect().top - headerH() - 12;
+      if (Math.abs(top) > 40) {
+        window.scrollTo({ top: window.scrollY + top, behavior: reduced.matches ? "auto" : "smooth" });
+      }
+    };
+
+    // Count the price up on the result page - the payoff of the quiz.
+    const countUp = () => {
+      if (reduced.matches || !current) return;
+      const end = current.price;
+      const t0 = performance.now();
+      const tick = (t) => {
+        const k = Math.min(1, (t - t0) / 700);
+        const eased = 1 - Math.pow(1 - k, 3);
+        nPriceNow.textContent = formatPrice(Math.round((end * eased) / 100) * 100);
+        if (k < 1) requestAnimationFrame(tick);
+        else nPriceNow.textContent = current.priceText;
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const paint = () => {
+      pageEls.forEach((el) => {
+        const on = !stepper || Number(el.dataset.page) === page;
+        el.classList.toggle("is-on", stepper && on);
+        el.hidden = !on;
+      });
+      root.classList.toggle("is-result", stepper && page === pages);
+      chrome.hidden = !stepper;
+      nav.hidden = !stepper || page === pages;
+      live.hidden = page < 2;
+      chrome.querySelector("[data-step-now]").textContent = String(page);
+      chrome.querySelector("[data-step-fill]").style.width = `${(page / pages) * 100}%`;
+      chrome.querySelector("[data-back]").hidden = page === 1;
+      nextText.textContent =
+        page === pages - 1 ? nextBtn.dataset.lastLabel : nextBtn.dataset.nextLabel;
+    };
+
+    const go = (to, { scroll = true } = {}) => {
+      clearTimeout(advanceTimer);
+      const next = Math.max(1, Math.min(pages, to));
+      if (next === page) return;
+      const forward = next > page;
+      page = next;
+      root.classList.toggle("is-back", !forward);
+      paint();
+      if (forward) {
+        window.lpTrackCustom?.("finder_step", {
+          campaign,
+          step: page,
+          step_name: page === pages ? "result" : f.steps.find((s) => s.page === page)?.key,
+        });
+      }
+      if (page === pages) {
+        // Their names from page 1 are the likeliest answer to "your name".
+        if (nameInput && !nameInput.value && state.names.trim()) {
+          nameInput.value = state.names.trim();
+        }
+        countUp();
+      }
+      window.dispatchEvent(
+        new CustomEvent("brothers:finder-step", { detail: { step: page, total: pages } })
+      );
+      if (scroll) keepInView();
+    };
+
+    const setMode = () => {
+      stepper = mq.matches;
+      root.classList.toggle("is-stepper", stepper);
+      paint();
+    };
+    mq.addEventListener("change", setMode);
+    setMode();
+
+    nextBtn.addEventListener("click", () => {
+      markStart();
+      go(page + 1);
+    });
+    chrome.querySelector("[data-back]").addEventListener("click", () => go(page - 1));
+
+    // A single-choice answer moves on by itself - the quiz should feel like
+    // tapping through, not filling in. Re-tapping the preselected default
+    // counts too; multi-select (extras) waits for "continue".
+    root.querySelectorAll(".pill").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        if (!stepper) return;
+        if (btn.closest("[data-opts]").getAttribute("data-multi") === "1") return;
+        const at = Number(btn.closest("[data-page]")?.dataset.page);
+        if (at !== page) return;
+        clearTimeout(advanceTimer);
+        advanceTimer = setTimeout(() => go(page + 1), 380);
+      })
+    );
   })();
 </script>

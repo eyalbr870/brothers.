@@ -1,0 +1,153 @@
+---
+// Shared field set for the two lead forms (Contact.astro on the homepage and
+// lp/LpLeadForm.astro on the 10 campaign pages). These were duplicated markup
+// that had to be edited twice; the only real differences were the element ids
+// and the per-campaign labels, so both are props.
+//
+// Markup contract consumed by src/scripts/leadForm.js:
+//   [name="name"] [name="phone"] [name="event_date"] [name="guests"]
+//   [data-submit] [data-submit-label] [data-status]
+//
+// NOT owned here: the <form> element, form-name, the honeypot, the campaign
+// hidden inputs and <LeadSelection /> - those legitimately differ per form.
+import site from "@/data/site.js";
+
+const { prefix = "f", labels } = Astro.props;
+const f = { ...site.contactSection.form, ...(labels ?? {}) };
+
+// A wedding date in the past is never a real inquiry. growth/goals.json counts
+// a lead as qualified only when the date is on or after the day it arrives.
+const today = new Date().toISOString().slice(0, 10);
+---
+
+<div class="form__row">
+  <div class="field">
+    <input id={`${prefix}-name`} name="name" type="text" required autocomplete="name" placeholder=" " />
+    <label for={`${prefix}-name`}>{f.name} *</label>
+  </div>
+  <div class="field">
+    <input
+      id={`${prefix}-phone`}
+      name="phone"
+      type="tel"
+      required
+      autocomplete="tel"
+      inputmode="tel"
+      pattern="[0-9+\-\s()]{9,}"
+      title={f.phoneHint}
+      placeholder=" "
+    />
+    <label for={`${prefix}-phone`}>{f.phone} *</label>
+  </div>
+</div>
+
+<div class="form__row">
+  {/* field--static: a native date input always renders dd/mm/yyyy, so the
+      floating label can never sit over the value - park it raised. */}
+  <div class="field field--static">
+    <input id={`${prefix}-date`} name="event_date" type="date" required min={today} />
+    <label for={`${prefix}-date`}>{f.date} *</label>
+  </div>
+  <div class="field">
+    <input id={`${prefix}-venue`} name="venue" type="text" autocomplete="off" placeholder=" " />
+    <label for={`${prefix}-venue`}>{f.venue}</label>
+  </div>
+</div>
+
+<div class="form__row">
+  <div class="field">
+    <input id={`${prefix}-guests`} name="guests" type="number" inputmode="numeric" min="0" step="10" placeholder=" " />
+    <label for={`${prefix}-guests`}>{f.guests}</label>
+  </div>
+  <div class="field">
+    <input id={`${prefix}-email`} name="email" type="email" autocomplete="email" placeholder=" " />
+    <label for={`${prefix}-email`}>{f.email}</label>
+  </div>
+</div>
+
+<div class="field">
+  <textarea id={`${prefix}-msg`} name="message" rows="3" placeholder=" "></textarea>
+  <label for={`${prefix}-msg`}>{f.message}</label>
+</div>
+
+<p class="form__required">{f.requiredNote}</p>
+
+<button class="btn form__submit" type="submit" data-submit aria-describedby={`${prefix}-micro`}>
+  <span data-submit-label>{f.submit}</span>
+</button>
+<p class="form__micro" id={`${prefix}-micro`}>{f.microcopy}</p>
+<p class="form__status" data-status role="status" aria-live="polite"></p>
+
+<style>
+  /* Styles live here, with the markup: a parent's scoped <style> can't reach
+     into this component, which is how both forms ended up with bare native
+     inputs. Underline fields sitting straight on the section ground, labels
+     floating up from the line. */
+  .form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+  @media (max-width: 480px) {
+    .form__row { grid-template-columns: 1fr; }
+  }
+  .field {
+    position: relative;
+    margin-block-end: 1.4rem;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--espresso);
+    background: transparent;
+    border: 0;
+    border-block-end: 1px solid rgba(69, 50, 38, 0.28);
+    border-radius: 0;
+    padding: 1.45rem 0 0.55rem;
+    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 92px;
+  }
+  .field label {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 1.35rem;
+    font-size: 1rem;
+    color: var(--ink-60);
+    pointer-events: none;
+    transition: transform 0.22s var(--ease), font-size 0.22s var(--ease), color 0.22s var(--ease);
+    transform-origin: top right; /* RTL: shrink toward the start edge */
+  }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-block-end-color: var(--chestnut);
+    box-shadow: 0 1px 0 var(--chestnut);
+  }
+  .field input:focus + label,
+  .field input:not(:placeholder-shown) + label,
+  .field textarea:focus + label,
+  .field textarea:not(:placeholder-shown) + label,
+  .field--static label {
+    transform: translateY(-1.15rem) scale(0.8);
+    color: var(--chestnut);
+  }
+  .field--static input { padding-block-start: 1.45rem; }
+
+  .form__submit {
+    width: 100%;
+    margin-block-start: 0.8rem;
+  }
+  .form__status {
+    margin-block-start: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    min-height: 1.4em;
+  }
+  .form__status.is-ok { color: #4b7d4b; }
+  .form__status.is-err { color: #b0483a; }
+</style>

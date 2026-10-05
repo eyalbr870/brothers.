@@ -1,4 +1,6 @@
 ---
+import { howToSchema } from "@/lib/schema.js";
+
 const { campaign } = Astro.props;
 
 const included = campaign.included ?? [];
@@ -10,36 +12,29 @@ const process = campaign.process ?? [
   { title: "משאירים פרטים", text: "טופס קצר או הודעה בוואטסאפ, ואחזור אליכם עוד באותו יום." },
   { title: "שיחת היכרות", text: "מתאמים ציפיות, חבילה ולוקיישנים, ומכירים עוד לפני היום עצמו." },
   { title: "ביום עצמו", text: "מלווים אתכם צמוד לאורך כל האירוע. קרוב, בלי לביים ובלי להפריע." },
-  { title: "הגלריה אליכם", text: "מקבלים גלריה דיגיטלית עם התמונות הערוכות, מוכנה לשיתוף." },
+  { title: "מקבלים את התמונות", text: "גלריה דיגיטלית עם כל התמונות הערוכות, מוכנה לשיתוף עם חברים ומשפחה." },
 ];
 
 const inclTitle = campaign.includedTitle ?? "מה כלול בשירות";
 
+// valueCompact (homepage only): on phones the list shows its first items with
+// a "show all" button, and the steps become a swipeable row. /lp/* doesn't set
+// it, so its markup is unchanged.
+const compact = !!campaign.valueCompact;
+const SHOWN = 4;
+
 // The four steps were already written and headed on every landing page; only
 // the markup was missing. HowTo is the format search and voice engines lift a
-// step-by-step answer from.
-const howToSchema = process.length > 0 && {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "איך עובד תהליך הצילום ב-Brothers.",
-  description:
-    "ארבעת השלבים מהפנייה הראשונה ועד קבלת הגלריה הדיגיטלית מהאירוע.",
-  inLanguage: "he-IL",
-  step: process.map((s, i) => ({
-    "@type": "HowToStep",
-    position: i + 1,
-    name: s.title,
-    text: s.text,
-  })),
-};
+// step-by-step answer from. Built in src/lib/schema.js per METHOD §6.
+const howTo = process.length > 0 && howToSchema(process);
 ---
 
-{howToSchema && (
-  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+{howTo && (
+  <script type="application/ld+json" set:html={JSON.stringify(howTo)} />
 )}
 
 {(included.length > 0 || process.length > 0) && (
-  <section class="lpvalue section">
+  <section class:list={["lpvalue section", compact && "lpvalue--compact"]}>
     <div class="container lpvalue__inner">
       {included.length > 0 && (
         <div class="lpvalue__block">
@@ -49,7 +44,11 @@ const howToSchema = process.length > 0 && {
           </header>
           <ul class="lpvalue__list">
             {included.map((item, i) => (
-              <li class="lpvalue__li" data-reveal style={`--i:${i}`}>
+              <li
+                class:list={["lpvalue__li", compact && i >= SHOWN && "lpvalue__li--extra"]}
+                data-reveal
+                style={`--i:${i}`}
+              >
                 <span class="lpvalue__check" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                 </span>
@@ -57,6 +56,11 @@ const howToSchema = process.length > 0 && {
               </li>
             ))}
           </ul>
+          {compact && included.length > SHOWN && (
+            <button class="lpvalue__more" type="button" data-value-more>
+              {`ועוד ${included.length - SHOWN} דברים שכלולים`}
+            </button>
+          )}
         </div>
       )}
 
@@ -66,7 +70,7 @@ const howToSchema = process.length > 0 && {
             <p class="eyebrow" data-reveal>HOW IT WORKS</p>
             <h3 class="lpvalue__subtitle" data-reveal>איך זה עובד</h3>
           </header>
-          <ol class="lpvalue__steps">
+          <ol class="lpvalue__steps" data-swipe={compact ? "" : undefined}>
             {process.map((step, i) => (
               <li class="lpvalue__step" data-reveal style={`--i:${i}`}>
                 <span class="lpvalue__num" aria-hidden="true">{i + 1}</span>
@@ -77,17 +81,78 @@ const howToSchema = process.length > 0 && {
           </ol>
         </div>
       )}
+
+      {campaign.valueCta && (
+        <div class="lpvalue__cta" data-reveal>
+          <a
+            class="btn"
+            href={campaign.valueCta.href}
+            data-track="cta"
+            data-track-loc="value"
+            data-track-label="availability"
+          >
+            {campaign.valueCta.label}
+          </a>
+        </div>
+      )}
     </div>
   </section>
 )}
 
+{compact && (
+  <script is:inline>
+    (() => {
+      const sec = document.querySelector(".lpvalue--compact");
+      const btn = sec?.querySelector("[data-value-more]");
+      if (!btn) return;
+      sec.classList.add("is-folded");
+      btn.addEventListener("click", () => {
+        sec.classList.remove("is-folded");
+        btn.remove();
+      });
+    })();
+  </script>
+)}
+
 <style>
   .lpvalue { background: var(--paper); }
+  .lpvalue__more { display: none; }
+  @media (max-width: 760px) {
+    .lpvalue--compact.is-folded .lpvalue__li--extra { display: none; }
+    .lpvalue--compact .lpvalue__more {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      margin-block-start: 0.6rem;
+      font-weight: 600;
+      color: var(--chestnut);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    /* Grid items default to min-width:auto, which let the swipe row push the
+       whole page sideways. */
+    .lpvalue--compact .lpvalue__inner > * { min-width: 0; }
+    .lpvalue--compact .lpvalue__step {
+      padding: 1.2rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--cream);
+    }
+  }
   .lpvalue__inner {
     display: grid;
     gap: clamp(2.8rem, 2rem + 4vw, 5rem);
   }
   [data-reveal] { transition-delay: calc(var(--i, 0) * 0.06s); }
+
+  /* Step 1 of this section reads "leave your details and I'll get back to you
+     today" - this is the second half of that sentence. */
+  .lpvalue__cta {
+    display: flex;
+    justify-content: center;
+    padding-block-start: clamp(2rem, 1.4rem + 1.6vw, 3rem);
+    border-block-start: 1px solid var(--rule);
+  }
 
   .lpvalue__head { margin-block-end: clamp(1.6rem, 1rem + 1.5vw, 2.4rem); }
   .lpvalue__head .eyebrow { margin-block-end: 0.8rem; }

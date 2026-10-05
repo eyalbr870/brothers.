@@ -1,34 +1,37 @@
 ---
 import site from "@/data/site.js";
 import manifest from "@/data/gallery.generated.json";
-import { srcset, fallbackSrc, largestSrc, aspect } from "@/lib/images.js";
+import { srcset, fallbackSrc } from "@/lib/images.js";
 
 const items = manifest.items;
 
-// Lightweight data the client lightbox needs (full-size sources).
-const lightboxData = items.map((it, i) => ({
-  i,
-  webp: srcset(it, "webp"),
-  jpg: srcset(it, "jpg"),
-  src: largestSrc(it, "jpg"),
-  w: it.width,
-  h: it.height,
-}));
-
 // ---- DriftWall layout ----
 const COLUMNS = 5; // drifting columns (reduced responsively via CSS/JS)
-const COPIES = 3;  // duplicated stacks per column so the drift loops seamlessly
+
+// How many photos are baked into the HTML. The wall used to ship every photo
+// three times over (one stack per COPIES loop), which was ~222KB of markup and
+// 174 <img> tags on a page whose whole budget is smaller than that. Now the
+// document carries one stack of the first INITIAL photos; the runtime clones
+// it into the looping copies (free, no markup) and the remaining photos arrive
+// only when a visitor asks for them via "עוד תמונות".
+//
+// INITIAL is a multiple of COLUMNS so every column starts equally deep.
+const INITIAL = 25;
+const initial = items.slice(0, INITIAL);
+const deferredCount = items.length - initial.length;
 
 // Distribute items round-robin across columns, keeping each item's original
-// manifest index so the lightbox opens the right photo.
+// manifest index so the lightbox opens the right photo. The deferred photos
+// keep the same rule client-side (column = index % COLUMNS), so the wall fills
+// in evenly.
 const columns = Array.from({ length: COLUMNS }, () => []);
-items.forEach((it, i) => columns[i % COLUMNS].push({ item: it, index: i }));
+initial.forEach((it, i) => columns[i % COLUMNS].push({ item: it, index: i }));
 
 // Every tile is a fixed-size cover crop; a small src is plenty.
 const tileSizes = "220px";
 ---
 
-<section class="gallery section" id="gallery">
+<section class="gallery section section--edge" id="gallery">
   <div class="container">
     <header class="gallery__head">
       <p class="eyebrow" data-reveal>{site.gallery.eyebrow}</p>
@@ -41,42 +44,81 @@ const tileSizes = "220px";
     <div class="drift-wall__plane" data-plane>
       {columns.map((col, c) => (
         <div class="drift-wall__col">
+          {/* One stack only. The runtime clones it into the looping copies. */}
           <div class="drift-wall__track" data-track data-col={c}>
-            {Array.from({ length: COPIES }).map((_, copy) =>
-              col.map(({ item, index }) => (
-                <button
-                  class="drift-wall__tile"
-                  type="button"
-                  data-open={index}
-                  data-col={c}
-                  data-tile-id={`${c}-${copy}-${index}`}
-                  aria-label={`הגדלת תמונה ${index + 1}`}
-                >
-                  <span class="drift-wall__inner">
-                    <picture>
-                      <source type="image/webp" srcset={srcset(item, "webp")} sizes={tileSizes} />
-                      <source type="image/jpeg" srcset={srcset(item, "jpg")} sizes={tileSizes} />
-                      <img
-                        src={fallbackSrc(item, "jpg")}
-                        alt={`רגע מתוך יום החתונה - ${index + 1}`}
-                        width={item.width}
-                        height={item.height}
-                        loading="lazy"
-                        decoding="async"
-                        draggable="false"
-                        style={`background-image:url('${item.lqip}')`}
-                        onload="this.classList.add('is-loaded')"
-                      />
-                      <span class="drift-wall__overlay" aria-hidden="true"></span>
-                    </picture>
-                  </span>
-                </button>
-              ))
-            )}
+            {col.map(({ item, index }) => (
+              <button
+                class="drift-wall__tile"
+                type="button"
+                data-open={index}
+                data-col={c}
+                data-tile-id={`${c}-0-${index}`}
+                aria-label={`הגדלת תמונה ${index + 1}`}
+              >
+                <span class="drift-wall__inner">
+                  <picture>
+                    <source type="image/webp" srcset={srcset(item, "webp")} sizes={tileSizes} />
+                    <source type="image/jpeg" srcset={srcset(item, "jpg")} sizes={tileSizes} />
+                    <img
+                      src={fallbackSrc(item, "jpg")}
+                      alt={`רגע מתוך יום החתונה - ${index + 1}`}
+                      width={item.width}
+                      height={item.height}
+                      loading="lazy"
+                      decoding="async"
+                      draggable="false"
+                      style={`background-image:url('${item.lqip}')`}
+                      onload="this.classList.add('is-loaded')"
+                    />
+                    <span class="drift-wall__overlay" aria-hidden="true"></span>
+                  </picture>
+                </span>
+              </button>
+            ))}
           </div>
         </div>
       ))}
     </div>
+  </div>
+
+  {/* Prototype tile for the deferred photos. Cloning this (rather than
+      building markup from a string) is what keeps Astro's scoped-style
+      attributes on the generated tiles. */}
+  <template data-tile-tpl>
+    <button class="drift-wall__tile" type="button">
+      <span class="drift-wall__inner">
+        <picture>
+          <source type="image/webp" sizes={tileSizes} />
+          <source type="image/jpeg" sizes={tileSizes} />
+          <img
+            alt=""
+            loading="lazy"
+            decoding="async"
+            draggable="false"
+            onload="this.classList.add('is-loaded')"
+          />
+          <span class="drift-wall__overlay" aria-hidden="true"></span>
+        </picture>
+      </span>
+    </button>
+  </template>
+
+  <div class="container gallery__more">
+    {deferredCount > 0 && (
+      <button class="btn btn--ghost" type="button" data-wall-more>
+        {site.gallery.loadMore}
+        <span class="gallery__more-count">({deferredCount})</span>
+      </button>
+    )}
+    <a
+      class="btn"
+      href={site.gallery.cta.href}
+      data-track="cta"
+      data-track-loc="gallery"
+      data-track-label="packages"
+    >
+      {site.gallery.cta.label}
+    </a>
   </div>
 
   <!-- Lightbox -->
@@ -91,12 +133,14 @@ const tileSizes = "220px";
       <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 6 9 12 15 18"/></svg>
     </button>
     <figure class="lb__stage" data-lb-stage>
-      <img class="lb__img" data-lb-img alt="" />
+      <picture>
+        <source data-lb-webp type="image/webp" sizes="92vw" />
+        <source data-lb-jpg type="image/jpeg" sizes="92vw" />
+        <img class="lb__img" data-lb-img alt="" />
+      </picture>
     </figure>
     <div class="lb__counter" data-lb-counter></div>
   </div>
-
-  <script type="application/json" data-lb-data set:html={JSON.stringify(lightboxData)}></script>
 </section>
 
 <style>
@@ -248,6 +292,25 @@ const tileSizes = "220px";
       0 0 0 2px var(--chestnut);
   }
 
+  /* "More photos" — sits under the wall, disappears once everything is in. */
+  .gallery__more {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-block-start: clamp(1.4rem, 0.8rem + 1.8vw, 2.4rem);
+  }
+  .gallery__more [hidden] { display: none; }
+  .gallery__more-count {
+    margin-inline-start: 0.45rem;
+    opacity: 0.6;
+    font-variant-numeric: tabular-nums;
+  }
+  .gallery__more button[aria-busy="true"] {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
   /* Responsive: fewer/smaller columns on narrow screens */
   @media (max-width: 1100px) {
     .drift-wall { --dw-tile-w: 160px; --dw-tile-h: 240px; --dw-gap: 14px; }
@@ -269,6 +332,12 @@ const tileSizes = "220px";
         translate(-50%, -50%) scale(1.16)
         rotateX(9deg) rotateY(-5deg) rotateZ(0deg) translateZ(-64px);
     }
+  }
+  /* Phones: a shorter wall and no "more photos". The wall is the teaser; the
+     page's job from here is to carry the couple on to the finder. */
+  @media (max-width: 760px) {
+    .drift-wall { height: clamp(420px, 60vh, 540px); }
+    .gallery__more [data-wall-more] { display: none; }
   }
   @media (max-width: 520px) {
     .drift-wall { --dw-tile-w: 190px; --dw-tile-h: 285px; }
@@ -363,7 +432,12 @@ const tileSizes = "220px";
   // Ported from the React Bits DriftWall component: a 3D-tilted plane of
   // vertical columns that drift continuously, lean toward the pointer, and lift
   // a hovered tile. No React — refs held in closures, class toggles for state.
-  const COPIES = 3; // must match the server-rendered copy count above
+  // The document ships ONE stack per column; these are the clones that make the
+  // drift loop seamless. Cloning costs no markup, so the copies are built here
+  // instead of being repeated three times in the HTML.
+  const COPIES = 3;
+  const COLUMNS = 5;
+  const TILE_SIZES = "220px";
 
   // Config (kept in sync with the CSS base transform on .drift-wall__plane).
   const CFG = {
@@ -382,6 +456,92 @@ const tileSizes = "220px";
   const wall = document.querySelector("[data-wall]");
   const plane = wall?.querySelector("[data-plane]");
   const tracks = wall ? Array.from(wall.querySelectorAll("[data-track]")) : [];
+  const tileTpl = document.querySelector("[data-tile-tpl]");
+  const moreBtn = document.querySelector("[data-wall-more]");
+
+  // The per-column base stack (copy 0) as rendered by the server. Everything
+  // else in a track is a clone of this, so growing the wall means growing the
+  // base stack and rebuilding the clones.
+  const baseStacks = tracks.map((track) => Array.from(track.children));
+
+  // Stamp each clone with its own copy index so [data-tile-id] stays unique.
+  const buildCopies = () => {
+    tracks.forEach((track, c) => {
+      const base = baseStacks[c];
+      // Drop everything after the base stack, then re-clone.
+      while (track.children.length > base.length) track.lastElementChild.remove();
+      for (let copy = 1; copy < COPIES; copy++) {
+        const frag = document.createDocumentFragment();
+        base.forEach((tile) => {
+          const clone = tile.cloneNode(true);
+          const id = clone.getAttribute("data-tile-id");
+          if (id) clone.setAttribute("data-tile-id", id.replace(/^(\d+)-\d+-/, `$1-${copy}-`));
+          frag.appendChild(clone);
+        });
+        track.appendChild(frag);
+      }
+    });
+  };
+
+  // ---- Photo payload (tiles beyond INITIAL + every lightbox source) ----
+  // Moved out of the HTML into /gallery-wall.json so the homepage does not
+  // carry ~15KB of srcset strings that most visitors never need.
+  let data = [];
+  let dataPromise = null;
+  const ensureData = () => {
+    if (!dataPromise) {
+      dataPromise = fetch("/gallery-wall.json")
+        .then((r) => (r.ok ? r.json() : { items: [] }))
+        .then((j) => {
+          data = j.items || [];
+          return data;
+        })
+        .catch(() => {
+          dataPromise = null; // let a later tap retry
+          return [];
+        });
+    }
+    return dataPromise;
+  };
+
+  // Warm the payload when the wall comes into view, so the first tap on a tile
+  // opens the lightbox without waiting on the network.
+  if (wall && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          io.disconnect();
+          ensureData();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    io.observe(wall);
+  }
+
+  // Build a tile for a deferred photo by cloning the server-rendered template,
+  // which carries Astro's scoped-style attributes.
+  const makeTile = (entry, col) => {
+    const tile = tileTpl.content.firstElementChild.cloneNode(true);
+    tile.setAttribute("data-open", String(entry.i));
+    tile.setAttribute("data-col", String(col));
+    tile.setAttribute("data-tile-id", `${col}-0-${entry.i}`);
+    tile.setAttribute("aria-label", `הגדלת תמונה ${entry.i + 1}`);
+    const [webp, jpg] = tile.querySelectorAll("source");
+    webp.setAttribute("srcset", entry.webp);
+    webp.setAttribute("sizes", TILE_SIZES);
+    jpg.setAttribute("srcset", entry.jpg);
+    jpg.setAttribute("sizes", TILE_SIZES);
+    const img = tile.querySelector("img");
+    img.setAttribute("src", entry.tile);
+    img.setAttribute("alt", `רגע מתוך יום החתונה - ${entry.i + 1}`);
+    img.setAttribute("width", String(entry.w));
+    img.setAttribute("height", String(entry.h));
+    if (entry.lqip) img.style.backgroundImage = `url('${entry.lqip}')`;
+    return tile;
+  };
+
+  buildCopies();
 
   const reduced =
     typeof window !== "undefined" &&
@@ -506,13 +666,14 @@ const tileSizes = "220px";
     wall.addEventListener("pointerdown", onPointerDown);
     wall.addEventListener("pointerenter", () => (wallHovered = true));
     wall.addEventListener("pointerleave", onPointerLeave);
-    // Keyboard focus should also light a tile up.
-    tracks.forEach((track) =>
-      track.querySelectorAll("[data-tile-id]").forEach((tile) => {
-        tile.addEventListener("focus", () => setActive(tile));
-        tile.addEventListener("blur", () => setActive(null));
-      })
-    );
+    // Keyboard focus should also light a tile up. Delegated rather than bound
+    // per tile, so tiles cloned for the loop or added by "עוד תמונות" are
+    // covered without rebinding.
+    wall.addEventListener("focusin", (e) => {
+      const tile = e.target.closest?.("[data-tile-id]");
+      if (tile) setActive(tile);
+    });
+    wall.addEventListener("focusout", () => setActive(null));
     window.addEventListener("resize", () => {
       applyConfig();
       computeVelocities();
@@ -525,6 +686,53 @@ const tileSizes = "220px";
   tracks.forEach((_, c) => {
     offsets[c] = (copyHeights[c] || 0) * (offsets[c] % 1);
   });
+
+  // ---- "עוד תמונות": append the photos the document did not ship ----
+  let loading = false;
+  let loaded = false;
+  const loadMore = async () => {
+    // `loading` guards the await below: without it a second tap that lands
+    // before the fetch resolves would append every deferred photo twice.
+    if (loading || loaded || !moreBtn) return;
+    loading = true;
+    moreBtn.setAttribute("aria-busy", "true");
+    const all = await ensureData();
+    const shown = new Set(
+      baseStacks.flat().map((t) => Number(t.getAttribute("data-open")))
+    );
+    const extra = all.filter((entry) => !shown.has(entry.i));
+    if (!extra.length) {
+      loading = false;
+      moreBtn.removeAttribute("aria-busy");
+      return;
+    }
+
+    // Keep each column's drift phase across the rebuild: remember where the
+    // track sits as a fraction of one copy, then restore it against the new
+    // (taller) copy height, so the wall grows without jumping.
+    const phases = copyHeights.map((h, c) => (h ? offsets[c] / h : 0));
+
+    extra.forEach((entry) => {
+      const col = entry.i % COLUMNS;
+      const track = tracks[col];
+      if (!track) return;
+      const tile = makeTile(entry, col);
+      baseStacks[col].push(tile);
+      track.insertBefore(tile, track.children[baseStacks[col].length - 1] || null);
+    });
+
+    buildCopies();
+    loaded = true;
+    loading = false;
+    measure();
+    tracks.forEach((_, c) => {
+      offsets[c] = (copyHeights[c] || 0) * phases[c];
+    });
+
+    moreBtn.removeAttribute("aria-busy");
+    moreBtn.setAttribute("hidden", "");
+  };
+  moreBtn?.addEventListener("click", loadMore);
 
   let raf = null;
   let lastTs = null;
@@ -578,23 +786,28 @@ const tileSizes = "220px";
   }
 
   // ===================== Lightbox (unchanged behaviour) =====================
-  const data = JSON.parse(
-    document.querySelector("[data-lb-data]")?.textContent || "[]"
-  );
+  // `data` is filled by ensureData() from /gallery-wall.json; it is warmed as
+  // soon as the wall scrolls into view, so a tap almost never waits on it.
   const lb = document.querySelector("[data-lightbox]");
   const lbImg = lb?.querySelector("[data-lb-img]");
+  const lbWebp = lb?.querySelector("[data-lb-webp]");
+  const lbJpg = lb?.querySelector("[data-lb-jpg]");
   const counter = lb?.querySelector("[data-lb-counter]");
   let current = 0;
   let lastFocus = null;
 
   const show = (idx) => {
-    current = (idx + data.length) % data.length;
+    if (!data.length) return;
+    current = ((idx % data.length) + data.length) % data.length;
     const d = data[current];
     lbImg.classList.remove("is-ready");
     const img = new Image();
     img.onload = () => {
+      // sizes must be set on each <source>; a sizes on the <img> does not
+      // apply to them.
+      lbWebp.srcset = d.webp;
+      lbJpg.srcset = d.jpg;
       lbImg.src = d.src;
-      lbImg.srcset = d.jpg;
       lbImg.sizes = "92vw";
       lbImg.width = d.w;
       lbImg.height = d.h;
@@ -609,7 +822,11 @@ const tileSizes = "220px";
     });
   };
 
-  const open = (idx) => {
+  const open = async (idx) => {
+    // The sources live in /gallery-wall.json now; it is normally already warm
+    // (fetched when the wall scrolled into view), so this resolves instantly.
+    if (!data.length) await ensureData();
+    if (!data.length) return;
     lastFocus = document.activeElement;
     lb.hidden = false;
     lb.setAttribute("aria-hidden", "false");

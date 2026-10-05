@@ -28,7 +28,8 @@ const icons = {
         <p class="eyebrow" data-reveal>{eyebrow}</p>
         <h2 class="lpben__heading" data-reveal>{heading}</h2>
       </header>
-      <ul class="lpben__grid">
+      {/* benefitsSwipe (homepage only): a swipeable row on phones. */}
+      <ul class="lpben__grid" data-swipe={campaign.benefitsSwipe ? "" : undefined}>
         {items.map((b, i) => (
           <li class="lpben__card" data-reveal style={`--i:${i}`}>
             <span class="lpben__icon" aria-hidden="true">
@@ -39,6 +40,19 @@ const icons = {
           </li>
         ))}
       </ul>
+      {campaign.benefitsCta && (
+        <div class="lpben__cta" data-reveal>
+          <a
+            class="btn"
+            href={campaign.benefitsCta.href}
+            data-track="cta"
+            data-track-loc="benefits"
+            data-track-label="availability"
+          >
+            {campaign.benefitsCta.label}
+          </a>
+        </div>
+      )}
     </div>
   </section>
 )}
@@ -53,6 +67,13 @@ const icons = {
   }
   .lpben__head .eyebrow { margin-block-end: 0.8rem; }
   .lpben__heading { font-size: var(--fs-h2); }
+  /* No --i here on purpose: the [data-reveal] transition-delay rule below is
+     unscoped, and an index would stagger this behind the cards. */
+  .lpben__cta {
+    display: flex;
+    justify-content: center;
+    margin-block-start: clamp(2rem, 1.4rem + 1.6vw, 3rem);
+  }
   .lpben__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
