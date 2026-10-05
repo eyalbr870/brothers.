@@ -4,7 +4,11 @@
 // package summary and the WhatsApp link, then reveals it.
 import site from "@/data/site.js";
 
-const t = site.contactSection.thankYou;
+// variant="handoff": the finder form, which opens WhatsApp itself. Its panel
+// confirms that, and the button is only the fallback if the app didn't open.
+const { variant = "default" } = Astro.props;
+const base = site.contactSection.thankYou;
+const t = variant === "handoff" ? { ...base, ...base.handoff } : base;
 ---
 
 <div
@@ -35,7 +39,10 @@ const t = site.contactSection.thankYou;
 
   <p class="thanks__urgency">{t.urgency}</p>
 
-  <a class="btn thanks__cta" data-thanks-wa href="#" target="_blank" rel="noopener">
+  <a class="btn thanks__cta" data-thanks-wa
+    data-track="contact"
+    data-track-method="whatsapp"
+    data-track-loc="thanks" href="#" target="_blank" rel="noopener">
     {t.ctaWhatsapp}
   </a>
 </div>

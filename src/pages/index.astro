@@ -1,30 +1,89 @@
 ---
+// Homepage funnel order. The /lp/* campaign pages were built as a full funnel
+// while this page - where organic and Instagram traffic lands - was missing the
+// stages that remove uncertainty before a couple commits. Rather than write new
+// sections, this reuses the lp/Lp* components by handing them a synthesized
+// `homeCampaign` object (see src/data/site.js).
+//
+//   hook -> trust -> why us -> experience -> portfolio -> voice
+//        -> what's included + how it works -> packages -> proof
+//        -> objections -> form -> service hub
+//
+// Phones (<=760px) get a different, much shorter path, set by `order` in the
+// style block below so the source order (and desktop) stays as above:
+//
+//   hook -> trust -> portfolio -> proof -> why us -> FINDER -> experience
+//        -> voice -> what's included -> objections -> service hub
+//
+// The finder is the lead form on every width (<PackageFinder lead />): it
+// saves the lead and opens WhatsApp to Yariv. On a phone the separate Contact
+// form is hidden, and every CTA on the page points at #finder.
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
-import Gallery from "@/components/Gallery.astro";
+import LpStats from "@/components/lp/LpStats.astro";
+import LpBenefits from "@/components/lp/LpBenefits.astro";
 import About from "@/components/About.astro";
+import Gallery from "@/components/Gallery.astro";
+import Statement from "@/components/Statement.astro";
+import LpValue from "@/components/lp/LpValue.astro";
 import PackageFinder from "@/components/PackageFinder.astro";
-import ServiceLinks from "@/components/ServiceLinks.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import Faq from "@/components/Faq.astro";
 import Contact from "@/components/Contact.astro";
+import ServiceLinks from "@/components/ServiceLinks.astro";
 import Footer from "@/components/Footer.astro";
+import LpStickyCTA from "@/components/lp/LpStickyCTA.astro";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp.astro";
+import { homeCampaign } from "@/data/site.js";
 ---
 
 <BaseLayout>
   <Header />
-  <main>
+  <main class="home">
     <Hero />
+    <LpStats campaign={homeCampaign} id="trust" />
+    <LpBenefits campaign={homeCampaign} />
     <About />
     <Gallery />
-    <Testimonials />
-    <PackageFinder />
+    <Statement tone="dark" cta />
+    <LpValue campaign={homeCampaign} />
+    <PackageFinder edge lead />
+    <Testimonials tone="dark" ctaHref="#finder" carousel />
     <Faq />
     <Contact />
     <ServiceLinks />
   </main>
   <Footer />
+  {/* Sticky bar carries WhatsApp + call at <=760px; the bubble takes over
+      above it. The two never overlap and leave no gap. */}
+  <LpStickyCTA campaign={homeCampaign} />
   <FloatingWhatsApp />
 </BaseLayout>
+
+<script>
+  import "@/scripts/swipe.js";
+</script>
+
+<style is:global>
+  @media (max-width: 760px) {
+    main.home {
+      display: flex;
+      flex-direction: column;
+    }
+    main.home > #hero { order: 1; }
+    main.home > #trust { order: 2; }
+    main.home > #gallery { order: 3; }
+    main.home > #testimonials { order: 4; }
+    main.home > .lpben { order: 5; }
+    main.home > #finder { order: 6; }
+    main.home > #about { order: 7; }
+    main.home > #statement { order: 8; }
+    main.home > .lpvalue { order: 9; }
+    main.home > #faq { order: 10; }
+    main.home > #services { order: 11; }
+    /* The finder carries the form on phones. Contact stays in the HTML for
+       desktop, and it is also where scripts/leadForm.js gets loaded from. */
+    main.home > #contact { display: none; }
+  }
+</style>

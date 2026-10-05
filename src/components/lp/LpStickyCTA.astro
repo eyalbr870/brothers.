@@ -6,17 +6,36 @@ const waText = campaign.whatsappText ?? site.contact.whatsappText;
 const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waText)}`;
 const waLabel = campaign.cta?.whatsapp ?? "וואטסאפ";
 const callLabel = campaign.cta?.call ?? "חייגו";
+// No campaign in landing.js defines a cta key, so this stays null there and
+// the /lp/* bar keeps its two buttons.
+const leadLabel = campaign.cta?.lead ?? null;
+const leadHref = campaign.cta?.leadHref ?? "#lead";
+// Homepage only: one full-width button into the finder, nothing that skips it.
+const single = !!campaign.cta?.single;
+const resume = campaign.cta?.resume ?? "";
 ---
 
-<div class="lpsticky" role="group" aria-label="יצירת קשר מהירה">
-  <a class="lpsticky__btn lpsticky__btn--wa" href={wa} target="_blank" rel="noopener" data-lp-wa>
+<div class:list={["lpsticky", single && "lpsticky--single"]} role="group" aria-label="יצירת קשר מהירה">
+  {single ? (
+    <a class="lpsticky__btn lpsticky__btn--lead" href={leadHref} data-lp-lead data-resume={resume}>
+      <span data-lp-lead-label>{leadLabel}</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 6 9 12 15 18" /></svg>
+    </a>
+  ) : (<Fragment>
+  <a class="lpsticky__btn lpsticky__btn--wa" href={wa} target="_blank" rel="noopener" aria-label={waLabel} data-lp-wa>
     <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
-    <span>{waLabel}</span>
+    <span class="lpsticky__label">{waLabel}</span>
   </a>
-  <a class="lpsticky__btn lpsticky__btn--call" href={`tel:${site.contact.phoneIntl}`} data-lp-call>
+  <a class="lpsticky__btn lpsticky__btn--call" href={`tel:${site.contact.phoneIntl}`} aria-label={callLabel} data-lp-call>
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
-    <span>{callLabel}</span>
+    <span class="lpsticky__label">{callLabel}</span>
   </a>
+  {leadLabel && (
+    <a class="lpsticky__btn lpsticky__btn--lead" href={leadHref} data-lp-lead>
+      <span>{leadLabel}</span>
+    </a>
+  )}
+  </Fragment>)}
 </div>
 
 <style>
@@ -29,35 +48,138 @@ const callLabel = campaign.cta?.call ?? "חייגו";
     background: var(--espresso);
     padding-block-end: env(safe-area-inset-bottom, 0);
     box-shadow: 0 -8px 24px -12px rgba(30, 20, 14, 0.6);
+    /* Hidden until the hero is behind you. transform rather than opacity so it
+       also leaves the hit-testing area while away. */
+    transform: translateY(100%);
+    transition: transform 0.4s var(--ease);
+  }
+  :global(html.sticky-revealed) .lpsticky { transform: none; }
+  /* Single mode steps aside while the finder itself is on screen (its own
+     button is right there) and for good once the lead is sent. */
+  :global(html.sticky-revealed) .lpsticky--single.is-away { transform: translateY(100%); }
+  @media (prefers-reduced-motion: reduce) {
+    .lpsticky { transition: none; }
   }
   /* Mobile only - desktop has the hero CTA + inline form within reach. */
   @media (max-width: 760px) {
     .lpsticky { display: flex; }
+    /* Reserve the bar's height so it never covers the footer or a submit
+       button. Scoped to the pages that actually render the bar. Reserved
+       unconditionally, not tied to .sticky-revealed: shrinking the document by
+       58px at the moment the bar slides in would jump the page under the
+       reader's thumb. */
+    :global(body) {
+      padding-block-end: calc(58px + env(safe-area-inset-bottom, 0px));
+    }
   }
   .lpsticky__btn {
-    flex: 1 1 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 1.05rem 0.5rem;
+    gap: 0.4rem;
+    /* Pinned rather than derived from line-height, so the 58px the body
+       reserves above stays honest however many buttons the bar carries. */
+    min-height: 58px;
+    padding-block: 0;
+    padding-inline: 0.4rem;
     font-family: var(--font-label);
     font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
+    font-size: 0.85rem;
+    letter-spacing: 0.01em;
     color: #fff;
   }
-  .lpsticky__btn--wa { background: var(--chestnut); }
-  .lpsticky__btn--call { background: var(--espresso); }
+  .lpsticky__btn--wa { flex: 1 1 28%; background: var(--chestnut); }
+  .lpsticky__btn--call {
+    flex: 1 1 24%;
+    background: var(--espresso);
+    border-inline-start: 1px solid rgba(247, 241, 232, 0.18);
+  }
+  /* The only light-filled chip in the bar, so the on-site step reads as the
+     primary one. --sand on --espresso is 8.57:1 both ways. */
+  .lpsticky__btn--lead {
+    flex: 1.5 1 40%;
+    background: var(--sand);
+    color: var(--espresso);
+  }
   .lpsticky__btn svg { flex: none; }
+  .lpsticky--single .lpsticky__btn--lead {
+    flex: 1 1 100%;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+  }
+
+  /* Under 360px the icons carry wa/call; aria-label keeps them named. Both
+     stay 56-64px wide x 58px tall, clear of the 44px touch target. */
+  @media (max-width: 360px) {
+    .lpsticky__btn--wa .lpsticky__label,
+    .lpsticky__btn--call .lpsticky__label { display: none; }
+    .lpsticky__btn--wa { flex: 0 0 64px; }
+    .lpsticky__btn--call { flex: 0 0 56px; }
+    .lpsticky__btn--lead { flex: 1 1 auto; }
+  }
 </style>
 
 <script is:inline define:vars={{ slug: campaign.slug }}>
   const bar = document.querySelector(".lpsticky");
+
+  // Same threshold as FloatingWhatsApp, but self-contained: that component is
+  // homepage-only, so /lp/* never gets html.fabs-revealed and reusing it would
+  // hide this bar forever on the campaign pages. Both Hero and LpHero use
+  // id="hero". The !hero fallback fails open rather than never showing.
+  const root = document.documentElement;
+  const hero = document.getElementById("hero");
+  const syncSticky = () => {
+    const show =
+      !hero || hero.getBoundingClientRect().bottom < window.innerHeight * 0.55;
+    root.classList.toggle("sticky-revealed", show);
+  };
+  syncSticky();
+  window.addEventListener("scroll", syncSticky, { passive: true });
+  window.addEventListener("resize", syncSticky, { passive: true });
   bar?.querySelector("[data-lp-wa]")?.addEventListener("click", () => {
     window.lpTrack?.("Contact", { method: "whatsapp", campaign: slug });
   });
   bar?.querySelector("[data-lp-call]")?.addEventListener("click", () => {
     window.lpTrackCustom?.("Call", { campaign: slug });
+  });
+  if (bar?.classList.contains("lpsticky--single")) {
+    const lead = bar.querySelector("[data-lp-lead]");
+    const label = bar.querySelector("[data-lp-lead-label]");
+    const card = document.querySelector("[data-finder]");
+    let inView = false;
+    let sent = false;
+    const sync = () => bar.classList.toggle("is-away", inView || sent);
+    if (card && "IntersectionObserver" in window) {
+      new IntersectionObserver(
+        ([e]) => {
+          inView = e.isIntersecting;
+          sync();
+        },
+        { rootMargin: "-25% 0px -25% 0px" }
+      ).observe(card);
+    }
+    // Once the couple has started, the bar becomes a "pick up where you left
+    // off" with their progress, a reason to come back from anywhere below.
+    window.addEventListener("brothers:finder-step", (e) => {
+      const { step, total } = e.detail;
+      if (step > 1) {
+        label.textContent = lead.dataset.resume
+          .replace("{n}", String(step))
+          .replace("{total}", String(total));
+      }
+    });
+    window.addEventListener("brothers:lead-sent", () => {
+      sent = true;
+      sync();
+    });
+  }
+  // Not data-track: scripts/track.js is a delegated listener on BaseLayout, so
+  // the homepage would count this twice.
+  bar?.querySelector("[data-lp-lead]")?.addEventListener("click", () => {
+    window.lpTrackCustom?.("cta", {
+      label: "availability",
+      location: "sticky",
+      campaign: slug,
+    });
   });
 </script>

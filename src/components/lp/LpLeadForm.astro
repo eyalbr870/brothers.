@@ -1,6 +1,8 @@
 ---
 import site from "@/data/site.js";
 import LeadSelection from "@/components/LeadSelection.astro";
+import LeadFields from "@/components/LeadFields.astro";
+import LeadSource from "@/components/LeadSource.astro";
 import LeadThankYou from "@/components/LeadThankYou.astro";
 
 const { campaign } = Astro.props;
@@ -39,43 +41,12 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
       <input type="hidden" name="form-name" value="lead" />
       <input type="hidden" name="campaign" value={campaign.slug} />
       <input type="hidden" name="lp_url" value={Astro.url.pathname} />
-      <input type="hidden" name="referrer" data-referrer value="" />
+      <LeadSource />
       <p class="hidden-field" hidden>
         <label>אל תמלאו שדה זה: <input name="bot-field" /></label>
       </p>
       <LeadSelection finderAnchor={campaign.finder === false ? null : "#finder"} />
-      <div class="form__row">
-        <div class="field">
-          <input id="lf-name" name="name" type="text" required autocomplete="name" placeholder=" " />
-          <label for="lf-name">{f.name}</label>
-        </div>
-        <div class="field">
-          <input id="lf-phone" name="phone" type="tel" required autocomplete="tel" placeholder=" " />
-          <label for="lf-phone">{f.phone}</label>
-        </div>
-      </div>
-      <div class="form__row">
-        <div class="field">
-          <input id="lf-date" name="event_date" type="text" placeholder=" " onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" />
-          <label for="lf-date">{f.date}</label>
-        </div>
-        <div class="field">
-          <input id="lf-guests" name="guests" type="number" inputmode="numeric" min="0" step="10" placeholder=" " />
-          <label for="lf-guests">{f.guests}</label>
-        </div>
-      </div>
-      <div class="field">
-        <input id="lf-email" name="email" type="email" autocomplete="email" placeholder=" " />
-        <label for="lf-email">{f.email}</label>
-      </div>
-      <div class="field">
-        <textarea id="lf-msg" name="message" rows="3" placeholder=" "></textarea>
-        <label for="lf-msg">{f.message}</label>
-      </div>
-      <button class="btn form__submit" type="submit" data-submit>
-        <span data-submit-label>{f.submit}</span>
-      </button>
-      <p class="form__status" data-status role="status" aria-live="polite"></p>
+      <LeadFields prefix="lf" labels={campaign.form} />
     </form>
     <LeadThankYou />
     </div>
@@ -125,72 +96,6 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
     margin-block-end: 2.2rem;
   }
 
-  /* ---- Form (mirrors Contact.astro) ---- */
-  .form__row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-  @media (max-width: 480px) {
-    .form__row { grid-template-columns: 1fr; }
-  }
-  .field {
-    position: relative;
-    margin-block-end: 1rem;
-  }
-  .field input,
-  .field textarea {
-    width: 100%;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--espresso);
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 1.15rem 1rem 0.5rem;
-    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
-  }
-  .field textarea {
-    padding-top: 1.4rem;
-    resize: vertical;
-    min-height: 100px;
-  }
-  .field label {
-    position: absolute;
-    inset-inline-start: 1rem;
-    top: 0.95rem;
-    font-size: 1rem;
-    color: var(--ink-45);
-    pointer-events: none;
-    transition: transform 0.22s var(--ease), font-size 0.22s var(--ease), color 0.22s var(--ease);
-    transform-origin: inline-start;
-  }
-  .field input:focus,
-  .field textarea:focus {
-    outline: none;
-    border-color: var(--chestnut);
-    box-shadow: 0 0 0 3px rgba(125, 88, 68, 0.12);
-  }
-  .field input:focus + label,
-  .field input:not(:placeholder-shown) + label,
-  .field textarea:focus + label,
-  .field textarea:not(:placeholder-shown) + label {
-    transform: translateY(-0.7rem) scale(0.8);
-    color: var(--chestnut);
-  }
-  .form__submit {
-    width: 100%;
-    margin-block-start: 0.4rem;
-  }
-  .form__status {
-    margin-block-start: 1rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    min-height: 1.4em;
-  }
-  .form__status.is-ok { color: #4b7d4b; }
-  .form__status.is-err { color: #b0483a; }
-
   /* ---- Direct links ---- */
   .lplead__direct {
     margin-block-start: 2.4rem;
@@ -202,7 +107,7 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
     font-size: 0.7rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--mocha);
+    color: var(--label);
     display: block;
     margin-block-end: 1rem;
   }
@@ -216,6 +121,7 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
     align-items: center;
     gap: 0.55rem;
     padding: 0.7rem 1.1rem;
+    min-height: 44px; /* touch target */
     background: var(--paper);
     border: 1px solid var(--line);
     border-radius: 100px;
@@ -234,14 +140,6 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(waT
 </style>
 
 <script is:inline define:vars={{ slug: campaign.slug }}>
-  const form = document.querySelector("[data-lp-form]");
-  const referrer = form?.querySelector("[data-referrer]");
-
-  // Capture the ad source (utm / click id / referrer) for attribution.
-  if (referrer) {
-    referrer.value = (location.search || "") + (document.referrer ? " | ref:" + document.referrer : "");
-  }
-
   // WhatsApp / Call / Instagram attribution events. The direct links sit
   // outside the <form>, so look them up on the section.
   const section = document.querySelector("#lead");

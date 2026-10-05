@@ -57,16 +57,51 @@ const pixelEnabled = pixelId && !pixelId.includes("X");
   </script>
 )}
 
-<!-- Conversion tracking helper (safe no-op when Pixel is disabled). -->
+<!-- Conversion tracking helpers.
+     These used to speak only to the Meta Pixel, which meant every CTA click on
+     the site vanished when the Pixel was off - including the WhatsApp taps that
+     make up half the north-star metric in growth/goals.json. They now dual-fire
+     to GA4, which IS live, so the LP components that already call them start
+     reporting with no edits of their own. Safe no-ops when a destination is
+     absent. -->
 <script is:inline>
+  // Meta event name -> GA4 event name. Unmapped names pass through snake_cased.
+  var GA4_EVENT = {
+    Lead: "generate_lead",
+    Contact: "contact",
+    ViewContent: "view_item",
+    SelectPackage: "select_package",
+  };
+  var toGa4Event = function (name) {
+    return (
+      GA4_EVENT[name] ||
+      String(name).replace(/([a-z0-9])([A-Z])/g, "$1_$2").toLowerCase()
+    );
+  };
+  var sendGa4 = function (event, params) {
+    try {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", toGa4Event(event), params || {});
+      }
+    } catch (e) {}
+  };
   window.lpTrack = function (event, params) {
     try {
       if (typeof window.fbq === "function") window.fbq("track", event, params || {});
     } catch (e) {}
+    sendGa4(event, params);
   };
   window.lpTrackCustom = function (event, params) {
     try {
       if (typeof window.fbq === "function") window.fbq("trackCustom", event, params || {});
     } catch (e) {}
+    sendGa4(event, params);
   };
+</script>
+
+<!-- First-touch source capture. Lives here because every layout renders
+     Analytics, so the referrer is recorded on the FIRST page of the visit -
+     blog posts included - and not only on the pages that hold a form. -->
+<script>
+  import "@/scripts/leadSource.js";
 </script>

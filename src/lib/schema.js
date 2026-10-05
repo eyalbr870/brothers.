@@ -13,6 +13,46 @@ export const ratingValue =
   Math.round((reviews.score / reviews.scoreMax) * 5 * 10) / 10;
 
 /**
+ * FAQPage markup for a list of {q, a} items.
+ *
+ * Lifted out of Faq.astro and lp/LpFaq.astro, which each had their own copy.
+ */
+export function faqPageSchema(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
+/**
+ * HowTo markup for the booking flow.
+ *
+ * Lifted verbatim out of lp/LpValue.astro so the JSON is unchanged; METHOD §6
+ * wants schema built here rather than inline in a component.
+ */
+export function howToSchema(process) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "איך עובד תהליך הצילום ב-Brothers.",
+    description:
+      "ארבעת השלבים מהפנייה הראשונה ועד קבלת הגלריה הדיגיטלית מהאירוע.",
+    inLanguage: "he-IL",
+    step: process.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.title,
+      text: s.text,
+    })),
+  };
+}
+
+/**
  * Service + Offer markup for the three packages shown in the package finder.
  * Prices on the site are "starting from" figures, so each Offer carries the
  * stills-only price as its minPrice rather than as a fixed price.

@@ -1,19 +1,38 @@
 ---
 import site from "@/data/site.js";
 const s = site.statement;
+// tone/cta default to the section as /lp/* has always rendered it: a light
+// full stop with no call to action. The homepage opts into both.
+const { tone = "light", cta = false } = Astro.props;
 ---
 
-<section class="statement section" id="statement">
+<section
+  class:list={["statement", "section", tone === "dark" && "section--dark"]}
+  id="statement"
+>
   <div class="container statement__inner">
     <p class="eyebrow" data-reveal>{s.eyebrow}</p>
     <p class="statement__text" data-reveal>{s.text}</p>
     <p class="statement__sign" data-reveal>{s.signature}</p>
+    {cta && s.cta && (
+      <div class="statement__cta" data-reveal>
+        <a
+          class="btn btn--ghost"
+          href={s.cta.href}
+          data-track="cta"
+          data-track-loc="statement"
+          data-track-label="availability"
+        >
+          {s.cta.label}
+        </a>
+      </div>
+    )}
   </div>
 </section>
 
 <style>
   .statement {
-    background: var(--cream);
+    background: var(--section-ground, var(--paper));
     text-align: center;
   }
   .statement__inner {
@@ -27,7 +46,7 @@ const s = site.statement;
     font-weight: 500;
     font-size: clamp(1.35rem, 1rem + 1.8vw, 2.15rem);
     line-height: 1.55;
-    color: var(--espresso);
+    color: var(--ink-strong);
     letter-spacing: -0.005em;
   }
   .statement__sign {
@@ -35,7 +54,11 @@ const s = site.statement;
     font-family: var(--font-display);
     font-style: italic;
     font-size: 1.4rem;
-    color: var(--chestnut);
+    /* --accent, not --chestnut: chestnut is 1.93:1 on the dark ground. */
+    color: var(--accent);
     direction: rtl;
+  }
+  .statement__cta {
+    margin-block-start: clamp(2rem, 1.4rem + 1.5vw, 2.8rem);
   }
 </style>

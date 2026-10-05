@@ -1,19 +1,13 @@
 ---
 import site from "@/data/site.js";
+import { faqPageSchema } from "@/lib/schema.js";
 
 const faq = site.faq;
 const items = faq?.items ?? [];
 
-// FAQPage structured data — rich results in Google + quotable by AI engines.
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: items.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
-};
+// FAQPage structured data - rich results in Google + quotable by AI engines.
+// Built in src/lib/schema.js per METHOD §6.
+const faqSchema = faqPageSchema(items);
 ---
 
 {items.length > 0 && (
@@ -40,19 +34,34 @@ const faqSchema = {
           </li>
         ))}
       </ul>
+
+      {faq.cta && (
+        <div class="faq__cta" data-reveal>
+          <p class="faq__cta-text">{faq.ctaText}</p>
+          <div class="faq__cta-actions">
+            <a
+              class="btn"
+              href={faq.cta.href}
+              data-track="cta"
+              data-track-loc="faq"
+              data-track-label="availability"
+            >{faq.cta.label}</a>
+          </div>
+        </div>
+      )}
     </div>
   </section>
 )}
 
 <style>
-  .faq { background: var(--cream); }
+  .faq { background: var(--paper); }
   .faq__inner { max-width: 780px; }
   .faq__head { text-align: center; margin-block-end: clamp(1.8rem, 1rem + 2vw, 3rem); }
   .faq__head .eyebrow { margin-block-end: 0.8rem; }
   .faq__title { font-size: var(--fs-h2); }
   .faq__list { display: flex; flex-direction: column; gap: 0.7rem; }
   .faq__item {
-    background: var(--paper);
+    background: var(--cream);
     border: 1px solid var(--line-soft);
     border-radius: 6px;
   }
@@ -77,5 +86,24 @@ const faqSchema = {
     color: var(--ink-60);
     font-weight: 300;
     line-height: 1.7;
+  }
+
+  .faq__cta {
+    margin-block-start: clamp(2.2rem, 1.5rem + 2vw, 3.2rem);
+    padding-block-start: clamp(1.8rem, 1.2rem + 1.6vw, 2.6rem);
+    border-block-start: 1px solid var(--line);
+    text-align: center;
+  }
+  .faq__cta-text {
+    color: var(--ink-60);
+    font-size: var(--fs-lead);
+    font-weight: 300;
+    margin-block-end: 1.5rem;
+  }
+  .faq__cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
   }
 </style>

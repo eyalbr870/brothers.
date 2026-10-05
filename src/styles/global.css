@@ -18,8 +18,13 @@
   --line-soft: rgba(69, 50, 38, 0.08);
 
   --ink: var(--espresso);
-  --ink-60: rgba(69, 50, 38, 0.66);
-  --ink-45: rgba(69, 50, 38, 0.46);
+  --ink-60: rgba(69, 50, 38, 0.72);
+  --ink-45: rgba(69, 50, 38, 0.62);
+  /* Muted label colour for eyebrows and small caps. --mocha measured 3.73:1 on
+     --paper, which fails AA at the 0.78rem eyebrow size; this is the same warm
+     hue dropped to 40% lightness and clears 5.43:1. --mocha stays for the
+     decorative borders that still use it. */
+  --label: #7c6250;
 
   /* Typography */
   --font-head: "Frank Ruhl Libre", "Playfair Display", Georgia, serif;
@@ -43,6 +48,21 @@
 
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   --dur: 0.55s;
+
+  /* ---- Themed surface tokens ----------------------------------------
+     Light defaults. .section--dark below flips this same set, so a component
+     styled against these tokens works on either ground without knowing which
+     one it sits on. */
+  --surface-raised: var(--paper); /* a card lifted off the section ground */
+  --ink-strong: var(--espresso); /* headings */
+  --ink-body: var(--ink);
+  --rule: var(--line);
+  --rule-soft: var(--line-soft);
+  --accent: var(--chestnut);
+  --btn-ghost-fg: var(--espresso);
+  --btn-ghost-border: var(--line);
+  --btn-ghost-hover-bg: var(--espresso);
+  --btn-ghost-hover-fg: var(--paper);
 }
 
 /* ============================================================
@@ -137,14 +157,17 @@ h4 {
   font-weight: 600;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: var(--mocha);
+  color: var(--label);
   /* Latin, so force LTR direction for correct letter-spacing rendering */
   direction: ltr;
   unicode-bidi: isolate;
 }
 
 .section {
-  padding-block: clamp(4rem, 2.5rem + 7vw, 9rem);
+  /* Same 9rem ceiling from the same viewport as before; only phones tighten
+     (64px -> 52px at 375px). The old floor left 128px of dead air between two
+     sections on a phone, which read as disconnected slabs rather than a flow. */
+  padding-block: clamp(3.25rem, 1.3rem + 8.3vw, 9rem);
 }
 
 .container {
@@ -173,6 +196,7 @@ h4 {
   background: var(--btn-bg);
   border-radius: var(--radius);
   border: 1px solid var(--btn-bg);
+  min-height: 44px; /* touch target */
   transition:
     background var(--dur) var(--ease),
     color var(--dur) var(--ease),
@@ -186,14 +210,14 @@ h4 {
   border-color: var(--chestnut);
 }
 .btn--ghost {
-  --btn-fg: var(--espresso);
+  --btn-fg: var(--btn-ghost-fg);
   --btn-bg: transparent;
-  border-color: var(--line);
+  border-color: var(--btn-ghost-border);
 }
 .btn--ghost:hover {
-  --btn-fg: var(--paper);
-  background: var(--espresso);
-  border-color: var(--espresso);
+  --btn-fg: var(--btn-ghost-hover-fg);
+  background: var(--btn-ghost-hover-bg);
+  border-color: var(--btn-ghost-hover-bg);
 }
 .btn--light {
   --btn-fg: var(--espresso);
@@ -209,6 +233,61 @@ h4 {
   --btn-fg: var(--espresso);
   background: #fff;
   border-color: #fff;
+}
+
+/* ============================================================
+   Section grounds
+   ============================================================ */
+
+/* Dark depth anchor. Breaks up a page that was otherwise one continuous warm
+   light field. Flips the themed tokens rather than restyling each component.
+   Note --accent becomes --sand here: --chestnut measures 1.93:1 on --espresso
+   and must never carry text inside this block. */
+.section--dark {
+  --surface-raised: #513c2e; /* espresso lifted ~17% */
+  --ink-strong: #fdfaf5; /* 11.5:1 */
+  --ink-body: rgba(247, 241, 232, 0.92); /* 9.43:1 */
+  --ink-60: rgba(247, 241, 232, 0.78); /* 7.24:1 */
+  --ink-45: rgba(247, 241, 232, 0.62); /* 5.19:1 */
+  --label: var(--sand); /* 8.57:1 */
+  --accent: var(--sand);
+  --rule: rgba(247, 241, 232, 0.2);
+  --rule-soft: rgba(247, 241, 232, 0.12);
+  --btn-ghost-fg: #fff;
+  --btn-ghost-border: rgba(255, 255, 255, 0.55);
+  --btn-ghost-hover-bg: #fff;
+  --btn-ghost-hover-fg: var(--espresso);
+
+  /* Read by the themeable sections as var(--section-ground, <their light bg>).
+     Deliberately not defined on :root: undefined means "use your own light
+     default", which keeps each component's light ground in its own file. */
+  --section-ground: var(--espresso);
+
+  background: var(--espresso);
+  color: var(--ink-body);
+}
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: var(--ink-strong);
+}
+/* The primary .btn is espresso-on-espresso here, so invert it. */
+.section--dark .btn {
+  --btn-fg: var(--espresso);
+  --btn-bg: var(--cream);
+  border-color: var(--cream);
+}
+.section--dark .btn:hover {
+  background: var(--sand);
+  border-color: var(--sand);
+  box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.6);
+}
+
+/* Hairline for joints where two neighbours differ by less than 1.1:1 and no
+   photo column does the separating (--paper against --cream is 1.077:1). */
+.section--edge {
+  border-block-start: 1px solid var(--line);
 }
 
 /* ============================================================
@@ -251,3 +330,75 @@ h4 {
 .field input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
 .field input[type="number"]::-webkit-inner-spin-button,
 .field input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* A native date input always paints its own dd/mm/yyyy, so :placeholder-shown
+   is never true and the floating label would sit on top of the value. Park the
+   label in the raised position instead. This replaces the old
+   onfocus="this.type='date'" swap, which fought constraint validation on iOS
+   once the field became required. */
+.field--static label {
+  transform: translateY(-0.7rem) scale(0.8);
+  color: var(--chestnut);
+}
+.field--static input { padding-block-start: 1.25rem; }
+
+/* Expectation-setting line under the submit button, plus the required legend. */
+.form__micro {
+  margin-block-start: 0.7rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-60);
+}
+.form__required {
+  margin-block-end: 0.9rem;
+  font-size: 0.82rem;
+  color: var(--ink-60);
+}
+
+/* ============================================================
+   Phone carousels ([data-swipe], homepage)
+   A grid of cards becomes one swipeable row at <=760px, the next card peeking
+   in from the left to invite the swipe. Opt-in per list; the dots and the
+   one-time nudge come from src/scripts/swipe.js.
+   ============================================================ */
+.swipe-dots { display: none; }
+@media (max-width: 760px) {
+  [data-swipe] {
+    /* !important: the lists set their own display:grid in scoped styles,
+       which outrank a bare attribute selector. */
+    display: flex !important;
+    gap: 0.85rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  [data-swipe]::-webkit-scrollbar { display: none; }
+  [data-swipe] > * {
+    flex: 0 0 84%;
+    min-width: 0;
+    scroll-snap-align: center;
+  }
+  [data-swipe] > [hidden] { display: none; }
+
+  .swipe-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-block-start: 1.1rem;
+  }
+  .swipe-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 100px;
+    background: var(--rule);
+    transition: width 0.3s var(--ease), background 0.3s var(--ease);
+  }
+  .swipe-dots span.is-on {
+    width: 22px;
+    background: var(--accent);
+  }
+}

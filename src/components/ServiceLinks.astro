@@ -56,7 +56,7 @@ const groups = GROUPS.map((g) => ({
 })).filter((g) => g.links.length > 0);
 ---
 
-<section class="svclinks section" id="services" aria-labelledby="svclinks-title">
+<section class="svclinks section section--edge" id="services" aria-labelledby="svclinks-title">
   <div class="container">
     <header class="svclinks__head">
       <p class="eyebrow" data-reveal>SERVICES</p>
@@ -69,6 +69,11 @@ const groups = GROUPS.map((g) => ({
       </p>
     </header>
 
+    {/* Folded on phones (script below): crawlers and desktop still get every
+        link, a couple on a phone gets one line instead of a screen of lists. */}
+    <button class="svclinks__toggle" type="button" data-svc-toggle hidden aria-expanded="false">
+      עוד שירותים ומדריכים
+    </button>
     <div class="svclinks__grid">
       {groups.map((g) => (
         <nav class="svclinks__col" data-reveal aria-label={g.title}>
@@ -115,8 +120,39 @@ const groups = GROUPS.map((g) => ({
   </div>
 </section>
 
+<script>
+  const svc = document.querySelector(".svclinks");
+  const svcToggle = svc?.querySelector("[data-svc-toggle]");
+  if (svc && svcToggle) {
+    svc.classList.add("is-folded");
+    svcToggle.hidden = false;
+    svcToggle.addEventListener("click", () => {
+      const open = svc.classList.toggle("is-folded") === false;
+      svcToggle.setAttribute("aria-expanded", String(open));
+    });
+  }
+</script>
+
 <style>
-  .svclinks { background: var(--cream); }
+  .svclinks__toggle { display: none; }
+  .svclinks__toggle[hidden] { display: none !important; }
+  @media (max-width: 760px) {
+    .svclinks.is-folded .svclinks__grid,
+    .svclinks.is-folded .svclinks__lead { display: none; }
+    .svclinks__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-weight: 600;
+      color: var(--chestnut);
+      margin-block-end: 1rem;
+    }
+  }
+  .svclinks { background: var(--paper); }
   .svclinks__head {
     max-width: 640px;
     text-align: center;

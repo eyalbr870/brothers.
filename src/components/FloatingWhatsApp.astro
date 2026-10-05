@@ -9,6 +9,9 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(sit
   target="_blank"
   rel="noopener"
   aria-label="שליחת הודעה בוואטסאפ"
+  data-track="contact"
+  data-track-method="whatsapp"
+  data-track-loc="fab"
 >
   <span class="fab__label">דברו איתי</span>
   <span class="fab__icon" aria-hidden="true">
@@ -98,6 +101,12 @@ const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(sit
   @media (prefers-reduced-motion: reduce) {
     .fab { transition: none; }
     .fab__icon::before { animation: none; }
+  }
+  /* Below 760px the LpStickyCTA bar carries WhatsApp *and* a call button, so
+     the bubble would duplicate it. Above 760px the bar is hidden and this is
+     the only persistent CTA - the two tile with no gap. */
+  @media (max-width: 760px) {
+    .fab { display: none; }
   }
 </style>
 
